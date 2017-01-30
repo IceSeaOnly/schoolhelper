@@ -17,7 +17,6 @@ public class SendTemplateMsg extends PostSendBase implements Runnable{
 		token = gat.doGetAccessToken();
 		if(token == null)
 			return null;
-		String msg = null;
 		this.setPostUrl("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token="+token);
 		this.setContent(data);
 		return this.postSend();

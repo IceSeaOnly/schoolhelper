@@ -29,6 +29,11 @@ public class test_open_id {
                 "http://www.binghai.site");
     }
 
+    public static void main(String[] args) {
+        String openid = "oz1S1v_7W7O1t-KxfdFK5Sk6eJVs";
+        new NoticeService()
+                .ReservationService("第一句话","这里是内容","女人","晚上3点半","潘金莲","你看着给","祝玩得愉快",openid,"http://www.binghai.site");
+    }
     @Test
     public void md5(){
         String wd = "bone_client_web://123456";

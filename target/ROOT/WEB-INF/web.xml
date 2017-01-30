@@ -20,4 +20,12 @@
     <servlet-name>dispatcher</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  <context-param>
+    <param-name>cservice_appkey</param-name>
+    <param-value>02740a59bb39f3034ed090dc978b7296</param-value>
+  </context-param>
+  <context-param>
+    <param-name>cservice_secret</param-name>
+    <param-value>4d581a1c126daf131248fa89acc7c152</param-value>
+  </context-param>
 </web-app>

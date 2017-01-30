@@ -1,14 +1,19 @@
 package Controllers.User;
 
 import Entity.ExpressOrder;
+import Entity.Manager.Conversation;
 import Entity.User.User;
+import Service.NoticeService;
 import Service.OrderService;
+import Service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 /**
@@ -20,6 +25,10 @@ public class Order {
 
     @Resource
     OrderService orderService;
+    @Resource
+    UserService userService;
+    @Resource
+    NoticeService noticeService;
 
     @RequestMapping("my_orders")
     public String my_orders(HttpSession session, ModelMap map){
@@ -27,5 +36,24 @@ public class Order {
         ArrayList<ExpressOrder> orders = orderService.getOrdersByUserId(user.getId(),user.getSchoolId());
         map.put("orders",orders);
         return "user/my_orders";
+    }
+
+    @RequestMapping("order_need_help")
+    public String order_need_help(@RequestParam int oid,HttpSession session,ModelMap map){
+        User user = (User) session.getAttribute("user");
+        ExpressOrder order = userService.getExpressOrderById(user,oid);
+        if(order == null){
+            return "errors/illigal";
+        }
+
+        try {
+            Conversation conversation = noticeService.newOrderConversation(user,order,session.getServletContext());
+            noticeService.ComstomServiceMessage("客服会话已生成","订单咨询","正在服务",System.currentTimeMillis(),"订单"+oid+"的客服会话已生成，点击进入",conversation.getUserEnter(),user.getOpen_id());
+            return "redirect:"+conversation.getUserEnter();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        map.put("msg","系统发生故障");
+        return "errors/error";
     }
 }

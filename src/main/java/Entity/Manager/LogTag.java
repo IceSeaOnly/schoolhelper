@@ -26,6 +26,8 @@ public class LogTag {
         tags.add(new LogTag(5,"配送异常"));
         tags.add(new LogTag(6,"楼长交接-交出订单"));
         tags.add(new LogTag(7,"楼长交接-接收订单"));
+        tags.add(new LogTag(8,"客服消息回调"));
+        tags.add(new LogTag(9,"客服系统返回值"));
         //tags.add(new LogTag(8,""));
     }
 

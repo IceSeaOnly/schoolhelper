@@ -344,4 +344,20 @@ public class ManagerDao{
         session.close();
         return size>0;
     }
+
+    public void ConversationEnd(Long cid, int type) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        if(type == 0){
+            session.createQuery("update Conversation set isUserEnd = true where cid = :C")
+                    .setParameter("C",cid)
+                    .executeUpdate();
+        }else{
+            session.createQuery("update Conversation set isServerEnd = true where cid = :C")
+                    .setParameter("C",cid)
+                    .executeUpdate();
+        }
+        session.getTransaction().commit();
+        session.close();
+    }
 }

@@ -219,7 +219,7 @@ public class UserDao {
 
     public SchoolConfigs getSchooBySchoolId(int sid) {
         Session session = sessionFactory.openSession();
-        SchoolConfigs sc = (SchoolConfigs) session.createQuery("select * from SchoolConfigs where schoolId = :S")
+        SchoolConfigs sc = (SchoolConfigs) session.createQuery("from SchoolConfigs where schoolId = :S")
                 .setParameter("S",sid)
                 .uniqueResult();
         session.close();

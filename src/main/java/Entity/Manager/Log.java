@@ -12,14 +12,14 @@ import javax.persistence.Table;
 @Table
 public class Log {
 
+
     @Id
     @GeneratedValue
     private int id;
-    private int logId; // 类型码
+    private int logId; // 类型码，对应于LogTag中的分类
     private String status; // 附加信息
     private int managerId;
     private Long time;
-
     public Log(int logId, String status, int managerId) {
         this.logId = logId;
         this.status = status;

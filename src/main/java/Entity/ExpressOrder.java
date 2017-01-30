@@ -2,6 +2,7 @@ package Entity;
 
 import Service.ManagerService;
 import Utils.MD5;
+import Utils.TimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -80,6 +81,27 @@ public class ExpressOrder {
         return MD5.encryption(orderKey+rider_id);
     }
     public ExpressOrder() {
+    }
+
+    @Override
+    public String toString() {
+        return "订单号:" + id +"<br>"+
+                "用户id:" + user_id +"<br>"+
+                "快递名:'" + express +"<br>"+
+                "取件名:'" + express_name +"<br>"+
+                "取件手机:'" + express_phone +"<br>"+
+                "快递编号:'" + express_number +"<br>"+
+                "配送地址:'" + sendTo +"<br>"+
+                "收件手机号:'" + receive_phone +"<br>"+
+                "收件人姓名:'" + receive_name +"<br>"+
+                "订单状态:" + state_toString()+"<br>"+
+                "下单时间:" + TimeFormat.format(orderTime)+"<br>"+
+                "快件类型:'" + arrive +"<br>"+
+                "备注信息:'" + otherinfo +"<br>"+
+                "配送员姓名:'" + rider_name +"<br>"+
+                "配送时间:" + sendtime_id +"<br>"+
+                "学习id:" + schoolId+"<br>"+
+                "原因信息:" + reason +"<br>";
     }
 
     public ExpressOrder(int user_id,

@@ -250,4 +250,8 @@ public class ManagerService {
     public boolean managerPhoneExist(String phone) {
         return managerDao.managerPhoneExist(phone);
     }
+
+    public void ConversationEnd(Long cid, int type) {
+        managerDao.ConversationEnd(cid,type);
+    }
 }
