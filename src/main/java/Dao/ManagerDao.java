@@ -353,6 +353,9 @@ public class ManagerDao{
             session.createQuery("update Conversation set isUserEnd = true where cid = :C")
                     .setParameter("C",cid)
                     .executeUpdate();
+            session.createQuery("update Conversation set isServerEnd = true where cid = :C and serverid = -1")
+                    .setParameter("C",cid)
+                    .executeUpdate();
         }else{
             session.createQuery("update Conversation set isServerEnd = true where cid = :C")
                     .setParameter("C",cid)
