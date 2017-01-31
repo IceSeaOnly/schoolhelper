@@ -1,15 +1,16 @@
 package Controllers.Manager;
 
+import Entity.ChargeVipOrder;
 import Entity.ExpressOrder;
-import Entity.Manager.IndexItemEntity;
-import Entity.Manager.Manager;
-import Entity.Manager.PrivilegeDist;
-import Entity.Manager.Reason;
+import Entity.Manager.*;
 import Entity.School;
 import Service.ManagerService;
+import Service.NoticeService;
+import Utils.HttpUtils;
 import Utils.MD5;
 import Utils.SuccessAnswer;
 import Utils.TimeFormat;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,8 @@ import java.util.List;
 public class Business {
     @Resource
     ManagerService managerService;
+    @Resource
+    NoticeService noticeService;
 
     /**
      * 管理员请求权限列表
@@ -433,5 +437,69 @@ public class Business {
         map.put("is_url",true);
         map.put("url","school_manage_select.do?managerId=MANAGERID&token=TOKEN");
         return "manager/common_result";
+    }
+
+    @RequestMapping("cservice")
+    public String cservice(@RequestParam int managerId,
+                           @RequestParam int schoolId,
+                           ModelMap map){
+        if(managerService.managerAccess2School(managerId,schoolId)){
+            map.put("waitcservice",managerService.listWaitCService(schoolId));
+            map.put("incservice",managerService.listInCService(managerId));
+            map.put("completecservice",managerService.listCompleteCService(managerId));
+        }else{
+            return permissionDeny(map);
+        }
+        map.put("managerId",managerId);
+        map.put("schoolId",schoolId);
+        return "manager/cservice";
+    }
+
+
+    /**
+     * csid是int类型的本地会话序号，非Long型cid
+     * */
+    @RequestMapping("connect_service")
+    public String connect_service(@RequestParam int managerId,
+                                  @RequestParam int schoolId,
+                                  @RequestParam int csid,
+                                  HttpSession session,
+                                  ModelMap map){
+        if(managerService.managerAccess2Privilege(managerId,"kfgd")){
+            Conversation c = noticeService.getConversationIfWait(managerId,csid,schoolId);
+            if(c == null){
+                map.put("result",false);
+                map.put("is_url",false);
+                map.put("notice","来晚一步");
+                return "manager/common_result";
+            }
+            else {
+                String appKey = session.getServletContext().getInitParameter("cservice_appkey");
+                String secret = session.getServletContext().getInitParameter("cservice_secret");
+
+                JSONObject data = HttpUtils.sendJSONGet("http://cservice.nanayun.cn/manage/setcs.do",
+                        "appKey="+appKey+"&secret="+secret+"&cid="+c.getCid()+"&rid="+managerId);
+
+                managerService.save(new Log(10,"cid="+c.getCid()+"设置rid="+managerId+":"+data.getBoolean("result"),-1));
+                map.put("result",true);
+                map.put("is_url",true);
+                map.put("url",c.getServerEnter());
+                map.put("notice","正在连接，请稍后...");
+                return "manager/common_result";
+            }
+        }else{
+            return permissionDeny(map);
+        }
+    }
+
+    @RequestMapping("charge_list")
+    public String charge_list(@RequestParam int managerId,
+                              @RequestParam int schoolId,
+                              ModelMap map){
+        ArrayList<ChargeVipOrder> list = managerService.listChargeList(schoolId);
+        map.put("list",list);
+        map.put("managerId",managerId);
+        map.put("schoolId",schoolId);
+        return "manager/charge_list";
     }
 }

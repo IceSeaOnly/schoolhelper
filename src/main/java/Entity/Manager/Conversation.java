@@ -1,5 +1,7 @@
 package Entity.Manager;
 
+import Utils.TimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,6 +19,7 @@ public class Conversation {
     private int id;
     private int userid;
     private int serverid;
+    private int schoolId;
     private String userToken;
     private String serverToken;
     private String callBcakToken;
@@ -27,6 +30,7 @@ public class Conversation {
     private boolean isUserEnd;
     private int score;
     private String endText;
+    private Long createTime;
 
     public String getUserEnter(){
         return "http://cservice.nanayun.cn/service/enterChat.do?ckey="+ckey+"&uid="+userid+"&cid="+cid+"&token="+userToken;
@@ -43,8 +47,9 @@ public class Conversation {
             return "客服已结单";
         return "进行中";
     }
-    public Conversation(int userid, Long cid, String ckey,int oid,String callBackToken,String utoken,String stoken) {
+    public Conversation(int userid,int schoolId, Long cid, String ckey,int oid,String callBackToken,String utoken,String stoken) {
         this.orderId = oid;
+        this.schoolId = schoolId;
         this.userid = userid;
         this.serverid = -1;
         this.cid = cid;
@@ -56,6 +61,7 @@ public class Conversation {
         this.callBcakToken = callBackToken;
         this.userToken = utoken;
         this.serverToken = stoken;
+        this.createTime = System.currentTimeMillis();
     }
 
 
@@ -164,5 +170,25 @@ public class Conversation {
 
     public void setCallBcakToken(String callBcakToken) {
         this.callBcakToken = callBcakToken;
+    }
+
+    public int getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(int schoolId) {
+        this.schoolId = schoolId;
+    }
+
+    public Long getCreateTime() {
+        return createTime;
+    }
+
+    public String getCreateTime2String() {
+        return TimeFormat.format(createTime);
+    }
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
     }
 }

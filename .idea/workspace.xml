@@ -6,687 +6,29 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="f61553a9-0e16-4d1e-a6a1-00c903410e29" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Api.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Dao/NoticeDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Entity/Manager/Conversation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/HttpUtils.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/entries" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/format" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/01/019ea3eb7196b361146c2f69091b01ac402e9260.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/02/0235ba8b489512805ac13a8f9ea77a1ca5ebe3e8.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/02/023633c87f4aa093469a3e524e946dce5091dd75.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/03/0395db2e761c5df4639baefab4f2335074028108.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/03/03b254c872b95141751f414e353a25c2ac261b51.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/04/0418068986b8d2c1b75b300a0d924f9e52409c42.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/04/0428cb165e94fc91b28d8e024c81c8001155aa2e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/04/0456c69f8478b25449f5c2a52920cbf304d7627c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/05/0523d9dd5447049aec5b18673cec3964df7f42d9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/05/05f9216ea4ed7bb55331c04d9d8e51dd2c85dfcf.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/06/064c6e406fdc13bf7a0f794e86610b62d27d632b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/06/066c871abbc7b0a7f6098cc5638ec65a3a714896.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/07/075fcbef53de3228db538127e66125f7dc867ef4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/08/089b3b0db5bb919645e6de7a47f71f9b3d42fb98.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/08/08b14a449891bac8236a5630b524234a830ac825.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/08/08c831461552504401e87fca70244eb37c966b7f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/0a/0ae6be6fbc994de6a80eaaf17db9d1a935e0be1f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/0b/0b035047584ce87ad0a77b3bbad0337fbadc145a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/0b/0b9d27df18e863c316298585839e9c776435d59c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/0b/0ba9b7dfb0dd36a51f2e7f8b55e6004747ebb890.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/0b/0bcbd327ff2b2c89e8304a0d7c13aa48a599418d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/0b/0bf1f8cc10c88154ab92f287609bc1e67b546008.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/0c/0c90b47a871c4aa503c8bee8832e1b4c581c4be5.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/0e/0eb722c452283d4034642e9cf9f559f1401b2640.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/0f/0f4552a7bfad5fb9db40da9f7ec5ca2ecf645e3c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/0f/0f49ddc8777d4f8baa5d65ae8ace54b4a8139f54.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/0f/0f7b57443810b0a1acab034de061582bb7f44cf7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/0f/0f90dff4b00fa322b1a5a1a7cfcdb6e2ec224488.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/10/102d2ed01e582423ec19e73ac0520a1fccc9a9dc.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/10/1075231650f579955905bb2f6527148a8e2b4b16.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/10/109fc224b7574994effac551eba960983a8bd8ce.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/10/10a4e9589a26057409758f8007560fb9a3e9f511.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/11/114a622a9e365f510c7acc4463ea3de1f55b505a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/11/116ff1c4f305ae3d5b4ff5e7dc47c6d1613b2580.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/11/11917c26dbb14b576e4598e28b3ffca9b8f04b3c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/11/11bb317d3a39bbbc8fd38953f9939ebe739ea3dc.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/11/11dfc21dc1e4abed5ae1e05f527f8e8c19f1ba18.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/12/121e6a721595eac5888c82a18e6adbc7c856c1e7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/12/12c5590f9c38b4c15c961a15a3d67855493b8b6b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/13/132df538479ac9c7fc6d10d163179c81d9e21a19.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/13/1356ff0a7fd6be9e2d693211d87ecaf7e98613d2.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/13/1363cbcd78e3d4a43cbb3ad53f7fc722cc82627d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/14/1451684c99f444c0885f60f23b33576ad9812fa8.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/15/15000e1b6e8e8a9e378a0c0296aace17fa3501cf.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/15/15081fb7b9e1b2cb713e2d59254f4301512fa93f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/15/1509e30c456fdecd0c6f8e1f8b4df273283772d4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/15/15327f6cc83706ca545a0f714c798311544a4658.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/15/1556829cb53c7743a8ab528981811d9463124440.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/15/159afc8e9e26741034e5dd2c73ea063b086ad429.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/15/15bbde5127e39ef024ef7f0f3ff14145b9a252fb.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/15/15ef789291210de2aff79976b08131dad9c24ec0.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/15/15f0b22bf89ed468badbc4eec759af2b916d33e4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/16/16313e02a793435009f1e458fa4af5d879f6fb11.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/16/16b20888f1a8438ced30d6cb7c3d381953aa624c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/17/170c50477292ee60ae09aa5c586d4af3a92d801a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/17/1717afe3ecea93e41718f74ee5fae73b907e819f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/17/173c0e9023e46544cf791790692f86713f201fde.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/18/1857ab99513fa595a63a5572e09aa8254f20a4b4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/18/18d75f273c5b89be55d4f97f1fdf71ce6efcdfc9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/19/195c751f1253257e62e1a648c927cb549bdb2143.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/19/19da6c0f462a9a9fa0bb10bc8a26d40f07580122.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1a/1a0389ffcba9fd9c694876e13bf0463e20ad4795.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1a/1a256ed9554d59e65b07e9cb4b6b0e99279f60f7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1a/1a61932b8640e924e139931bced8ce59da311059.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1a/1a89b7fd8499891510c0f20c6782ccbbde5b3489.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1a/1aa1579ae5ecd41920c4f355b0a9ef40b68315dd.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1a/1adf3935434260136279f241f8fedfe12f33757b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1a/1af3803de1192efc2fd65ecd286bd9f9d96c69c3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1b/1b2cbfdd339bae96bd9e15e7558a27ddd6767716.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1b/1b5658b3f5c35d5feb678bc5177f414eb8d8229c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1b/1be9693ba23ff26f20d0925aef5b9907ad5cab14.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1c/1c11aa2acdf60e2d7569e429e75e75c59b620093.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1d/1d802f842351c7c2b53585641e4b288050845352.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1e/1e3024cbdaddf7fa08772f2b1b0cf96a5997aa2b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1e/1e8c047058609e15b40073fd9e5d7a912dc49b08.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1e/1e90c4e0f7b7e5c95242847caccbec7c890d78e7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1f/1f503a2d156dc15c4f8670a0a9f7bdc7953ec459.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1f/1f8988d1511eafec27230d9fb97922a7d064a94d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1f/1f9fef7a9fcbb41cc390fc370a291cf30729e094.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/1f/1fbe2234a0e074003015d23bd1a51c9b79039c72.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/20/20143b58d26282d3eed931764326a276c0470581.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/20/20a71fab2c984b4eefd6e859406b3baa13296fda.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/21/2117d80cf573b82a2a8e42d549bf49e03c714227.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/21/21208f47515889da63cbe1708f4390e154e2ac44.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/21/216126c200a9458158fd299bf7796311bd4fa636.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/21/21b6d3cbcd4be2eaf58cc445f5c834cbdeada811.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/22/228f75fe28ee31120c138fbb65362bf0f3cc9575.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/22/22a3e368d052e40a72909fe1aa55fcfc648086d7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/23/230ec5bc288ae70bc0c21b0543e773e7bf5c7a29.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/23/2356e9b0d80e756ed8bab7d995585f6cd4edce7d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/23/236d2d48d3d5e1aacc2505e291d82b047a807462.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/24/245f8a6f0d4f689d250065fa3915c9a2c153470d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/24/249b9dc5e96b2faae41f906d7cfeebe137cd51fd.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/24/24bdd1c96c20c3943054c146340243ccf88eef9e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/25/25b3f3a66a978b3c2d217ece10094d86d69ce884.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/26/261d42cbc97d0fc17c2a51f70378bac6c834640b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/26/26bb1c5ef100a1cd71923f1d5dc29fc797ef4639.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/27/271c65c3ccf5e59f6e3fbc41f0474ffc9324a162.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/27/279202f906c07ea8d066521cc2289d387dc30229.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/27/27f91371616bf2c571142e94a2ce7daefc4cee53.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/28/28bff269c94ce878da0e2ae747286f772ed18a5b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/29/290d45974bc20f7fa002290c91afac8e79b6ebf4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/29/2982ee46abf6832721bdaff5efc27b1d6a0d32db.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2a/2a581b9edb8168e45060d8bad8b7f46712d2c52c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2a/2ac1337fac33cb679f55ce902b428d228aea1b19.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2b/2b93001b38dd2aa1d8eae439d05ecabfe021bcb6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2b/2bb1d5f51aaf1c9b04a20055a97d0cd289252169.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2b/2bc22d52764a8e55c69a7b769086e139bca4c4a2.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2b/2bd660b01088c963b30fd3d080b417e710a48556.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2b/2be30a77627f2e8700458b1136640fa41f1c0140.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2c/2c5cc5d8f594135c7df901c96c69abfce1ad958c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2d/2d445abc3deb571dbbf8e7f03f382cbc03d3b301.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2e/2e08aa34b396e3bbc0a9a91da92ec562eca65b2b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2e/2e1bc999228478cc93280374ac6749f43c23ee47.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2e/2e2acc77db311bc21e3f8cac65510ac344b557b6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2e/2e647441cf244ab861f76fa7178a3faf3eef60e3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2e/2e86f13d7b3a3277aebffb4488c87a1f541983bb.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2e/2eab71033f22c091e6f987586a2824987f645650.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2e/2ede2545ffd1d35fe19a243a627d97e0e2b257cd.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2e/2ee2420c1f6683145e0fd00bfc84572c2b43492a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2e/2eef9a370c6bd2a26c3e7fa2dc04bf52b6ce22d3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2f/2f174f54d65493a40b8a758cef01512c62116986.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2f/2f437f37bb265d9f8f1392823dbca12d2bec06d6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2f/2f444f100e654ff091f223bd1eaa9a6eeeae8f1a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2f/2f5f451e35825b8dee1fef7a0ce3d0bccbfd8bc0.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/2f/2f9fa11e8f01838e75f1fbbe5429aa1b6797ccc9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/30/300bfe25c19109d583f36418dfea283f36d26939.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/30/30b97e11e687593c20ee3021b73be9c79c9b7268.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/31/3136ca936f64c9d68529f048c2618bd356bf85c9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/31/31a3b8bb0f9daed0df2185ae3b8e9bead782b5f6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/32/32a3d0e96e6a69cf85bcc5c55562c94c2ea7842d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/33/3349b731768b97c5d37bcb3d1ebfb9e119a95952.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/33/3375e43c620df4f1114959400ff9bb90d12a2feb.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/33/33e059bb40e900bbd63a536f9db9f22480ed978f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/35/3570465671b4fa9f677c50de73eb35c64a5214d9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/35/35d4741f79814aabc2c11b9fe8abb02e170a0e72.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/36/36215846dace0353e8ba563eaaca1c027cb17120.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/36/362dbf4e8142390f51ae4ecf97001fe3991181b2.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/36/36aa64ca0c746a4ec0e8fb2d35e2fd5819537ef8.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/37/373dc3ef6c742af29c0feedb421b1dad6950c6c3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/37/37b2a187bc68ebd0860eee4b25cba6c1e33266a7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/37/37d1fbace7c3a400e72aacc44b8e80b85167dc6a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/38/381f321e915e4ac772a6538e673734a2431be798.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/38/384b1e2add11b6c345780519fa029f228336589c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/38/386646eb1331156c215b467edade83e17c036b1e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/39/39c0c63d1f1e810a4d46a15724fc6c6791c94b05.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/39/39f6568b19d02e64f96c6c616e05503ed4606081.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3a/3a6fe54917808f4e3e971bcef60776821033cba4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3a/3aef9102d94b823eb91620b7addaeba418a1dd9c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3b/3b27489eedf1e161822bb4edc4f8a000b4fa217b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3b/3bb9088c809b8033ff1942740de86a39d8fee603.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3b/3bc739f899dcbe9fb37a9360cafba2c54f4eccf1.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3c/3c2c57a91a63953531a43338c28602a9cfc3099e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3c/3c304d70f42f832e0a86d45bd437f692129299a4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3d/3d979720a785788a26c21f412420adba24287c07.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3d/3dacc7e14efc1424a8bfa54761ef13ccbbdb8c3f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3d/3dcf04faf15f48bf884d9d2c650d596390db451d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3e/3e63fc9b3de4580f1f3bec0631436f755b80f167.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3e/3e82d260cdbdbf45795acf8c5f7ffb4d7221e078.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3e/3ecb7cc14c9c52afcf9a6eee5e32b5cf8c22f2f4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3e/3ed0d171d378f4c400192aa3552ea3835bac804a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3f/3f27e0aa1ec4ec77c70cdf3e2ad6d00b563cbf01.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3f/3fba86c7db9e757c47d75c402128a4306efa2a85.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/3f/3fc542fe8bb8164e8d3e840fe7403bc0518053c0.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/40/40a46766273931b8a7f95cf96adc449261686d07.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/40/40e210f5da6c72ea76d93230abbb936f08503705.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/41/4177f9b28c37cbd70f6601a16f49498fb69122d1.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/41/418201cfe3f936bb6c03f83a57315465ac343da3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/41/41e08893fed7a50bf31c77932863f16081328298.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/41/41fede792590668f1c9c6480a6f89f7cd48d5a31.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/42/42a25dc3219429f0e5d060061f71acb49bf010a0.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/42/42eac5d53a8436b9197ec3847340def8d4fc987a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/43/43336cd70942e7cefad63d45ea28d425a2d911cc.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/45/457902507eb9c9bbaa3b80b5dfb54868f7d5dacc.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/45/458c20e1c02955a0ae6f5a7a332a9533c7792ed1.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/45/459196dc9b64075aec1de631e245fc331621b82a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/46/462fcfa14a1804cccf365aeddeeae38737447e75.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/46/46acfc817f569f3f22e54359c93ce0b6deed8edc.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/47/4727062833e2929e24387e4c2334f5fb2364d351.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/49/4979e57c96de6cbc1dbd10e067b50f7cdb4aa12a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/49/49a1d0559ea2ef3d392d67250c7d815a45081d1c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/4a/4a259a1c24b2d4e30917271769871e31d2d5042f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/4a/4a3b9f08a833c31009375d02a79f48ce23066157.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/4b/4b42820e3e3471e81d488cd74b9a0726e3ea14a3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/4b/4bee054c7db42fadeed3377976f0055b75621d96.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/4b/4bfc12adfe4842bf07b657f0369c4cb522955686.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/4c/4c014906343d626e18f2858f6e53b19076d9fba2.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/4c/4ccc5f1243c8631f93e24a706faf70ace9ccffab.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/4d/4da7a65a049962f292bb61158bf87099f407efa9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/4e/4e031bb61df09069aeb2bffb4019e7a5034a4ee0.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/4e/4e073017a1a806e7836e7f8f1143291351f53a0d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/4e/4e39fa7d90705e965480927e49dc5dfec5fe84ee.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/4e/4eebee1c4e6aee314543f97d618319dccffa99fa.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/50/504e491e31aa2c6589e50e4ebea9cae040213344.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/50/5057261dde5c395c3902f75a0056dc5f5eda66a5.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/50/50fdf82cce9bdbc8c8ab1753b526e7d40062cf44.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/51/51580b75a223f52fae4666b381ae9614bd197d7c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/51/516fc1c11a265ebeca229f8626090decb733a3e1.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/51/5197b08c466ab851fa53f66aaab80f6da4885184.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/52/5286f999606c3f262f6ef9ca3d6ca1b7f4b78c0c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/52/52a6d305bd5023be11b1698c919b52462e13990b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/53/534b04d5f5da8f0ba18dee13eded907d8fb538c4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/53/5363813909fb8593fd91ad52a8ccc03f5da2ca4c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/53/538525019be9e00caeb551ee3e68ce7dbcec917f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/54/5463f68abcf56af43f0b79539ccd7a1bf656b0fc.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/54/54bb18ff54b6ddcffca68980fa19cce5e3392c38.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/54/54fce894aa6fed092179bbed33647ccab9cb88ca.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/55/5560f64b4454396f28593defdc31d6e57d269cbf.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/55/55fa9b7543256277db21f77597ea8b4ea48f4843.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/55/55fb73084de6e75401004df5eafc58473a0046e4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/56/562b3e47eadd2a1e792152b02648f7bfd60ed355.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/56/564983fce666c9b3878b90ba753b62a4eca0791c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/56/5675fd96b29656504b86029551973d60fb41339b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/56/56ce13e71c2150d81bc972940584915181bd6081.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/56/56d05baaf1ea2651a8d54271d4a671f8a40b7990.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/57/575140f214879d8063dfcd01e801feecb1bf4125.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/57/57605911e8c48f0f81ff3e4492d5fad797b2f721.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/58/58782112820270f189250a801c19fcca8b891d3c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/58/58e07920831655127d2e7fd0311c61ac365c9ecd.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/58/58e489b82ec1ce448ae14f37099a671d350c06bd.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/59/591394887fe82432fe55f906a503ebef1a2d2df9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/59/5997069980e63c5a9edd135a54d8418bb2274eee.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/59/59ef1035f8e8a643a16d11654ded09958399d068.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5a/5a1b65661bf654e598e44755f9e5c915da63396c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5a/5aeeff4e6b5268acb0bce1d7ad77e52fe550b639.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5b/5b500330cea8b819325630d2ae7a081f73a4b30e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5b/5b784ff8323e93a23e5628f3539f9d423a832ef6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5b/5b9df089eb85cecb320fd9ed3f0f9da173c92d61.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5b/5bdc46c4a4e3b0d8af5693842a0f73c52991d483.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5d/5d29de897460946e62c0f5a3c6cdb396d7065c0d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5d/5d3ccc056b6f056dbf0dddfdf43894b9065a8f94.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5d/5d42767df71ecd9a305755d8d63a66bfc8ba2cd4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5d/5de08afe55d18cf7ce994c1310b430fa808a2e21.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5e/5e0f331e5f2130d080d61fcc58d873c9b627872c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5e/5e653dacaeb1d4a6a622ebb3f77c91c2c1c4952c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5e/5e731d961297e5a07290bfaf3db1fbc8bbbf405a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5e/5ef35fdc7d1ddbffdeaf69025de5992691eeb8bf.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5f/5f0485b96f7220c5947438951debe4fe86fd16d9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/5f/5f55c9496ebebf5309cc0ba4f3b683d02f7b2139.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/60/60170b9ae0d397278d5e0ce5d7b616744670257b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/60/6027804753ef3b14f708c304c60cff5ad1be0b17.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/60/606e0ef672e2a30c15a2fe32c88441d3eeee706d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/61/6162faea9b6abde93342a94b29c8f5176ca0bf05.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/61/619b81b12d869cb997ae52eee8372552fbe71806.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/63/63c47c9779d42f91b86662095acde07e0c35b60b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/64/642c342404d75d800e2f1d1756bb006551abfacc.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/64/64499e907f19e5e1b3fdc02f81440c1832fe3545.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/65/653c1bc48d795150cf2b15d97ea4a558dde72999.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/65/65a2bdd7e9c70b14a2d2a66fc5548d57389c8e68.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/65/65bc94272fc948af765f82af504abe66d7b96d45.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/66/66c443539d9bd0b66c2477dac5714c2887bbc022.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/67/676fa6ce016032b554bf82f137ca35d944cc2462.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/67/67c4acceb79d11380583da815bd2dcefdcbf941f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/68/6846c348f066500e181bc46cd1764818b0fc0776.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/68/686c13ba57d9423dede9c5d580dcadc5c67a2761.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/68/6875b6a8ba694bffeb94727ca5171b4eb73ae876.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/68/68b3c405ef40dc1db8f788a33bdf0b88fef8e143.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/69/698f6542db2e62540b4ca008987370ade31f3ad4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/6a/6a37910151b32332a8e8b47f31b68ab476b9ef4c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/6b/6b6197533788159ded27a116f6b862af58b45d20.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/6b/6b6494cdd836b34746094a5daa0520e8e0bbb788.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/6b/6b6cb793ebe685bc0317cc38fe52a87f898033c6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/6c/6cb0ffc1ebdc4605e5e34a3c262731d96bce9885.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/6e/6e926470b6103fe3bf084087a66de7860e25b81d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/6e/6ef68370c3903e791d6166ae1cd43476362aff19.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/6f/6f3aecb5aef3159245a7e9cf446d2f01f61c9e22.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/6f/6fde785ecb50d89efd85b55be42063cc181055b9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/70/704545cc4e35b1461aacef9ccbc49b7a2ae5fae9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/71/713aba7e7d072f02958deba1a1b6bf8677912b61.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/71/714678aa282710c4401842544042e8f3ed8b1273.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/72/72599f083b1cd89563054bf41be8dec7413f9c74.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/72/727ac20a5e8fcf53cf97f01b851e76fedb7c9d41.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/72/72afcf795dea9d787141fbf665924d634471dcbf.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/72/72ecbb9d6a57f1631516c05becab0cc21d75730b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/73/733db77aa8d9b2d68015189df76ab06304406e50.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/73/73617340375c827e43274f5af465b0dc5c351cdd.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/73/738d6f03f1e3edd8dbdaf91b3f473272eb118fc9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/74/743ed38c563f15447418a979eb63cc9456676c7f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/74/74728d6e20d29822faa73f267dfc8173a29f7905.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/74/747eb0d98c39c06f5a57e96cbeb7b85ea0f24fac.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/75/7598ed0c4a0e91b57d45afbbf507abb0b2640ce9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/76/764469f4a8f8259db7a5b5a29da6a13c78e95401.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/77/77327b7c9ba89e3019f61800437705ba7dba385a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/77/778d23233c185c6d34b82df6e16dd1bcae183cdb.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/77/77bd97348b636c11bafc2ecf77343e92762d53f7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/78/782a6677ea7c629a538bc33b4494cdf6f13e1be5.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/78/78506ad69464da9522361d7ca38f0b440d7263f3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/78/7881a58c470bca1a17c73073cc69a76b71529d63.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/78/78a584a9ef9f6e7c577824a2f4c8606d237c2d90.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/78/78accb6f86f3a786d8c586052a289baa18593701.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/78/78c962eb07bf5212dde2d31c4d048e4052bf34de.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/78/78e98099b87b4737203af1fcfb514954c4f479d9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/79/7913a458bfb08e3b6169b05f2b79c663c6aa5dc8.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7a/7a1c00b1b6f174ba951d3c1ae84a7f1c0f87ee71.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7b/7bc2083591cd131b76ecd26b8fce3631773e5fa4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7c/7c2ac25ed5231a1e693e4251757025ed7b8dcc3c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7c/7c902bc4a4146cb97ac9e82560b3cd6bf97f9733.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7d/7d4e7e00d4b0c3711aabcbe5cff6a9392e7a87da.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7d/7d743c92bbe01f01119b2616a048c68afb07cc4c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7d/7dd87e2c01d08789bfdc1aa6df9a981f60dd5168.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7e/7e19d896c4da33bf0c3ac82b11d3d503f2af883a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7e/7e6670c197f65e543a4c43f59dc4dab5191c2620.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7e/7efaaabc3e16b85f73d5c8453b569874905e1718.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7f/7f19fefc92373bb03679b3d287c6159ec128da00.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7f/7f49f7b1452159dc56365221923630397f875706.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7f/7f7d5fe05fe3023bbb500010606d7d2fc5928950.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7f/7f81edc90630d779c80f43a8c824264399ac808e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7f/7f830dec08ff602a399e7ab02fcc2c100d3e6b3f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7f/7f8982172eb33fda253d286b36cda3ca78d97af1.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7f/7f8efad1ae462d63daf0ea4a22c56947964c10ea.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/7f/7fed9ef3ce5fc4c4b14ca6d87510c3e9ed81c596.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/80/80efce6c14ee11dcec2591e52dc19f75ff3e5812.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/81/81ce39b422d6221233e29f45d3abc2088da6e0be.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/81/81e2306aac53ca0b2eb24ad171e99c2f0a8f40e3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/81/81edbc630daaa9eead1f7ede309d1801070aa144.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/82/82a3fe30e18e894a005a3057df092fcb493b4632.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/82/82b477a604b8f8049d8a55a27ab64cc2cc26ede7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/83/838ac2106539e0b32d37ff350e9a7d5478833207.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/83/83b5b8a7ba1c08f9e8c8ff2373724e33d3c1e22a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/83/83cd2cd674a217ade95a4bb83a8a14f351f48bd0.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/83/83d50530d84c52d6feba0d015da5326ec9693b74.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/84/84ad883cd5b3898eb522585020b62de316b6ea03.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/85/857ff69dc6e446b520e5686e5b821635a6639df2.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/85/85dfedad243dc0303ad7ae3a323c39421d220690.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/86/863843a4fed13810cab8c40f4c9869782e3178a7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/87/87d65083ba5d621df435c84db7c14517bd2868ef.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/88/8810ed36dc3ae89bdecd8220fcb8644a59afa189.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/88/883135c0d1726177cb30a5aea4e3e40bd4766357.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/88/8831b14ff15577f548fbe16f43f849d6fed096a5.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/89/895d8f28e64c0445e3ee9461963406123f06821c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/89/89e5c7e36b5f072225685a5b628e9dee9c61d6a3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8b/8b1a2714328c732245de05a58a5ca9607813bab6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8b/8b243b987097f4beef6255b88828aafb66c5cf44.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8b/8b942c0a466d184639c2ecbb2104f648d3de4020.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8b/8be70ad9cc7af8e5aefb1421c1348d1d88cf5c1c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8b/8bf70887c2c883a6f6e552dbe46eec35c07adf6a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8c/8c331dec22521645457f8177833d523778b9da5c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8c/8c338ff778348837468871792405786b15654e68.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8c/8c66ba38796af1f8033a9c5cbc2ddf2e1854a751.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8c/8ccbc4d6f05ce3d9a3d43584ea0193550b5a0459.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8c/8ccd0eac886b312db6cf5509232d25728fd42108.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8d/8d82b238ce5ab0816e4d4ffe7790d792e79fad49.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8d/8db83b4728d6f678f6e18e88bba09ae72f40b1f0.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8e/8e4c62ea4caedf1a1ec5e17299a94dc67d7564bf.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8e/8e8d19e5babc859de0a3e8dafc51a0c5c4ca8024.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8e/8e935e700d90351f3906caf10fc8ae88470f5152.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8f/8f55d520112385484b5766da011fe412850c649a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/8f/8fafd9d82b05ea5a206b0720fde01d059cef59dc.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/90/901f6a0b398a1c7b8295a3aeba8958df8ec5f863.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/90/902a0b5882ec2e9af94dd3fdbfb3f5677255f42d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/90/9088143b19979779b2116cef38b661f72d982e19.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/90/90d8de691d75bfc5a06dd4e358f5c12beff422fe.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/90/90de4e9c064b6c9bfa0d1884c693b20b46ba548c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/91/9155ec112d9ddc484e726e233a599e8c4db4be23.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/92/923c2adc78792ef8eb92c96435842e0d3053d594.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/92/927620caa02362e0eca98a2e723d2483ee94fb83.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/93/930ccc7f058203a98f21cfa63146b289b8363936.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/94/94466c8b4cbe57474b09e016cc5258f70691b560.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/94/945c77e4e262cb898a08ff31ff000aceb60b8b8c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/94/94fac642ca7b403a8aa40ad7112e202a2bbafa89.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/95/95ac138aeb47240c150980dbd524261f6f2a484c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/96/960101b25d0ec6f45d550bf92c00de8c6a584e6a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/96/967227acd713c095fa12486959284fcef4ec6113.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/96/96d7d48be763fb5f3cf3936a69a0061d68f24079.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/97/972fb009993fd0f92b6043f52d20f3b5ce0c9d6f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/98/98052e75542b209f3b9364dd3eeb3e54d143e17f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/98/988bbf17eb4ed19e96acbd550a08378cd4c80099.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/99/99cd82d392923dba18f8af415cb5c5c235d449bb.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/99/99d7388e5beb56694709184fd8b4724ab71b424a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9a/9a2325b7f76689f1af194e280c16b46ccea5e6eb.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9a/9a5e9d2d6261ddf18b77ad840e8df6344b03ec01.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9a/9a698dd59e82d6d545eb5790e78847d2ce2d552e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9a/9a6b099b5033fc2ea88f119a348b6e2f25775806.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9a/9aa3ba1580d82fc1364adf1796c1f62c98b55ac2.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9b/9b963c17ef142a5313ae5dcff8a174a7b3ecc7cd.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9b/9bd349ba60ce2a672044a4f41ac6d7d48fe268d8.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9c/9c72404acc0e90f131d0e26535a4508270c254ad.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9c/9c7518c25c492633e1b3f1d67e9e4d82794ad506.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9c/9cbf6a48164f307deb0567595e9949bfd4e75c15.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9c/9ce04e34240f674bc72680f8b843b1457383161a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9d/9d0074bfee111d279ade69de80740a5707b01693.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9d/9d2a66cb793da409c8e7f66aacf0485e2fe8411f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9d/9d4c3207f786f82e08ee59095028aee9c322b447.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9d/9d6aeabdf7ae58aa287d1eb46a91093b16af9f4d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9d/9d88808ddc3c910679bddb8d8a32582347fa3083.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9e/9e47953d7ceb3843940cd10a49c052257e6fed6c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9e/9efd48d6e670811c954e01b3be066caadb642226.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9f/9f5ac2cb9e5f131601cffe27a2bac3635cedaeb5.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/9f/9fcd44e1e1f58aea1631c8be5e79e8900063a937.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a0/a01fe5efd07f2b6013c31df08ca128ecb258a45a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a0/a087ae86282047ab7616ca5c211c3800478f0fe7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a1/a140fcab86af0ebc385748678152b0c30221a2a6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a1/a17e8a4d9a1f7fcc5eed606721c9ed6b7f18acf7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a1/a19f0373feceb858af3614b22d44f3ea9007f5d1.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a1/a1a313da4dad0926010f3e5678f9de88d5674d1d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a2/a261960edefab9e183dd789483c723d00ff0178d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a2/a2a99fc8fa534d6be743e3e1aae1ee5d957fc765.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a3/a39ddcee2063b95007bf77dc3ab13e5338e06e96.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a4/a42382b609f9aa9558c5f36c6fb17c8563d73865.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a4/a4b3789feb2d83cafaf8773149e54288545ef08d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a7/a767299853bbf2bc9e7737a72c5d8b352ae596d5.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/a8/a855f69fb3ca4453ef68132041e7d73c5147eeef.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/aa/aa13a23a20bf9de877ee8a2e06cf91a9800558d1.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/aa/aa58d96dfa9a6fd418f85d231ce495802795440b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/aa/aab4a70f3c697f2e1eab8070785f694df556490f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ab/abc12db51cd25c4034e730524928f8beb3509d9a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ac/aca2d6ed90265c3be2c119f7ac7c69de470c9677.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ad/ad2a21051e3b43356f143d087876ce8ed95fd65a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ae/aeb8909abfde43daab4e34c95b7131581d8ae95c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ae/aef855aeb0efc46580799ca975c91b1ba623c8c1.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/af/af4aea0ff7e3c8af31965cdbce063934fca81901.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b1/b1846a89b46b4e7a171e4e178a0b835dbe08e54f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b3/b31526a230871fbe285fbcbe2813f9c0839ae9b0.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b4/b4109b39e98faf0a0284bfaaaeb1debe9dfd421e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b4/b4305be704b940215067fb6b3670cacb3dfb6b26.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b4/b4363bc367d771a8c705e8184a48e49acd253b73.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b5/b581c527a356410339b87c4507f67e4bdfafa2f4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b5/b5beecfa930e0e2ce6fb3999eee3f69c4776e6be.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b5/b5efe44645f5358e3d785091af3440f80afa85e3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b7/b702f0dfc7941fe6d783c1acbe99db7af1819fe2.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b7/b7110090327060566ab90b327294b992b2fc3b66.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b7/b7172eea0a239c7f285457ac44ad91a64bed1147.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b7/b73574599c49851a4ebc5bdc0f8b81f32ea9cd59.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b7/b7da52cfb36a2f09ef52590f1d7f63cfefe0d3bb.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b8/b8a839d6732e62dcd8f06e07ae83c982fea98a58.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b9/b971e4d1d8a3a99a3b4880185dcc0416c8f839a6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b9/b9924fa1a585b9ffb8ff166ed474105ba58fbd68.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/b9/b992dfa9b3255201902a9d1b02b450435df47f64.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ba/badcad90c019cb7189626953496fdedb0c532a41.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/bb/bb4e6b06b080ff07cc0732897e3ddbffacb01284.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/bb/bb97106cccf06abaf71fb2b9153101ce65f9fe28.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/bb/bb98efed4d8dd465149553a67943053673374362.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/bb/bbfe73e2934f9cbf04a3d025b5283db912d14468.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/bc/bc35e9f42567d3f738e5bcf4d50b06e8fd0cebde.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/bd/bd98ef2a41ba079d2d0391dfb2a4af6e446b90c6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/be/be304153047bdcc46807ec5ffe54b96d38b1f64b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/be/be3d11fd5f1e80b01c87b2f2b1fb382d7a0ef7f6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/be/be51c8d6253141217178a1ff69ca21273cd66c5a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/bf/bf375ddf6490fb2c8835d0b1e023cdbd3ab95574.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/bf/bfa765b726618a184391074d8debfac4e9cf20b8.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/bf/bfcb96281ea3b59d626704f74bc6d625ff51cbce.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/bf/bfed68664a3b2e0fd15ac95151ebe1a72945b9cb.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c0/c0f4b6b24394084c6b3f666eef578cf62e457b49.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c1/c15d6b15f436c464661766f6d877ff946a518327.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c1/c19b19988eef3d767d2dd59a12e58603c56b0312.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c2/c23ef661d6e2d573f7f9ed180700414b600d80ed.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c2/c2453ebb5c4b3333625f9e03fc14e62cf7be0278.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c2/c2580bc1e302143d8dfca4ce9d57a8fcbf12a3e6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c2/c2a00a405314755f84acf3d085efc01a98aab39a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c2/c2ee4bba0fb4562ffd14db0152c0ec8e2966a63b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c2/c2fe69688b6bbb79c19073a2b8f68efaa2ec920b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c3/c341d08c134e29bbe524e00620fffab2c2ba05e6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c5/c530deed2dfac3501e9b522f6e794b8378f60376.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c5/c55ce9f3839614f3c7a038be8532f6c30de21b28.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c6/c621b54583719ac0310404463d6d99db27e1052c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c6/c651dd8d83a29732eab127f43d8d86e4c8916fd3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c7/c715977f16d22d9d5ea9b349c9bb7750b7f8cbeb.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c7/c75490da00db31c5df90acb4ce554bdb1a7db983.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c7/c7af645212b38d7441b58b7314ef765ad9d0769c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c7/c7cfbddcb40d8322cdee4ca8df253e31ee8ea04c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c7/c7d915c1363b69c51b6c9d3672c98bcfb394814a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c7/c7e9303b947a262dc76a8dd084658c6d25a446cd.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c8/c8140a23eed3a1221f02ec1edc4a47bfd81f5da3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c8/c85a27cae91c71732aab2f7375d1c68427c936ec.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c8/c88cc97a736e351b408dad215fdc9d0365da62e4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c9/c9353f9171ef6fa525d629a9ff1bbac37c2bb8c9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c9/c9385ed7affeff762e38c525af81e1882f153d08.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c9/c9c2d3f0ee5616765ebf4a1e6cda02d2463c554f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c9/c9dd95cebb5b94d79b9a2432b4a2ada60ef6a767.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/c9/c9ffd19172b9a3e847bd82e5103bd50b7658ac2a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ca/ca405930c2613ca96feab32e6d7268f979684625.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ca/cac4600886091f05eee850301cb4aada5f9e5138.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ca/cae6a7126b30656fd470f5ef80a6653a26b2c827.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/cd/cd07284335e9c2ad4922441b357cf8d7335221a8.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/cd/cd4e0e599dc0146f3c3350327184199c4f06b3c3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/cd/cda4fcbce5fd2c637509d25062aaa5b013aae158.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/cd/cde9eb92c8a3ba23d648f76ea3931511f30813f4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/cd/cdf29434b59d10966236bc61972149b68de3f436.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ce/ce2d409d470948f11fad41ffdf37dcff4d28cd7c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ce/cea6c56e31718863a79fe2f2e51e908545b12185.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ce/ced6f6bf3a0b0e08c149f965a445944300db3b91.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/cf/cfc685958e9d64e548cbe711a47bad0fbc63f3d1.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d0/d0895bddc0c0dd1f1fd74d82b6e002a6f31d7328.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d1/d1874eeb9cbd65c309bac01b4b7f673b37d8ff09.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d1/d18ecf626c9e7c5ec3a655644457995788279242.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d1/d18f46f924b167523db8daead05c60d715af9f92.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d1/d19ee91471c7c057dd61af7276d456b4736c6899.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d3/d372ceed23bab8fb34f874bf5263bf6346312232.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d3/d386faf7e0760d27d50144de62530348ef01862a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d4/d409eafea79af4333eb4db237c20cfdf8ef008b7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d5/d5b19ae6c63ecb5435286f96716260494e1e415f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d5/d5b70acee6ddfab47786c31114c89b895654cb97.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d6/d6519379f28935a2eb4c59170bf98578b2e424bf.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d6/d690b155c28d41dadeba9ddd68b8fca3f4250e13.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d6/d6a9085096458fbdbff83290f593c01533357d09.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d7/d72917e1be28e43dc917af21005aced4092597f0.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d7/d7b0233a22a531096dd06f3bae5171115ecd53b2.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d8/d8730bfc988d08279f8234037f39f0df8bce485b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d8/d877f70431aa30216b7dee78d1ba42f396d79b4f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d8/d8b631af7b29bdc9101db72ac88918f201a5e4ae.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d8/d8c6c0b1108f80fb8fe0ab27c955f9d8e1dd62b5.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d8/d8f6e164ba82758b057cabf28a35ab238da94efe.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d9/d9a09f7732226af26bf99f19e2cffe0ae219db5b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/d9/d9f494a9ea1755c3bde139507279faf0f620b977.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/db/db93a4f03b1df937e5f7e0c5fd6453030aae7a8b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/db/db9da47a3a689e87ccbf9981060e910a9aee1660.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/db/dbf6ab77ec066d8ffc2110d5556ed4f8cbdf4d9f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/dc/dc1b95d26d292cdbe5df23f014cad77ae7d6aa7f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/dc/dcf9eebce75b1cce40f6e0538ba9e927000cd444.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/dd/dd0608a149be6656b9f0a38f6b2c1a37d4952deb.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/dd/ddaf61ea24444469c385b3ee3059deccc94b2ca1.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/dd/ddd3a3892c0f7359bea7e356b4f5a38d0337a0c4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/dd/ddded2fbf5776441c077a0685dba9416cda6c25c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/de/de15034ab39d8109a6480d803e0f065a67f799e5.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/de/de80bc54cff56a10d4253502d686a604299edca6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/df/df0fb152e20fd87120d51b3f2bcacb5254786ba7.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/df/dfb340562e7836cacbfa258fa252609f42e8b64f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e0/e0044c1f0aa26fff6ae31b238ac8fa0e23742eda.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e0/e016578788f503ebf23c1bd0f8e198d78468af2a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e0/e019d15a13a9786f881141d2df6654b8510bce8b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e0/e02e58519f85763ce073cae993a3a0ecb1e77963.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e0/e05b98d8f1cc1dbf77a10a168a3508a93626f03c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e0/e0a28f5c45fbe84d74a0e933dda6668a6184ae3a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e1/e12f28da3441260f5d757d8a5cea98b4c9a1e331.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e1/e1ee19a5359f214d65cc18972df8aba17ce1e423.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e2/e21cfe4a4f623dc177c845fad0eeca66067675a2.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e2/e224fd6b58b05b4af656883b69ae9fc00e3276a6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e2/e2a99bf2d253de75d6ab1c842fd54c34b6b68703.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e2/e2c42ffe7d6e79570777e0a63b1d770fef747a73.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e2/e2f486124d5dea2d91a9c2ea7d4456bc343ca2cc.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e3/e39cce071889dec752a2f27f0ef8e5fae0dea374.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e4/e45187ba0a078a33a4d2409f669b48c05993a741.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e4/e453dee9874cbabf4be87dd7744c2354f006008a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e4/e4d0d87bf83a24439fc0a719a9c77b505de73313.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e5/e507529ed926a2a783d5f57e08d1f0b0705ee3a4.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e5/e550883d4b20d2529e74f3d6b362040ce17d038a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e5/e5a4112bc1f17add984532ba8ffbf0c489201864.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e5/e5ae455a62908a45f39c370f30b34c1bae49d6e6.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e6/e6818a6ba8e6f7cb6c240d79cca861e87561e233.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e6/e6cb541461c2834bdea3eb920f1884d1eb508b50.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e7/e7d31e4bbdef97700c2339b994e9b780fad0026b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e8/e84a2122e76f0b6503be78094ddf2108057ac15f.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e8/e8bb31b45db5b5a05942b46e641d1c2e4f414fb9.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/e9/e91b45a94d5f18286d25c1dee100b394bec9a351.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ea/eaa19cf95785b09d9e7919dbe95db2e567e55b33.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/eb/eb27e514bc2fa552fdab8a0b6c2c5976f6c353cd.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/eb/ebe132c6f4f9af157dee0cefe8cb664500d8ea3d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ec/ec122e8a51496db0871aa58e00cd34b6946a0359.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ec/ec26fa3bad2497fb334379bfe47064e7c7c42abd.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ec/eca46f23ac70d1284480ff049189a5f82544d621.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ec/ecfc5b0115557e623548294581cefb2ac5c9782c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ed/ed0239270617f23732bbdf8400577522ef4c9818.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ed/ed9a8e71e775b9935a9081685b1562ca374e197c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ed/edb56a2332de42a380b4c0759359fd60cb31bc03.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ef/efa73a684b7c0abe695671307e15edeef44462a3.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/ef/efe73d13106a5996225c582438eb665fbdfbcb03.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f0/f02791fb2eb0ea7e69e501f67a7022ed7e25d1ec.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f0/f0485f798822ba23d4a1c60daf2012bdf78734b5.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f0/f04d4c5c37674cfedff1a4f3d0bcdcb5a6064b3e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f0/f05ac57682efd08255a2198635b40ba991888af8.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f1/f10791df2cc530a29ef3385f5f0b22bcfccba70a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f1/f1332341a64748e2c98cec4f690a6f5dbdda3268.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f1/f1b765cd4f88ce7f22275d46296f1c6b4204072a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f2/f2358e12de58116cb01ddab99d69f937d8855713.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f2/f24ab1c8de9450acc9f0b9c3d7d764e83ed0ea51.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f3/f3b37900a2471e362b2590295f3491d6f1e2e1cf.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f3/f3f1f60f1c625715c15927f89d6ad7e78d36a11c.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f4/f48e1d7f4839dd0c978da44e70de7fbda3b30038.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f5/f5809214072f552fc12394c32b02cb243ac195e0.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f5/f5a91bcd01ca97df156c21e58316df53303da90e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f5/f5dd0cf388a763f5ecc201326081d7ad0688bc1e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f6/f61562024725ed588a9b1d525ee8ec9e9d21ed1e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f6/f6c717ae8ae966c344af8655500d16a4582c994a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f6/f6f7696fe0f07409b1b911d45062d40affd02734.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f7/f7b183eea69b2578ada357086553ec45144bbdcc.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f7/f7d6ea001d844e35c3d4a428dabe04c7a7b3964d.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f7/f7fef1614dbacbf93e81c3d2da64384bb7f5475e.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f9/f91cfcd22d8ad138ec495bdb75583106dafbe722.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f9/f951934aa5ae5a88d7e6dfaa6d32307d834a88be.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/f9/f9d432fcc464440f75947968c510564c98ffc2cb.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/fc/fc1ea32099e7d3915f6eae6af9f2e09fc14de0ef.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/fc/fcb89ba21bc0656e59d379c424dcb51d1be6df0a.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/fc/fcbfe21da43e50eae602ddcbc1a129117b93bdbe.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/fc/fcc5c0cc8c43a98a4115c6a6675015534526cd23.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/fd/fd0d50e883db76c7989746f1e014a2044bdef38b.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/pristine/fd/fdb23cc1858fb4873febf33a552cc0c71b2d6ced.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/wc.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.svn/wc.db-journal" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Controllers/Manager/MLogin.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Controllers/Manager/ManagerIndex.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Controllers/Rider/RLogin.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Controllers/Rider/RiderController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Dao/RiderDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Entity/Manager/ManagerEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Entity/Rider/Rider.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Entity/RiderSalary.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Filter/RiderFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Service/RiderService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/manager/history_orders.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/manager/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/manager/manage_rider.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/manager/pay_rider_salary.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/manager/ready_to_refund.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/manager/sys_msg.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/manager/system_setting.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/manager/today_orders.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/manager/vip_charge_list.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/manager/vip_list.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/rider/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/rider/salary_record.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/rider/select_express.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/rider/to_bring_order.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/rider/to_send_order.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/rider/to_send_order_2.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/rider/to_take_order.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/rider/to_take_order_select.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/rider/want_salary.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/lib/commons-beanutils-1.7.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/lib/commons-collections-3.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/lib/commons-lang-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/lib/ezmorph-1.0.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/lib/json-lib-2.2.2-jdk15.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/lib/json-lib-ext-spring-1.0.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/lib/log4j-1.2.14.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/lib/servlet-api-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Controllers/Manager/MLogin.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Controllers/Manager/ManagerIndex.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Controllers/Rider/RLogin.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Controllers/Rider/RiderController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Dao/RiderDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Entity/Manager/ManagerEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Entity/Rider/Rider.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Entity/RiderSalary.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Filter/RiderFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Service/RiderService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
+    <list default="true" id="f61553a9-0e16-4d1e-a6a1-00c903410e29" name="Default" comment="svn转git&#10;增加若干微信api调用&#10;增加微信客户端使用客服系统">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/charge_list.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/cservice.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT.war" afterPath="$PROJECT_DIR$/target/ROOT.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Controllers/User/Order.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Controllers/User/Order.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Dao/UserDao.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Dao/UserDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Entity/ExpressOrder.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Entity/ExpressOrder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Dao/ManagerDao.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Dao/ManagerDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Service/ManagerService.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Service/ManagerService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Service/NoticeService.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Service/NoticeService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Test/test_open_id.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Test/test_open_id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Utils/TimeFormat.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Utils/TimeFormat.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/WxApi/SendTemplateMsg.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/WxApi/SendTemplateMsg.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Controllers/User/Order.class" afterPath="$PROJECT_DIR$/target/classes/Controllers/User/Order.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Dao/UserDao.class" afterPath="$PROJECT_DIR$/target/classes/Dao/UserDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Entity/ExpressOrder.class" afterPath="$PROJECT_DIR$/target/classes/Entity/ExpressOrder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Dao/ManagerDao.class" afterPath="$PROJECT_DIR$/target/classes/Dao/ManagerDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Service/ManagerService.class" afterPath="$PROJECT_DIR$/target/classes/Service/ManagerService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Service/NoticeService.class" afterPath="$PROJECT_DIR$/target/classes/Service/NoticeService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Test/test_open_id.class" afterPath="$PROJECT_DIR$/target/classes/Test/test_open_id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Utils/TimeFormat.class" afterPath="$PROJECT_DIR$/target/classes/Utils/TimeFormat.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/WxApi/SendTemplateMsg.class" afterPath="$PROJECT_DIR$/target/classes/WxApi/SendTemplateMsg.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/User/Order.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/User/Order.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Api.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Api.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" afterPath="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/Dao/UserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Entity/ExpressOrder.java" afterPath="$PROJECT_DIR$/src/main/java/Entity/ExpressOrder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java" afterPath="$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Dao/NoticeDao.java" afterPath="$PROJECT_DIR$/src/main/java/Dao/NoticeDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Entity/Manager/Conversation.java" afterPath="$PROJECT_DIR$/src/main/java/Entity/Manager/Conversation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Entity/Manager/LogTag.java" afterPath="$PROJECT_DIR$/src/main/java/Entity/Manager/LogTag.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" afterPath="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Service/NoticeService.java" afterPath="$PROJECT_DIR$/src/main/java/Service/NoticeService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Test/test_open_id.java" afterPath="$PROJECT_DIR$/src/main/java/Test/test_open_id.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Utils/TimeFormat.java" afterPath="$PROJECT_DIR$/src/main/java/Utils/TimeFormat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/WxApi/SendTemplateMsg.java" afterPath="$PROJECT_DIR$/src/main/java/WxApi/SendTemplateMsg.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/order_detail.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/order_detail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/weixin_style/weui.css" afterPath="$PROJECT_DIR$/src/main/webapp/weixin_style/weui.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Utils/HttpUtils.java" afterPath="$PROJECT_DIR$/src/main/java/Utils/HttpUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/user/order_detail.jsp" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/jsp/user/order_detail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/weixin_style/weui.css" afterPath="$PROJECT_DIR$/target/ROOT/weixin_style/weui.css" />
     </list>
     <ignored path="schoolhelper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -710,11 +52,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="order_detail.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/order_detail.jsp">
+      <file leaf-file-name="Business.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="137" column="14" selection-start-line="137" selection-start-column="14" selection-end-line="137" selection-end-column="14" />
+            <state relative-caret-position="509">
+              <caret line="502" column="34" selection-start-line="502" selection-start-column="34" selection-end-line="502" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -723,11 +65,9 @@
       <file leaf-file-name="ManagerService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Service/ManagerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="45" />
-              <folding>
-                <element signature="e#8191#8192#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="429">
+              <caret line="270" column="61" selection-start-line="270" selection-start-column="61" selection-end-line="270" selection-end-column="61" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -735,62 +75,18 @@
       <file leaf-file-name="ManagerDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
-              <caret line="358" column="9" selection-start-line="358" selection-start-column="9" selection-end-line="358" selection-end-column="9" />
+            <state relative-caret-position="529">
+              <caret line="389" column="18" selection-start-line="389" selection-start-column="18" selection-end-line="389" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Order.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/Order.java">
+      <file leaf-file-name="charge_list.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/charge_list.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NoticeService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Service/NoticeService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2509">
-              <caret line="135" column="34" selection-start-line="135" selection-start-column="34" selection-end-line="135" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExpressOrder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Entity/ExpressOrder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="101" column="41" selection-start-line="101" selection-start-column="41" selection-end-line="101" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Api.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Api.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="178" column="28" selection-start-line="178" selection-start-column="28" selection-end-line="178" selection-end-column="28" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -802,8 +98,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -818,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lljj_switch.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_switch.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/LOG.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/common_result.jsp" />
@@ -835,7 +130,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_send.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_result.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Filter/AjaxFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/waitting2take_orders.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/send_express_order.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/school_manage_select.jsp" />
@@ -848,27 +142,29 @@
         <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/Manager.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/work_group.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/Convasation.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/TimeFormat.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Test/test_open_id.java" />
         <option value="$PROJECT_DIR$/src/main/java/WxApi/SendTemplateMsg.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/weixin_style/weui.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/order_detail.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/LogTag.java" />
         <option value="$PROJECT_DIR$/src/main/java/Dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/HttpUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/User/Order.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Dao/NoticeDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/ExpressOrder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/Conversation.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/LogTag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Test/test_open_id.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Service/NoticeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Dao/NoticeDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Api.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utils/HttpUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/cservice.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/Conversation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Service/NoticeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
       </list>
     </option>
   </component>
@@ -934,8 +230,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -985,6 +279,118 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1031,97 +437,13 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schoolhelper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schoolhelper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schoolhelper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schoolhelper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schoolhelper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schoolhelper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Manager" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1151,19 +473,19 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Dao" />
-      <recent name="Service" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\ideaWorkstation\schoolhelper\src\main\webapp\WEB-INF" />
       <recent name="F:\ideaWorkstation\schoolhelper\src\main\java\Entity\Manager" />
       <recent name="F:\ideaWorkstation\schoolhelper\src\main\webapp" />
       <recent name="F:\ideaWorkstation\schoolhelper\src\main\webapp\js" />
       <recent name="F:\ideaWorkstation\schoolhelper\src\main\webapp\css" />
-      <recent name="F:\ideaWorkstation\schoolhelper\src\main\webapp\WEB-INF\jsp\user" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Dao" />
+      <recent name="Service" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.test_open_id">
+  <component name="RunManager" selected="JUnit.test_open_id.test">
     <configuration default="false" name="test_open_id.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1804,8 +1126,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.test_open_id" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.test_open_id.test" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.test_open_id.test" />
+        <item index="1" class="java.lang.String" itemvalue="Application.test_open_id" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.ManagerDao.ss" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.ManagerDao.createSchool" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.test_open_id.md5" />
@@ -1881,7 +1203,8 @@
       <workItem from="1484910836187" duration="12668000" />
       <workItem from="1485739496452" duration="319000" />
       <workItem from="1485739860103" duration="473000" />
-      <workItem from="1485740364387" duration="24717000" />
+      <workItem from="1485740364387" duration="25128000" />
+      <workItem from="1485832613239" duration="19738000" />
     </task>
     <task id="LOCAL-00001" summary="删除原有管理员、骑手模块">
       <created>1483790747823</created>
@@ -2030,13 +1353,17 @@
       <option name="project" value="LOCAL" />
       <updated>1484754314782</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="svn转git&#10;增加若干微信api调用&#10;增加微信客户端使用客服系统">
+      <created>1485791647225</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1485791647225</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ManagerDao_ss - 2017.01.16 at 22h 57m 35s.xml">
-      <configuration name="ManagerDao.ss" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ManagerDao_ss - 2017.01.16 at 22h 58m 18s.xml">
       <configuration name="ManagerDao.ss" configurationId="JUnit" />
     </history-entry>
@@ -2061,12 +1388,15 @@
     <history-entry file="test_open_id_test - 2017.01.30 at 16h 36m 50s.xml">
       <configuration name="test_open_id.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="test_open_id_test - 2017.01.31 at 16h 29m 30s.xml">
+      <configuration name="test_open_id.test" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="test_open_id_testReplace - 2017.01.08 at 16h 48m 20s.xml">
       <configuration name="test_open_id.testReplace" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372237000" />
+    <option name="totallyTimeSpent" value="392386000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2079,7 +1409,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.4969697" order="6" side_tool="false" content_ui="tabs" />
@@ -2097,7 +1427,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31363636" sideWeight="0.4869281" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23939393" sideWeight="0.4869281" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2128788" sideWeight="0.5130719" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2162,189 +1492,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_switch.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-266">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_result.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="32" column="86" selection-start-line="32" selection-start-column="86" selection-end-line="32" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/replaceToken.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-226">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/glxxgly.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/waitting_to_fetch_orders.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="90" selection-start-line="14" selection-start-column="90" selection-end-line="14" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/watch_order.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/IndexItemEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/demo_tpl.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/Reason.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/zjxx.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="34" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/privilege_manage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="48" column="78" selection-start-line="48" selection-start-column="78" selection-end-line="48" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/reason_manage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="70" column="44" selection-start-line="0" selection-start-column="0" selection-end-line="144" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/Manager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/common_result.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="47" column="7" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/waitting2take_orders.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="72" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/PrivilegeDist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/work_group.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="422" column="35" selection-start-line="422" selection-start-column="35" selection-end-line="422" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_79/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="459" column="11" selection-start-line="459" selection-start-column="11" selection-end-line="459" selection-end-column="11" />
-          <folding>
-            <element signature="e#15480#15481#0" expanded="false" />
-            <element signature="e#15546#15547#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/TimeFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Test/test_open_id.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/WxApi/SendTemplateMsg.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -2357,7 +1504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2365,7 +1511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="207" column="19" selection-start-line="207" selection-start-column="19" selection-end-line="207" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2373,7 +1518,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1521">
           <caret line="156" column="53" selection-start-line="156" selection-start-column="53" selection-end-line="156" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2381,7 +1525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2389,7 +1532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="71" column="74" selection-start-line="71" selection-start-column="58" selection-end-line="71" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2397,7 +1539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="2022" column="0" selection-start-line="2022" selection-start-column="0" selection-end-line="2022" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2406,8 +1547,8 @@
         <state relative-caret-position="214">
           <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
           <folding>
-            <element signature="e#1922#1923#0" expanded="true" />
-            <element signature="e#1990#1991#0" expanded="true" />
+            <element signature="e#1922#1923#0" expanded="false" />
+            <element signature="e#1990#1991#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2440,7 +1581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2455,22 +1595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/LogTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errors/error.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Dao/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
@@ -2479,107 +1603,307 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="3560">
           <caret line="178" column="28" selection-start-line="178" selection-start-column="28" selection-end-line="178" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/HttpUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-137">
-          <caret line="107" column="31" selection-start-line="107" selection-start-column="31" selection-end-line="107" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Dao/NoticeDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Entity/ExpressOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
+        <state relative-caret-position="1780">
           <caret line="101" column="41" selection-start-line="101" selection-start-column="41" selection-end-line="101" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="358" column="9" selection-start-line="358" selection-start-column="9" selection-end-line="358" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Api.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/order_detail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
+        <state relative-caret-position="0">
           <caret line="137" column="14" selection-start-line="137" selection-start-column="14" selection-end-line="137" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Service/ManagerService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errors/error.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="45" />
-          <folding>
-            <element signature="e#8191#8192#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-260">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/errors/illegal.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/demo_tpl.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/SuccessAnswer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/MakeToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Filter/ManagerFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/LogTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/AppCgi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/Order.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="263">
+          <caret line="49" column="115" selection-start-line="49" selection-start-column="115" selection-end-line="49" selection-end-column="115" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/Conversation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Test/test_open_id.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        <state relative-caret-position="229">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Dao/NoticeDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="76" column="37" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Service/NoticeService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2509">
-          <caret line="135" column="34" selection-start-line="135" selection-start-column="34" selection-end-line="135" selection-end-column="34" />
+        <state relative-caret-position="403">
+          <caret line="167" column="42" selection-start-line="167" selection-start-column="42" selection-end-line="167" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#5955#5956#0" expanded="true" />
+            <element signature="e#6013#6014#0" expanded="true" />
+            <element signature="e#6071#6072#0" expanded="true" />
+            <element signature="e#6129#6130#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/common_result.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="41" column="22" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/Conversation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.7/fastjson-1.2.7.jar!/com/alibaba/fastjson/JSONObject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="77" column="22" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_79/src.zip!/java/io/BufferedReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="107" column="11" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="11" />
+          <folding>
+            <element signature="e#2805#2806#0" expanded="true" />
+            <element signature="e#2852#2853#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_79/src.zip!/java/io/InputStreamReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="70" column="11" selection-start-line="70" selection-start-column="11" selection-end-line="70" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_79/src.zip!/java/net/URLConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="837" column="23" selection-start-line="837" selection-start-column="23" selection-end-line="837" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/HttpUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Api.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/history_orders.do.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-300">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/waitting2take_orders.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/right_reload.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/cservice.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-420">
+          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/ChargeVip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/ChargeVipOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Service/ManagerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="270" column="61" selection-start-line="270" selection-start-column="61" selection-end-line="270" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="389" column="18" selection-start-line="389" selection-start-column="18" selection-end-line="389" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="502" column="34" selection-start-line="502" selection-start-column="34" selection-end-line="502" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/charge_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

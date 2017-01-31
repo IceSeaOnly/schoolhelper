@@ -1,11 +1,8 @@
 package Service;
 
 import Dao.ManagerDao;
-import Entity.ExpressOrder;
+import Entity.*;
 import Entity.Manager.*;
-import Entity.School;
-import Entity.SchoolConfigs;
-import Entity.SysConfigs;
 import Utils.TimeFormat;
 import org.springframework.stereotype.Service;
 
@@ -253,5 +250,25 @@ public class ManagerService {
 
     public void ConversationEnd(Long cid, int type) {
         managerDao.ConversationEnd(cid,type);
+    }
+
+    public ArrayList<Conversation> listWaitCService(int schoolId) {
+        ArrayList<Conversation> res = managerDao.listWaitCService(schoolId);
+        return res == null?new ArrayList<Conversation>():res;
+    }
+
+    public ArrayList<Conversation> listInCService(int managerId) {
+        ArrayList<Conversation> res = managerDao.listMyCService(managerId,false);
+        return res == null?new ArrayList<Conversation>():res;
+    }
+
+    public ArrayList<Conversation> listCompleteCService(int managerId) {
+        ArrayList<Conversation> res = managerDao.listMyCService(managerId,true);
+        return res == null?new ArrayList<Conversation>():res;
+    }
+
+    public ArrayList<ChargeVipOrder> listChargeList(int schoolId) {
+        ArrayList<ChargeVipOrder>ls = managerDao.listChargeList(schoolId);
+        return ls == null ?new ArrayList<ChargeVipOrder>():ls;
     }
 }

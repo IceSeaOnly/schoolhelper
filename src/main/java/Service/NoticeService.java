@@ -131,6 +131,7 @@ public class NoticeService{
 
         if(data.getBoolean("result")){
             c = new Conversation(user.getId(),
+                    user.getSchoolId(),
                     data.getLong("cid"),
                     data.getString("ckey"),
                     order.getId(),
@@ -148,5 +149,22 @@ public class NoticeService{
             return c;
         }else
             return null;
+    }
+
+    public Conversation getConversationIfWait(int managerId, int csid, int schoolId) {
+        int eff = noticeDao.getConversationIfWait(managerId,csid,schoolId);
+        System.out.println("eff="+eff);
+        if(eff > 0){
+            return getConversationById(csid);
+        }
+        return null;
+    }
+
+    public Conversation getConversationById(int csid){
+        return noticeDao.getConversationById(csid);
+    }
+
+    public Conversation getConversationByCid(Long cid) {
+        return noticeDao.getConversationByCid(cid);
     }
 }

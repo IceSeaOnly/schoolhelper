@@ -48,4 +48,35 @@ public class NoticeDao {
         session.close();
         return conversation;
     }
+
+    public int getConversationIfWait(int managerId, int csid, int schoolId) {
+        Session session =sessionFactory.openSession();
+        session.beginTransaction();
+        int eff = session.createQuery("update Conversation set serverid = :SID where id = :ID and schoolId = :SC and serverid = -1")
+                .setParameter("SID",managerId)
+                .setParameter("ID",csid)
+                .setParameter("SC",schoolId)
+                .executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+        return eff;
+    }
+
+    public Conversation getConversationById(int csid) {
+        Session session = sessionFactory.openSession();
+        Conversation conversation = (Conversation) session.createQuery("from Conversation where id = :I")
+                .setParameter("I",csid)
+                .uniqueResult();
+        session.close();
+        return conversation;
+    }
+
+    public Conversation getConversationByCid(Long cid) {
+        Session session = sessionFactory.openSession();
+        Conversation conversation = (Conversation) session.createQuery("from Conversation where cid = :I")
+                .setParameter("I",cid)
+                .uniqueResult();
+        session.close();
+        return conversation;
+    }
 }

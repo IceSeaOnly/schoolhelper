@@ -20,13 +20,8 @@ public class test_open_id {
     }
     @Test
     public void test(){
-        String openid = "oz1S1v_7W7O1t-KxfdFK5Sk6eJVs";
-        new NoticeService().paySuccess("详细信息111",
-                "总费用",
-                "其他信息",
-                "产品信息",
-                openid,
-                "http://www.binghai.site");
+        Long a = 122L;
+        System.out.println(a.intValue());
     }
 
     public static void main(String[] args) {

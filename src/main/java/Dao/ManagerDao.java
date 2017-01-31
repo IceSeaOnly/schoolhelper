@@ -1,5 +1,6 @@
 package Dao;
 
+import Entity.ChargeVipOrder;
 import Entity.ExpressOrder;
 import Entity.Manager.*;
 import Entity.School;
@@ -359,5 +360,33 @@ public class ManagerDao{
         }
         session.getTransaction().commit();
         session.close();
+    }
+
+    public ArrayList<Conversation> listWaitCService(int schoolId) {
+        Session session = sessionFactory.openSession();
+        ArrayList<Conversation>cs = (ArrayList<Conversation>) session.createQuery("from Conversation where serverid = -1 and schoolId = :S")
+                .setParameter("S",schoolId)
+                .list();
+        session.close();
+        return cs;
+    }
+
+    public ArrayList<Conversation> listMyCService(int managerId,boolean status) {
+        Session session = sessionFactory.openSession();
+        ArrayList<Conversation>cs = (ArrayList<Conversation>) session.createQuery("from Conversation where serverid = :S and isServerEnd = :ST")
+                .setParameter("ST",status)
+                .setParameter("S",managerId)
+                .list();
+        session.close();
+        return cs;
+    }
+
+    public ArrayList<ChargeVipOrder> listChargeList(int schoolId) {
+        Session session = sessionFactory.openSession();
+        ArrayList<ChargeVipOrder> ls = (ArrayList<ChargeVipOrder>) session.createQuery("from ChargeVipOrder where schoolId = :S and has_pay = true ")
+                .setParameter("S",schoolId)
+                .list();
+        session.close();
+        return ls;
     }
 }
