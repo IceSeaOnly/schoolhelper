@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>本校充值订单列表</title>
+    <title>本校VIP列表</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -23,20 +23,20 @@
         <header class="bar bar-nav">
             <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
             <a href="" class="icon icon-menu pull-right"></a>
-            <h1 class="title">本校充值订单列表</h1>
+            <h1 class="title">本校VIP列表</h1>
         </header>
         <!-- 这里是页面内容区 begin-->
         <div class="content">
             <c:forEach items="${list}" var="ls">
-            <div class="card">
-                <div class="card-header">#${ls.id} ${ls.username} ${ls.orderTime}</div>
-                <div class="card-content">
-                    <div class="card-content-inner">
-                        实付￥<fmt:formatNumber value="${ls.shouldpay/100}" pattern="##.##" minFractionDigits="2" ></fmt:formatNumber><br>
-                        实得￥<fmt:formatNumber value="${ls.shouldgive/100}" pattern="##.##" minFractionDigits="2" ></fmt:formatNumber>
+                <div class="card">
+                    <div class="card-header">#${ls.id} ${ls.username}</div>
+                    <div class="card-content">
+                        <div class="card-content-inner">
+                            手机号:${ls.phone}<br>
+                            余额:￥<fmt:formatNumber value="${ls.my_money/100}" pattern="##.##" minFractionDigits="2" ></fmt:formatNumber>
+                        </div>
                     </div>
                 </div>
-            </div>
             </c:forEach>
         </div>
         <!-- 这里是页面内容区 end-->

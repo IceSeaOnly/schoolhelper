@@ -4,6 +4,7 @@ import Entity.ChargeVipOrder;
 import Entity.ExpressOrder;
 import Entity.Manager.*;
 import Entity.School;
+import Entity.User.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -386,10 +387,19 @@ public class ManagerDao{
 
     public ArrayList<ChargeVipOrder> listChargeList(int schoolId) {
         Session session = sessionFactory.openSession();
-        ArrayList<ChargeVipOrder> ls = (ArrayList<ChargeVipOrder>) session.createQuery("from ChargeVipOrder where schoolId = :S and has_pay = true ")
+        ArrayList<ChargeVipOrder> ls = (ArrayList<ChargeVipOrder>) session.createQuery("from ChargeVipOrder where schoolId = :S and has_pay = true order by id desc")
                 .setParameter("S",schoolId)
                 .list();
         session.close();
         return ls;
+    }
+
+    public ArrayList<User> listVIP(int schoolId) {
+        Session session = sessionFactory.openSession();
+        ArrayList<User> rs = (ArrayList<User>) session.createQuery("from User where my_money > 0 and schoolId = :S")
+                .setParameter("S",schoolId)
+                .list();
+        session.close();
+        return rs;
     }
 }

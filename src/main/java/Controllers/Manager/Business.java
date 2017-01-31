@@ -4,6 +4,7 @@ import Entity.ChargeVipOrder;
 import Entity.ExpressOrder;
 import Entity.Manager.*;
 import Entity.School;
+import Entity.User.User;
 import Service.ManagerService;
 import Service.NoticeService;
 import Utils.HttpUtils;
@@ -501,5 +502,16 @@ public class Business {
         map.put("managerId",managerId);
         map.put("schoolId",schoolId);
         return "manager/charge_list";
+    }
+
+    @RequestMapping("vip_list")
+    public String vip_list(@RequestParam int managerId,
+                           @RequestParam int schoolId,
+                           ModelMap map){
+        ArrayList<User> users = managerService.listVIP(schoolId);
+        map.put("list",users);
+        map.put("managerId",managerId);
+        map.put("schoolId",schoolId);
+        return "manager/vip_list";
     }
 }

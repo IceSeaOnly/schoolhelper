@@ -3,6 +3,7 @@ package Service;
 import Dao.ManagerDao;
 import Entity.*;
 import Entity.Manager.*;
+import Entity.User.User;
 import Utils.TimeFormat;
 import org.springframework.stereotype.Service;
 
@@ -270,5 +271,10 @@ public class ManagerService {
     public ArrayList<ChargeVipOrder> listChargeList(int schoolId) {
         ArrayList<ChargeVipOrder>ls = managerDao.listChargeList(schoolId);
         return ls == null ?new ArrayList<ChargeVipOrder>():ls;
+    }
+
+    public ArrayList<User> listVIP(int schoolId) {
+        ArrayList<User> rs = managerDao.listVIP(schoolId);
+        return rs == null?new ArrayList<User>():rs;
     }
 }
