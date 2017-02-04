@@ -1,5 +1,7 @@
 package Entity.Manager;
 
+import Utils.TimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,6 +28,7 @@ public class ChargingSystem {
     private int money;
     private int mtype; //类型
     private Long time; // 添加时间
+    private String strTime;
     private boolean isValid; // 有效
     private boolean isSettled; //结清
     private String info;
@@ -37,6 +40,7 @@ public class ChargingSystem {
         this.money = money;
         this.mtype = mtype;
         this.time = System.currentTimeMillis();
+        this.strTime = TimeFormat.format(this.time);
         this.isValid = true;
         this.isSettled = false;
     }
@@ -116,5 +120,13 @@ public class ChargingSystem {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public String getStrTime() {
+        return strTime;
+    }
+
+    public void setStrTime(String strTime) {
+        this.strTime = strTime;
     }
 }

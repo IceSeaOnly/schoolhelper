@@ -423,4 +423,14 @@ public class ManagerDao{
         session.getTransaction().commit();
         session.close();
     }
+
+    public List<ChargingSystem> listMyIncomes(int managerId) {
+        Session session = sessionFactory.openSession();
+        List<ChargingSystem>rs = session.createQuery("from ChargingSystem where mid = :M order by id desc")
+                .setParameter("M",managerId)
+                .setMaxResults(100)
+                .list();
+        session.close();
+        return rs;
+    }
 }

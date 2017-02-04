@@ -7,13 +7,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>本校VIP列表</title>
+    <title>我的收入</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+
 </head>
 <body>
 
@@ -22,21 +24,36 @@
         <!-- 你的html代码 -->
         <header class="bar bar-nav">
             <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
-            <h1 class="title">本校VIP列表</h1>
+            <jsp:include page="right_reload.jsp"/>
+            <h1 class="title">我的收入</h1>
         </header>
         <!-- 这里是页面内容区 begin-->
         <div class="content">
-            <c:forEach items="${list}" var="ls">
-                <div class="card">
-                    <div class="card-header">#${ls.id} ${ls.username}</div>
-                    <div class="card-content">
-                        <div class="card-content-inner">
-                            手机号:${ls.phone}<br>
-                            余额:￥<fmt:formatNumber value="${ls.my_money/100}" pattern="##.##" minFractionDigits="2" ></fmt:formatNumber>
-                        </div>
-                    </div>
+            <c:if test="${fn:length(ins) == 0}">
+                <div class="content-block" align="center">
+                    <p>暂无记录</p>
                 </div>
-            </c:forEach>
+            </c:if>
+            <div class="list-block media-list">
+                <ul>
+                    <c:forEach items="${ins}" var="in">
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media">
+                                <img src="${in.isValid?(in.isSettled?"http://image.binghai.site/data/f_60674854.jpg":"http://image.binghai.site/data/f_67083154.png"):"http://image.binghai.site/data/f_61284696.jpg"}http://image.binghai.site/data/f_60674854.jpg" style='width: 2.2rem;'>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title" >${in.info} <c:if test="${!in.isValid}"><span style="color:red">【无效】</span></c:if> </div>
+                                    <div class="item-after" style="color:green">+${in.money/100}</div>
+                                </div>
+                                <div class="item-subtitle">${in.strTime} 订单号${in.oid}</div>
+                            </div>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ul>
+            </div>
         </div>
         <!-- 这里是页面内容区 end-->
         <!-- 你的html代码 -->

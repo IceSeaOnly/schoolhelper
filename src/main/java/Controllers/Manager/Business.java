@@ -455,6 +455,9 @@ public class Business {
         return "manager/common_result";
     }
 
+    /**
+     * 客服
+     * */
     @RequestMapping("cservice")
     public String cservice(@RequestParam int managerId,
                            @RequestParam int schoolId,
@@ -473,6 +476,7 @@ public class Business {
 
 
     /**
+     * 客服接入
      * csid是int类型的本地会话序号，非Long型cid
      * */
     @RequestMapping("connect_service")
@@ -508,6 +512,9 @@ public class Business {
         }
     }
 
+    /**
+     * 充值订单列表
+     * */
     @RequestMapping("charge_list")
     public String charge_list(@RequestParam int managerId,
                               @RequestParam int schoolId,
@@ -519,6 +526,9 @@ public class Business {
         return "manager/charge_list";
     }
 
+    /**
+     * vip列表
+     * */
     @RequestMapping("vip_list")
     public String vip_list(@RequestParam int managerId,
                            @RequestParam int schoolId,
@@ -528,5 +538,16 @@ public class Business {
         map.put("managerId",managerId);
         map.put("schoolId",schoolId);
         return "manager/vip_list";
+    }
+
+    /**
+     * 我的收入
+     * */
+    @RequestMapping("my_incomes")
+    public String my_incomes(@RequestParam int managerId,
+                             ModelMap map){
+        List<ChargingSystem>ins = managerService.listMyIncomes(managerId);
+        map.put("ins",ins);
+        return "manager/my_incomes";
     }
 }

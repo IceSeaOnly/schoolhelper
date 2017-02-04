@@ -44,7 +44,9 @@
             <list>
                 <value>Entity.SchoolConfigs</value>
                 <value>Entity.Manager.Conversation</value>
+                <value>Entity.Manager.ChargingSystem</value>
                 <value>Entity.Manager.Log</value>
+                <value>Entity.Manager.PayLog</value>
                 <value>Entity.Manager.Reason</value>
                 <value>Entity.Manager.Manager</value>
                 <value>Entity.Manager.SchoolDist</value>

@@ -22,7 +22,6 @@
         <!-- 你的html代码 -->
         <header class="bar bar-nav">
             <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
-            <a href="" class="icon icon-menu pull-right"></a>
             <h1 class="title">本校充值订单列表</h1>
         </header>
         <!-- 这里是页面内容区 begin-->

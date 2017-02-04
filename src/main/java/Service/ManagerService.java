@@ -345,4 +345,9 @@ public class ManagerService {
         SchoolConfigs conf = userDao.getSchooBySchoolId(schoolId);
         managerDao.save(new ChargingSystem(managerId,orderId,conf.getEach_receive(),ChargingSystem.Ttype,"楼长收件所得"));
     }
+
+    public List<ChargingSystem> listMyIncomes(int managerId) {
+        List<ChargingSystem>res = managerDao.listMyIncomes(managerId);
+        return res == null?new ArrayList<ChargingSystem>():res;
+    }
 }
