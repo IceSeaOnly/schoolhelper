@@ -19,6 +19,9 @@ public class Ajax {
     @Resource
     ManagerService managerService;
 
+    /**
+     * 接单
+     * */
     @RequestMapping("take_order")
     @ResponseBody
     public String ajax_take_order(
@@ -28,12 +31,22 @@ public class Ajax {
         return String.valueOf(managerService.managerTakeOrder(managerId,schoolId,orderId));
     }
 
+    /**
+     * 取件成功
+     * */
     @RequestMapping("fetch_order")
     @ResponseBody
     public String fetch_order(
             @RequestParam int managerId,
             @RequestParam int schoolId,
             @RequestParam int orderId){
+        /**
+         * 管理分红、分取件费
+         * */
+        ExpressOrder order = managerService.getExpressOrderById(orderId);
+        if(order == null) return "false";
+        managerService.managerDividend(schoolId,order.getShouldPay(),orderId);
+        managerService.rewardFetchOrder(schoolId,managerId,orderId);
         return String.valueOf(managerService.managerFetchOrder(managerId,schoolId,orderId));
     }
 
@@ -60,6 +73,9 @@ public class Ajax {
             @RequestParam boolean result,
             @RequestParam int reasonId){
 
+        if(result)
+            /** 赏配送费 注意判别是否是楼长交接件，如果是，则不再分配*/
+            managerService.rewardSendOrder(managerId,schoolId,orderId);
         return String.valueOf(
                 managerService.updateExpressOrderResultReason(managerId,schoolId,orderId,result? ExpressOrder.SEND_SUCCESS:ExpressOrder.ORDER_SEND_FAILED,reasonId)
         );

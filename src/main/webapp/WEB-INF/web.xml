@@ -28,4 +28,8 @@
     <param-name>cservice_secret</param-name>
     <param-value>4d581a1c126daf131248fa89acc7c152</param-value>
   </context-param>
+  <context-param>
+    <param-name>pay_pwd</param-name>
+    <param-value>5wNA7Hxzz3hJJjhaqGJ0</param-value>
+  </context-param>
 </web-app>

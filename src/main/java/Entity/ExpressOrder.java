@@ -38,12 +38,12 @@ public class ExpressOrder {
     private boolean canceled; // 是否已经取消
     private int rider_id;//配送员id
     private String rider_name; //配送员名字
-    private boolean has_pay_to_rider;//是否已经跟配送员结算
     private int sendtime_id; // 配送时间属性id
     private int schoolId;
     private Long orderTimeStamp; // 下单时间戳
     private String courierNumber;//快递单号
     private int reason;//流程中出现问题的原因
+    private boolean isLLJJ;//是否是楼长交接件
 
 
     public String state_toString(){
@@ -141,12 +141,12 @@ public class ExpressOrder {
         this.shouldPay = shouldPay;
         this.rider_id = -1;
         this.rider_name = "未接单";
-        this.has_pay_to_rider = false;
         this.canceled = false;
         this.part = part;
         this.sendtime_id = sendtime_id;
         this.schoolId = scid;
         this.reason = 0;
+        this.isLLJJ = false;
     }
 
     public static int NORMAL_STATE = 0;
@@ -281,18 +281,6 @@ public class ExpressOrder {
         return shouldPay;
     }
 
-    public void setShouldPay(int shouldPay) {
-        this.shouldPay = shouldPay;
-    }
-
-    public boolean isHas_pay_to_rider() {
-        return has_pay_to_rider;
-    }
-
-    public void setHas_pay_to_rider(boolean has_pay_to_rider) {
-        this.has_pay_to_rider = has_pay_to_rider;
-    }
-
     public void setReceive_name(String receive_name) {
         this.receive_name = receive_name;
     }
@@ -368,4 +356,17 @@ public class ExpressOrder {
     public void setReason(int reason) {
         this.reason = reason;
     }
+
+    public boolean isLLJJ() {
+        return isLLJJ;
+    }
+
+    public void setLLJJ(boolean LLJJ) {
+        isLLJJ = LLJJ;
+    }
+
+    public void setShouldPay(int shouldPay) {
+        this.shouldPay = shouldPay;
+    }
+
 }

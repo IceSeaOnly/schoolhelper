@@ -271,6 +271,15 @@ public class ManagerDao{
         return rs;
     }
 
+    public List<Manager> listAllManagers(int scid) {
+        Session session = sessionFactory.openSession();
+        List<Manager> rs = session.createQuery("from Manager where id in (select managerId from SchoolDist where schoolId = :S)")
+                .setParameter("S",scid)
+                .list();
+        session.close();
+        return rs;
+    }
+
     public ArrayList<IndexItemEntity> listAllIndexEntity() {
         Session session = sessionFactory.openSession();
         ArrayList<IndexItemEntity> rs = (ArrayList<IndexItemEntity>) session.createQuery("from IndexItemEntity ").list();
@@ -401,5 +410,17 @@ public class ManagerDao{
                 .list();
         session.close();
         return rs;
+    }
+
+    public void clearReward(int omid, int orderId, int ttype) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.createQuery("update ChargingSystem set isValid = false where mid = :M and mtype  = :T and oid = :O")
+                .setParameter("M",omid)
+                .setParameter("T",ttype)
+                .setParameter("O",orderId)
+                .executeUpdate();
+        session.getTransaction().commit();
+        session.close();
     }
 }

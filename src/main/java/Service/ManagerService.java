@@ -1,6 +1,7 @@
 package Service;
 
 import Dao.ManagerDao;
+import Dao.UserDao;
 import Entity.*;
 import Entity.Manager.*;
 import Entity.User.User;
@@ -276,5 +277,72 @@ public class ManagerService {
     public ArrayList<User> listVIP(int schoolId) {
         ArrayList<User> rs = managerDao.listVIP(schoolId);
         return rs == null?new ArrayList<User>():rs;
+    }
+
+    /**
+     * 管理分红
+     * */
+    public void managerDividend(int schoolId,int sum,int orderId) {
+        // 列出该校所有管理
+        ArrayList<Manager>ms = (ArrayList<Manager>) managerDao.listAllManagers(schoolId);
+        // 为每个管理分红
+        for (int i = 0; i < ms.size(); i++) {
+            if(ms.get(i).getDividendRatio() > 0.00)
+                managerDao.save(new ChargingSystem(
+                        ms.get(i).getId(),
+                        orderId,
+                        (int)(sum*ms.get(i).getDividendRatio()),
+                        ChargingSystem.Ftype,
+                        "取件订单分红"));
+        }
+    }
+    /**
+     * 赏取件费
+     * */
+    @Resource
+    UserDao userDao;
+    public void rewardFetchOrder(int schoolId, int managerId,int orderId) {
+        SchoolConfigs conf = userDao.getSchooBySchoolId(schoolId);
+        if(conf != null){
+            userDao.save(new ChargingSystem(
+                    managerId,
+                    orderId,
+                    conf.getEach_fetch(),
+                    ChargingSystem.Qtype,
+                    "取件工资"));
+        }
+    }
+    /**
+     * 赏配送费
+     * */
+    public void rewardSendOrder(int managerId, int schoolId, int orderId) {
+        SchoolConfigs conf = userDao.getSchooBySchoolId(schoolId);
+        ExpressOrder e = userDao.getExpressOrderById(managerId,orderId);
+        if(e != null && !e.isLLJJ() && conf != null){
+            userDao.save(new ChargingSystem(
+                    managerId,
+                    orderId,
+                    conf.getEach_send(),
+                    ChargingSystem.Stype,
+                    "配送工资"));
+        }
+    }
+
+    /**
+     * 赏 转交费
+     * */
+    public void rewardT(int omid, int schoolId, int orderId) {
+        managerDao.clearReward(omid,orderId,ChargingSystem.Rtype);
+        SchoolConfigs conf = userDao.getSchooBySchoolId(schoolId);
+        managerDao.save(new ChargingSystem(omid,orderId,conf.getEach_give(),ChargingSystem.Ttype,"转交楼长所得"));
+    }
+
+    /**
+     * 赏 楼长接收费用
+     * */
+    public void rewardR(int managerId, int schoolId, int orderId) {
+        managerDao.clearReward(managerId,orderId,ChargingSystem.Ttype);
+        SchoolConfigs conf = userDao.getSchooBySchoolId(schoolId);
+        managerDao.save(new ChargingSystem(managerId,orderId,conf.getEach_receive(),ChargingSystem.Ttype,"楼长收件所得"));
     }
 }

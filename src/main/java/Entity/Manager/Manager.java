@@ -27,8 +27,12 @@ public class Manager {
     private boolean tmp_tag; //通用标记
     private String alipay;
     private String wxpay;
+    private String openId;
+    private double dividendRatio; // 分红比例
 
-    public Manager(String name, String phone, String pass,String ali,String wx) {
+    public Manager(String name, String phone, String pass,String ali,String wx,String openId,double dr) {
+        this.dividendRatio = dr;
+        this.openId = openId;
         this.alipay = ali;
         this.wxpay = wx;
         this.name = name;
@@ -153,5 +157,21 @@ public class Manager {
 
     public void setWxpay(String wxpay) {
         this.wxpay = wxpay;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public double getDividendRatio() {
+        return dividendRatio;
+    }
+
+    public void setDividendRatio(double dividendRatio) {
+        this.dividendRatio = dividendRatio;
     }
 }

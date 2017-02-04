@@ -6,6 +6,8 @@ import Utils.MD5;
 import Utils.TimeFormat;
 import org.junit.Test;
 
+import java.util.Scanner;
+
 /**
  * Created by Administrator on 2016/9/30.
  */
@@ -20,14 +22,20 @@ public class test_open_id {
     }
     @Test
     public void test(){
-        Long a = 122L;
-        System.out.println(a.intValue());
+
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String line = null;
+        while ((line=sc.nextLine())!= null){
+            StringBuilder sb = new StringBuilder(line);
+            sb.reverse();
+            System.out.print(sb.toString());
+        }
         String openid = "oz1S1v_7W7O1t-KxfdFK5Sk6eJVs";
-        new NoticeService()
-                .ReservationService("第一句话","这里是内容","女人","晚上3点半","潘金莲","你看着给","祝玩得愉快",openid,"http://www.binghai.site");
+//        new NoticeService()
+//                .ReservationService("第一句话","这里是内容","女人","晚上3点半","潘金莲","你看着给","祝玩得愉快",openid,"http://www.binghai.site");
     }
     @Test
     public void md5(){

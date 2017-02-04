@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -236,8 +237,13 @@ public class Business {
                     Manager m = managerService.getManagerById(managerId);
                     it.setRider_id(m.getId());
                     it.setRider_name(m.getName());
+                    it.setLLJJ(true); //标记为楼长交接件
                     managerService.update(it);
                     orders.add(it);
+
+                    /** 赏工资*/
+                    managerService.rewardT(omid,schoolId,orderId);
+                    managerService.rewardR(managerId,schoolId,orderId);
                 }
         }
         School school = managerService.getSchoolById(schoolId);
@@ -420,6 +426,8 @@ public class Business {
                               @RequestParam String phone,
                               @RequestParam String wxpay,
                               @RequestParam String alipay,
+                              @RequestParam String openid,
+                              @RequestParam double dr,
                               ModelMap map
                               ){
         if(!managerService.managerAccess2Privilege(managerId,"work_group")){
@@ -431,7 +439,14 @@ public class Business {
             map.put("notice","手机号已存在，创建失败！");
             return "manager/common_result";
         }
-        Manager m = (Manager) managerService.merge(new Manager(name,phone, MD5.encryption("123456"),alipay,wxpay));
+        if(dr > 1.00 || dr <0.00){
+            map.put("result",false);
+            map.put("is_url",false);
+            map.put("notice","分红比例须F为两位小数，且: 1.00 < F <= 0.00");
+            return "manager/common_result";
+        }
+        Manager m = (Manager) managerService.merge(
+                new Manager(name,phone, MD5.encryption("123456"),alipay,wxpay,openid,dr));
         managerService.save(new PrivilegeDist(m.getId(),18));
         map.put("result",true);
         map.put("notice","添加成功,初始密码123456，请注意分配学校和权限");
