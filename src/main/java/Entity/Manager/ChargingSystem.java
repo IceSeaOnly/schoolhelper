@@ -29,8 +29,9 @@ public class ChargingSystem {
     private int mtype; //类型
     private Long time; // 添加时间
     private String strTime;
-    private boolean isValid; // 有效
-    private boolean isSettled; //结清
+    private boolean isValid; // 有效标签，置为false时，意味着该笔收入因故无效
+    private boolean isSettled; //结清标签
+    private boolean checked; //统计时的虚拟勾选标签,选中后即进入结算中间态，isSettle置成true后，失去意义
     private String info;
 
     public ChargingSystem(int mid,int oid, int money, int mtype,String info) {
@@ -43,12 +44,19 @@ public class ChargingSystem {
         this.strTime = TimeFormat.format(this.time);
         this.isValid = true;
         this.isSettled = false;
+        this.checked = false;
     }
 
     public ChargingSystem() {
     }
 
+    public boolean isChecked() {
+        return checked;
+    }
 
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
 
     public int getId() {
         return id;

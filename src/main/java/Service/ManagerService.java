@@ -5,10 +5,13 @@ import Dao.UserDao;
 import Entity.*;
 import Entity.Manager.*;
 import Entity.User.User;
+import Utils.MD5;
 import Utils.TimeFormat;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
+import javax.xml.ws.spi.http.HttpContext;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -349,5 +352,29 @@ public class ManagerService {
     public List<ChargingSystem> listMyIncomes(int managerId) {
         List<ChargingSystem>res = managerDao.listMyIncomes(managerId);
         return res == null?new ArrayList<ChargingSystem>():res;
+    }
+
+    private static Long lastLogs = null;
+    public ArrayList<PayLog> makePayLogs() {
+        if(lastLogs == null)
+            lastLogs = System.currentTimeMillis();
+        if(System.currentTimeMillis() - lastLogs > 1800000){
+            ArrayList<PayLog> rs = new ArrayList<PayLog>();
+            lastLogs = System.currentTimeMillis();
+            ArrayList<Manager>ms = (ArrayList<Manager>) managerDao.listAllManagers();
+            for (int i = 0; i < ms.size(); i++) { //对所有管理员逐一统计
+                PayLog t = managerDao.payLog(ms.get(i).getId(),ms.get(i).getOpenId(),ms.get(i).getName());
+                if(t != null){
+                    rs.add(t);
+                }
+            }
+            return rs;
+        }
+        ArrayList<PayLog> rs = managerDao.listPayLogs();
+        return rs==null?new ArrayList<PayLog>():rs;
+    }
+
+    public PayLog getPayLogById(int orderId) {
+        return managerDao.getPayLogById(orderId);
     }
 }

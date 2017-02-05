@@ -14,9 +14,13 @@ public class AjaxFilter implements HandlerInterceptor {
 
     public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object o) throws Exception {
 
-        if(req.getParameter("managerId") == null || req.getParameter("token") == null)
+        if(req.getParameter("managerId") == null || req.getParameter("token") == null){
+            System.out.println("ajax: parameter missing");
             return false;
+        }
+
         if(!AppCgi.validateToken(Integer.parseInt(req.getParameter("managerId")),req.getParameter("token"))){
+            System.out.println("ajax: validate failed");
             return false;
         }
         return true;

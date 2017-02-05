@@ -29,8 +29,10 @@ public class Manager {
     private String wxpay;
     private String openId;
     private double dividendRatio; // 分红比例
+    private String pdesc; //对ta的描述
 
-    public Manager(String name, String phone, String pass,String ali,String wx,String openId,double dr) {
+    public Manager(String name, String phone, String pass,String ali,String wx,String openId,double dr,String descStr) {
+        this.pdesc = descStr;
         this.dividendRatio = dr;
         this.openId = openId;
         this.alipay = ali;
@@ -173,5 +175,13 @@ public class Manager {
 
     public void setDividendRatio(double dividendRatio) {
         this.dividendRatio = dividendRatio;
+    }
+
+    public String getPdesc() {
+        return pdesc;
+    }
+
+    public void setPdesc(String pdesc) {
+        this.pdesc = pdesc;
     }
 }

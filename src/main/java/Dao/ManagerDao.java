@@ -5,6 +5,7 @@ import Entity.ExpressOrder;
 import Entity.Manager.*;
 import Entity.School;
 import Entity.User.User;
+import Utils.TimeFormat;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -432,5 +433,51 @@ public class ManagerDao{
                 .list();
         session.close();
         return rs;
+    }
+
+    /**
+     * 生成管理员id为mid的工资单
+     * */
+    public PayLog payLog(int mid,String openId,String name) {
+        PayLog p = null;
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        // 做标记
+        int eff = session.createQuery("update ChargingSystem set checked = true where mid = :M and isValid = true and isSettled = false ")
+                .setParameter("M",mid).executeUpdate();
+        if (eff != 0){
+            // 统计
+            Long sum = (Long) session.createQuery("select sum(money) from ChargingSystem where mid = :M and isValid = true and checked = true and isSettled = false ")
+                    .setParameter("M",mid).uniqueResult();
+            // 标记已结算
+            session.createQuery("update ChargingSystem set isSettled = true  where mid = :M and isValid = true and checked = true and isSettled = false ")
+                    .setParameter("M",mid).executeUpdate();
+            p = (PayLog) merge(
+                    new PayLog(name,openId,
+                            Long.parseLong(mid+""+System.currentTimeMillis()),
+                            sum.intValue(),
+                            name+",id:"+mid+","+ TimeFormat.format(System.currentTimeMillis()),
+                            "pass_not_visiable",mid));
+        }
+        session.getTransaction().commit();
+        session.close();
+        return p;
+    }
+
+    public PayLog getPayLogById(int orderId) {
+        Session session = sessionFactory.openSession();
+        PayLog p = (PayLog) session.createQuery("from PayLog where id = :O")
+                .setParameter("O",orderId)
+                .uniqueResult();
+        session.close();
+        return p;
+    }
+
+    public ArrayList<PayLog> listPayLogs() {
+        Session session = sessionFactory.openSession();
+        ArrayList<PayLog>ps = (ArrayList<PayLog>) session.createQuery("from PayLog where hasPay = false ")
+                .list();
+        session.close();
+        return ps;
     }
 }

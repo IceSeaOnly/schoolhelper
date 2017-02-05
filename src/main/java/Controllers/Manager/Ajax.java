@@ -1,13 +1,19 @@
 package Controllers.Manager;
 
 import Entity.ExpressOrder;
+import Entity.Manager.PayLog;
 import Service.ManagerService;
+import Utils.FailedAnswer;
+import Utils.HttpUtils;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by Administrator on 2017/1/9.
@@ -118,7 +124,8 @@ public class Ajax {
         }
         return "false";
     }
-        @RequestMapping("delete_manager")
+
+    @RequestMapping("delete_manager")
     @ResponseBody
     public String delete_manager(@RequestParam int managerId,
                                     @RequestParam int mid){
@@ -129,5 +136,35 @@ public class Ajax {
         return "false";
     }
 
+    @RequestMapping("pay_to_p")
+    @ResponseBody
+    public String pay2p(@RequestParam int managerId, @RequestParam int orderId, HttpSession session){
+        JSONObject rs = new JSONObject();
+        if(managerService.managerAccess2Privilege(managerId,"gzqs")){
+            PayLog p = managerService.getPayLogById(orderId);
+            if(p == null) return "参数错误，非法调用";
+            if(p.isHasPay()) return "该订单已支付，无需重复支付";
+            String url = session.getServletContext().getInitParameter("pay_url");
+            String pass = session.getServletContext().getInitParameter("pay_pwd");
+            p.makePass(pass);
+            // 发起支付
+            String res = HttpUtils.sendPost(url,"passwd="+p.getPasswd()+"&orderid="+p.getTradeNo()+"&amount="+p.getAmount()+"&openid="+p.getOpenId()+"&desc="+p.getPdesc());
+            if(res.equals("result_code:SUCCESS")){
+                // 支付成功，标记
+                p.setHasPay(true);
+                managerService.update(p);
+                rs.put("result","支付成功");
+                return rs.toJSONString();
+            }else{
+                // 支付失败，更换支付单号
+                p.reMakeTradeNo();
+                managerService.update(p);
+                rs.put("result",res);
+                return rs.toJSONString();
+            }
+        }
 
+        rs.put("result","财务服务器出了一点问题...请稍后重试");
+        return rs.toJSONString();
+    }
 }

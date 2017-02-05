@@ -40,7 +40,6 @@ public class test_open_id {
     @Test
     public void md5(){
         String wd = "bone_client_web://123456";
-        System.out.println(wd.substring(18));
-        System.out.println(System.currentTimeMillis());
+        System.out.println(MD5.encryption(String.valueOf(11486303952995L)+100+"5wNA7Hxzz3hJJjhaqGJ0"));
     }
 }

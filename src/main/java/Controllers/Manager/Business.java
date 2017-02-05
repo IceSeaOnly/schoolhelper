@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -427,6 +425,7 @@ public class Business {
                               @RequestParam String wxpay,
                               @RequestParam String alipay,
                               @RequestParam String openid,
+                              @RequestParam String pdesc, //描述
                               @RequestParam double dr,
                               ModelMap map
                               ){
@@ -446,7 +445,7 @@ public class Business {
             return "manager/common_result";
         }
         Manager m = (Manager) managerService.merge(
-                new Manager(name,phone, MD5.encryption("123456"),alipay,wxpay,openid,dr));
+                new Manager(name,phone, MD5.encryption("123456"),alipay,wxpay,openid,dr,pdesc));
         managerService.save(new PrivilegeDist(m.getId(),18));
         map.put("result",true);
         map.put("notice","添加成功,初始密码123456，请注意分配学校和权限");
@@ -549,5 +548,20 @@ public class Business {
         List<ChargingSystem>ins = managerService.listMyIncomes(managerId);
         map.put("ins",ins);
         return "manager/my_incomes";
+    }
+
+    /**
+     * 工资清算
+     * */
+    @RequestMapping("gzqs")
+    public String gzqs(@RequestParam int managerId,
+                       ModelMap map){
+        if(managerService.managerAccess2Privilege(managerId,"gzqs")){
+            ArrayList<PayLog>payLogs = managerService.makePayLogs();
+            map.put("logs",payLogs);
+        }else{
+            return permissionDeny(map);
+        }
+        return "manager/gzqs";
     }
 }
