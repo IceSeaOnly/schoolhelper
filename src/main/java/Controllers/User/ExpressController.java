@@ -270,13 +270,18 @@ public class ExpressController {
 
         /**
          * 2016/9/19 关闭首单免费机制
+         * 2017/2/7 可控制免费机制
          * */
-//        cost = FirstDiscount(user, express_phone, sendto_phone, cost);
+        SchoolConfigs sc = userService.getSchoolConfBySchoolId(user.getSchoolId());
+        if(sc.isFirstDiscount())
+            cost = FirstDiscount(user, express_phone, sendto_phone, cost);
 
         /**
          * 2016/9/30 满十减一
+         * 2017/2/7 可控制满十减一
          * */
-        cost = IF10THENFREE(user, cost, session);
+        if(sc.isIfTenThenFree())
+            cost = IF10THENFREE(user, cost, session);
 
         String orderKey = MD5.encryption(System.currentTimeMillis() + user.getId() + user.getPhone());
 
