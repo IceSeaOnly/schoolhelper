@@ -1,12 +1,17 @@
 package Controllers.Manager;
 
 import Entity.ExpressOrder;
+import Entity.Manager.Manager;
 import Entity.Manager.PayLog;
+import Entity.SchoolConfigs;
+import Entity.SysConfigs;
 import Service.ManagerService;
+import Service.UserService;
 import Utils.FailedAnswer;
 import Utils.HttpUtils;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,6 +29,8 @@ public class Ajax {
 
     @Resource
     ManagerService managerService;
+    @Resource
+    UserService userService;
 
     /**
      * 接单
@@ -166,5 +173,58 @@ public class Ajax {
 
         rs.put("result","财务服务器出了一点问题...请稍后重试");
         return rs.toJSONString();
+    }
+
+    @RequestMapping("update_salary_conf")
+    @ResponseBody
+    public String update_salary_conf(@RequestParam int pid,@RequestParam double val,@RequestParam int managerId){
+        if(managerService.managerAccess2Privilege(managerId,"xtsz")){
+            if(val>=0 && val <1){
+                Manager manager = managerService.getManagerById(pid);
+                if(manager == null) return "非法操作";
+                manager.setDividendRatio(val);
+                managerService.update(manager);
+                return "更新成功";
+            }else return "输入不规范，请参看说明";
+        }
+        return "无权限操作";
+    }
+
+    @RequestMapping("hand_controll_change")
+    @ResponseBody
+    public String hand_controll_change(@RequestParam int managerId,
+                                       @RequestParam int schoolId){
+        if(managerService.managerAccess2Privilege(managerId,"xtsz")){
+            SchoolConfigs sc = userService.getSchoolConfBySchoolId(schoolId);
+            sc.setHand_close(!sc.isHand_close());
+            managerService.update(sc);
+            return sc.isHand_close()?"系统已停止接单":"系统正在自动控制";
+        }
+        return "无权操作";
+    }
+    @RequestMapping("firstDiscountChange")
+    @ResponseBody
+    public String firstDiscountChange(@RequestParam int managerId,
+                                       @RequestParam int schoolId){
+        if(managerService.managerAccess2Privilege(managerId,"xtsz")){
+            SchoolConfigs sc = userService.getSchoolConfBySchoolId(schoolId);
+            sc.setFirstDiscount(!sc.isFirstDiscount());
+            managerService.update(sc);
+            return sc.isFirstDiscount()?"已启用首单优惠":"已关闭首单优惠";
+        }
+        return "无权操作";
+    }
+
+    @RequestMapping("ifTenThenFree")
+    @ResponseBody
+    public String ifTenThenFree(@RequestParam int managerId,
+                                       @RequestParam int schoolId){
+        if(managerService.managerAccess2Privilege(managerId,"xtsz")){
+            SchoolConfigs sc = userService.getSchoolConfBySchoolId(schoolId);
+            sc.setIfTenThenFree(!sc.isIfTenThenFree());
+            managerService.update(sc);
+            return sc.isIfTenThenFree()?"已启用满十减一":"已关闭满十减一";
+        }
+        return "无权操作";
     }
 }

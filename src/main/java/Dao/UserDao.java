@@ -217,7 +217,7 @@ public class UserDao {
     }
 
 
-    public SchoolConfigs getSchooBySchoolId(int sid) {
+    public SchoolConfigs getSchoolConfBySchoolId(int sid) {
         Session session = sessionFactory.openSession();
         SchoolConfigs sc = (SchoolConfigs) session.createQuery("from SchoolConfigs where schoolId = :S")
                 .setParameter("S",sid)

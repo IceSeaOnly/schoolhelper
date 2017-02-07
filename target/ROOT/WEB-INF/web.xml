@@ -32,4 +32,8 @@
     <param-name>pay_pwd</param-name>
     <param-value>5wNA7Hxzz3hJJjhaqGJ0</param-value>
   </context-param>
+  <context-param>
+    <param-name>pay_url</param-name>
+    <param-value>http://weixin.qdxiaogutou.com/binghai_pay2p.php</param-value>
+  </context-param>
 </web-app>

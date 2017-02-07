@@ -5,13 +5,10 @@ import Dao.UserDao;
 import Entity.*;
 import Entity.Manager.*;
 import Entity.User.User;
-import Utils.MD5;
 import Utils.TimeFormat;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletContext;
-import javax.xml.ws.spi.http.HttpContext;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -305,7 +302,7 @@ public class ManagerService {
     @Resource
     UserDao userDao;
     public void rewardFetchOrder(int schoolId, int managerId,int orderId) {
-        SchoolConfigs conf = userDao.getSchooBySchoolId(schoolId);
+        SchoolConfigs conf = userDao.getSchoolConfBySchoolId(schoolId);
         if(conf != null){
             userDao.save(new ChargingSystem(
                     managerId,
@@ -319,7 +316,7 @@ public class ManagerService {
      * 赏配送费
      * */
     public void rewardSendOrder(int managerId, int schoolId, int orderId) {
-        SchoolConfigs conf = userDao.getSchooBySchoolId(schoolId);
+        SchoolConfigs conf = userDao.getSchoolConfBySchoolId(schoolId);
         ExpressOrder e = userDao.getExpressOrderById(managerId,orderId);
         if(e != null && !e.isLLJJ() && conf != null){
             userDao.save(new ChargingSystem(
@@ -336,7 +333,7 @@ public class ManagerService {
      * */
     public void rewardT(int omid, int schoolId, int orderId) {
         managerDao.clearReward(omid,orderId,ChargingSystem.Rtype);
-        SchoolConfigs conf = userDao.getSchooBySchoolId(schoolId);
+        SchoolConfigs conf = userDao.getSchoolConfBySchoolId(schoolId);
         managerDao.save(new ChargingSystem(omid,orderId,conf.getEach_give(),ChargingSystem.Ttype,"转交楼长所得"));
     }
 
@@ -345,7 +342,7 @@ public class ManagerService {
      * */
     public void rewardR(int managerId, int schoolId, int orderId) {
         managerDao.clearReward(managerId,orderId,ChargingSystem.Ttype);
-        SchoolConfigs conf = userDao.getSchooBySchoolId(schoolId);
+        SchoolConfigs conf = userDao.getSchoolConfBySchoolId(schoolId);
         managerDao.save(new ChargingSystem(managerId,orderId,conf.getEach_receive(),ChargingSystem.Ttype,"楼长收件所得"));
     }
 

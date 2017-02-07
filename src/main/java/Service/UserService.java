@@ -45,7 +45,7 @@ public class UserService {
 
     // 得到首单优惠的价格
     public int getFirstOrderCost(int cost,int sid) {
-        SchoolConfigs sc = userDao.getSchooBySchoolId(sid);
+        SchoolConfigs sc = getSchoolConfBySchoolId(sid);
         int res = sc.getFirst_cost();
         return res <cost ? cost : res;
     }
@@ -78,15 +78,20 @@ public class UserService {
         return userDao.getExpressOrderById(user.getId(), id);
     }
 
+
     public String getSchoolShopUrl(int sid) {
-        SchoolConfigs sc = userDao.getSchooBySchoolId(sid);
+        SchoolConfigs sc = getSchoolConfBySchoolId(sid);
         if (sc.getShop_url() == null) return "javascript:alert('正在接入中，敬请期待。');";
         if (sc.getShop_url().length() == 0) return "javascript:alert('正在接入中，敬请期待。');";
         return "document.location='" + sc.getShop_url()+ "';";
     }
 
+    public SchoolConfigs getSchoolConfBySchoolId(int sid) {
+        return userDao.getSchoolConfBySchoolId(sid);
+    }
+
     public int ExpressServiceRunning(int sid) {
-        SchoolConfigs sc = userDao.getSchooBySchoolId(sid);
+        SchoolConfigs sc = userDao.getSchoolConfBySchoolId(sid);
         int nh = new Date(System.currentTimeMillis()).getHours();
         int nm = new Date(System.currentTimeMillis()).getMinutes();
 
@@ -100,7 +105,7 @@ public class UserService {
     }
 
     public String getServiceStopReason(int state,int sid) {
-        SchoolConfigs sc = userDao.getSchooBySchoolId(sid);
+        SchoolConfigs sc = getSchoolConfBySchoolId(sid);
         if (state == 1)
             return sc.getHand_close_info();
         return sc.getAuto_close_info();

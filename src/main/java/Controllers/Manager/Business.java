@@ -4,9 +4,11 @@ import Entity.ChargeVipOrder;
 import Entity.ExpressOrder;
 import Entity.Manager.*;
 import Entity.School;
+import Entity.SchoolConfigs;
 import Entity.User.User;
 import Service.ManagerService;
 import Service.NoticeService;
+import Service.UserService;
 import Utils.HttpUtils;
 import Utils.MD5;
 import Utils.SuccessAnswer;
@@ -33,6 +35,8 @@ public class Business {
     ManagerService managerService;
     @Resource
     NoticeService noticeService;
+    @Resource
+    UserService userService;
 
     /**
      * 管理员请求权限列表
@@ -564,4 +568,76 @@ public class Business {
         }
         return "manager/gzqs";
     }
+
+    /**
+     * 系统设置
+     * */
+    @RequestMapping("xtsz")
+    public String xtsz(@RequestParam int managerId,@RequestParam int schoolId,
+                       ModelMap map){
+        if(managerService.managerAccess2Privilege(managerId,"xtsz") && managerService.managerAccess2School(managerId,schoolId)){
+            map.put("managerId",managerId);
+            map.put("schoolId",schoolId);
+            map.put("schoolName",managerService.getSchoolById(schoolId).getSchoolName());
+            return "manager/sys_setting";
+        }
+        else return permissionDeny(map);
+    }
+
+    /**
+     * 本校其他设置
+     * */
+    @RequestMapping("update_sys_setting")
+    public String update_sys_setting(@RequestParam int managerId,
+                                     @RequestParam int schoolId,
+                                     @RequestParam int fristCost,
+                                     @RequestParam int qs, //取件费
+                                     @RequestParam int ss, //送件费
+                                     @RequestParam int zjs,//转交楼长
+                                     @RequestParam int jss,//楼长接收
+                                     @RequestParam int aus,//自动开始
+                                     @RequestParam int ausd,//自动结束
+                                     @RequestParam String ausn,//自动停止说明
+                                     @RequestParam String ausdn,//手动停止说明
+                                     @RequestParam String shopUrl,//校园微店
+                                     ModelMap map
+                                     ){
+        if(!managerService.managerAccess2Privilege(managerId,"xtsz")||!managerService.managerAccess2School(managerId,schoolId)){
+            return permissionDeny(map);
+        }
+        if(biggerThan0(qs,ss,zjs,jss)){
+            SchoolConfigs sc = userService.getSchoolConfBySchoolId(schoolId);
+            sc.setFirst_cost(fristCost);
+            sc.setEach_fetch(qs);
+            sc.setEach_send(ss);
+            sc.setEach_give(zjs);
+            sc.setEach_receive(jss);
+            sc.setAuto_start(aus);
+            sc.setAuto_close(ausd);
+            sc.setAuto_close_info(ausn);
+            sc.setHand_close_info(ausdn);
+            sc.setShop_url(shopUrl);
+            managerService.update(sc);
+            map.put("result",true);
+            map.put("is_url",false);
+            map.put("notice","更新完成");
+            return "manager/common_result";
+        }else{
+            map.put("result",false);
+            map.put("is_url",false);
+            map.put("notice","参数格式不合法：必须是大于0的正整数");
+            return "manager/common_result";
+        }
+    }
+
+    /**
+     * 大于0判断
+     * */
+    private boolean biggerThan0(int... s) {
+        for (int i = 0; i < s.length; i++) {
+            if(s[i]<1) return false;
+        }
+        return true;
+    }
+
 }

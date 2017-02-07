@@ -20,11 +20,12 @@ public class SchoolConfigs {
     private int auto_start;
     private int auto_close;
     private boolean hand_close;
+    private boolean firstDiscount;//首单优惠
+    private boolean ifTenThenFree;//满十减一
     private String auto_close_info;
     private String hand_close_info;
     private String refund_url;
     private int sumIncome; // 总收入
-    private int unDistribution; //未结算总金额
 
     private int each_fetch; //每次取件金额
     private int each_send; // 每次送达金额
@@ -33,8 +34,9 @@ public class SchoolConfigs {
 
 
     public SchoolConfigs(int schoolId) {
+        this.ifTenThenFree = false;
+        this.firstDiscount = false;
         this.sumIncome = 0;
-        this.unDistribution = 0;
         this.schoolId = schoolId;
         this.first_cost = 99;
         this.shop_url = "";
@@ -138,13 +140,6 @@ public class SchoolConfigs {
         this.sumIncome = sumIncome;
     }
 
-    public int getUnDistribution() {
-        return unDistribution;
-    }
-
-    public void setUnDistribution(int unDistribution) {
-        this.unDistribution = unDistribution;
-    }
 
     public int getEach_fetch() {
         return each_fetch;
@@ -176,5 +171,21 @@ public class SchoolConfigs {
 
     public void setEach_receive(int each_receive) {
         this.each_receive = each_receive;
+    }
+
+    public boolean isFirstDiscount() {
+        return firstDiscount;
+    }
+
+    public void setFirstDiscount(boolean firstDiscount) {
+        this.firstDiscount = firstDiscount;
+    }
+
+    public boolean isIfTenThenFree() {
+        return ifTenThenFree;
+    }
+
+    public void setIfTenThenFree(boolean ifTenThenFree) {
+        this.ifTenThenFree = ifTenThenFree;
     }
 }
