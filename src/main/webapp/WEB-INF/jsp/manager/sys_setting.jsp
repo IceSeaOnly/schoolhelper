@@ -17,7 +17,7 @@
     <script>
 
         function update_salary_config(pid) {
-            var nt = $("salary_conf_" + pid).val()
+            var nt = $("#salary_conf_" + pid).val()
             $.get("/ajax/update_salary_conf.do?token=${Stoken}&managerId=${managerId}&pid=" + pid + "&val=" + nt, function (data, status) {
                 if (status == "success")
                     $.alert(data);
@@ -84,7 +84,7 @@
             </div>
             <div class="list-block">
                 <ul>
-                    <c:forEach items="ms" var="per">
+                    <c:forEach items="${ms}" var="per">
                         <li>
                             <div class="item-content">
                                 <div class="item-inner">
@@ -132,7 +132,7 @@
                     </c:forEach>
                 </ul>
             </div>
-            <form action="addVipMeal.do" method="post">
+            <form action="addVipMeal.do" method="post" id="form_vip">
                 <input name="managerId" value="${managerId}" type="hidden"/>
                 <input name="token" value="${Stoken}" type="hidden"/>
                 <input name="schoolId" value="${schoolId}" type="hidden"/>
@@ -161,7 +161,7 @@
                 </ul>
             </div>
             <div class="content-block">
-                <p><a href="javascript:this.form.submit()" class="button button-big">添加</a></p>
+                <p><a href="javascript:$('#form_vip').submit()" class="button button-big">添加</a></p>
             </div>
             </form>
         </div>
@@ -242,7 +242,7 @@
                     </li>
                 </ul>
             </div>
-            <form action="update_sys_setting.do" method="post">
+            <form action="update_sys_setting.do" method="post" id="form_set">
                 <input name="managerId" value="${managerId}" type="hidden"/>
                 <input name="token" value="${Stoken}" type="hidden"/>
                 <input name="schoolId" value="${schoolId}" type="hidden"/>
@@ -351,7 +351,7 @@
                     </ul>
                 </div>
                 <div class="content-block">
-                    <p><a href="#" class="button button-big">更新</a></p>
+                    <p><a href="javascript:$('#form_set').submit()" class="button button-big">更新</a></p>
                 </div>
             </form>
         </div>
@@ -367,6 +367,9 @@
             <h1 class='title'>配置本校区域分配</h1>
         </header>
         <div class="content">
+            <div class="content-padded">
+                <p>· 一旦添加<span style="color:red">暂不可删除</span></p>
+            </div>
             <div class="list-block media-list">
                 <ul>
                     <c:forEach items="${parts}" var="part">
@@ -382,7 +385,7 @@
                     </c:forEach>
                 </ul>
             </div>
-            <form action="addSchoolPart.do" method="post">
+            <form action="addSchoolPart.do" method="post" id="form_part">
                 <input name="managerId" value="${managerId}" type="hidden"/>
                 <input name="token" value="${Stoken}" type="hidden"/>
                 <input name="schoolId" value="${schoolId}" type="hidden"/>
@@ -411,7 +414,7 @@
                 </ul>
             </div>
             <div class="content-block">
-                <p><a href="javascript:this.form.submit()" class="button button-big">添加</a></p>
+                <p><a href="javascript:$('#form_part').submit()" class="button button-big">添加</a></p>
             </div>
             </form>
         </div>

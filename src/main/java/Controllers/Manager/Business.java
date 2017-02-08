@@ -649,6 +649,8 @@ public class Business {
         if(managerService.managerAccess2Privilege(managerId,"xyxx")&&managerService.managerAccess2School(managerId,schoolId)){
             ArrayList<SysMsg>msgs = userService.getAllSystemMsg(schoolId);
             map.put("msgs",msgs);
+            map.put("schoolId",schoolId);
+            map.put("managerId",managerId);
             return "manager/schoolNoticeList";
         }else{
             return permissionDeny(map);
@@ -664,7 +666,7 @@ public class Business {
         if(managerService.managerAccess2Privilege(managerId,"xyxx")&&managerService.managerAccess2School(managerId,schoolId)){
             SysMsg msg = managerService.publis_notice(schoolId,managerId,title,content);
             noticeService.publishNotice(msg);
-            map.put("result",false);
+            map.put("result",true);
             map.put("is_url",false);
             map.put("notice","发布任务已经在执行了");
             return "manager/common_result";
@@ -682,7 +684,7 @@ public class Business {
                 map.put("is_url",false);
                 map.put("notice","赠送比例不得大于10%,整数");
             }else{
-                map.put("result",false);
+                map.put("result",true);
                 map.put("is_url",false);
                 map.put("notice","添加成功");
                 managerService.save(new ChargeVip(pay,gift,schoolId));
@@ -698,7 +700,7 @@ public class Business {
                                 @RequestParam int schoolId,@RequestParam String pname,@RequestParam int ppay,ModelMap map){
         if(managerService.managerAccess2Privilege(managerId,"xyxx")&&managerService.managerAccess2School(managerId,schoolId)){
             managerService.save(new SendPart(pname,ppay,schoolId));
-            map.put("result",false);
+            map.put("result",true);
             map.put("is_url",false);
             map.put("notice","添加成功");
             return "manager/common_result";

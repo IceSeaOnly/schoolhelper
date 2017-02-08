@@ -11,9 +11,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f61553a9-0e16-4d1e-a6a1-00c903410e29" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/adBusiness.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT.war" afterPath="$PROJECT_DIR$/target/ROOT.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Controllers/User/ExpressController.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Controllers/User/ExpressController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Controllers/User/UserCenter.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Controllers/User/UserCenter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Dao/ManagerDao.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Dao/ManagerDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Dao/UserDao.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Dao/UserDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Entity/ChargeVip.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Entity/ChargeVip.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Entity/SysMsg.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Entity/SysMsg.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Service/ManagerService.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Service/ManagerService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Service/NoticeService.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Service/NoticeService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Service/UserService.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/Service/UserService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Controllers/User/ExpressController.class" afterPath="$PROJECT_DIR$/target/classes/Controllers/User/ExpressController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Controllers/User/UserCenter.class" afterPath="$PROJECT_DIR$/target/classes/Controllers/User/UserCenter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Dao/ManagerDao.class" afterPath="$PROJECT_DIR$/target/classes/Dao/ManagerDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Dao/UserDao.class" afterPath="$PROJECT_DIR$/target/classes/Dao/UserDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Entity/ChargeVip.class" afterPath="$PROJECT_DIR$/target/classes/Entity/ChargeVip.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Entity/SysMsg.class" afterPath="$PROJECT_DIR$/target/classes/Entity/SysMsg.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Service/ManagerService.class" afterPath="$PROJECT_DIR$/target/classes/Service/ManagerService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Service/NoticeService.class" afterPath="$PROJECT_DIR$/target/classes/Service/NoticeService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Service/UserService.class" afterPath="$PROJECT_DIR$/target/classes/Service/UserService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/adBusiness.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/adBusiness.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/schoolNoticeList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/schoolNoticeList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/sys_setting.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/sys_setting.jsp" />
     </list>
     <ignored path="schoolhelper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,61 +61,21 @@
       <file leaf-file-name="Business.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="709" column="31" selection-start-line="709" selection-start-column="21" selection-end-line="709" selection-end-column="31" />
+            <state relative-caret-position="229">
+              <caret line="652" column="43" selection-start-line="652" selection-start-column="43" selection-end-line="652" selection-end-column="43" />
               <folding>
-                <element signature="e#26866#26867#0" expanded="true" />
-                <element signature="e#26909#26910#0" expanded="true" />
+                <element signature="e#26949#26950#0" expanded="true" />
+                <element signature="e#26992#26993#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adBusiness.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/adBusiness.jsp">
+      <file leaf-file-name="schoolNoticeList.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/schoolNoticeList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="740">
-              <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="demo_tpl.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/demo_tpl.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="26" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Service/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChargeVip.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Entity/ChargeVip.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SchoolConfigs.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Entity/SchoolConfigs.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="25" column="34" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="34" />
+            <state relative-caret-position="240">
+              <caret line="58" column="56" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -160,7 +141,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/schoolNotice.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Api.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/work_group.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/schoolNoticeList.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Dao/NoticeDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/Service/NoticeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/ChargeVip.java" />
@@ -171,8 +151,9 @@
         <option value="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/sys_setting.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/adBusiness.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/schoolNoticeList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
       </list>
     </option>
   </component>
@@ -255,6 +236,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1155,7 +1150,7 @@
       <workItem from="1486033500040" duration="1543000" />
       <workItem from="1486102994951" duration="18272000" />
       <workItem from="1486287718273" duration="32543000" />
-      <workItem from="1486560149163" duration="3725000" />
+      <workItem from="1486560149163" duration="6450000" />
     </task>
     <task id="LOCAL-00001" summary="删除原有管理员、骑手模块">
       <created>1483790747823</created>
@@ -1381,7 +1376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486563089752</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="广告合作完成 bug未检测&#10;终局">
+      <created>1486563962215</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1486563962215</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1417,7 +1419,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="465196000" />
+    <option name="totallyTimeSpent" value="467921000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1434,6 +1436,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.4969697" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251634" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1459,7 +1462,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251634" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1476,7 +1478,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="完成部分配送失败原因选择逻辑 20170111" />
     <MESSAGE value="bug修复--配送失败原因选择逻辑 20170111" />
     <MESSAGE value="bug修复--配送失败原因选择逻辑 20170112" />
     <MESSAGE value="楼长交接流程 20170113" />
@@ -1501,7 +1502,8 @@
     <MESSAGE value="可控制式优惠方式 bug未检测" />
     <MESSAGE value="校园通知模块完成 bug未检测" />
     <MESSAGE value="楼层区域管理完成 bug未检测" />
-    <option name="LAST_COMMIT_MESSAGE" value="楼层区域管理完成 bug未检测" />
+    <MESSAGE value="广告合作完成 bug未检测&#10;终局" />
+    <option name="LAST_COMMIT_MESSAGE" value="广告合作完成 bug未检测&#10;终局" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1703,14 +1705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/schoolNotice.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/vip_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1782,14 +1776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/schoolNoticeList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="79" column="63" selection-start-line="79" selection-start-column="63" selection-end-line="79" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1903,17 +1889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/sys_setting.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="405" column="67" selection-start-line="405" selection-start-column="67" selection-end-line="405" selection-end-column="67" />
-          <folding>
-            <marker date="1486562998126" expanded="true" signature="20162:20287" ph="..." />
-            <marker date="1486562998126" expanded="true" signature="20591:20718" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/adBusiness.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1930,21 +1905,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/sys_setting.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="370" column="47" selection-start-line="370" selection-start-column="47" selection-end-line="370" selection-end-column="47" />
+          <folding>
+            <marker date="1486566223059" expanded="true" signature="20379:20504" ph="..." />
+            <marker date="1486566223059" expanded="true" signature="20808:20935" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/adBusiness.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+        <state relative-caret-position="123">
+          <caret line="25" column="86" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/schoolNotice.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-100">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/schoolNoticeList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="58" column="56" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="709" column="31" selection-start-line="709" selection-start-column="21" selection-end-line="709" selection-end-column="31" />
+        <state relative-caret-position="229">
+          <caret line="652" column="43" selection-start-line="652" selection-start-column="43" selection-end-line="652" selection-end-column="43" />
           <folding>
-            <element signature="e#26866#26867#0" expanded="true" />
-            <element signature="e#26909#26910#0" expanded="true" />
+            <element signature="e#26949#26950#0" expanded="true" />
+            <element signature="e#26992#26993#0" expanded="true" />
           </folding>
         </state>
       </provider>

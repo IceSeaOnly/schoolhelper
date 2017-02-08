@@ -54,7 +54,7 @@
                 <p>· 发布后<span style="color:red">所有用户</span>都能收到此通知</p>
                 <p>· 发布后<span style="color:red">暂不可撤销</span></p>
             </div>
-            <form action="publish_notice.do" method="post">
+            <form action="publish_notice.do" method="post" id="form_notice">
                 <input name="token" value="${Stoken}" type="hidden"/>
                 <input name="managerId" value="${managerId}" type="hidden"/>
                 <input name="schoolId" value="${schoolId}" type="hidden"/>
@@ -85,7 +85,7 @@
                     </ul>
                 </div>
                 <div class="content-block">
-                    <p><a href="javascript:this.form.submit()" class="button button-big">发布</a></p>
+                    <p><a href="javascript:$('#form_notice').submit()" class="button button-big">发布</a></p>
                 </div>
             </form>
         </div>
