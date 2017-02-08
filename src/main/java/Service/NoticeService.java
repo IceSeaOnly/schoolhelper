@@ -184,6 +184,7 @@ public class NoticeService {
         data.put("keyword4", newItem("点击查看详细内容"));
         data.put("remark", newItem("点击查看详细内容"));
         ArrayList<String> openids = noticeDao.listSchoolAllOpenIds(msg.getSchoolId());
+        System.out.println("all openid is "+openids.size());
         threadPublis(openids, url, data);
     }
 
@@ -195,4 +196,6 @@ public class NoticeService {
             commonTPLSend("84wlEJrZ9Ak6ikc19gJa8G2FM0j34tf6M4e2NuKoBj0", openids.get(i), url, data);
         }
     }
+
+
 }

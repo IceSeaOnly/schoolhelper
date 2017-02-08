@@ -82,6 +82,7 @@ public class Api {
             map.put("notice","该消息已删除");
             return "manager/common_result";
         }
+        map.put("schoolName",managerService.getSchoolById(notice.getSchoolId()).getSchoolName());
         map.put("notice",notice);
         return "manager/schoolNotice";
     }
