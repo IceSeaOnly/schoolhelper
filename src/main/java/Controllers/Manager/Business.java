@@ -706,4 +706,9 @@ public class Business {
             return permissionDeny(map);
         }
     }
+
+    @RequestMapping("adBusiness")
+    public String adBusiness(){
+        return "manager/adBusiness";
+    }
 }
