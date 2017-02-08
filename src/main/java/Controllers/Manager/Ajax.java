@@ -227,4 +227,16 @@ public class Ajax {
         }
         return "无权操作";
     }
+
+    @RequestMapping("deleteVip")
+    @ResponseBody
+    public String deleteVip(@RequestParam int managerId,
+                            @RequestParam int schoolId,@RequestParam int id){
+        if(managerService.managerAccess2Privilege(managerId,"xtsz")
+                &&managerService.managerAccess2School(managerId,schoolId)){
+            managerService.deleteVipMeal(id);
+            return "已删除";
+        }
+        return "无权操作";
+    }
 }

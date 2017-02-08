@@ -386,4 +386,8 @@ public class ManagerService {
         Manager m = managerDao.getManagerById(managerId);
         return (SysMsg) merge(new SysMsg(title,content,schoolId,managerId,m.getName()));
     }
+
+    public void deleteVipMeal(int id) {
+        managerDao.deleteVipMeal(id);
+    }
 }

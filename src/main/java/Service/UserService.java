@@ -149,8 +149,8 @@ public class UserService {
     /**
      * 查询所有vip套餐
      */
-    public ArrayList<ChargeVip> getAllVipMeals() {
-        ArrayList<ChargeVip> meals = userDao.getAllVipMeals();
+    public ArrayList<ChargeVip> getAllVipMeals(int sid) {
+        ArrayList<ChargeVip> meals = userDao.getAllVipMeals(sid);
         return meals == null ? new ArrayList<ChargeVip>() : meals;
     }
 

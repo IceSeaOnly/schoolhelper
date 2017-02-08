@@ -34,13 +34,21 @@
                     $.alert("输入不合法，请参看说明");
             });
         }
+        function delete_vip(id) {
+            $.get("/ajax/deleteVip.do?token=${Stoken}&managerId=${managerId}&schoolId=${schoolId}&id="+id, function (data, status) {
+                if (status == "success")
+                    $.alert(data);
+                else
+                    $.alert("输入不合法，请参看说明");
+            });
+            $("#vipls_"+id).hide();
+        }
     </script>
 
 </head>
 <body>
 
 <div class="page-group">
-
     <div class="page page-current">
         <!-- 你的html代码 -->
         <header class="bar bar-nav">
@@ -54,6 +62,7 @@
             <div class="content-block">
                 <p><a href="#salary_config" class="button button-big">配置分红比例</a></p>
                 <p><a href="#vip_config" class="button button-big ">配置VIP充值方案</a></p>
+                <p><a href="#part_config" class="button button-big ">配置本校区域分配</a></p>
                 <p><a href="#other_config" class="button button-big ">配置本校其他内容</a></p>
             </div>
         </div>
@@ -109,27 +118,32 @@
         <div class="content">
             <div class="list-block media-list">
                 <ul>
-                    <li>
+                    <c:forEach items="${vips}" var="vip">
+                    <li id="vipls_${vip.id}">
                         <div class="item-content">
                             <div class="item-inner">
                                 <div class="item-title-row">
-                                    <div class="item-title">充100送10</div>
-                                    <div class="item-after"><a href="#" class="button button-danger">删除</a></div>
+                                    <div class="item-title">充${vip.pay/100}送${vip.gift/100}</div>
+                                    <div class="item-after"><a href="javascript:delete_vip(${vip.id})" class="button button-danger">删除</a></div>
                                 </div>
                             </div>
                         </div>
                     </li>
-
+                    </c:forEach>
                 </ul>
             </div>
+            <form action="addVipMeal.do" method="post">
+                <input name="managerId" value="${managerId}" type="hidden"/>
+                <input name="token" value="${Stoken}" type="hidden"/>
+                <input name="schoolId" value="${schoolId}" type="hidden"/>
             <div class="list-block">
                 <ul>
                     <li>
                         <div class="item-content">
                             <div class="item-inner">
-                                <div class="item-title label">充(单位:元)</div>
+                                <div class="item-title label">充(单位:分)</div>
                                 <div class="item-input">
-                                    <input type="text" placeholder="大于0的整数">
+                                    <input type="text" name="pay" placeholder="大于0的整数">
                                 </div>
                             </div>
                         </div>
@@ -137,9 +151,9 @@
                     <li>
                         <div class="item-content">
                             <div class="item-inner">
-                                <div class="item-title label">送(单位:元)</div>
+                                <div class="item-title label">送(单位:分)</div>
                                 <div class="item-input">
-                                    <input type="text" placeholder="赠送比例不大于10%,整数">
+                                    <input type="text" name="gift" placeholder="赠送比例不大于10%,整数">
                                 </div>
                             </div>
                         </div>
@@ -147,8 +161,9 @@
                 </ul>
             </div>
             <div class="content-block">
-                <p><a href="#" class="button button-big">添加</a></p>
+                <p><a href="javascript:this.form.submit()" class="button button-big">添加</a></p>
             </div>
+            </form>
         </div>
         <!-- 这里是页面内容区 end-->
         <!-- 你的html代码 -->
@@ -181,6 +196,9 @@
                                 <div class="item-input">
                                     <label class="label-switch">
                                         <input type="checkbox"
+                                               <c:if test="${config.hand_close}">
+                                                checked="checked"
+                                        </c:if>
                                                onchange="javascript:common_change('hand_controll_change')">
                                         <div class="checkbox"></div>
                                     </label>
@@ -195,6 +213,9 @@
                                 <div class="item-input">
                                     <label class="label-switch">
                                         <input type="checkbox"
+                                        <c:if test="${config.firstDiscount}">
+                                               checked="checked"
+                                        </c:if>
                                                onchange="javascript:common_change('firstDiscountChange')">
                                         <div class="checkbox"></div>
                                     </label>
@@ -208,7 +229,11 @@
                                 <div class="item-title label">满十减一</div>
                                 <div class="item-input">
                                     <label class="label-switch">
-                                        <input type="checkbox" onchange="javascript:common_change('ifTenThenFree')">
+                                        <input type="checkbox"
+                                        <c:if test="${config.ifTenThenFree}">
+                                               checked="checked"
+                                        </c:if>
+                                               onchange="javascript:common_change('ifTenThenFree')">
                                         <div class="checkbox"></div>
                                     </label>
                                 </div>
@@ -228,7 +253,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">首单金额</div>
                                     <div class="item-input">
-                                        <input type="text" name="fristCost" placeholder="1<=整数">
+                                        <input type="text" name="fristCost" placeholder="1<=整数" value="${config.first_cost}">
                                     </div>
                                 </div>
                             </div>
@@ -238,7 +263,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">校园微店</div>
                                     <div class="item-input">
-                                        <input type="text" name="shopUrl" placeholder="url地址">
+                                        <input type="text" name="shopUrl" placeholder="url地址" value="${config.shop_url}">
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +273,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">取件工资</div>
                                     <div class="item-input">
-                                        <input type="text" name="qs" placeholder="1<=整数">
+                                        <input type="text" name="qs" placeholder="1<=整数" value="${config.each_fetch}">
                                     </div>
                                 </div>
                             </div>
@@ -258,7 +283,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">送件工资</div>
                                     <div class="item-input">
-                                        <input type="text" name="ss" placeholder="1<=整数">
+                                        <input type="text" name="ss" placeholder="1<=整数" value="${config.each_send}">
                                     </div>
                                 </div>
                             </div>
@@ -268,7 +293,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">转交楼长工资</div>
                                     <div class="item-input">
-                                        <input type="text" name="zjs" placeholder="1<=整数">
+                                        <input type="text" name="zjs" placeholder="1<=整数" value="${config.each_give}">
                                     </div>
                                 </div>
                             </div>
@@ -278,7 +303,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">楼长接收工资</div>
                                     <div class="item-input">
-                                        <input type="text" name="jss" placeholder="1<=整数">
+                                        <input type="text" name="jss" placeholder="1<=整数" value="${config.each_receive}">
                                     </div>
                                 </div>
                             </div>
@@ -288,7 +313,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">自动开始接单</div>
                                     <div class="item-input">
-                                        <input type="text" name="aus" id="auto_start_select">
+                                        <input type="text" name="aus" id="auto_start_select" value="${config.auto_start}">
                                     </div>
                                 </div>
                             </div>
@@ -298,7 +323,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">自动停止接单</div>
                                     <div class="item-input">
-                                        <input type="text" name="ausd" id="auto_stop_select">
+                                        <input type="text" name="ausd" id="auto_stop_select" value="${config.auto_close}">
                                     </div>
                                 </div>
                             </div>
@@ -308,7 +333,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">自动停止告知</div>
                                     <div class="item-input">
-                                        <textarea name="ausn" placeholder="系统处于自动停止接单时提示的内容"></textarea>
+                                        <textarea name="ausn" placeholder="系统处于自动停止接单时提示的内容">${config.auto_close_info}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -318,7 +343,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">手动停止告知</div>
                                     <div class="item-input">
-                                        <textarea name="ausdn" placeholder="系统处于手动停止接单时提示的内容"></textarea>
+                                        <textarea name="ausdn" placeholder="系统处于手动停止接单时提示的内容">${config.hand_close_info}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -332,6 +357,64 @@
         </div>
         <!-- 这里是页面内容区 end-->
         <!-- 你的html代码 -->
+    </div>
+    <div class="page" id='part_config'>
+        <header class="bar bar-nav">
+            <a class="button button-link button-nav pull-left back">
+                <span class="icon icon-left"></span>
+                返回
+            </a>
+            <h1 class='title'>配置本校区域分配</h1>
+        </header>
+        <div class="content">
+            <div class="list-block media-list">
+                <ul>
+                    <c:forEach items="${parts}" var="part">
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title">${part.partName}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ul>
+            </div>
+            <form action="addSchoolPart.do" method="post">
+                <input name="managerId" value="${managerId}" type="hidden"/>
+                <input name="token" value="${Stoken}" type="hidden"/>
+                <input name="schoolId" value="${schoolId}" type="hidden"/>
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">区域名</div>
+                                <div class="item-input">
+                                    <input type="text" name="pname" placeholder="如：A区">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">配送费</div>
+                                <div class="item-input">
+                                    <input type="text" name="ppay" placeholder="(单位:分)">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-block">
+                <p><a href="javascript:this.form.submit()" class="button button-big">添加</a></p>
+            </div>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -19,6 +19,13 @@ public class ChargeVip {
     private int id;
     private int pay;
     private int gift;
+    private int schoolId;
+
+    public ChargeVip(int pay, int gift, int schoolId) {
+        this.pay = pay;
+        this.gift = gift;
+        this.schoolId = schoolId;
+    }
 
     public ChargeVip() {
     }
@@ -45,5 +52,13 @@ public class ChargeVip {
 
     public void setGift(int gift) {
         this.gift = gift;
+    }
+
+    public int getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(int schoolId) {
+        this.schoolId = schoolId;
     }
 }

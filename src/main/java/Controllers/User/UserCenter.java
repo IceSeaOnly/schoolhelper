@@ -129,8 +129,9 @@ public class UserCenter {
     }
 
     @RequestMapping("charge_vip")
-    public String charge_vip(ModelMap map){
-        ArrayList<ChargeVip> meals = userService.getAllVipMeals();
+    public String charge_vip(HttpSession session,ModelMap map){
+        User user = (User) session.getAttribute("user");
+        ArrayList<ChargeVip> meals = userService.getAllVipMeals(user.getSchoolId());
         map.put("meals",meals);
         System.out.println("charge vip meals = "+meals.size());
         return "user/charge_vip";
@@ -138,11 +139,11 @@ public class UserCenter {
 
     @RequestMapping("pay_charge_vip")
     public String pay_charge_vip(@RequestParam int setmeal,HttpSession session,ModelMap map){
-        ArrayList<ChargeVip> meals = userService.getAllVipMeals();
+        User user = (User) session.getAttribute("user");
+        ArrayList<ChargeVip> meals = userService.getAllVipMeals(user.getSchoolId());
         ChargeVip cv = getMeal(meals,setmeal);
         if(cv == null) return "errors/illegal";
         ChargeVipOrder cvo = new ChargeVipOrder();
-        User user = (User) session.getAttribute("user");
         cvo.setOpenid(user.getOpen_id());
         cvo.setShouldpay(cv.getPay());
         cvo.setShouldgive(cv.getPay()+cv.getGift());

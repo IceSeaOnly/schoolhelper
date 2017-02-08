@@ -147,9 +147,11 @@ public class UserDao {
     /**
      * 所有会员套餐
      */
-    public ArrayList<ChargeVip> getAllVipMeals() {
+    public ArrayList<ChargeVip> getAllVipMeals(int sid) {
         Session session = sessionFactory.openSession();
-        ArrayList<ChargeVip> res = (ArrayList<ChargeVip>) session.createQuery("from ChargeVip ").list();
+        ArrayList<ChargeVip> res = (ArrayList<ChargeVip>) session.createQuery("from ChargeVip where schoolId = :S")
+                .setParameter("S",sid)
+                .list();
         session.close();
         return res;
     }

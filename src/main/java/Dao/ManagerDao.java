@@ -488,4 +488,14 @@ public class ManagerDao{
         session.close();
         return m;
     }
+
+    public void deleteVipMeal(int id) {
+        Session session =sessionFactory.openSession();
+        session.beginTransaction();
+        session.createQuery("delete from ChargeVip where id = :I")
+                .setParameter("I",id)
+                .executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+    }
 }

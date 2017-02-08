@@ -576,6 +576,10 @@ public class Business {
             map.put("managerId",managerId);
             map.put("schoolId",schoolId);
             map.put("schoolName",managerService.getSchoolById(schoolId).getSchoolName());
+            map.put("ms",managerService.lisSchoolManagers(schoolId));
+            map.put("config",userService.getSchoolConfBySchoolId(schoolId));
+            map.put("vips",userService.getAllVipMeals(schoolId));
+            map.put("parts",userService.listAllParts(schoolId));
             return "manager/sys_setting";
         }
         else return permissionDeny(map);
@@ -663,6 +667,40 @@ public class Business {
             map.put("result",false);
             map.put("is_url",false);
             map.put("notice","发布任务已经在执行了");
+            return "manager/common_result";
+        }else{
+            return permissionDeny(map);
+        }
+    }
+
+    @RequestMapping("addVipMeal")
+    public String addVipMeal(@RequestParam int managerId,
+                             @RequestParam int schoolId,@RequestParam int pay,@RequestParam int gift,ModelMap map){
+        if(managerService.managerAccess2Privilege(managerId,"xyxx")&&managerService.managerAccess2School(managerId,schoolId)){
+            if(gift/pay>0.1){
+                map.put("result",false);
+                map.put("is_url",false);
+                map.put("notice","赠送比例不得大于10%,整数");
+            }else{
+                map.put("result",false);
+                map.put("is_url",false);
+                map.put("notice","添加成功");
+                managerService.save(new ChargeVip(pay,gift,schoolId));
+            }
+            return "manager/common_result";
+        }else{
+            return permissionDeny(map);
+        }
+    }
+
+    @RequestMapping("addSchoolPart")
+    public String addSchoolPart(@RequestParam int managerId,
+                                @RequestParam int schoolId,@RequestParam String pname,@RequestParam int ppay,ModelMap map){
+        if(managerService.managerAccess2Privilege(managerId,"xyxx")&&managerService.managerAccess2School(managerId,schoolId)){
+            managerService.save(new SendPart(pname,ppay,schoolId));
+            map.put("result",false);
+            map.put("is_url",false);
+            map.put("notice","添加成功");
             return "manager/common_result";
         }else{
             return permissionDeny(map);
