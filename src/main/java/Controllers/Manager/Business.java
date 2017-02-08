@@ -1,10 +1,7 @@
 package Controllers.Manager;
 
-import Entity.ChargeVipOrder;
-import Entity.ExpressOrder;
+import Entity.*;
 import Entity.Manager.*;
-import Entity.School;
-import Entity.SchoolConfigs;
 import Entity.User.User;
 import Service.ManagerService;
 import Service.NoticeService;
@@ -639,5 +636,36 @@ public class Business {
         }
         return true;
     }
+    /**
+     * 校园消息
+     * */
+    @RequestMapping("xyxx")
+    public String xyxx(@RequestParam int managerId,@RequestParam int schoolId,
+                       ModelMap map){
+        if(managerService.managerAccess2Privilege(managerId,"xyxx")&&managerService.managerAccess2School(managerId,schoolId)){
+            ArrayList<SysMsg>msgs = userService.getAllSystemMsg(schoolId);
+            map.put("msgs",msgs);
+            return "manager/schoolNoticeList";
+        }else{
+            return permissionDeny(map);
+        }
+    }
 
+    @RequestMapping("publish_notice")
+    public String publish_notice(@RequestParam int managerId,
+                                 @RequestParam int schoolId,
+                                 @RequestParam String title,
+                                 @RequestParam String content,
+                                 ModelMap map){
+        if(managerService.managerAccess2Privilege(managerId,"xyxx")&&managerService.managerAccess2School(managerId,schoolId)){
+            SysMsg msg = managerService.publis_notice(schoolId,managerId,title,content);
+            noticeService.publishNotice(msg);
+            map.put("result",false);
+            map.put("is_url",false);
+            map.put("notice","发布任务已经在执行了");
+            return "manager/common_result";
+        }else{
+            return permissionDeny(map);
+        }
+    }
 }

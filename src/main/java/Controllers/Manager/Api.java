@@ -2,11 +2,13 @@ package Controllers.Manager;
 
 import Entity.Manager.Conversation;
 import Entity.Manager.Log;
+import Entity.SysMsg;
 import Service.ManagerService;
 import Service.NoticeService;
 import Utils.HttpUtils;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -64,5 +66,23 @@ public class Api {
         }else
             managerService.save(new Log(8,notice+"，cid="+cid,-1));
         return "success";
+    }
+
+
+    /**
+     * 校园消息展示接口
+     * 无需身份认证
+     * */
+    @RequestMapping("xyxx")
+    public String xyxx(@RequestParam int nid, ModelMap map){
+        SysMsg notice = managerService.getShoolNoticeById(nid);
+        if(notice == null){
+            map.put("result",false);
+            map.put("is_url",false);
+            map.put("notice","该消息已删除");
+            return "manager/common_result";
+        }
+        map.put("notice",notice);
+        return "manager/schoolNotice";
     }
 }

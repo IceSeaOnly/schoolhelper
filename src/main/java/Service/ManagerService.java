@@ -374,4 +374,16 @@ public class ManagerService {
     public PayLog getPayLogById(int orderId) {
         return managerDao.getPayLogById(orderId);
     }
+
+    public SysMsg getShoolNoticeById(int nid) {
+        return managerDao.getShoolNoticeById(nid);
+    }
+
+    /**
+     * 全校发布通知
+     **/
+    public SysMsg publis_notice(int schoolId, int managerId, String title, String content) {
+        Manager m = managerDao.getManagerById(managerId);
+        return (SysMsg) merge(new SysMsg(title,content,schoolId,managerId,m.getName()));
+    }
 }

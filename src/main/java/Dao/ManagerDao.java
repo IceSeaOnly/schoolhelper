@@ -4,6 +4,7 @@ import Entity.ChargeVipOrder;
 import Entity.ExpressOrder;
 import Entity.Manager.*;
 import Entity.School;
+import Entity.SysMsg;
 import Entity.User.User;
 import Utils.TimeFormat;
 import org.hibernate.Query;
@@ -479,5 +480,12 @@ public class ManagerDao{
                 .list();
         session.close();
         return ps;
+    }
+
+    public SysMsg getShoolNoticeById(int nid) {
+        Session session = sessionFactory.openSession();
+        SysMsg m = (SysMsg) session.get(SysMsg.class,nid);
+        session.close();
+        return m;
     }
 }

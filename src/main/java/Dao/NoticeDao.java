@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2017/1/30.
@@ -78,5 +79,14 @@ public class NoticeDao {
                 .uniqueResult();
         session.close();
         return conversation;
+    }
+
+    public ArrayList<String> listSchoolAllOpenIds(int schoolId) {
+        Session session = sessionFactory.openSession();
+        ArrayList<String>rs = (ArrayList<String>) session.createQuery("select open_id from User where schoolId = :S")
+                .setParameter("S",schoolId)
+                .list();
+        session.close();
+        return rs;
     }
 }

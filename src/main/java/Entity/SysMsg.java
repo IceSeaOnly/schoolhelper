@@ -1,5 +1,7 @@
 package Entity;
 
+import Utils.TimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,14 +20,20 @@ public class SysMsg {
     private int id;
     private String title;
     private String content;
-    private Date addTime;
+    private Long addTime;
     private int schoolId;
+    private int managerId;
+    private String managerName;
+    private String timeStr;
 
-    public SysMsg(String title,String content,int scid) {
+    public SysMsg(String title,String content,int scid,int mid,String mname) {
         this.title = title;
         this.content = content;
-        this.addTime = new Date(System.currentTimeMillis());
+        this.addTime = System.currentTimeMillis();
+        this.timeStr = TimeFormat.format(this.addTime);
         this.schoolId = scid;
+        this.managerId = mid;
+        this.managerName = mname;
     }
 
     public SysMsg(){}
@@ -46,12 +54,20 @@ public class SysMsg {
         this.content = content;
     }
 
-    public Date getAddTime() {
+    public Long getAddTime() {
         return addTime;
     }
 
-    public void setAddTime(Date addTime) {
+    public void setAddTime(Long addTime) {
         this.addTime = addTime;
+    }
+
+    public String getTimeStr() {
+        return timeStr;
+    }
+
+    public void setTimeStr(String timeStr) {
+        this.timeStr = timeStr;
     }
 
     public String getTitle() {
@@ -68,5 +84,21 @@ public class SysMsg {
 
     public void setSchoolId(int schoolId) {
         this.schoolId = schoolId;
+    }
+
+    public int getManagerId() {
+        return managerId;
+    }
+
+    public void setManagerId(int managerId) {
+        this.managerId = managerId;
+    }
+
+    public String getManagerName() {
+        return managerName;
+    }
+
+    public void setManagerName(String managerName) {
+        this.managerName = managerName;
     }
 }

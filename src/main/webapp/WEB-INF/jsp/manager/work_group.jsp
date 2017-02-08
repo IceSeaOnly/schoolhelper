@@ -38,9 +38,9 @@
             var wx = document.manager_form.alipay.value;
             if (na == "" || ph == "" || al == "" || wx == "") {
                 $.alert("信息不能为空！");
-            } else if(ph.length != 11){
+            } else if (ph.length != 11) {
                 $.alert("手机号不合法！");
-            } else{
+            } else {
                 document.getElementById("manager_form").submit();
             }
         }
@@ -59,21 +59,21 @@
         <!-- 这里是页面内容区 begin-->
         <div class="content">
             <c:forEach items="${managers}" var="mr">
-                    <div class="card" id="manager_${mr.id}">
-                        <div class="card-header">${mr.name}</div>
-                        <div class="card-content">
-                            <div class="card-content-inner">
-                                手机号：${mr.phone}<br>
-                                微信号：${mr.wxpay}<br>
-                                支付宝：${mr.alipay}<br>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="javascript:delete_it(${mr.id})" class="link"><span class="icon icon-check"></span>&nbsp删除</a>
-                            <a href="javascript:diff_call('${mr.phone}','${mr.phone}')" class="link"><span
-                                    class="icon icon-phone"></span>&nbsp致电</a>
+                <div class="card" id="manager_${mr.id}">
+                    <div class="card-header">${mr.name}</div>
+                    <div class="card-content">
+                        <div class="card-content-inner">
+                            手机号：${mr.phone}<br>
+                            微信号：${mr.wxpay}<br>
+                            支付宝：${mr.alipay}<br>
                         </div>
                     </div>
+                    <div class="card-footer">
+                        <a href="javascript:delete_it(${mr.id})" class="link"><span class="icon icon-check"></span>&nbsp删除</a>
+                        <a href="javascript:diff_call('${mr.phone}','${mr.phone}')" class="link"><span
+                                class="icon icon-phone"></span>&nbsp致电</a>
+                    </div>
+                </div>
             </c:forEach>
         </div>
         <!-- 这里是页面内容区 end-->
@@ -139,19 +139,19 @@
                     </ul>
                 </div>
                 <div class="content-block">
-                    <p><a href="javascript:add_one()" class="button">提交</a></p>
+                    <p><a href="javascript:add_one()" class="button button-big">提交</a></p>
                 </div>
             </form>
         </div>
-
-        <script type='text/javascript'
-                src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-        <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-        <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js'
-                charset='utf-8'></script>
-        <script>
-            $.init();
-        </script>
-        <jsp:include page="replaceToken.jsp"/>
+    </div>
+    <script type='text/javascript'
+            src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js'
+            charset='utf-8'></script>
+    <script>
+        $.init();
+    </script>
+    <jsp:include page="replaceToken.jsp"/>
 </body>
 </html>
