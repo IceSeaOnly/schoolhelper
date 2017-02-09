@@ -274,6 +274,7 @@ public class Business {
     public String zjxx_result(@RequestParam int managerId,
                               @RequestParam String name_ch,
                               @RequestParam String name_en,
+                              @RequestParam Long servicePhone,
                               ModelMap map){
         name_en = name_en.toLowerCase();
         if(!managerService.managerAccess2Privilege(managerId,"xxgl"))
@@ -284,9 +285,10 @@ public class Business {
             map.put("notice","校名/校名缩写 已经存在，不能重复！");
             return "manager/common_result";
         }else{
-            managerService.createSchool(name_ch,name_en);
+            managerService.createSchool(name_ch,name_en,servicePhone);
             map.put("result",true);
-            map.put("is_url",false);
+            map.put("is_url",true);
+            map.put("url","http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN");
             map.put("notice",name_ch+" 创建成功");
             return "manager/common_result";
         }

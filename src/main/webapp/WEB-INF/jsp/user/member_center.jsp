@@ -34,14 +34,14 @@
     </li>
     <li>
         <a href="">
-            <h2>50</h2>
-            <p>积分</p>
+            <h2>0</h2>
+            <p>开发中</p>
         </a>
     </li>
     <li>
         <a href="">
-            <h2>2</h2>
-            <p>优惠券</p>
+            <h2>0</h2>
+            <p>开发中</p>
         </a>
     </li>
 </ul>
@@ -81,7 +81,7 @@
             <img src="../20161224_images/i5.png"/>
             <span>呼叫客服</span>
             <i class="am-icon-angle-right"></i>
-            <em>400-123-456</em>
+            <em>${sconfig.servicePhone}</em>
         </a>
     </li>
 

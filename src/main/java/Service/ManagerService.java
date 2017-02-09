@@ -147,9 +147,11 @@ public class ManagerService {
         return managerDao.schoolExist(name_ch,name_en);
     }
 
-    public void createSchool(String name_ch, String name_en) {
+    public void createSchool(String name_ch, String name_en, Long servicePhone) {
         School sc = (School) managerDao.merge(new School(name_ch,name_en));
-        managerDao.save(new SchoolConfigs(sc.getId()));
+        SchoolConfigs conf = new SchoolConfigs(sc.getId());
+        conf.setServicePhone(servicePhone);
+        managerDao.save(conf);
     }
 
     public Object merge(Object obj){

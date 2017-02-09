@@ -48,11 +48,12 @@ public class UserCenter {
         user = userService.getUserByOpenId(user.getOpen_id());
         session.setAttribute("user",user);
         map.put("schoolname",getSchoolName(user.getSchoolId()));
+        map.put("sconfig",userService.getSchoolConfBySchoolId(user.getSchoolId()));
         if(user.getUsername().equals("") && user.getPhone().equals("")){
             map.put("should_complete_user_info",true);
         }else map.put("should_complete_user_info",false);
 
-        //return "user/user_center";
+        //return "user/user_center"; 启用新版首页
         return "user/member_center";
     }
 

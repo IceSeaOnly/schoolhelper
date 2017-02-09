@@ -31,7 +31,7 @@
 </div>
 <c:forEach items="${msgs}" var="msg">
 <div class="news">
-    <h3>${msg.title}<span>${msg.addTime}</span></h3>
+    <h3>${msg.title}<span>${msg.timeStr}</span></h3>
     <p>${msg.content}</p>
     <div class="border_bottom"></div>
 </div>

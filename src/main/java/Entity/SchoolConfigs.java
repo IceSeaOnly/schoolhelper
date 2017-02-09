@@ -26,6 +26,7 @@ public class SchoolConfigs {
     private String hand_close_info;
     private String refund_url;
     private int sumIncome; // 总收入
+    private Long servicePhone; //客服电话
 
     private int each_fetch; //每次取件金额
     private int each_send; // 每次送达金额
@@ -47,6 +48,7 @@ public class SchoolConfigs {
         this.hand_close_info = "手动关闭提示未设置";
         this.refund_url = "http://weixin.qdxiaogutou.com/refund.php";
         this.each_fetch = this.each_send = this.each_fetch = this.each_receive = 0;
+        this.servicePhone = 0L;
     }
 
     public SchoolConfigs() {
@@ -187,5 +189,13 @@ public class SchoolConfigs {
 
     public void setIfTenThenFree(boolean ifTenThenFree) {
         this.ifTenThenFree = ifTenThenFree;
+    }
+
+    public Long getServicePhone() {
+        return servicePhone;
+    }
+
+    public void setServicePhone(Long servicePhone) {
+        this.servicePhone = servicePhone;
     }
 }

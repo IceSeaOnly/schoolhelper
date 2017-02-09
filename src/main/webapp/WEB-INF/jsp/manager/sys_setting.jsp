@@ -196,7 +196,7 @@
                                 <div class="item-input">
                                     <label class="label-switch">
                                         <input type="checkbox"
-                                               <c:if test="${config.hand_close}">
+                                               <c:if test="${!config.hand_close}">
                                                 checked="checked"
                                         </c:if>
                                                onchange="javascript:common_change('hand_controll_change')">

@@ -91,15 +91,16 @@ public class UserService {
     }
 
     public int ExpressServiceRunning(int sid) {
-        SchoolConfigs sc = userDao.getSchoolConfBySchoolId(sid);
+        SchoolConfigs sc = getSchoolConfBySchoolId(sid);
         int nh = new Date(System.currentTimeMillis()).getHours();
         int nm = new Date(System.currentTimeMillis()).getMinutes();
 
-        if (sc.getAuto_close()>=nh) { // 自动关闭
-            return 2;
-        }
         if (sc.isHand_close()) { // 手动关闭
             return 1;
+        }
+        if (nh >= sc.getAuto_close() || nh < sc.getAuto_start()) { // 自动关闭
+            System.out.println("now hour:"+nh+" ,start="+sc.getAuto_start()+" ,stop="+sc.getAuto_close());
+            return 2;
         }
         return 0;
     }
