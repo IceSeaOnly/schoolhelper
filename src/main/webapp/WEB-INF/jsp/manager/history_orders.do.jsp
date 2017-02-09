@@ -20,6 +20,15 @@
         function empty_close() {
             $.alert("空空如也");
         }
+        function refund(id) {
+            $.confirm('你确定退款吗？', function () {
+                $.showPreloader('正在退款操作...');
+                $.get("/ajax/refund.do?managerId=${managerId}&schoolId=${schoolId}&token=${Stoken}&id="+id,function (data, status) {
+                    $.hidePreloader();
+                    $.alert(data);
+                })
+            });
+        }
     </script>
 </head>
 <body>
@@ -61,9 +70,12 @@
                         </div>
                     </div>
                     <div class="card-footer">
+                        <c:if test="${order.order_state == 0 || order.order_state == 1}">
+                            <a href="javascript:refund(${order.id})" class="link"><span class="icon icon-refresh"></span>&nbsp退款</a>
+                        </c:if>
+
                         <a href="javascript:diff_call('${order.express_phone}','${order.receive_phone}')" class="link"><span class="icon icon-phone"></span>&nbsp致电</a>
                     </div>
-
                 </div>
             </c:forEach>
         </div>

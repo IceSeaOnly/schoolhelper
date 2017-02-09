@@ -9,6 +9,7 @@ import Service.ManagerService;
 import Service.UserService;
 import Utils.FailedAnswer;
 import Utils.HttpUtils;
+import Utils.MD5;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -238,5 +239,20 @@ public class Ajax {
             return "已删除";
         }
         return "无权操作";
+    }
+
+    @RequestMapping("refund")
+    @ResponseBody
+    public String refund(@RequestParam int managerId,
+                         @RequestParam int schoolId,@RequestParam int id,HttpSession session){
+        if(managerService.managerAccess2School(managerId,schoolId)){
+            ExpressOrder order = managerService.getExpressOrderById(id);
+            if(order == null) return "参数错误";
+            if(order.getOrder_state()!=0 && order.getOrder_state() != 1) return "已进入任务流程，无法退款";
+            String pass = session.getServletContext().getInitParameter("refund_pwd");
+            String url = session.getServletContext().getInitParameter("refund_url");
+            String validate = MD5.encryption(order.getOrderKey()+pass+order.getShouldPay());
+            return HttpUtils.sendGet(url,"out_trade_no="+order.getOrderKey()+"&refund_fee="+order.getShouldPay()+"&validate="+validate);
+        }else return "无权操作";
     }
 }
