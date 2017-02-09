@@ -1,10 +1,7 @@
 package Dao;
 
-import Entity.ChargeVipOrder;
-import Entity.ExpressOrder;
+import Entity.*;
 import Entity.Manager.*;
-import Entity.School;
-import Entity.SysMsg;
 import Entity.User.User;
 import Utils.TimeFormat;
 import org.hibernate.Query;
@@ -494,6 +491,26 @@ public class ManagerDao{
         session.beginTransaction();
         session.createQuery("delete from ChargeVip where id = :I")
                 .setParameter("I",id)
+                .executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public ArrayList<SendExpressOrder> listHelpSendOrders(int sid) {
+        Session session = sessionFactory.openSession();
+        ArrayList<SendExpressOrder>rs = (ArrayList<SendExpressOrder>) session.createQuery("from SendExpressOrder where schoolId = :S order by id")
+                .setMaxResults(50)
+                .setParameter("S",sid)
+                .list();
+        session.close();
+        return rs;
+    }
+
+    public void deleteSendExpress(int id) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.createQuery("delete from SendExpress where id = :D")
+                .setParameter("D",id)
                 .executeUpdate();
         session.getTransaction().commit();
         session.close();

@@ -399,4 +399,13 @@ public class ManagerService {
     public void orderSumCutOne(int user_id) {
         userDao.orderSumCutOne(user_id);
     }
+
+    public ArrayList<SendExpressOrder> listHelpSendOrders(int sid) {
+        ArrayList<SendExpressOrder> rs = managerDao.listHelpSendOrders(sid);
+        return rs == null ?new ArrayList<SendExpressOrder>():rs;
+    }
+
+    public void deleteSendExpress(int id) {
+        managerDao.deleteSendExpress(id);
+    }
 }

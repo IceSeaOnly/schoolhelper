@@ -17,16 +17,15 @@ public class SendExpress {
     private int id;
     private String expressname;
     private int orderPrice;
-    private boolean available;
-    /** 管理人员的openid*/
-    private String managers;
+    /** 管理人员的手机号*/
+    private String phone;
     private int schoolId;
 
-    public SendExpress(String expressname, int orderPrice, boolean available,int scid) {
+    public SendExpress(String expressname, int orderPrice,String phone,int scid) {
         this.expressname = expressname;
         this.orderPrice = orderPrice;
-        this.available = available;
         this.schoolId = scid;
+        this.phone = phone;
     }
 
     public SendExpress() {
@@ -56,27 +55,19 @@ public class SendExpress {
         this.orderPrice = orderPrice;
     }
 
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
-
-    public String getManagers() {
-        return managers;
-    }
-
-    public void setManagers(String managers) {
-        this.managers = managers;
-    }
-
     public int getSchoolId() {
         return schoolId;
     }
 
     public void setSchoolId(int schoolId) {
         this.schoolId = schoolId;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

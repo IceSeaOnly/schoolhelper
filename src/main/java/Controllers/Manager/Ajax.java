@@ -266,6 +266,15 @@ public class Ajax {
         }
         return "无权操作";
     }
+    @RequestMapping("deleteSendExpress")
+    @ResponseBody
+    public String deleteSendExpress(@RequestParam int managerId, @RequestParam int id){
+        if(managerService.managerAccess2Privilege(managerId,"help_send")){
+            managerService.deleteSendExpress(id);
+            return "已删除";
+        }
+        return "无权操作";
+    }
 
     @RequestMapping("refund")
     @ResponseBody

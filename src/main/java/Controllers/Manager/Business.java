@@ -715,4 +715,43 @@ public class Business {
     public String adBusiness(){
         return "manager/adBusiness";
     }
+
+    @RequestMapping("helpSendSet")
+    public String helpSendSet(@RequestParam int schoolId,ModelMap map){
+        map.put("orders",managerService.listHelpSendOrders(schoolId));
+        map.put("ess",userService.getAllSendExpresses(schoolId));
+        return "manager/helpsend_set";
+    }
+
+    @RequestMapping("addSendExpress")
+    public String addSendExpress(@RequestParam int managerId,
+                                 @RequestParam int schoolId,
+                                 @RequestParam String ename,
+                                 @RequestParam String ephone,
+                                 @RequestParam int eprice,ModelMap map){
+        if(managerService.managerAccess2Privilege(managerId,"help_send")){
+            return permissionDeny(map);
+        }else{
+            if(ephone.length()!=11){
+                map.put("result",false);
+                map.put("is_url",true);
+                map.put("url","http://xiaogutou.qdxiaogutou.com/app/adBusiness.do?managerId=MANAGERID&token=TOKEN#settings");
+                map.put("notice","手机号"+ephone+"格式不正确");
+                return "manager/common_result";
+            }
+            if(eprice < 1){
+                map.put("result",false);
+                map.put("is_url",true);
+                map.put("url","http://xiaogutou.qdxiaogutou.com/app/adBusiness.do?managerId=MANAGERID&token=TOKEN#settings");
+                map.put("notice","费用需为正整数");
+                return "manager/common_result";
+            }
+            managerService.save(new SendExpress(ename,eprice,ephone,schoolId));
+            map.put("result",false);
+            map.put("is_url",true);
+            map.put("url","http://xiaogutou.qdxiaogutou.com/app/adBusiness.do?managerId=MANAGERID&token=TOKEN#settings");
+            map.put("notice","添加成功");
+            return "manager/common_result";
+        }
+    }
 }
