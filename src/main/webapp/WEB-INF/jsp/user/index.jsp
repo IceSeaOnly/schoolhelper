@@ -86,28 +86,11 @@
     <img src="../images/express.png" class="daily_img">
     <div style="float:left; margin-left:13px;">
         <h1>代取快递</h1>
-        <p>全新体验，等你来</p>
+        <p>全新5.0，等你体验</p>
     </div>
     <div class="border_bottom"></div>
 </div>
-<div class="other">
-    <div class="floor" onclick="document.location='/user/help_send_express.do';">
-        <div class="border_right"></div>
-        <img src="../images/flooding.png">
-        <div class="other_title">代寄快递</div>
-    </div>
-    <div class="window" onclick="document.location='/user/schoolmove.do';">
-        <div class="border_right"></div>
-        <img src="../images/moto-courier.png">
-        <div class="other_title">校园搬运</div>
-    </div>
-    <div class="leather" onclick="document.location='http://www.sdhuanlexiaoyejia.com/app/index.php?i=2&c=entry&eid=1';">
-        <img src="http://118.192.140.147/data/f_69798583.png">
-        <div class="other_title">美食外卖</div>
-    </div>
-    <div class="border_top"></div>
-    <div class="border_bottom"></div>
-</div>
+
 <c:forEach items="${adGroups}" var="group">
     <div class="other">
         <div class="floor" onclick="document.location='${group.ad1.url}';">

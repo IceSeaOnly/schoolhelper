@@ -229,6 +229,32 @@ public class Ajax {
         return "无权操作";
     }
 
+    @RequestMapping("schoolMove")
+    @ResponseBody
+    public String schoolMove(@RequestParam int managerId,
+                                       @RequestParam int schoolId){
+        if(managerService.managerAccess2Privilege(managerId,"xtsz")){
+            SchoolConfigs sc = userService.getSchoolConfBySchoolId(schoolId);
+            sc.setIfTenThenFree(!sc.isSchoolMove());
+            managerService.update(sc);
+            return sc.isSchoolMove()?"已开启校园搬运业务":"已关闭校园搬运业务";
+        }
+        return "无权操作";
+    }
+
+    @RequestMapping("helpSend")
+    @ResponseBody
+    public String helpSend(@RequestParam int managerId,
+                                       @RequestParam int schoolId){
+        if(managerService.managerAccess2Privilege(managerId,"xtsz")){
+            SchoolConfigs sc = userService.getSchoolConfBySchoolId(schoolId);
+            sc.setIfTenThenFree(!sc.isHelpSend());
+            managerService.update(sc);
+            return sc.isHelpSend()?"已开启代寄快递业务":"已关闭代寄快递业务";
+        }
+        return "无权操作";
+    }
+
     @RequestMapping("deleteVip")
     @ResponseBody
     public String deleteVip(@RequestParam int managerId,
@@ -252,6 +278,7 @@ public class Ajax {
             String pass = session.getServletContext().getInitParameter("refund_pwd");
             String url = session.getServletContext().getInitParameter("refund_url");
             String validate = MD5.encryption(order.getOrderKey()+pass+order.getShouldPay());
+            managerService.orderSumCutOne(order.getUser_id());
             return HttpUtils.sendGet(url,"out_trade_no="+order.getOrderKey()+"&refund_fee="+order.getShouldPay()+"&validate="+validate);
         }else return "无权操作";
     }

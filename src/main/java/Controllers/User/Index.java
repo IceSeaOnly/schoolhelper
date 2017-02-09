@@ -30,10 +30,8 @@ public class Index {
     public String index(ModelMap map,HttpSession session){
         User u = (User) session.getAttribute("user");
         String schoolshop = userService.getSchoolShopUrl(u.getSchoolId());
-        String news = userService.getLastestNews(u.getSchoolId());
         ArrayList<AdGroup> adGroups = userService.getAdGroups(u);
         map.put("schoolshop",schoolshop);
-        map.put("news",news);
         map.put("adGroups",adGroups);
         return "user/index";
     }

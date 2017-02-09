@@ -227,4 +227,14 @@ public class UserDao {
         session.close();
         return sc;
     }
+
+    public void orderSumCutOne(int user_id) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.createQuery("update User set order_sum = order_sum-1 where id = :I and order_sum>1")
+                .setParameter("I",user_id)
+                .executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+    }
 }

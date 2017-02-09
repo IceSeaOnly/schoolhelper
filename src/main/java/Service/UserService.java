@@ -126,6 +126,13 @@ public class UserService {
     public ArrayList<AdGroup> getAdGroups(User u) {
         ArrayList<AdGroup> adgroups = new ArrayList<AdGroup>();
         ArrayList<UserIndexAd> ads = userDao.getAds(u.getSchoolId());
+        SchoolConfigs sc = userDao.getSchoolConfBySchoolId(u.getSchoolId());
+        if(sc.isHelpSend()){
+            ads.add(0,new UserIndexAd("代寄快递","http://image.binghai.site/data/f_42889900.jpg","/user/help_send_express.do",null,u.getSchoolId()));
+        }
+        if(sc.isSchoolMove()){
+            ads.add(0,new UserIndexAd("校园搬运","http://image.binghai.site/data/f_91899796.jpg","/user/schoolmove.do",null,u.getSchoolId()));
+        }
         UserIndexAd no_body = new UserIndexAd("虚位以待", "../images/waiting_for_service.png", "#", new Date(),u.getSchoolId());
         AdGroup group = null;
         for (int i = 0; i < ads.size(); i++) {

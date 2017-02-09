@@ -129,6 +129,10 @@ public class ExpressController {
         }
 
         ArrayList<Entity.Express> expresses = OutOfService(userService.listAllExpresses(user.getSchoolId()));
+        if(expresses.size() == 0){
+            map.put("info", "尚未接入快递点");
+            return "user/not_in_service";
+        }
         ArrayList<SendPart> parts = userService.listAllParts(user.getSchoolId());
         ArrayList<SendTime> sendTimes = userService.getAllSendTimes(user.getSchoolId());
         /** 对每一个配送时段确定剩余名额，没有名额的id置为-1 begin*/

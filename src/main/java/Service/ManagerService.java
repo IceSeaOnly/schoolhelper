@@ -392,4 +392,11 @@ public class ManagerService {
     public void deleteVipMeal(int id) {
         managerDao.deleteVipMeal(id);
     }
+
+    /**
+     * 用户有效订单-1
+     * */
+    public void orderSumCutOne(int user_id) {
+        userDao.orderSumCutOne(user_id);
+    }
 }

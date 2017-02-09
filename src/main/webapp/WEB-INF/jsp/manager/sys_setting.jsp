@@ -240,6 +240,40 @@
                             </div>
                         </div>
                     </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">校园搬运</div>
+                                <div class="item-input">
+                                    <label class="label-switch">
+                                        <input type="checkbox"
+                                        <c:if test="${config.ifTenThenFree}">
+                                               checked="checked"
+                                        </c:if>
+                                               onchange="javascript:common_change('schoolMove')">
+                                        <div class="checkbox"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">代寄快递</div>
+                                <div class="item-input">
+                                    <label class="label-switch">
+                                        <input type="checkbox"
+                                        <c:if test="${config.ifTenThenFree}">
+                                               checked="checked"
+                                        </c:if>
+                                               onchange="javascript:common_change('helpSend')">
+                                        <div class="checkbox"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <form action="update_sys_setting.do" method="post" id="form_set">

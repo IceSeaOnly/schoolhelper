@@ -22,6 +22,8 @@ public class SchoolConfigs {
     private boolean hand_close;
     private boolean firstDiscount;//首单优惠
     private boolean ifTenThenFree;//满十减一
+    private boolean schoolMove;//校园搬运
+    private boolean helpSend;//代寄
     private String auto_close_info;
     private String hand_close_info;
     private String refund_url;
@@ -43,6 +45,8 @@ public class SchoolConfigs {
         this.shop_url = "";
         this.auto_start = 7;
         this.auto_close = 15;
+        this.helpSend = false;
+        this.schoolMove =false;
         this.hand_close = false;
         this.auto_close_info = "自动关闭提示未设置";
         this.hand_close_info = "手动关闭提示未设置";
@@ -197,5 +201,21 @@ public class SchoolConfigs {
 
     public void setServicePhone(Long servicePhone) {
         this.servicePhone = servicePhone;
+    }
+
+    public boolean isSchoolMove() {
+        return schoolMove;
+    }
+
+    public void setSchoolMove(boolean schoolMove) {
+        this.schoolMove = schoolMove;
+    }
+
+    public boolean isHelpSend() {
+        return helpSend;
+    }
+
+    public void setHelpSend(boolean helpSend) {
+        this.helpSend = helpSend;
     }
 }
