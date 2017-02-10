@@ -9,9 +9,12 @@ import Entity.User.User;
 import Utils.HttpUtils;
 import Utils.MD5;
 import Utils.TimeFormat;
-import WxApi.SendTemplateMsg;
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.aliyun.mns.client.CloudAccount;
+import com.aliyun.mns.client.CloudQueue;
+import com.aliyun.mns.client.MNSClient;
+import com.aliyun.mns.model.Message;
 import org.springframework.stereotype.Service;
 
 
@@ -43,7 +46,9 @@ public class NoticeService {
         data.put("orderMoneySum", newItem(moneysum));
         data.put("orderProductName", newItem(productName));
         data.put("Remark", newItem(remark));
-        commonTPLSend("QL9zFOOV9JpJQwP2uFgXLlleebgM34ViORxyXFCxSOA", openid, url, data);
+        JSONArray arr = new JSONArray();
+        arr.add(commonTPLMaker("QL9zFOOV9JpJQwP2uFgXLlleebgM34ViORxyXFCxSOA", openid, url, data));
+        DistributedTPLSend(arr);
     }
 
     /**
@@ -58,7 +63,9 @@ public class NoticeService {
         data.put("serviceStatus", newItem(serviceStatus));
         data.put("remark", newItem(remark));
         data.put("time", newItem(TimeFormat.format(time)));
-        commonTPLSend("uwkkxs620Qo5TRyoPDDmEMkUCCvT64pgZGLMwN0icTA", openid, url, data);
+        JSONArray arr = new JSONArray();
+        arr.add(commonTPLMaker("uwkkxs620Qo5TRyoPDDmEMkUCCvT64pgZGLMwN0icTA", openid, url, data));
+        DistributedTPLSend(arr);
     }
 
     /**
@@ -80,7 +87,9 @@ public class NoticeService {
         data.put("name", newItem(name));
         data.put("menu", newItem(money));
         data.put("Remark", newItem(remark));
-        commonTPLSend("TvCDzMyZauj2ROxzLvXox3DicuRKTjIS3kqodbEnakw", openid, url, data);
+        JSONArray arr = new JSONArray();
+        arr.add(commonTPLMaker("TvCDzMyZauj2ROxzLvXox3DicuRKTjIS3kqodbEnakw", openid, url, data));
+        DistributedTPLSend(arr);
     }
 
 
@@ -97,17 +106,31 @@ public class NoticeService {
         return it;
     }
 
-    private void commonTPLSend(String tpl, String openid, String url, JSONObject data) {
+    private JSONObject commonTPLMaker(String tpl, String openid, String url, JSONObject data) {
         JSONObject json = new JSONObject();
         json.put("touser", openid);//OPENID
         json.put("template_id", tpl);
         json.put("url", url);
         json.put("topcolor", "#FF0000");
         json.put("data", data);
-        SendTemplateMsg stm = new SendTemplateMsg(json);
-        new Thread(stm).start();
+        return json;
     }
 
+    private static CloudAccount account = null;
+    private static MNSClient client = null;
+    private static void DistributedTPLSend(JSONArray arr){
+        JSONObject ds = new JSONObject();
+        ds.put("type","wxnotice");
+        ds.put("datas",arr);
+        if(account == null){
+            account = new CloudAccount(PassConfig.accessKey, PassConfig.secret, PassConfig.MNSurl);
+            client = account.getMNSClient();
+        }
+        Message message = new Message();
+        message.setMessageBody(arr.toJSONString());
+        CloudQueue queue = client.getQueueRef("bone");
+        queue.putMessage(message);
+    }
     /**
      * 创建一个专为该订单服务的客服工单
      * 首先检查该用户未完成工单是否超过5个，超过则需先完成未结单的客服工单
@@ -192,8 +215,9 @@ public class NoticeService {
      * 批量发布
      */
     public void threadPublis(final ArrayList<String> openids, final String url, final JSONObject data) {
+        JSONArray arr = new JSONArray();
         for (int i = 0; i < openids.size(); i++) {
-            commonTPLSend("84wlEJrZ9Ak6ikc19gJa8G2FM0j34tf6M4e2NuKoBj0", openids.get(i), url, data);
+            arr.add(commonTPLMaker("84wlEJrZ9Ak6ikc19gJa8G2FM0j34tf6M4e2NuKoBj0", openids.get(i), url, data));
         }
     }
 

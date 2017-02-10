@@ -158,7 +158,7 @@ public class UserDao {
 
     public ArrayList<SendExpress> getAllSendExpresses(int schoolId) {
         Session session = sessionFactory.openSession();
-        ArrayList<SendExpress> res = (ArrayList<SendExpress>) session.createQuery("from SendExpress where available = true and schoolId = :I ")
+        ArrayList<SendExpress> res = (ArrayList<SendExpress>) session.createQuery("from SendExpress where schoolId = :I ")
                 .setParameter("I",schoolId)
                 .list();
         session.close();

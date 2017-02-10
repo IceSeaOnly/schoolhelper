@@ -717,9 +717,11 @@ public class Business {
     }
 
     @RequestMapping("helpSendSet")
-    public String helpSendSet(@RequestParam int schoolId,ModelMap map){
+    public String helpSendSet(@RequestParam int managerId,@RequestParam int schoolId,ModelMap map){
         map.put("orders",managerService.listHelpSendOrders(schoolId));
         map.put("ess",userService.getAllSendExpresses(schoolId));
+        map.put("schoolId",schoolId);
+        map.put("managerId",managerId);
         return "manager/helpsend_set";
     }
 

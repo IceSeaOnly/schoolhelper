@@ -498,7 +498,7 @@ public class ManagerDao{
 
     public ArrayList<SendExpressOrder> listHelpSendOrders(int sid) {
         Session session = sessionFactory.openSession();
-        ArrayList<SendExpressOrder>rs = (ArrayList<SendExpressOrder>) session.createQuery("from SendExpressOrder where schoolId = :S order by id")
+        ArrayList<SendExpressOrder>rs = (ArrayList<SendExpressOrder>) session.createQuery("from SendExpressOrder where haspay = true and schoolId = :S order by id")
                 .setMaxResults(50)
                 .setParameter("S",sid)
                 .list();
