@@ -43,6 +43,23 @@
             });
             $("#vipls_"+id).hide();
         }
+
+        function exp_status_change(id) {
+            $.get("/ajax/exp_status_change.do?managerId=${managerId}&token=${Stoken}&eid="+id,function (data, status) {
+                if(status="success")
+                    $.toast(data);
+                else $.toast('参数错误');
+            })
+        }
+        function reset_exp(id) {
+            $.prompt('重设价格', function (value) {
+                $.get("/ajax/reset_exp_price.do?managerId=${managerId}&token=${Stoken}&eid="+id+"&price="+value,function (data, status) {
+                    if(status="success")
+                        $.toast(data);
+                    else $.toast('参数错误');
+                })
+            });
+        }
     </script>
 
 </head>
@@ -63,6 +80,7 @@
                 <p><a href="#salary_config" class="button button-big">配置分红比例</a></p>
                 <p><a href="#vip_config" class="button button-big ">配置VIP充值方案</a></p>
                 <p><a href="#part_config" class="button button-big ">配置本校区域分配</a></p>
+                <p><a href="#express_config" class="button button-big ">管理本校快递</a></p>
                 <p><a href="#other_config" class="button button-big ">配置本校其他内容</a></p>
             </div>
         </div>
@@ -169,6 +187,73 @@
         <!-- 你的html代码 -->
     </div>
 
+
+    <div class="page" id="express_config">
+        <!-- 你的html代码 -->
+        <header class="bar bar-nav">
+            <a href="#" class="icon icon-left pull-left back"></a>
+            <h1 class="title">管理本校快递</h1>
+        </header>
+        <!-- 这里是页面内容区 begin-->
+        <div class="content">
+            <div class="list-block media-list">
+                <ul>
+                    <c:forEach items="${exps}" var="exp">
+                        <li id="express_${exp.id}">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">${exp.expressName} ￥${exp.sendPrice/100}</div>
+                                        <div class="item-after">
+                                            <a href="javascript:reset_exp(${exp.id})" class="button">设置</a>&nbsp&nbsp
+                                            <label class="label-switch">
+                                                <input type="checkbox" onchange="exp_status_change(${exp.id})" <c:if test="${exp.available}">checked="checked"</c:if> />
+                                                <div class="checkbox"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </div>
+            <form action="addVipMeal.do" method="post" id="">
+                <input name="managerId" value="${managerId}" type="hidden"/>
+                <input name="token" value="${Stoken}" type="hidden"/>
+                <input name="schoolId" value="${schoolId}" type="hidden"/>
+                <div class="list-block">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">充(单位:分)</div>
+                                    <div class="item-input">
+                                        <input type="text" name="pay" placeholder="大于0的整数">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">送(单位:分)</div>
+                                    <div class="item-input">
+                                        <input type="text" name="gift" placeholder="赠送比例不大于10%,整数">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-block">
+                    <p><a href="javascript:$('#form_vip').submit()" class="button button-big">添加</a></p>
+                </div>
+            </form>
+        </div>
+        <!-- 这里是页面内容区 end-->
+        <!-- 你的html代码 -->
+    </div>
 
     <div class="page" id="other_config">
         <!-- 你的html代码 -->

@@ -515,4 +515,22 @@ public class ManagerDao{
         session.getTransaction().commit();
         session.close();
     }
+
+    public SendExpress getSendExpressById(int id) {
+        Session session = sessionFactory.openSession();
+        SendExpress se = (SendExpress) session.createQuery("from SendExpress where id = :I")
+                .setParameter("I",id)
+                .uniqueResult();
+        session.close();
+        return se;
+    }
+
+    public Express geteExpressById(int id) {
+        Session session = sessionFactory.openSession();
+        Express se = (Express) session.createQuery("from Express where id = :I")
+                .setParameter("I",id)
+                .uniqueResult();
+        session.close();
+        return se;
+    }
 }

@@ -408,4 +408,12 @@ public class ManagerService {
     public void deleteSendExpress(int id) {
         managerDao.deleteSendExpress(id);
     }
+
+    public SendExpress getSendExpressById(int id) {
+        return managerDao.getSendExpressById(id);
+    }
+
+    public Express geteExpressById(int id) {
+        return managerDao.geteExpressById(id);
+    }
 }

@@ -13,9 +13,6 @@ import java.io.Serializable;
 @Entity
 @Table
 public class Express{
-
-
-
     @Id
     @GeneratedValue
     private int id;

@@ -127,9 +127,9 @@ public class NoticeService {
             client = account.getMNSClient();
         }
         Message message = new Message();
-        message.setMessageBody(arr.toJSONString());
+        message.setMessageBody(ds.toJSONString());
         CloudQueue queue = client.getQueueRef("bone");
-        queue.putMessage(message);
+        System.out.println(queue.putMessage(message) == null?"ali MNS responsed null":"ali MNS responsed not null");
     }
     /**
      * 创建一个专为该订单服务的客服工单
@@ -219,6 +219,7 @@ public class NoticeService {
         for (int i = 0; i < openids.size(); i++) {
             arr.add(commonTPLMaker("84wlEJrZ9Ak6ikc19gJa8G2FM0j34tf6M4e2NuKoBj0", openids.get(i), url, data));
         }
+        DistributedTPLSend(arr);
     }
 
 

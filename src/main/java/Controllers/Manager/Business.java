@@ -582,6 +582,7 @@ public class Business {
             map.put("config",userService.getSchoolConfBySchoolId(schoolId));
             map.put("vips",userService.getAllVipMeals(schoolId));
             map.put("parts",userService.listAllParts(schoolId));
+            map.put("exps",userService.listAllExpresses(schoolId));
             return "manager/sys_setting";
         }
         else return permissionDeny(map);
@@ -731,7 +732,7 @@ public class Business {
                                  @RequestParam String ename,
                                  @RequestParam String ephone,
                                  @RequestParam int eprice,ModelMap map){
-        if(managerService.managerAccess2Privilege(managerId,"help_send")){
+        if(!managerService.managerAccess2Privilege(managerId,"help_send")){
             return permissionDeny(map);
         }else{
             if(ephone.length()!=11){
