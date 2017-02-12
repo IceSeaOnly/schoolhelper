@@ -359,13 +359,13 @@ public class Ajax {
      * */
     @RequestMapping("exp_status_change")
     @ResponseBody
-    public String exp_status_change(@RequestParam int managerId,@RequestParam int id){
+    public String exp_status_change(@RequestParam int managerId,@RequestParam int eid){
         if(managerService.managerAccess2Privilege(managerId,"xtsz")){
-            Express exp = managerService.geteExpressById(id);
+            Express exp = managerService.geteExpressById(eid);
             if(exp == null) return "非法访问";
             exp.setAvailable(!exp.isAvailable());
             managerService.update(exp);
-            managerService.log(managerId,11,id+"快递状态调整:"+(exp.isAvailable()?"已暂停该快递业务":"已开启该快递业务"));
+            managerService.log(managerId,11,eid+"快递状态调整:"+(exp.isAvailable()?"已暂停该快递业务":"已开启该快递业务"));
             return exp.isAvailable()?"已暂停该快递业务":"已开启该快递业务";
         }
         return "无权操作";
@@ -376,12 +376,12 @@ public class Ajax {
      * */
     @RequestMapping("reset_exp_price")
     @ResponseBody
-    public String reset_exp_price(@RequestParam int managerId,@RequestParam int id,@RequestParam int price){
+    public String reset_exp_price(@RequestParam int managerId,@RequestParam int eid,@RequestParam int price){
         if(managerService.managerAccess2Privilege(managerId,"xtsz")){
-            Express exp = managerService.geteExpressById(id);
+            Express exp = managerService.geteExpressById(eid);
             if(exp == null) return "非法访问";
             if(price<1) return "费用输入错误";
-            managerService.log(managerId,11,id+"快递从"+exp.getSendPrice()+"改价为"+price);
+            managerService.log(managerId,11,eid+"快递从"+exp.getSendPrice()+"改价为"+price);
             exp.setSendPrice(price);
             managerService.update(exp);
 

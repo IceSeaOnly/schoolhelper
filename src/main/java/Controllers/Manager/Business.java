@@ -738,23 +738,42 @@ public class Business {
             if(ephone.length()!=11){
                 map.put("result",false);
                 map.put("is_url",true);
-                map.put("url","http://xiaogutou.qdxiaogutou.com/app/adBusiness.do?managerId=MANAGERID&token=TOKEN#settings");
+                map.put("url","http://xiaogutou.qdxiaogutou.com/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
                 map.put("notice","手机号"+ephone+"格式不正确");
                 return "manager/common_result";
             }
             if(eprice < 1){
                 map.put("result",false);
                 map.put("is_url",true);
-                map.put("url","http://xiaogutou.qdxiaogutou.com/app/adBusiness.do?managerId=MANAGERID&token=TOKEN#settings");
+                map.put("url","http://xiaogutou.qdxiaogutou.com/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
                 map.put("notice","费用需为正整数");
                 return "manager/common_result";
             }
             managerService.save(new SendExpress(ename,eprice,ephone,schoolId));
             map.put("result",false);
             map.put("is_url",true);
-            map.put("url","http://xiaogutou.qdxiaogutou.com/app/adBusiness.do?managerId=MANAGERID&token=TOKEN#settings");
+            map.put("url","http://xiaogutou.qdxiaogutou.com/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
             map.put("notice","添加成功");
             return "manager/common_result";
         }
+    }
+
+
+    @RequestMapping("addExpress")
+    public String addExpress(@RequestParam int managerId,
+                             @RequestParam String exp_name,
+                             @RequestParam int schoolId,
+                             @RequestParam int price,
+                             @RequestParam int exp_end,
+                             ModelMap map){
+                if(managerService.managerAccess2Privilege(managerId,"xxsz")){
+                    Express exp = new Express(exp_name,price,schoolId,exp_end);
+                    managerService.save(exp);
+                    map.put("result",true);
+                    map.put("is_url",true);
+                    map.put("url","http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN#express_config");
+                    map.put("notice","添加成功");
+                    return "manager/common_result";
+                }else return permissionDeny(map);
     }
 }

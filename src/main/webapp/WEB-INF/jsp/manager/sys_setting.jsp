@@ -196,6 +196,10 @@
         </header>
         <!-- 这里是页面内容区 begin-->
         <div class="content">
+            <div class="content-padded">
+                <p>· 此处配置费用<span style="color:red">单位为分</span></p>
+                <p>· 快递点一但添加<span style="color:red">将无法删除，</span>但可停用</p>
+            </div>
             <div class="list-block media-list">
                 <ul>
                     <c:forEach items="${exps}" var="exp">
@@ -218,7 +222,7 @@
                     </c:forEach>
                 </ul>
             </div>
-            <form action="addVipMeal.do" method="post" id="">
+            <form action="addExpress.do" method="post" id="exps">
                 <input name="managerId" value="${managerId}" type="hidden"/>
                 <input name="token" value="${Stoken}" type="hidden"/>
                 <input name="schoolId" value="${schoolId}" type="hidden"/>
@@ -227,9 +231,9 @@
                         <li>
                             <div class="item-content">
                                 <div class="item-inner">
-                                    <div class="item-title label">充(单位:分)</div>
+                                    <div class="item-title label">快递名</div>
                                     <div class="item-input">
-                                        <input type="text" name="pay" placeholder="大于0的整数">
+                                        <input type="text" name="exp_name" >
                                     </div>
                                 </div>
                             </div>
@@ -237,9 +241,19 @@
                         <li>
                             <div class="item-content">
                                 <div class="item-inner">
-                                    <div class="item-title label">送(单位:分)</div>
+                                    <div class="item-title label">配送费</div>
                                     <div class="item-input">
-                                        <input type="text" name="gift" placeholder="赠送比例不大于10%,整数">
+                                        <input type="text" name="price" placeholder="大于0的整数">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">停止接单时间</div>
+                                    <div class="item-input">
+                                        <input type="text" name="exp_end" id="exp_end" placeholder="点击选择">
                                     </div>
                                 </div>
                             </div>
@@ -247,7 +261,7 @@
                     </ul>
                 </div>
                 <div class="content-block">
-                    <p><a href="javascript:$('#form_vip').submit()" class="button button-big">添加</a></p>
+                    <p><a href="javascript:$('#form_exps').submit()" class="button button-big">添加</a></p>
                 </div>
             </form>
         </div>
@@ -565,6 +579,20 @@
         toolbarTemplate: '<header class="bar bar-nav">\
   <button class="button button-link pull-right close-picker">确定</button>\
   <h1 class="title">自动停止接单(24小时制)</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+            }
+        ]
+    });
+
+
+    $("#exp_end").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">24小时制</h1>\
   </header>',
         cols: [
             {

@@ -26,10 +26,10 @@ public class Express{
     /** 快递属于哪个学校*/
     private int schoolId;
 
-    public Express(String expressName, int sendPrice,int scid) {
+    public Express(String expressName, int sendPrice,int scid,int end) {
         this.expressName = expressName;
         this.sendPrice = sendPrice;
-        this.hour_out_of_service = 99;
+        this.hour_out_of_service = end;
         this.minute_out_of_service = 99;
         this.available = true;
         this.schoolId = scid;
