@@ -26,6 +26,7 @@
                 $.get("/ajax/refund.do?managerId=${managerId}&schoolId=${schoolId}&token=${Stoken}&id="+id,function (data, status) {
                     $.hidePreloader();
                     $.alert(data);
+                    $("#card"+id).hide();
                 })
             });
         }

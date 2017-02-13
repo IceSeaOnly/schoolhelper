@@ -48,7 +48,6 @@
             $.get("/ajax/exp_status_change.do?managerId=${managerId}&token=${Stoken}&eid="+id,function (data, status) {
                 if(status="success"){
                     $.toast(data);
-                    setTimeout("icesea.reload()",1000);
                 }else $.toast('参数错误');
             })
         }
@@ -56,18 +55,18 @@
             $.get("/ajax/sendtime_changed.do?managerId=${managerId}&token=${Stoken}&id="+id,function (data, status) {
                 if(status="success"){
                     $.toast(data);
-                    setTimeout("icesea.reload()",1000);
                 }else $.toast('参数错误');
             })
         }
-        $.get("/ajax/reset_exp_price.do?managerId=${managerId}&token=${Stoken}&eid="+id+"&price="+value,function (data, status) {
-            if(status="success"){
-                $.toast(data);
-                setTimeout("icesea.reload()",1000);
-            } else $.toast('参数错误');
-        })
+
         function reset_exp(id) {
             $.prompt('重设价格', function (value) {
+                $.get("/ajax/reset_exp_price.do?managerId=${managerId}&token=${Stoken}&eid="+id+"&price="+value,function (data, status) {
+                    if(status="success"){
+                        $.toast(data);
+                        setTimeout("icesea.reload()",1000);
+                    } else $.toast('参数错误');
+                })
             });
         }
     </script>
@@ -303,7 +302,7 @@
                     </c:forEach>
                 </ul>
             </div>
-            <form action="addExpress.do" method="post" id="exps">
+            <form action="addExpress.do" method="post" id="form_exps">
                 <input name="managerId" value="${managerId}" type="hidden"/>
                 <input name="token" value="${Stoken}" type="hidden"/>
                 <input name="schoolId" value="${schoolId}" type="hidden"/>

@@ -27,7 +27,7 @@
 
 <!--充值成功：立即下单-->
 <div class="black"></div>
-<div class="success">支付成功<p>会员卡余额:￥<fmt:formatNumber value="${user.my_money}" pattern="##.##" minFractionDigits="2" ></fmt:formatNumber>
+<div class="success">支付成功<p>会员卡余额:￥<fmt:formatNumber value="${user.my_money/100}" pattern="##.##" minFractionDigits="2" ></fmt:formatNumber>
     <a href="/user/my_orders.do"><button>完成</button></a>
 </div>
 </body>

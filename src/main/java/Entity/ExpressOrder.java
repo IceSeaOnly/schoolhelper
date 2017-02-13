@@ -46,6 +46,7 @@ public class ExpressOrder {
     private boolean isLLJJ;//是否是楼长交接件
 
 
+
     public String state_toString(){
         String res = "";
         switch (order_state){

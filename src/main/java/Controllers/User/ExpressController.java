@@ -247,9 +247,9 @@ public class ExpressController {
             ModelMap map) {
 
         /** 格式化用户输入*/
-        String regEx="[^0-9]";
-        Pattern p = Pattern.compile(regEx);
-        building = p.matcher(building).toString();
+//        String regEx="[^0-9]";
+//        Pattern p = Pattern.compile(regEx);
+//        building = p.matcher(building).toString();
         // 得到用户信息
         User user = (User) session.getAttribute("user");
         ArrayList<Entity.Express> expresses = (ArrayList<Express>) session.getAttribute("expresses");

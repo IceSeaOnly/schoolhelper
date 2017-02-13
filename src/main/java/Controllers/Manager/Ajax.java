@@ -3,6 +3,7 @@ package Controllers.Manager;
 import Entity.*;
 import Entity.Manager.Manager;
 import Entity.Manager.PayLog;
+import Entity.User.User;
 import Service.ManagerService;
 import Service.UserService;
 import Utils.FailedAnswer;
@@ -350,13 +351,29 @@ public class Ajax {
         if(managerService.managerAccess2School(managerId,schoolId)){
             ExpressOrder order = managerService.getExpressOrderById(id);
             if(order == null) return "参数错误";
+            if(!order.isHas_pay()) return "参数错误";
+            if(order.getOrder_state() == -1) return "该订单已经退款，再次退款";
             if(order.getOrder_state()!=0 && order.getOrder_state() != 1) return "已进入任务流程，无法退款";
             String pass = session.getServletContext().getInitParameter("refund_pwd");
             String url = session.getServletContext().getInitParameter("refund_url");
             String validate = MD5.encryption(order.getOrderKey()+pass+order.getShouldPay());
-            managerService.orderSumCutOne(order.getUser_id());
+
             String rs =HttpUtils.sendGet(url,"out_trade_no="+order.getOrderKey()+"&refund_fee="+order.getShouldPay()+"&validate="+validate);
-            managerService.log(managerId,11,id+"订单退款:"+rs);
+
+            if(rs.contains("SUCCESS")){
+                order.setOrder_state(-1);
+                managerService.update(order);
+                managerService.orderSumCutOne(order.getUser_id());
+                managerService.log(managerId,11,id+"订单退款:"+rs);
+            }else if(rs.contains("订单不存在")){ //余额支付订单
+                rs="余额支付单，";
+                order.setOrder_state(-1);
+                managerService.update(order);
+                managerService.orderSumCutOne(order.getUser_id());
+                boolean res = managerService.refundVipPay(order.getUser_id(),order.getShouldPay());
+                rs += (res?"已退款至账户":"但退款时发生错误");
+                managerService.log(managerId,11,id+"订单退款:"+rs);
+            }
             return rs;
         }else return "无权操作";
     }

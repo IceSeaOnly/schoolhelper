@@ -241,8 +241,8 @@ public class Business {
                     orders.add(it);
 
                     /** 赏工资*/
-                    managerService.rewardT(omid,schoolId,orderId);
-                    managerService.rewardR(managerId,schoolId,orderId);
+                    managerService.rewardT(omid, schoolId, orderId);
+                    managerService.rewardR(managerId, schoolId, orderId);
                 }
         }
         School school = managerService.getSchoolById(schoolId);
@@ -255,169 +255,173 @@ public class Business {
 
     /**
      * 增加学校
-     * */
+     */
 
     @RequestMapping("zjxx")
-    public String zjxx(@RequestParam int managerId,ModelMap map){
-        if(!managerService.managerAccess2Privilege(managerId,"xxgl"))
+    public String zjxx(@RequestParam int managerId, ModelMap map) {
+        if (!managerService.managerAccess2Privilege(managerId, "xxgl"))
             return permissionDeny(map);
 
-        map.put("managerId",managerId);
+        map.put("managerId", managerId);
         return "manager/zjxx";
     }
 
     /**
      * 增加学校结果
-     * */
+     */
 
     @RequestMapping("zjxx_result")
     public String zjxx_result(@RequestParam int managerId,
                               @RequestParam String name_ch,
                               @RequestParam String name_en,
                               @RequestParam Long servicePhone,
-                              ModelMap map){
+                              ModelMap map) {
         name_en = name_en.toLowerCase();
-        if(!managerService.managerAccess2Privilege(managerId,"xxgl"))
+        if (!managerService.managerAccess2Privilege(managerId, "xxgl"))
             return permissionDeny(map);
-        if(managerService.schoolExist(name_ch,name_en)){
-            map.put("result",false);
-            map.put("is_url",false);
-            map.put("notice","校名/校名缩写 已经存在，不能重复！");
+        if (managerService.schoolExist(name_ch, name_en)) {
+            map.put("result", false);
+            map.put("is_url", false);
+            map.put("notice", "校名/校名缩写 已经存在，不能重复！");
             return "manager/common_result";
-        }else{
-            managerService.createSchool(name_ch,name_en,servicePhone);
-            map.put("result",true);
-            map.put("is_url",true);
-            map.put("url","http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN");
-            map.put("notice",name_ch+" 创建成功");
+        } else {
+            managerService.createSchool(name_ch, name_en, servicePhone);
+            map.put("result", true);
+            map.put("is_url", true);
+            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN");
+            map.put("notice", name_ch + " 创建成功");
             return "manager/common_result";
         }
     }
 
     /**
      * 管理员权限管理
-     * */
+     */
     @RequestMapping("privilege_manage_select")
     public String privilege_manage_select(@RequestParam int managerId,
-                                          ModelMap map){
-        if(!managerService.managerAccess2Privilege(managerId,"qxgl"))
+                                          ModelMap map) {
+        if (!managerService.managerAccess2Privilege(managerId, "qxgl"))
             return permissionDeny(map);
         List<Manager> ms = managerService.listAllManagers();
-        map.put("managers",ms);
-        map.put("managerId",managerId);
+        map.put("managers", ms);
+        map.put("managerId", managerId);
         return "manager/privilege_manage_select";
     }
+
     /**
      * 管理员权限管理
+     *
      * @mid 管理员id
-     * */
+     */
     @RequestMapping("privilege_manage")
     public String privilege_manage(@RequestParam int managerId,
                                    @RequestParam int mid,
-                                          ModelMap map){
-        if(!managerService.managerAccess2Privilege(managerId,"qxgl"))
+                                   ModelMap map) {
+        if (!managerService.managerAccess2Privilege(managerId, "qxgl"))
             return permissionDeny(map);
-        map.put("managerId",managerId);
-        map.put("mid",mid);
-        map.put("privileges",managerService.editPrivilege(mid));
+        map.put("managerId", managerId);
+        map.put("mid", mid);
+        map.put("privileges", managerService.editPrivilege(mid));
         return "manager/privilege_manage";
     }
 
     /**
      * 学校管理功能选择页
-     * */
+     */
     @RequestMapping("school_manage_select")
     public String school_manage_select(@RequestParam int managerId,
-                                       ModelMap map){
-        map.put("managerId",managerId);
+                                       ModelMap map) {
+        map.put("managerId", managerId);
         return "manager/school_manage_select";
     }
+
     /**
      * 管理学校管理员--选择学校
-     * */
+     */
     @RequestMapping("glxxgly_select")
     public String glxxgly_select(@RequestParam int managerId,
-                          ModelMap map){
-        if(!managerService.managerAccess2Privilege(managerId,"xxgl")){
+                                 ModelMap map) {
+        if (!managerService.managerAccess2Privilege(managerId, "xxgl")) {
             return permissionDeny(map);
         }
-        map.put("schools",managerService.lisAllSchool());
-        map.put("managerId",managerId);
+        map.put("schools", managerService.lisAllSchool());
+        map.put("managerId", managerId);
         return "manager/glxxgly_select";
     }
+
     /**
      * 管理学校管理员权限
-     * */
+     */
     @RequestMapping("glxxgly")
     public String glxxgly(@RequestParam int managerId,
                           @RequestParam int sid,
-                          ModelMap map){
-        if(!managerService.managerAccess2Privilege(managerId,"xxgl")){
+                          ModelMap map) {
+        if (!managerService.managerAccess2Privilege(managerId, "xxgl")) {
             return permissionDeny(map);
         }
-        map.put("sid",sid);
-        map.put("managers",managerService.lisSchoolManagers(sid));
-        map.put("managerId",managerId);
-        map.put("schoolName",managerService.getSchoolById(sid).getSchoolName());
+        map.put("sid", sid);
+        map.put("managers", managerService.lisSchoolManagers(sid));
+        map.put("managerId", managerId);
+        map.put("schoolName", managerService.getSchoolById(sid).getSchoolName());
         return "manager/glxxgly";
     }
 
     /**
      * 通用 权限拒绝判定
-     * */
-    public String permissionDeny(ModelMap map){
-        map.put("result",false);
-        map.put("is_url",false);
-        map.put("notice","无权操作");
+     */
+    public String permissionDeny(ModelMap map) {
+        map.put("result", false);
+        map.put("is_url", false);
+        map.put("notice", "无权操作");
         return "manager/common_result";
     }
 
     /**
      * 原因管理
-     * */
+     */
     @RequestMapping("reason_manage")
     public String reason_manage(@RequestParam int managerId,
-                                ModelMap map){
-        if(!managerService.managerAccess2Privilege(managerId,"reason_manage")){
+                                ModelMap map) {
+        if (!managerService.managerAccess2Privilege(managerId, "reason_manage")) {
             return permissionDeny(map);
         }
 
-        map.put("reasons_s",managerService.listAllReasons(Reason.SEND_ERR));
-        map.put("reasons_f",managerService.listAllReasons(Reason.FETCH_ERR));
-        map.put("managerId",managerId);
+        map.put("reasons_s", managerService.listAllReasons(Reason.SEND_ERR));
+        map.put("reasons_f", managerService.listAllReasons(Reason.FETCH_ERR));
+        map.put("managerId", managerId);
         return "manager/reason_manage";
     }
 
     /**
      * 原因管理 -- 增加原因
-     * */
+     */
     @RequestMapping("reason_manage_add")
     public String reason_manage_add(@RequestParam int managerId,
                                     @RequestParam String type,
                                     @RequestParam String reason,
-                                ModelMap map){
-        if(!managerService.managerAccess2Privilege(managerId,"reason_manage")){
+                                    ModelMap map) {
+        if (!managerService.managerAccess2Privilege(managerId, "reason_manage")) {
             return permissionDeny(map);
         }
-        managerService.save(new Reason(type.equals("send")?Reason.SEND_ERR:Reason.FETCH_ERR,reason));
+        managerService.save(new Reason(type.equals("send") ? Reason.SEND_ERR : Reason.FETCH_ERR, reason));
         managerService.sp_listAllReason();
-        map.put("result",true);
-        map.put("notice","添加成功");
-        map.put("is_url",false);
+        map.put("result", true);
+        map.put("notice", "添加成功");
+        map.put("is_url", false);
         return "manager/common_result";
     }
 
     /**
      * 管理队伍
-     * */
+     */
     @RequestMapping("work_group")
     public String work_group(@RequestParam int managerId,
-                             ModelMap map){
-        if(!managerService.managerAccess2Privilege(managerId,"work_group")){
+                             ModelMap map) {
+        if (!managerService.managerAccess2Privilege(managerId, "work_group")) {
             return permissionDeny(map);
         }
-        map.put("managers",managerService.listAllManagers());
-        map.put("managerId",managerId);
+        map.put("managers", managerService.listAllManagers());
+        map.put("managerId", managerId);
         return "manager/work_group";
     }
 
@@ -430,43 +434,43 @@ public class Business {
                               @RequestParam String openid,
                               @RequestParam String pdesc, //描述
                               ModelMap map
-                              ){
-        if(!managerService.managerAccess2Privilege(managerId,"work_group")){
+    ) {
+        if (!managerService.managerAccess2Privilege(managerId, "work_group")) {
             return permissionDeny(map);
         }
-        if(managerService.managerPhoneExist(phone.trim())){
-            map.put("result",false);
-            map.put("is_url",false);
-            map.put("notice","手机号已存在，创建失败！");
+        if (managerService.managerPhoneExist(phone.trim())) {
+            map.put("result", false);
+            map.put("is_url", false);
+            map.put("notice", "手机号已存在，创建失败！");
             return "manager/common_result";
         }
 
         Manager m = (Manager) managerService.merge(
-                new Manager(name,phone, MD5.encryption("123456"),alipay,wxpay,openid,0.0,pdesc));
-        managerService.save(new PrivilegeDist(m.getId(),18));
-        map.put("result",true);
-        map.put("notice","添加成功,初始密码123456，请注意分配学校和权限，如需分红，请注意分配");
-        map.put("is_url",true);
-        map.put("url","school_manage_select.do?managerId=MANAGERID&token=TOKEN");
+                new Manager(name, phone, MD5.encryption("123456"), alipay, wxpay, openid, 0.0, pdesc));
+        managerService.save(new PrivilegeDist(m.getId(), 18));
+        map.put("result", true);
+        map.put("notice", "添加成功,初始密码123456，请注意分配学校和权限，如需分红，请注意分配");
+        map.put("is_url", true);
+        map.put("url", "school_manage_select.do?managerId=MANAGERID&token=TOKEN");
         return "manager/common_result";
     }
 
     /**
      * 客服
-     * */
+     */
     @RequestMapping("cservice")
     public String cservice(@RequestParam int managerId,
                            @RequestParam int schoolId,
-                           ModelMap map){
-        if(managerService.managerAccess2School(managerId,schoolId)){
-            map.put("waitcservice",managerService.listWaitCService(schoolId));
-            map.put("incservice",managerService.listInCService(managerId));
-            map.put("completecservice",managerService.listCompleteCService(managerId));
-        }else{
+                           ModelMap map) {
+        if (managerService.managerAccess2School(managerId, schoolId)) {
+            map.put("waitcservice", managerService.listWaitCService(schoolId));
+            map.put("incservice", managerService.listInCService(managerId));
+            map.put("completecservice", managerService.listCompleteCService(managerId));
+        } else {
             return permissionDeny(map);
         }
-        map.put("managerId",managerId);
-        map.put("schoolId",schoolId);
+        map.put("managerId", managerId);
+        map.put("schoolId", schoolId);
         return "manager/cservice";
     }
 
@@ -474,89 +478,88 @@ public class Business {
     /**
      * 客服接入
      * csid是int类型的本地会话序号，非Long型cid
-     * */
+     */
     @RequestMapping("connect_service")
     public String connect_service(@RequestParam int managerId,
                                   @RequestParam int schoolId,
                                   @RequestParam int csid,
                                   HttpSession session,
-                                  ModelMap map){
-        if(managerService.managerAccess2Privilege(managerId,"kfgd")){
-            Conversation c = noticeService.getConversationIfWait(managerId,csid,schoolId);
-            if(c == null){
-                map.put("result",false);
-                map.put("is_url",false);
-                map.put("notice","来晚一步");
+                                  ModelMap map) {
+        if (managerService.managerAccess2Privilege(managerId, "kfgd")) {
+            Conversation c = noticeService.getConversationIfWait(managerId, csid, schoolId);
+            if (c == null) {
+                map.put("result", false);
+                map.put("is_url", false);
+                map.put("notice", "来晚一步");
                 return "manager/common_result";
-            }
-            else {
+            } else {
                 String appKey = session.getServletContext().getInitParameter("cservice_appkey");
                 String secret = session.getServletContext().getInitParameter("cservice_secret");
 
                 JSONObject data = HttpUtils.sendJSONGet("http://cservice.nanayun.cn/manage/setcs.do",
-                        "appKey="+appKey+"&secret="+secret+"&cid="+c.getCid()+"&rid="+managerId);
+                        "appKey=" + appKey + "&secret=" + secret + "&cid=" + c.getCid() + "&rid=" + managerId);
 
-                managerService.save(new Log(10,"cid="+c.getCid()+"设置rid="+managerId+":"+data.getBoolean("result"),-1));
-                map.put("result",true);
-                map.put("is_url",true);
-                map.put("url",c.getServerEnter());
-                map.put("notice","正在连接，请稍后...");
+                managerService.save(new Log(10, "cid=" + c.getCid() + "设置rid=" + managerId + ":" + data.getBoolean("result"), -1));
+                map.put("result", true);
+                map.put("is_url", true);
+                map.put("url", c.getServerEnter());
+                map.put("notice", "正在连接，请稍后...");
                 return "manager/common_result";
             }
-        }else{
+        } else {
             return permissionDeny(map);
         }
     }
 
     /**
      * 充值订单列表
-     * */
+     */
     @RequestMapping("charge_list")
     public String charge_list(@RequestParam int managerId,
                               @RequestParam int schoolId,
-                              ModelMap map){
+                              ModelMap map) {
         ArrayList<ChargeVipOrder> list = managerService.listChargeList(schoolId);
-        map.put("list",list);
-        map.put("managerId",managerId);
-        map.put("schoolId",schoolId);
+        map.put("list", list);
+        map.put("managerId", managerId);
+        map.put("schoolId", schoolId);
         return "manager/charge_list";
     }
 
     /**
      * vip列表
-     * */
+     */
     @RequestMapping("vip_list")
     public String vip_list(@RequestParam int managerId,
                            @RequestParam int schoolId,
-                           ModelMap map){
+                           ModelMap map) {
         ArrayList<User> users = managerService.listVIP(schoolId);
-        map.put("list",users);
-        map.put("managerId",managerId);
-        map.put("schoolId",schoolId);
+        map.put("list", users);
+        map.put("managerId", managerId);
+        map.put("schoolId", schoolId);
         return "manager/vip_list";
     }
 
     /**
      * 我的收入
-     * */
+     */
     @RequestMapping("my_incomes")
     public String my_incomes(@RequestParam int managerId,
-                             ModelMap map){
-        List<ChargingSystem>ins = managerService.listMyIncomes(managerId);
-        map.put("ins",ins);
+                             ModelMap map) {
+        List<ChargingSystem> ins = managerService.listMyIncomes(managerId);
+        map.put("ins", ins);
         return "manager/my_incomes";
     }
 
     /**
      * 工资清算
-     * */
+     */
     @RequestMapping("gzqs")
     public String gzqs(@RequestParam int managerId,
-                       ModelMap map){
-        if(managerService.managerAccess2Privilege(managerId,"gzqs")){
-            ArrayList<PayLog>payLogs = managerService.makePayLogs();
-            map.put("logs",payLogs);
-        }else{
+                       ModelMap map) {
+        if (managerService.managerAccess2Privilege(managerId, "gzqs")) {
+            ArrayList<PayLog> payLogs = managerService.makePayLogs();
+            map.put("logs", payLogs);
+        } else {
             return permissionDeny(map);
         }
         return "manager/gzqs";
@@ -564,28 +567,27 @@ public class Business {
 
     /**
      * 系统设置
-     * */
+     */
     @RequestMapping("xtsz")
-    public String xtsz(@RequestParam int managerId,@RequestParam int schoolId,
-                       ModelMap map){
-        if(managerService.managerAccess2Privilege(managerId,"xtsz") && managerService.managerAccess2School(managerId,schoolId)){
-            map.put("managerId",managerId);
-            map.put("schoolId",schoolId);
-            map.put("schoolName",managerService.getSchoolById(schoolId).getSchoolName());
-            map.put("ms",managerService.lisSchoolManagers(schoolId));
-            map.put("config",userService.getSchoolConfBySchoolId(schoolId));
-            map.put("vips",userService.getAllVipMeals(schoolId));
-            map.put("parts",userService.listAllParts(schoolId));
-            map.put("exps",userService.listAllExpresses(schoolId,false));
-            map.put("stimes",userService.getAllSendTimes(schoolId,false));
+    public String xtsz(@RequestParam int managerId, @RequestParam int schoolId,
+                       ModelMap map) {
+        if (managerService.managerAccess2Privilege(managerId, "xtsz") && managerService.managerAccess2School(managerId, schoolId)) {
+            map.put("managerId", managerId);
+            map.put("schoolId", schoolId);
+            map.put("schoolName", managerService.getSchoolById(schoolId).getSchoolName());
+            map.put("ms", managerService.lisSchoolManagers(schoolId));
+            map.put("config", userService.getSchoolConfBySchoolId(schoolId));
+            map.put("vips", userService.getAllVipMeals(schoolId));
+            map.put("parts", userService.listAllParts(schoolId));
+            map.put("exps", userService.listAllExpresses(schoolId, false));
+            map.put("stimes", userService.getAllSendTimes(schoolId, false));
             return "manager/sys_setting";
-        }
-        else return permissionDeny(map);
+        } else return permissionDeny(map);
     }
 
     /**
      * 本校其他设置
-     * */
+     */
     @RequestMapping("update_sys_setting")
     public String update_sys_setting(@RequestParam int managerId,
                                      @RequestParam int schoolId,
@@ -600,11 +602,11 @@ public class Business {
                                      @RequestParam String ausdn,//手动停止说明
                                      @RequestParam String shopUrl,//校园微店
                                      ModelMap map
-                                     ){
-        if(!managerService.managerAccess2Privilege(managerId,"xtsz")||!managerService.managerAccess2School(managerId,schoolId)){
+    ) {
+        if (!managerService.managerAccess2Privilege(managerId, "xtsz") || !managerService.managerAccess2School(managerId, schoolId)) {
             return permissionDeny(map);
         }
-        if(biggerThan0(qs,ss,zjs,jss)){
+        if (biggerThan0(qs, ss, zjs, jss)) {
             SchoolConfigs sc = userService.getSchoolConfBySchoolId(schoolId);
             sc.setFirst_cost(fristCost);
             sc.setEach_fetch(qs);
@@ -617,40 +619,41 @@ public class Business {
             sc.setHand_close_info(ausdn);
             sc.setShop_url(shopUrl);
             managerService.update(sc);
-            map.put("result",true);
-            map.put("is_url",false);
-            map.put("notice","更新完成");
+            map.put("result", true);
+            map.put("is_url", false);
+            map.put("notice", "更新完成");
             return "manager/common_result";
-        }else{
-            map.put("result",false);
-            map.put("is_url",false);
-            map.put("notice","参数格式不合法：必须是大于0的正整数");
+        } else {
+            map.put("result", false);
+            map.put("is_url", false);
+            map.put("notice", "参数格式不合法：必须是大于0的正整数");
             return "manager/common_result";
         }
     }
 
     /**
      * 大于0判断
-     * */
+     */
     private boolean biggerThan0(int... s) {
         for (int i = 0; i < s.length; i++) {
-            if(s[i]<1) return false;
+            if (s[i] < 1) return false;
         }
         return true;
     }
+
     /**
      * 校园消息
-     * */
+     */
     @RequestMapping("xyxx")
-    public String xyxx(@RequestParam int managerId,@RequestParam int schoolId,
-                       ModelMap map){
-        if(managerService.managerAccess2Privilege(managerId,"xyxx")&&managerService.managerAccess2School(managerId,schoolId)){
-            ArrayList<SysMsg>msgs = userService.getAllSystemMsg(schoolId);
-            map.put("msgs",msgs);
-            map.put("schoolId",schoolId);
-            map.put("managerId",managerId);
+    public String xyxx(@RequestParam int managerId, @RequestParam int schoolId,
+                       ModelMap map) {
+        if (managerService.managerAccess2Privilege(managerId, "xyxx") && managerService.managerAccess2School(managerId, schoolId)) {
+            ArrayList<SysMsg> msgs = userService.getAllSystemMsg(schoolId);
+            map.put("msgs", msgs);
+            map.put("schoolId", schoolId);
+            map.put("managerId", managerId);
             return "manager/schoolNoticeList";
-        }else{
+        } else {
             return permissionDeny(map);
         }
     }
@@ -660,64 +663,64 @@ public class Business {
                                  @RequestParam int schoolId,
                                  @RequestParam String title,
                                  @RequestParam String content,
-                                 ModelMap map){
-        if(managerService.managerAccess2Privilege(managerId,"xyxx")&&managerService.managerAccess2School(managerId,schoolId)){
-            SysMsg msg = managerService.publis_notice(schoolId,managerId,title,content);
+                                 ModelMap map) {
+        if (managerService.managerAccess2Privilege(managerId, "xyxx") && managerService.managerAccess2School(managerId, schoolId)) {
+            SysMsg msg = managerService.publis_notice(schoolId, managerId, title, content);
             noticeService.publishNotice(msg);
-            map.put("result",true);
-            map.put("is_url",false);
-            map.put("notice","发布任务已经在执行了");
+            map.put("result", true);
+            map.put("is_url", false);
+            map.put("notice", "发布任务已经在执行了");
             return "manager/common_result";
-        }else{
+        } else {
             return permissionDeny(map);
         }
     }
 
     @RequestMapping("addVipMeal")
     public String addVipMeal(@RequestParam int managerId,
-                             @RequestParam int schoolId,@RequestParam int pay,@RequestParam int gift,ModelMap map){
-        if(managerService.managerAccess2Privilege(managerId,"xyxx")&&managerService.managerAccess2School(managerId,schoolId)){
-            if(gift/pay>0.1){
-                map.put("result",false);
-                map.put("is_url",false);
-                map.put("notice","赠送比例不得大于10%,整数");
-            }else{
-                map.put("result",true);
-                map.put("is_url",false);
-                map.put("notice","添加成功");
-                managerService.save(new ChargeVip(pay,gift,schoolId));
+                             @RequestParam int schoolId, @RequestParam int pay, @RequestParam int gift, ModelMap map) {
+        if (managerService.managerAccess2Privilege(managerId, "xyxx") && managerService.managerAccess2School(managerId, schoolId)) {
+            if (gift / pay > 0.1) {
+                map.put("result", false);
+                map.put("is_url", false);
+                map.put("notice", "赠送比例不得大于10%,整数");
+            } else {
+                map.put("result", true);
+                map.put("is_url", false);
+                map.put("notice", "添加成功");
+                managerService.save(new ChargeVip(pay, gift, schoolId));
             }
             return "manager/common_result";
-        }else{
+        } else {
             return permissionDeny(map);
         }
     }
 
     @RequestMapping("addSchoolPart")
     public String addSchoolPart(@RequestParam int managerId,
-                                @RequestParam int schoolId,@RequestParam String pname,@RequestParam int ppay,ModelMap map){
-        if(managerService.managerAccess2Privilege(managerId,"xyxx")&&managerService.managerAccess2School(managerId,schoolId)){
-            managerService.save(new SendPart(pname,ppay,schoolId));
-            map.put("result",true);
-            map.put("is_url",false);
-            map.put("notice","添加成功");
+                                @RequestParam int schoolId, @RequestParam String pname, @RequestParam int ppay, ModelMap map) {
+        if (managerService.managerAccess2Privilege(managerId, "xyxx") && managerService.managerAccess2School(managerId, schoolId)) {
+            managerService.save(new SendPart(pname, ppay, schoolId));
+            map.put("result", true);
+            map.put("is_url", false);
+            map.put("notice", "添加成功");
             return "manager/common_result";
-        }else{
+        } else {
             return permissionDeny(map);
         }
     }
 
     @RequestMapping("adBusiness")
-    public String adBusiness(){
+    public String adBusiness() {
         return "manager/adBusiness";
     }
 
     @RequestMapping("helpSendSet")
-    public String helpSendSet(@RequestParam int managerId,@RequestParam int schoolId,ModelMap map){
-        map.put("orders",managerService.listHelpSendOrders(schoolId));
-        map.put("ess",userService.getAllSendExpresses(schoolId));
-        map.put("schoolId",schoolId);
-        map.put("managerId",managerId);
+    public String helpSendSet(@RequestParam int managerId, @RequestParam int schoolId, ModelMap map) {
+        map.put("orders", managerService.listHelpSendOrders(schoolId));
+        map.put("ess", userService.getAllSendExpresses(schoolId));
+        map.put("schoolId", schoolId);
+        map.put("managerId", managerId);
         return "manager/helpsend_set";
     }
 
@@ -726,29 +729,29 @@ public class Business {
                                  @RequestParam int schoolId,
                                  @RequestParam String ename,
                                  @RequestParam String ephone,
-                                 @RequestParam int eprice,ModelMap map){
-        if(!managerService.managerAccess2Privilege(managerId,"help_send")){
+                                 @RequestParam int eprice, ModelMap map) {
+        if (!managerService.managerAccess2Privilege(managerId, "help_send")) {
             return permissionDeny(map);
-        }else{
-            if(ephone.length()!=11){
-                map.put("result",false);
-                map.put("is_url",true);
-                map.put("url","http://xiaogutou.qdxiaogutou.com/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
-                map.put("notice","手机号"+ephone+"格式不正确");
+        } else {
+            if (ephone.length() != 11) {
+                map.put("result", false);
+                map.put("is_url", true);
+                map.put("url", "http://xiaogutou.qdxiaogutou.com/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
+                map.put("notice", "手机号" + ephone + "格式不正确");
                 return "manager/common_result";
             }
-            if(eprice < 1){
-                map.put("result",false);
-                map.put("is_url",true);
-                map.put("url","http://xiaogutou.qdxiaogutou.com/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
-                map.put("notice","费用需为正整数");
+            if (eprice < 1) {
+                map.put("result", false);
+                map.put("is_url", true);
+                map.put("url", "http://xiaogutou.qdxiaogutou.com/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
+                map.put("notice", "费用需为正整数");
                 return "manager/common_result";
             }
-            managerService.save(new SendExpress(ename,eprice,ephone,schoolId));
-            map.put("result",false);
-            map.put("is_url",true);
-            map.put("url","http://xiaogutou.qdxiaogutou.com/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
-            map.put("notice","添加成功");
+            managerService.save(new SendExpress(ename, eprice, ephone, schoolId));
+            map.put("result", false);
+            map.put("is_url", true);
+            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
+            map.put("notice", "添加成功");
             return "manager/common_result";
         }
     }
@@ -760,88 +763,88 @@ public class Business {
                              @RequestParam int schoolId,
                              @RequestParam int price,
                              @RequestParam int exp_end,
-                             ModelMap map){
-                if(managerService.managerAccess2Privilege(managerId,"xxsz")){
-                    Express exp = new Express(exp_name,price,schoolId,exp_end);
-                    managerService.save(exp);
-                    map.put("result",true);
-                    map.put("is_url",true);
-                    map.put("url","http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN#express_config");
-                    map.put("notice","添加成功");
-                    return "manager/common_result";
-                }else return permissionDeny(map);
+                             ModelMap map) {
+        System.out.println("mid="+managerId);
+        if (managerService.managerAccess2Privilege(managerId, "xtsz")) {
+            Express exp = new Express(exp_name, price, schoolId, exp_end);
+            managerService.save(exp);
+            map.put("result", true);
+            map.put("is_url", true);
+            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN#express_config");
+            map.put("notice", "添加成功");
+            return "manager/common_result";
+        } else return permissionDeny(map);
     }
 
-
     @RequestMapping("feedback")
-    public String feedback(@RequestParam int managerId,ModelMap map){
-        map.put("feedbacks",managerService.listAllFeedBacks());
-        map.put("my_fbs",managerService.listMyFeedBacks(managerId));
-        map.put("managerId",managerId);
+    public String feedback(@RequestParam int managerId, ModelMap map) {
+        map.put("feedbacks", managerService.listAllFeedBacks());
+        map.put("my_fbs", managerService.listMyFeedBacks(managerId));
+        map.put("managerId", managerId);
         return "manager/feedback";
     }
 
     @RequestMapping("resp_feedback")
-    public String resp_feedback(@RequestParam int managerId,@RequestParam int fid,ModelMap map){
+    public String resp_feedback(@RequestParam int managerId, @RequestParam int fid, ModelMap map) {
         FeedBack fb = managerService.getFeedBackById(fid);
-        if(fb == null) return permissionDeny(map);
-        if(fb.isResponsed()){
-            map.put("result",false);
-            map.put("is_url",true);
-            map.put("url","http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
-            map.put("notice","已经有管理员回复了");
+        if (fb == null) return permissionDeny(map);
+        if (fb.isResponsed()) {
+            map.put("result", false);
+            map.put("is_url", true);
+            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
+            map.put("notice", "已经有管理员回复了");
             return "manager/common_result";
         }
-        map.put("fb",fb);
-        map.put("managerId",managerId);
+        map.put("fb", fb);
+        map.put("managerId", managerId);
         return "manager/resp_feedback";
     }
 
     @RequestMapping("response_feedback")
     public String response_feedback(@RequestParam int managerId,
                                     @RequestParam String resp,
-                                    @RequestParam int fid,ModelMap map){
+                                    @RequestParam int fid, ModelMap map) {
         FeedBack fb = managerService.getFeedBackById(fid);
-        if(fb == null) return permissionDeny(map);
-        if(resp.length()<1){
-            map.put("result",false);
-            map.put("is_url",true);
-            map.put("url","http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
-            map.put("notice","内容无效");
+        if (fb == null) return permissionDeny(map);
+        if (resp.length() < 1) {
+            map.put("result", false);
+            map.put("is_url", true);
+            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
+            map.put("notice", "内容无效");
             return "manager/common_result";
         }
-        if(fb.isResponsed()){
-            map.put("result",false);
-            map.put("is_url",true);
-            map.put("url","http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
-            map.put("notice","已经有管理员回复了!");
+        if (fb.isResponsed()) {
+            map.put("result", false);
+            map.put("is_url", true);
+            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
+            map.put("notice", "已经有管理员回复了!");
             return "manager/common_result";
         }
 
         fb.setResp(resp);
         fb.setRespMid(managerId);
         managerService.update(fb);
-        map.put("result",false);
-        map.put("is_url",true);
-        map.put("url","http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
-        map.put("notice","回复成功");
+        map.put("result", false);
+        map.put("is_url", true);
+        map.put("url", "http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
+        map.put("notice", "回复成功");
 
-        noticeService.respFeedBack(fb.getId(),fb.getOpenid());
+        noticeService.respFeedBack(fb.getId(), fb.getOpenid());
         return "manager/common_result";
     }
 
     @RequestMapping("addSendTime")
-    public String addSendTime(@RequestParam int managerId,@RequestParam int schoolId,
+    public String addSendTime(@RequestParam int managerId, @RequestParam int schoolId,
                               @RequestParam String notice,
-                              @RequestParam Long limit,ModelMap map){
-        if(managerService.managerAccess2Privilege(managerId,"xxsz")){
-            SendTime st = new SendTime(notice,limit,schoolId);
+                              @RequestParam Long limit, ModelMap map) {
+        if (managerService.managerAccess2Privilege(managerId, "xtsz")) {
+            SendTime st = new SendTime(notice, limit, schoolId);
             managerService.save(st);
-            map.put("result",true);
-            map.put("is_url",true);
-            map.put("url","http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN#sendtime_config");
-            map.put("notice","添加成功");
+            map.put("result", true);
+            map.put("is_url", true);
+            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN#sendtime_config");
+            map.put("notice", "添加成功");
             return "manager/common_result";
-        }else return permissionDeny(map);
+        } else return permissionDeny(map);
     }
 }

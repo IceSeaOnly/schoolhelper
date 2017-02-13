@@ -437,4 +437,11 @@ public class ManagerService {
     public SendTime getSendTimeById(int id) {
         return managerDao.getSendTimeById(id);
     }
+
+    /**
+     * 余额支付退款
+     * */
+    public boolean refundVipPay(int user_id, int shouldPay) {
+        return managerDao.refundVipPay(user_id,shouldPay);
+    }
 }

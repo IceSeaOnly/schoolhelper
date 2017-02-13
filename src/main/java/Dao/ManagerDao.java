@@ -568,4 +568,16 @@ public class ManagerDao{
         session.close();
         return st;
     }
+
+    public boolean refundVipPay(int user_id, int shouldPay) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        int eff = session.createQuery("update User set my_money = my_money + :M where id = :I")
+                .setParameter("M",shouldPay)
+                .setParameter("I",user_id)
+                .executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+        return eff>0;
+    }
 }
