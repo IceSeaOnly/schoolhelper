@@ -158,8 +158,13 @@ public class Ajax {
     public String delete_manager(@RequestParam int managerId,
                                     @RequestParam int mid){
         if (managerService.managerAccess2Privilege(managerId,"work_group")){
-            managerService.log(managerId,11,"删除管理员"+mid);
-            managerService.deleteManager(mid);
+            Manager manager = managerService.getManagerById(mid);
+            if(manager.isCould_delete()){
+                managerService.log(managerId,11,"删除管理员"+mid);
+                managerService.deleteManager(mid);
+            }else{
+                return "超级用户，不可删除";
+            }
             return "true";
         }
         return "false";

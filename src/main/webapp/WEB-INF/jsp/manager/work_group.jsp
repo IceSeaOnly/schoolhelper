@@ -23,7 +23,7 @@
                             $("#manager_" + id).hide();
                             $.toast("已删除", 1000);
                         } else
-                            $.toast("删除失败，请刷新重试", 1000);
+                            $.toast(data, 1000);
                     } else {
                         $.toast("删除失败，请刷新重试", 1000);
                     }
@@ -36,7 +36,9 @@
             var ph = document.manager_form.phone.value;
             var al = document.manager_form.wxpay.value;
             var wx = document.manager_form.alipay.value;
-            if (na == "" || ph == "" || al == "" || wx == "") {
+            var openid = document.manager_form.openid.value;
+            var pdesc = document.manager_form.pdesc.value;
+            if (na == "" || ph == "" || al == "" || wx == "" ||openid == ""||pdesc=="") {
                 $.alert("信息不能为空！");
             } else if (ph.length != 11) {
                 $.alert("手机号不合法！");

@@ -228,7 +228,7 @@ public class NoticeService {
         data.put("first", "客服回复了您的反馈");
         data.put("keyword1", "客服反馈");
         data.put("keyword2", TimeFormat.format(System.currentTimeMillis()));
-        data.put("Remark", "点击查看反馈");
+        data.put("remark", "点击查看反馈");
         JSONArray arr = new JSONArray();
         String url = "http://xiaogutou.qdxiaogutou.com/api/feedback.do?id="+id;
         arr.add(commonTPLMaker("UJJCnJjz7oqaiewVmLwJMiagrK8o5Zf4xsvxq9FGdmk", openid, url, data));

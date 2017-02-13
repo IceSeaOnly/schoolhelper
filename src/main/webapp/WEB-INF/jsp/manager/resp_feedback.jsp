@@ -32,7 +32,7 @@
             <div class="content-padded">
                 <p>${fb.content}</p>
             </div>
-            <form action="response_feedback.do" method="post">
+            <form action="response_feedback.do" method="post" id="fb_form">
                 <input name="managerId" value="${managerId}" type="hidden"/>
                 <input name="token" value="${Stoken}" type="hidden"/>
                 <input name="fid" value="${fb.id}" type="hidden"/>
@@ -52,7 +52,7 @@
                     </ul>
                 </div>
                 <div class="content-block">
-                    <p><a onclick="this.form.submit()" class="button button-big">回复用户</a></p>
+                    <p><a href="javascript:$('#fb_form').submit()" class="button button-big">回复用户</a></p>
                 </div>
             </form>
         </div>

@@ -776,6 +776,7 @@ public class Business {
     public String feedback(@RequestParam int managerId,ModelMap map){
         map.put("feedbacks",managerService.listAllFeedBacks());
         map.put("my_fbs",managerService.listMyFeedBacks(managerId));
+        map.put("managerId",managerId);
         return "manager/feedback";
     }
 
@@ -791,6 +792,7 @@ public class Business {
             return "manager/common_result";
         }
         map.put("fb",fb);
+        map.put("managerId",managerId);
         return "manager/resp_feedback";
     }
 
