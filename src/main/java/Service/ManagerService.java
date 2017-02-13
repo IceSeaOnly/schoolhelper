@@ -416,4 +416,21 @@ public class ManagerService {
     public Express geteExpressById(int id) {
         return managerDao.geteExpressById(id);
     }
+
+    public ArrayList<FeedBack> listAllFeedBacks() {
+        ArrayList<FeedBack>fbs = managerDao.listAllFeedBacks();
+        return fbs == null?new ArrayList<FeedBack>():fbs;
+    }
+
+    /**
+     * 获取我处理的用户反馈
+     * */
+    public ArrayList<FeedBack> listMyFeedBacks(int managerId) {
+        ArrayList<FeedBack> rs = managerDao.listMyFeedBacks(managerId);
+        return rs == null?new ArrayList<FeedBack>():rs;
+    }
+
+    public FeedBack getFeedBackById(int fid) {
+        return managerDao.getFeedBackById(fid);
+    }
 }

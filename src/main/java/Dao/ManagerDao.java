@@ -533,4 +533,30 @@ public class ManagerDao{
         session.close();
         return se;
     }
+
+    public ArrayList<FeedBack> listAllFeedBacks() {
+        Session session = sessionFactory.openSession();
+        ArrayList<FeedBack> rs = (ArrayList<FeedBack>) session.createQuery("from FeedBack where responsed = false").list();
+        session.close();
+        return rs;
+    }
+
+    public ArrayList<FeedBack> listMyFeedBacks(int managerId) {
+        Session session = sessionFactory.openSession();
+        ArrayList<FeedBack> rs =
+                (ArrayList<FeedBack>) session.createQuery("from FeedBack where respMid = :M")
+                        .setParameter("M",managerId)
+                        .list();
+        session.close();
+        return rs;
+    }
+
+    public FeedBack getFeedBackById(int fid) {
+        Session session = sessionFactory.openSession();
+        FeedBack rs= (FeedBack) session.createQuery("from FeedBack where id = :M")
+                        .setParameter("M",fid)
+                        .uniqueResult();
+        session.close();
+        return rs;
+    }
 }

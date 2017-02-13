@@ -1,5 +1,6 @@
 package Controllers.Manager;
 
+import Entity.FeedBack;
 import Entity.Manager.Conversation;
 import Entity.Manager.Log;
 import Entity.SysMsg;
@@ -85,5 +86,21 @@ public class Api {
         map.put("schoolName",managerService.getSchoolById(notice.getSchoolId()).getSchoolName());
         map.put("notice",notice);
         return "manager/schoolNotice";
+    }
+
+    /**
+     * 客服回复反馈
+     * */
+    @RequestMapping("feedback")
+    public String feedback(@RequestParam int id,ModelMap map){
+        FeedBack fb = managerService.getFeedBackById(id);
+        if(fb == null) {
+            map.put("result",false);
+            map.put("is_url",false);
+            map.put("notice","非法访问");
+            return "manager/common_result";
+        }
+        map.put("fb",fb);
+        return "manager/show_feedback_resp";
     }
 }

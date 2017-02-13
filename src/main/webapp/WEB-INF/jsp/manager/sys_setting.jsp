@@ -46,9 +46,10 @@
 
         function exp_status_change(id) {
             $.get("/ajax/exp_status_change.do?managerId=${managerId}&token=${Stoken}&eid="+id,function (data, status) {
-                if(status="success")
+                if(status="success"){
                     $.toast(data);
-                else $.toast('参数错误');
+                    icesea.finish()
+                }else $.toast('参数错误');
             })
         }
         function reset_exp(id) {

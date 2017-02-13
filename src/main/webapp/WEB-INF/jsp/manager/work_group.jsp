@@ -136,6 +136,28 @@
                                 </div>
                             </div>
                         </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title label">OpenId</div>
+                                    <div class="item-input">
+                                        <input type="text" name="openid">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title label">描述信息</div>
+                                    <div class="item-input">
+                                        <input type="text" name="pdesc">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div class="content-block">

@@ -36,9 +36,8 @@ public class LogTag {
     public static LogTag getTagWithStatus(int tid){
         for (int i = 0; i < tags.size(); i++) {
             if(tags.get(i).tagId == tid){
-
-            }
                 return tags.get(i);
+            }
         }
         return new LogTag(-1,"[日志标签解释错误]");
     }

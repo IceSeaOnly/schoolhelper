@@ -21,6 +21,6 @@ public class ExpressOrderHelper {
         for(int i = 0;i < expresses.size();i++){
             if(expresses.get(i).getId() == express) return expresses.get(i);
         }
-        return new Express("unknow",0,school);
+        return new Express("unknow",0,school,99);
     }
 }

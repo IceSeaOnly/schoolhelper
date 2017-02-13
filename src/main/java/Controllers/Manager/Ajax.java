@@ -366,7 +366,7 @@ public class Ajax {
             exp.setAvailable(!exp.isAvailable());
             managerService.update(exp);
             managerService.log(managerId,11,eid+"快递状态调整:"+(exp.isAvailable()?"已暂停该快递业务":"已开启该快递业务"));
-            return exp.isAvailable()?"已暂停该快递业务":"已开启该快递业务";
+            return exp.isAvailable()?"已开启该快递业务":"已暂停该快递业务";
         }
         return "无权操作";
     }
@@ -385,7 +385,7 @@ public class Ajax {
             exp.setSendPrice(price);
             managerService.update(exp);
 
-            return "费用已设置为:"+exp.getSendPrice()/100+"元";
+            return "费用已设置为:"+(double)exp.getSendPrice()/100+"元";
         }
         return "无权操作";
     }

@@ -429,7 +429,6 @@ public class Business {
                               @RequestParam String alipay,
                               @RequestParam String openid,
                               @RequestParam String pdesc, //描述
-                              @RequestParam double dr,
                               ModelMap map
                               ){
         if(!managerService.managerAccess2Privilege(managerId,"work_group")){
@@ -441,17 +440,12 @@ public class Business {
             map.put("notice","手机号已存在，创建失败！");
             return "manager/common_result";
         }
-        if(dr > 1.00 || dr <0.00){
-            map.put("result",false);
-            map.put("is_url",false);
-            map.put("notice","分红比例须F为两位小数，且: 1.00 < F <= 0.00");
-            return "manager/common_result";
-        }
+
         Manager m = (Manager) managerService.merge(
-                new Manager(name,phone, MD5.encryption("123456"),alipay,wxpay,openid,dr,pdesc));
+                new Manager(name,phone, MD5.encryption("123456"),alipay,wxpay,openid,0.0,pdesc));
         managerService.save(new PrivilegeDist(m.getId(),18));
         map.put("result",true);
-        map.put("notice","添加成功,初始密码123456，请注意分配学校和权限");
+        map.put("notice","添加成功,初始密码123456，请注意分配学校和权限，如需分红，请注意分配");
         map.put("is_url",true);
         map.put("url","school_manage_select.do?managerId=MANAGERID&token=TOKEN");
         return "manager/common_result";
@@ -775,5 +769,61 @@ public class Business {
                     map.put("notice","添加成功");
                     return "manager/common_result";
                 }else return permissionDeny(map);
+    }
+
+
+    @RequestMapping("feedback")
+    public String feedback(@RequestParam int managerId,ModelMap map){
+        map.put("feedbacks",managerService.listAllFeedBacks());
+        map.put("my_fbs",managerService.listMyFeedBacks(managerId));
+        return "manager/feedback";
+    }
+
+    @RequestMapping("resp_feedback")
+    public String resp_feedback(@RequestParam int managerId,@RequestParam int fid,ModelMap map){
+        FeedBack fb = managerService.getFeedBackById(fid);
+        if(fb == null) return permissionDeny(map);
+        if(fb.isResponsed()){
+            map.put("result",false);
+            map.put("is_url",true);
+            map.put("url","http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
+            map.put("notice","已经有管理员回复了");
+            return "manager/common_result";
+        }
+        map.put("fb",fb);
+        return "manager/resp_feedback";
+    }
+
+    @RequestMapping("response_feedback")
+    public String response_feedback(@RequestParam int managerId,
+                                    @RequestParam String resp,
+                                    @RequestParam int fid,ModelMap map){
+        FeedBack fb = managerService.getFeedBackById(fid);
+        if(fb == null) return permissionDeny(map);
+        if(resp.length()<1){
+            map.put("result",false);
+            map.put("is_url",true);
+            map.put("url","http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
+            map.put("notice","内容无效");
+            return "manager/common_result";
+        }
+        if(fb.isResponsed()){
+            map.put("result",false);
+            map.put("is_url",true);
+            map.put("url","http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
+            map.put("notice","已经有管理员回复了!");
+            return "manager/common_result";
+        }
+
+        fb.setResp(resp);
+        fb.setRespMid(managerId);
+        managerService.update(fb);
+        map.put("result",false);
+        map.put("is_url",true);
+        map.put("url","http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
+        map.put("notice","回复成功");
+
+        noticeService.respFeedBack(fb.getId(),fb.getOpenid());
+        return "manager/common_result";
     }
 }
