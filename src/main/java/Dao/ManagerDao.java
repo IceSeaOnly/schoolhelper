@@ -559,4 +559,13 @@ public class ManagerDao{
         session.close();
         return rs;
     }
+
+    public SendTime getSendTimeById(int id) {
+        Session session = sessionFactory.openSession();
+        SendTime st = (SendTime) session.createQuery("from SendTime where id = :I")
+                .setParameter("I",id)
+                .uniqueResult();
+        session.close();
+        return st;
+    }
 }

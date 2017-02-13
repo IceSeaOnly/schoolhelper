@@ -162,6 +162,7 @@ public class Ajax {
             if(manager.isCould_delete()){
                 managerService.log(managerId,11,"删除管理员"+mid);
                 managerService.deleteManager(mid);
+                AppCgi.clearToken(mid);
             }else{
                 return "超级用户，不可删除";
             }
@@ -372,6 +373,22 @@ public class Ajax {
             managerService.update(exp);
             managerService.log(managerId,11,eid+"快递状态调整:"+(exp.isAvailable()?"已暂停该快递业务":"已开启该快递业务"));
             return exp.isAvailable()?"已开启该快递业务":"已暂停该快递业务";
+        }
+        return "无权操作";
+    }
+    /**
+     * 隐藏/激活某个配送时间段
+     * */
+    @RequestMapping("sendtime_changed")
+    @ResponseBody
+    public String sendtime_changed(@RequestParam int managerId,@RequestParam int id){
+        if(managerService.managerAccess2Privilege(managerId,"xtsz")){
+            SendTime st = managerService.getSendTimeById(id);
+            if(st == null) return "非法访问";
+            st.setAvailable(!st.isAvailable());
+            managerService.update(st);
+            managerService.log(managerId,11,id+"配送时间调整为:"+(st.isAvailable()?"已开启该时段":"已暂停该时段"));
+            return st.isAvailable()?"已开启该时段":"已暂停该时段";
         }
         return "无权操作";
     }

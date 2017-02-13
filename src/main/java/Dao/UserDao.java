@@ -57,12 +57,18 @@ public class UserDao {
         return parts;
     }
 
-    public ArrayList<Express> listAllExpress(int schoolId) {
+    public ArrayList<Express> listAllExpress(int schoolId,boolean only_available) {
         ArrayList<Express> res = null;
         Session session = sessionFactory.openSession();
-        res = (ArrayList<Express>) session.createQuery("from Express where available = true and schoolId = :I")
-                .setParameter("I",schoolId)
-                .list();
+        if(only_available){
+            res = (ArrayList<Express>) session.createQuery("from Express where available = true and schoolId = :I")
+                    .setParameter("I",schoolId)
+                    .list();
+        }else{
+            res = (ArrayList<Express>) session.createQuery("from Express where schoolId = :I")
+                    .setParameter("I",schoolId)
+                    .list();
+        }
         session.close();
         return res;
     }
@@ -195,11 +201,18 @@ public class UserDao {
         return cursum;
     }
 
-    public ArrayList<SendTime> getAllSendTimes(int schoolId) {
+    public ArrayList<SendTime> getAllSendTimes(int schoolId,boolean only_available) {
         Session session = sessionFactory.openSession();
-        ArrayList<SendTime> res = (ArrayList<SendTime>) session.createQuery("from SendTime where schoolId = :I order by id desc")
-                .setParameter("I",schoolId)
-                .list();
+        ArrayList<SendTime> res = null;
+        if(only_available){
+            res = (ArrayList<SendTime>) session.createQuery("from SendTime where schoolId = :I and available = true order by id desc")
+                    .setParameter("I",schoolId)
+                    .list();
+        }else{
+            res = (ArrayList<SendTime>) session.createQuery("from SendTime where schoolId = :I order by id desc")
+                    .setParameter("I",schoolId)
+                    .list();
+        }
         session.close();
         return res;
     }

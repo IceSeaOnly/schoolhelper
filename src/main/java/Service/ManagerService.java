@@ -433,4 +433,8 @@ public class ManagerService {
     public FeedBack getFeedBackById(int fid) {
         return managerDao.getFeedBackById(fid);
     }
+
+    public SendTime getSendTimeById(int id) {
+        return managerDao.getSendTimeById(id);
+    }
 }

@@ -128,13 +128,17 @@ public class ExpressController {
             return "user/not_in_service";
         }
 
-        ArrayList<Entity.Express> expresses = OutOfService(userService.listAllExpresses(user.getSchoolId()));
+        ArrayList<Entity.Express> expresses = OutOfService(userService.listAllExpresses(user.getSchoolId(),true));
         if(expresses.size() == 0){
             map.put("info", "尚未接入快递点");
             return "user/not_in_service";
         }
         ArrayList<SendPart> parts = userService.listAllParts(user.getSchoolId());
-        ArrayList<SendTime> sendTimes = userService.getAllSendTimes(user.getSchoolId());
+        ArrayList<SendTime> sendTimes = userService.getAllSendTimes(user.getSchoolId(),true);
+        if(sendTimes.size()==0){
+            map.put("info", "尚未设置配送时段");
+            return "user/not_in_service";
+        }
         /** 对每一个配送时段确定剩余名额，没有名额的id置为-1 begin*/
         for (int i = 0; i < sendTimes.size(); i++) {
             Long cur = userService.getSendTimeCurrentSum(sendTimes.get(i).getId(),user.getSchoolId());

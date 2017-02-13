@@ -36,6 +36,10 @@ public class AppCgi {
         return nk;
     }
 
+    public static void clearToken(int mid){
+        id_tokens.remove(mid);
+    }
+
     public static boolean validateToken(int id,String token){
         if(id_tokens.get(id) == null)
             return false;

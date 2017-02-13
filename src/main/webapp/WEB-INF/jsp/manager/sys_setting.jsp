@@ -48,17 +48,26 @@
             $.get("/ajax/exp_status_change.do?managerId=${managerId}&token=${Stoken}&eid="+id,function (data, status) {
                 if(status="success"){
                     $.toast(data);
-                    icesea.finish()
+                    setTimeout("icesea.reload()",1000);
                 }else $.toast('参数错误');
             })
         }
+        function sendtime_changed(id) {
+            $.get("/ajax/sendtime_changed.do?managerId=${managerId}&token=${Stoken}&id="+id,function (data, status) {
+                if(status="success"){
+                    $.toast(data);
+                    setTimeout("icesea.reload()",1000);
+                }else $.toast('参数错误');
+            })
+        }
+        $.get("/ajax/reset_exp_price.do?managerId=${managerId}&token=${Stoken}&eid="+id+"&price="+value,function (data, status) {
+            if(status="success"){
+                $.toast(data);
+                setTimeout("icesea.reload()",1000);
+            } else $.toast('参数错误');
+        })
         function reset_exp(id) {
             $.prompt('重设价格', function (value) {
-                $.get("/ajax/reset_exp_price.do?managerId=${managerId}&token=${Stoken}&eid="+id+"&price="+value,function (data, status) {
-                    if(status="success")
-                        $.toast(data);
-                    else $.toast('参数错误');
-                })
             });
         }
     </script>
@@ -82,6 +91,7 @@
                 <p><a href="#vip_config" class="button button-big ">配置VIP充值方案</a></p>
                 <p><a href="#part_config" class="button button-big ">配置本校区域分配</a></p>
                 <p><a href="#express_config" class="button button-big ">管理本校快递</a></p>
+                <p><a href="#sendtime_config" class="button button-big ">配送时段设置</a></p>
                 <p><a href="#other_config" class="button button-big ">配置本校其他内容</a></p>
             </div>
         </div>
@@ -181,6 +191,76 @@
             </div>
             <div class="content-block">
                 <p><a href="javascript:$('#form_vip').submit()" class="button button-big">添加</a></p>
+            </div>
+            </form>
+        </div>
+        <!-- 这里是页面内容区 end-->
+        <!-- 你的html代码 -->
+    </div>
+
+    <div class="page" id="sendtime_config">
+        <!-- 你的html代码 -->
+        <header class="bar bar-nav">
+            <a href="#" class="icon icon-left pull-left back"></a>
+            <h1 class="title">配送时间设置</h1>
+        </header>
+        <!-- 这里是页面内容区 begin-->
+        <div class="content">
+            <div class="content-padded">
+                <p>· 这里的说明是给用户看的，<span style="color:red">并不区分时间</span>，例如，08:00 ~ 12:00时间段上尚未选满，用户在13:00仍可选择该时间段</p>
+                <p>· 一但添加<span style="color:red">将无法删除，</span>但可停用</p>
+            </div>
+            <div class="list-block media-list">
+                <ul>
+                    <c:forEach items="${stimes}" var="stm">
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title">${stm.name}</div>
+                                    <div class="item-after">
+                                        <label class="label-switch">
+                                            <input type="checkbox" onchange="sendtime_changed(${stm.id})" <c:if test="${stm.available}">checked="checked"</c:if> />
+                                            <div class="checkbox"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ul>
+            </div>
+            <form action="addSendTime.do" method="post" id="form_stm">
+                <input name="managerId" value="${managerId}" type="hidden"/>
+                <input name="token" value="${Stoken}" type="hidden"/>
+                <input name="schoolId" value="${schoolId}" type="hidden"/>
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">说明</div>
+                                <div class="item-input">
+                                    <input type="text" name="notice" placeholder="如:8:00 ~ 12:00">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">订单限制</div>
+                                <div class="item-input">
+                                    <input type="text" name="limit" placeholder="如不设限应尽量大">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-block">
+                <p><a href="javascript:$('#form_stm').submit()" class="button button-big">添加</a></p>
             </div>
             </form>
         </div>

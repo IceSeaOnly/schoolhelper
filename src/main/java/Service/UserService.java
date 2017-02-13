@@ -38,8 +38,11 @@ public class UserService {
         return parts == null ? new ArrayList<SendPart>() : parts;
     }
 
-    public ArrayList<Express> listAllExpresses(int schoolId) {
-        ArrayList<Express> res = userDao.listAllExpress(schoolId);
+    /**
+     * @param only_available  此选项为真时，只返回当前为available为true的item
+     * */
+    public ArrayList<Express> listAllExpresses(int schoolId,boolean only_available) {
+        ArrayList<Express> res = userDao.listAllExpress(schoolId,only_available);
         return res == null ? new ArrayList<Express>() : res;
     }
 
@@ -182,8 +185,11 @@ public class UserService {
         return userDao.getSendTimeCurrentSum(sendtime_id,schoolId);
     }
 
-    public ArrayList<SendTime> getAllSendTimes(int schoolId) {
-        return userDao.getAllSendTimes(schoolId);
+    /**
+     * @param only_available 该参数为真时，只返回avaiable=true的item
+     * */
+    public ArrayList<SendTime> getAllSendTimes(int schoolId,boolean only_available) {
+        return userDao.getAllSendTimes(schoolId,only_available);
     }
 
     public String getSchoolTag(int schoolId) {

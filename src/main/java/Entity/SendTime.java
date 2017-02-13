@@ -15,17 +15,17 @@ public class SendTime {
     @Id
     @GeneratedValue
     private int id;
-    private String beferwhen;
     private String name;
     private Long s_limit;
     private Long curSum;
     private int schoolId;
+    private boolean available;//删除后变为不可用
 
-    public SendTime(String beferwhen, String name, Long s_limit,int schoolId) {
-        this.beferwhen = beferwhen;
+    public SendTime(String name, Long s_limit,int schoolId) {
         this.name = name;
         this.s_limit = s_limit;
         this.schoolId = schoolId;
+        this.available = true;
     }
 
     public SendTime() {
@@ -37,14 +37,6 @@ public class SendTime {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getBeferwhen() {
-        return beferwhen;
-    }
-
-    public void setBeferwhen(String beferwhen) {
-        this.beferwhen = beferwhen;
     }
 
     public String getName() {
@@ -77,5 +69,13 @@ public class SendTime {
 
     public void setSchoolId(int schoolId) {
         this.schoolId = schoolId;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 }

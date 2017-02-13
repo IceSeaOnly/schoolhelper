@@ -576,7 +576,8 @@ public class Business {
             map.put("config",userService.getSchoolConfBySchoolId(schoolId));
             map.put("vips",userService.getAllVipMeals(schoolId));
             map.put("parts",userService.listAllParts(schoolId));
-            map.put("exps",userService.listAllExpresses(schoolId));
+            map.put("exps",userService.listAllExpresses(schoolId,false));
+            map.put("stimes",userService.getAllSendTimes(schoolId,false));
             return "manager/sys_setting";
         }
         else return permissionDeny(map);
@@ -827,5 +828,20 @@ public class Business {
 
         noticeService.respFeedBack(fb.getId(),fb.getOpenid());
         return "manager/common_result";
+    }
+
+    @RequestMapping("addSendTime")
+    public String addSendTime(@RequestParam int managerId,@RequestParam int schoolId,
+                              @RequestParam String notice,
+                              @RequestParam Long limit,ModelMap map){
+        if(managerService.managerAccess2Privilege(managerId,"xxsz")){
+            SendTime st = new SendTime(notice,limit,schoolId);
+            managerService.save(st);
+            map.put("result",true);
+            map.put("is_url",true);
+            map.put("url","http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN#sendtime_config");
+            map.put("notice","添加成功");
+            return "manager/common_result";
+        }else return permissionDeny(map);
     }
 }
