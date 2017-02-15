@@ -29,8 +29,8 @@ public class ChargingSystem {
     private int mtype; //类型
     private Long time; // 添加时间
     private String strTime;
-    private boolean isValid; // 有效标签，置为false时，意味着该笔收入因故无效
-    private boolean isSettled; //结清标签
+    private boolean valid; // 有效标签，置为false时，意味着该笔收入因故无效
+    private boolean settled; //结清标签
     private boolean checked; //统计时的虚拟勾选标签,选中后即进入结算中间态，isSettle置成true后，失去意义
     private String info;
 
@@ -42,8 +42,8 @@ public class ChargingSystem {
         this.mtype = mtype;
         this.time = System.currentTimeMillis();
         this.strTime = TimeFormat.format(this.time);
-        this.isValid = true;
-        this.isSettled = false;
+        this.valid = true;
+        this.settled = false;
         this.checked = false;
     }
 
@@ -107,19 +107,19 @@ public class ChargingSystem {
     }
 
     public boolean isValid() {
-        return isValid;
+        return valid;
     }
 
     public void setValid(boolean valid) {
-        isValid = valid;
+        this.valid = valid;
     }
 
     public boolean isSettled() {
-        return isSettled;
+        return settled;
     }
 
     public void setSettled(boolean settled) {
-        isSettled = settled;
+        this.settled = settled;
     }
 
     public String getInfo() {

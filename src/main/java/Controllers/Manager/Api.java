@@ -118,6 +118,15 @@ public class Api {
     @RequestMapping("output")
     public String output(@RequestParam String k,ModelMap map){
         OutPutOrders out = managerService.getOutPutOrderByKey(k);
+        if(System.currentTimeMillis() > out.getInvalidTime()){
+            map.put("result",false);
+            map.put("is_url",false);
+            map.put("notice","凭据超时失效，无法再次查看");
+            return "manager/common_result";
+        }
+        out.setLastRead(System.currentTimeMillis());
+        managerService.update(out);
+
         if(out == null){
             return illigalVisit(map);
         }

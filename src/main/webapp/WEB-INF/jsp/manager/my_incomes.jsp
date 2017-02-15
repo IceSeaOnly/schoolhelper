@@ -40,11 +40,11 @@
                     <li>
                         <div class="item-content">
                             <div class="item-media">
-                                <img src="${in.isValid?(in.isSettled?"http://image.binghai.site/data/f_60674854.jpg":"http://image.binghai.site/data/f_67083154.png"):"http://image.binghai.site/data/f_61284696.jpg"}http://image.binghai.site/data/f_60674854.jpg" style='width: 2.2rem;'>
+                                <img src="${in.valid?(in.settled?"http://image.binghai.site/data/f_60674854.jpg":"http://image.binghai.site/data/f_67083154.png"):"http://image.binghai.site/data/f_61284696.jpg"}http://image.binghai.site/data/f_60674854.jpg" style='width: 2.2rem;'>
                             </div>
                             <div class="item-inner">
                                 <div class="item-title-row">
-                                    <div class="item-title" >${in.info} <c:if test="${!in.isValid}"><span style="color:red">【无效】</span></c:if> </div>
+                                    <div class="item-title" >${in.info} <c:if test="${!in.valid}"><span style="color:red">【无效】</span></c:if> </div>
                                     <div class="item-after" style="color:green">+${in.money/100}</div>
                                 </div>
                                 <div class="item-subtitle">${in.strTime} 订单号${in.oid}</div>

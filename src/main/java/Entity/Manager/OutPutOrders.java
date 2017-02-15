@@ -24,6 +24,7 @@ public class OutPutOrders {
     private Long lastRead; // 最近一次阅读时间
     private int readTimes; // 阅读次数
     private int schoolId;
+    private Long invalidTime;//失效时间，6个小时候失效
 
 
     public OutPutOrders(String jsonData, int managerId,int schoolId) {
@@ -34,6 +35,7 @@ public class OutPutOrders {
         this.managerId = managerId;
         this.lastRead = getMakeTime();
         this.readTimes = 0;
+        this.invalidTime = makeTime+21600000;
     }
 
     public OutPutOrders() {
@@ -102,5 +104,13 @@ public class OutPutOrders {
 
     public void setSchoolId(int schoolId) {
         this.schoolId = schoolId;
+    }
+
+    public Long getInvalidTime() {
+        return invalidTime;
+    }
+
+    public void setInvalidTime(Long invalidTime) {
+        this.invalidTime = invalidTime;
     }
 }
