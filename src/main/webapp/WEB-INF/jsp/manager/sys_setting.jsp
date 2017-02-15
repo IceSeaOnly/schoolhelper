@@ -426,7 +426,7 @@
                                 <div class="item-input">
                                     <label class="label-switch">
                                         <input type="checkbox"
-                                        <c:if test="${config.ifTenThenFree}">
+                                        <c:if test="${config.schoolMove}">
                                                checked="checked"
                                         </c:if>
                                                onchange="javascript:common_change('schoolMove')">

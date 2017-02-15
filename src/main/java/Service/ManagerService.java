@@ -356,7 +356,7 @@ public class ManagerService {
     private static Long lastLogs = null;
     public ArrayList<PayLog> makePayLogs() {
         if(lastLogs == null)
-            lastLogs = System.currentTimeMillis();
+            lastLogs = System.currentTimeMillis()-1800001;
         if(System.currentTimeMillis() - lastLogs > 1800000){
             ArrayList<PayLog> rs = new ArrayList<PayLog>();
             lastLogs = System.currentTimeMillis();

@@ -40,7 +40,7 @@
                     <li>
                         <div class="item-content">
                             <div class="item-media">
-                                <img src="${in.valid?(in.settled?"http://image.binghai.site/data/f_60674854.jpg":"http://image.binghai.site/data/f_67083154.png"):"http://image.binghai.site/data/f_61284696.jpg"}http://image.binghai.site/data/f_60674854.jpg" style='width: 2.2rem;'>
+                                <img src="${in.valid?(in.settled?"http://image.binghai.site/data/f_60674854.jpg":"http://image.binghai.site/data/f_67083154.png"):"http://image.binghai.site/data/f_61284696.jpg"}" style='width: 2.2rem;'>
                             </div>
                             <div class="item-inner">
                                 <div class="item-title-row">
