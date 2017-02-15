@@ -444,4 +444,13 @@ public class ManagerService {
     public boolean refundVipPay(int user_id, int shouldPay) {
         return managerDao.refundVipPay(user_id,shouldPay);
     }
+
+    public OutPutOrders getOutPutOrderByKey(String k) {
+        return managerDao.getOutPutOrderByKey(k);
+    }
+
+    public ArrayList<ExpressOrder> getExpressOrderByIds(ArrayList<Integer> ids) {
+        ArrayList<ExpressOrder> rs = managerDao.getExpressOrderByIds(ids);
+        return rs == null?new ArrayList<ExpressOrder>():rs;
+    }
 }

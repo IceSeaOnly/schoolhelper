@@ -200,4 +200,8 @@ public class UserService {
         ArrayList<School> res = userDao.listAllSchool();
         return res == null?new ArrayList<School>():res;
     }
+
+    public User getUserById(int user_id) {
+        return userDao.getUserById(user_id);
+    }
 }

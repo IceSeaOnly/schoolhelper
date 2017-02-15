@@ -580,4 +580,23 @@ public class ManagerDao{
         session.close();
         return eff>0;
     }
+
+    public OutPutOrders getOutPutOrderByKey(String k) {
+        Session session = sessionFactory.openSession();
+        OutPutOrders out = (OutPutOrders) session.createQuery("from OutPutOrders where skey = :K")
+                .setParameter("K",k)
+                .uniqueResult();
+        session.close();
+        return out;
+    }
+
+    public ArrayList<ExpressOrder> getExpressOrderByIds(ArrayList<Integer> ids) {
+        Session session = sessionFactory.openSession();
+        ArrayList<ExpressOrder> rs =
+                (ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where id in :S")
+                .setParameter("S",ids)
+                .list();
+        session.close();
+        return rs;
+    }
 }

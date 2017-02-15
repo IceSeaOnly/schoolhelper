@@ -10,6 +10,7 @@ import Utils.HttpUtils;
 import Utils.MD5;
 import Utils.SuccessAnswer;
 import Utils.TimeFormat;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -846,5 +847,52 @@ public class Business {
             map.put("notice", "添加成功");
             return "manager/common_result";
         } else return permissionDeny(map);
+    }
+
+    @RequestMapping("out_put_order")
+    public String out_put_order(@RequestParam int managerId, @RequestParam int schoolId,ModelMap map){
+        if(managerService.managerAccess2Privilege(managerId,"out_put_order")
+                && managerService.managerAccess2School(managerId,schoolId)){
+            ArrayList<ExpressOrder> orders =
+                    managerService.commonOrderGet(schoolId,
+                            -1,
+                            TimeFormat.getThisYear(null),
+                            TimeFormat.getThisMonth(null),
+                            TimeFormat.getThisDay(null),1);
+            map.put("orders",orders);
+            map.put("schoolId",schoolId);
+            map.put("managerId",managerId);
+        }else return permissionDeny(map);
+        return "manager/out_put_order";
+    }
+
+    @RequestMapping("makeOutPutOrders")
+    public String makeOutPutOrders(@RequestParam int managerId,
+                                   @RequestParam int schoolId,
+                                   @RequestParam String[] checked_orders,
+                                   ModelMap map){
+        if(checked_orders.length < 1){
+            map.put("result", false);
+            map.put("is_url", false);
+            map.put("notice", "没有选择任何订单");
+            return "manager/common_result";
+        }
+        String json = transfer2Json(checked_orders);
+        OutPutOrders out = new OutPutOrders(json,managerId,schoolId);
+        managerService.save(out);
+        String url = "http://xiaogutou.qdxiaogutou.com/api/output.do?k="+out.getSkey();
+        map.put("result", true);
+        map.put("is_url", true);
+        map.put("url","javascript:icesea.copy2clipboard('"+url+"')");
+        map.put("notice", "已生成链接");
+        return "manager/common_result";
+    }
+
+    private String transfer2Json(String[] checked_orders) {
+        JSONArray arr = new JSONArray();
+        for (int i = 0; i < checked_orders.length; i++) {
+            arr.add(Integer.parseInt(checked_orders[i]));
+        }
+        return arr.toJSONString();
     }
 }

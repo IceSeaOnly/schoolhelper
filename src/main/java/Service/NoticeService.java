@@ -111,7 +111,6 @@ public class NoticeService {
         json.put("touser", openid);//OPENID
         json.put("template_id", tpl);
         json.put("url", url);
-        json.put("topcolor", "#FF0000");
         json.put("data", data);
         return json;
     }
@@ -232,6 +231,21 @@ public class NoticeService {
         JSONArray arr = new JSONArray();
         String url = "http://xiaogutou.qdxiaogutou.com/api/feedback.do?id="+id;
         arr.add(commonTPLMaker("UJJCnJjz7oqaiewVmLwJMiagrK8o5Zf4xsvxq9FGdmk", openid, url, data));
+        DistributedTPLSend(arr);
+    }
+
+
+    public void refund(int id, int user_id, int shouldPay, String s) {
+        User user = userService.getUserById(user_id);
+        if(user == null) return;
+        JSONObject data = new JSONObject();
+        data.put("first", "您的"+id+"号订单已经完成退款");
+        data.put("reason", "管理员执行退款操作");
+        data.put("refund", (double)shouldPay/100+"元");
+        data.put("remark", s);
+        JSONArray arr = new JSONArray();
+        String url = "http://xiaogutou.qdxiaogutou.com/user/user_center.do";
+        arr.add(commonTPLMaker("aysTZUEIPhvcGsaIViS75qMY0u9OfCQ0EfjHpRSAA10", user.getOpen_id(), url, data));
         DistributedTPLSend(arr);
     }
 }

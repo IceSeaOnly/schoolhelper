@@ -43,6 +43,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>Entity.SchoolConfigs</value>
+                <value>Entity.Manager.OutPutOrders</value>
                 <value>Entity.Manager.Conversation</value>
                 <value>Entity.Manager.ChargingSystem</value>
                 <value>Entity.Manager.Log</value>

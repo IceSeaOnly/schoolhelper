@@ -1,12 +1,15 @@
 package Controllers.Manager;
 
+import Entity.ExpressOrder;
 import Entity.FeedBack;
 import Entity.Manager.Conversation;
 import Entity.Manager.Log;
+import Entity.Manager.OutPutOrders;
 import Entity.SysMsg;
 import Service.ManagerService;
 import Service.NoticeService;
 import Utils.HttpUtils;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2017/1/30.
@@ -95,12 +99,38 @@ public class Api {
     public String feedback(@RequestParam int id,ModelMap map){
         FeedBack fb = managerService.getFeedBackById(id);
         if(fb == null) {
-            map.put("result",false);
-            map.put("is_url",false);
-            map.put("notice","非法访问");
-            return "manager/common_result";
+            return illigalVisit(map);
         }
         map.put("fb",fb);
         return "manager/show_feedback_resp";
+    }
+
+    public String illigalVisit(ModelMap map){
+        map.put("result",false);
+        map.put("is_url",false);
+        map.put("notice","非法访问");
+        return "manager/common_result";
+    }
+
+    /**
+     *
+     * */
+    @RequestMapping("output")
+    public String output(@RequestParam String k,ModelMap map){
+        OutPutOrders out = managerService.getOutPutOrderByKey(k);
+        if(out == null){
+            return illigalVisit(map);
+        }
+        ArrayList<Integer> ids = new ArrayList<Integer>();
+        JSONArray arr = JSONArray.parseArray(out.getJsonData());
+        for (int i = 0; i < arr.size(); i++) {
+            ids.add(arr.getInteger(i));
+        }
+        ArrayList<ExpressOrder>orders = managerService.getExpressOrderByIds(ids);
+        if(orders == null || orders.size() < 1){
+            return illigalVisit(map);
+        }
+        map.put("orders",orders);
+        return "manager/output_res";
     }
 }

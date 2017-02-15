@@ -250,4 +250,11 @@ public class UserDao {
         session.getTransaction().commit();
         session.close();
     }
+
+    public User getUserById(int user_id) {
+        Session session = sessionFactory.openSession();
+        User u = (User) session.get(User.class,user_id);
+        session.close();
+        return u;
+    }
 }
