@@ -594,7 +594,7 @@ public class ManagerDao{
         Session session = sessionFactory.openSession();
         ArrayList<ExpressOrder> rs =
                 (ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where id in :S")
-                .setParameter("S",ids)
+                .setParameterList("S",ids)
                 .list();
         session.close();
         return rs;

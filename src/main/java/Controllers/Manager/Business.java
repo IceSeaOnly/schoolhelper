@@ -883,8 +883,8 @@ public class Business {
         String url = "http://xiaogutou.qdxiaogutou.com/api/output.do?k="+out.getSkey();
         map.put("result", true);
         map.put("is_url", true);
-        map.put("url","javascript:icesea.copy2clipboard('"+url+"')");
-        map.put("notice", "已生成链接");
+        map.put("url","javascript:icesea.copy2clipboard('"+url+"');icesea.finish();");
+        map.put("notice", "已生成链接,请粘贴到需要的地方");
         return "manager/common_result";
     }
 

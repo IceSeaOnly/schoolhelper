@@ -18,7 +18,9 @@
     <script>
         var orderSum = ${fn:length(orders)};
         function empty_close() {
-            $.alert("空空如也");
+            $.alert("空空如也",":)",function () {
+                icesea.finish();
+            });
         }
         function select_ok() {
             $.confirm('即将导出订单信息，谨防泄露信息！一旦导出将不可撤销！确定导出？', function () {
@@ -49,7 +51,7 @@
                         <c:forEach items="${orders}" var="order">
                             <li>
                                 <label class="label-checkbox item-content">
-                                    <input type="checkbox" name="checked_orders">
+                                    <input type="checkbox" value="${order.id}" name="checked_orders">
                                     <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
                                     <div class="item-inner">
                                         <div class="item-title-row">

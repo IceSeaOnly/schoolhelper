@@ -28,8 +28,6 @@
                 <ul>
                     <c:forEach items="${orders}" var="order">
                         <li>
-                            <label class="label-checkbox item-content">
-                                <input type="checkbox" name="checked_orders">
                                 <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
                                 <div class="item-inner">
                                     <div class="item-title-row">
@@ -46,7 +44,6 @@
                                         备注信息：${order.otherinfo }
                                     </div>
                                 </div>
-                            </label>
                         </li>
                     </c:forEach>
                 </ul>
