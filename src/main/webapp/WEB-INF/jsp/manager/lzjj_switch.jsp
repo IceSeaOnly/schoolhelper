@@ -31,7 +31,7 @@
         <div class="content">
             <br><br><br>
             <div class="content-block">
-                <p><a href="javascript:icesea.loadUrl('lzjj_send.do?managerId=${managerId}&token=${Stoken}&schoolId=${schoolId}')" class="button button-big">我是配送小哥</a></p>
+                <p><a href="lzjj_send.do?managerId=${managerId}&token=${Stoken}&schoolId=${schoolId}" class="button button-big external">我是配送小哥</a></p>
                 <p><a href="javascript:icesea.scanQRcode()" class="button button-big">我是楼长</a></p>
             </div>
         </div>

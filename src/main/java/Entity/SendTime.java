@@ -20,7 +20,9 @@ public class SendTime {
     private Long curSum;
     private int schoolId;
     private boolean available;//删除后变为不可用
-
+    public String shortName(){
+        return name.length()>3?name.substring(0,2):name;
+    }
     public SendTime(String name, Long s_limit,int schoolId) {
         this.name = name;
         this.s_limit = s_limit;

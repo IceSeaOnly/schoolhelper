@@ -72,8 +72,7 @@ public class Log {
 
     @Override
     public String toString() {
-        return "日志Id:" + id +
-                ",logId:" + logId+
+        return "logId:" + logId+
                 ",管理员id:" + managerId+
                 "," + status;
     }

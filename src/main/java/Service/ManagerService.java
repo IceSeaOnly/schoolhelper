@@ -332,7 +332,7 @@ public class ManagerService {
                     "配送工资"));
             log(managerId,11,orderId+"订单已赏配送费"+conf.getEach_send());
         }else{
-            log(managerId,11,orderId+"订单赏配送费失败，e="+(e==null?"null,conf=":"not null,conf=")+"conf="+(conf==null?"null":"not null"));
+            log(managerId,11,orderId+"订单赏配送费失败，e="+(e==null?"null,conf=":"not null,conf=")+"conf="+(conf==null?"null":"not null")+(e.isLLJJ()?"是楼长交接件":"不是楼长交接件"));
         }
     }
 
@@ -340,7 +340,9 @@ public class ManagerService {
      * 赏 转交费
      * */
     public void rewardT(int omid, int schoolId, int orderId) {
+        log(omid,11,"赏转交费时，"+omid+"对订单"+orderId+"的楼长收件、取件费失效");
         managerDao.clearReward(omid,orderId,ChargingSystem.Rtype);
+        managerDao.clearReward(omid,orderId,ChargingSystem.Ttype);
         SchoolConfigs conf = userDao.getSchoolConfBySchoolId(schoolId);
         managerDao.save(new ChargingSystem(omid,orderId,conf.getEach_give(),ChargingSystem.Ttype,"转交楼长所得"));
     }
@@ -349,6 +351,8 @@ public class ManagerService {
      * 赏 楼长接收费用
      * */
     public void rewardR(int managerId, int schoolId, int orderId) {
+        log(managerId,11,"赏接收费时，"+managerId+"对订单"+orderId+"的楼长收件、取件费失效");
+        managerDao.clearReward(managerId,orderId,ChargingSystem.Rtype);
         managerDao.clearReward(managerId,orderId,ChargingSystem.Ttype);
         SchoolConfigs conf = userDao.getSchoolConfBySchoolId(schoolId);
         managerDao.save(new ChargingSystem(managerId,orderId,conf.getEach_receive(),ChargingSystem.Ttype,"楼长收件所得"));
@@ -476,13 +480,14 @@ public class ManagerService {
         String[] cfgs = config.split(" ");
         if(cfgs.length != 4) return null;
         try{
-            int pep = (cfgs[1].equals("everyone")?0:1);
-            int otype = (cfgs[2].equals("all")?0:1);
-            int part = Integer.parseInt(cfgs[3]);
-            int stime = Integer.parseInt(cfgs[4]);
+            int pep = (cfgs[0].equals("everyone")?0:1);
+            int otype = (cfgs[1].equals("all")?0:1);
+            int part = Integer.parseInt(cfgs[2]);
+            int stime = Integer.parseInt(cfgs[3]);
             ArrayList<ExpressOrder> res = managerDao.listExpressOrderByConfig(sid,managerId,pep,otype,part,stime);
             return res == null?new ArrayList<ExpressOrder>():res;
         }catch (Exception e){
+            log(managerId,11,"管理员"+managerId+"触发了一个异常:"+e.getMessage());
             return null;
         }
     }

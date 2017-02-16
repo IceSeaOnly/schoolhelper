@@ -3,6 +3,7 @@ package Controllers.Manager;
 import Entity.*;
 import Entity.Manager.Manager;
 import Entity.Manager.PayLog;
+import Entity.Manager.Reason;
 import Entity.User.User;
 import Service.ManagerService;
 import Service.NoticeService;
@@ -60,6 +61,7 @@ public class Ajax {
         /**
          * 管理分红、分取件费
          * */
+        managerService.log(managerId,2,orderId+"取件成功，mid="+managerId);
         ExpressOrder order = managerService.getExpressOrderById(orderId);
         if(order == null) return "false";
         managerService.managerDividend(schoolId,order.getShouldPay(),orderId);
@@ -74,7 +76,7 @@ public class Ajax {
             @RequestParam int schoolId,
             @RequestParam int orderId,
             @RequestParam String data){
-
+        managerService.log(managerId,11,managerId+"把订单"+orderId+"的快递单号设置为"+data);
         return String.valueOf(managerService.update_courier_number(managerId,schoolId,orderId,data));
     }
 
@@ -92,10 +94,10 @@ public class Ajax {
 
         /** 赏配送费 注意判别是否是楼长交接件，如果是，则不再分配*/
         if(result){
-            managerService.log(managerId,11,orderId+"订单准备赏配送费");
+            managerService.log(managerId,11,orderId+"订单由"+managerId+"配送成功准备赏配送费");
             managerService.rewardSendOrder(managerId,schoolId,orderId);
         }else{
-            managerService.log(managerId,11,orderId+"订单不能赏配送费，因为result=false");
+            managerService.log(managerId,11,orderId+"订单不能赏配送费，因为配送失败，原因"+ reasonId);
         }
 
 

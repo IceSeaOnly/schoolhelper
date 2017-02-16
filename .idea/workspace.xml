@@ -13,15 +13,11 @@
     <list default="true" id="f61553a9-0e16-4d1e-a6a1-00c903410e29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" afterPath="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java" afterPath="$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Entity/SendTime.java" afterPath="$PROJECT_DIR$/src/main/java/Entity/SendTime.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" afterPath="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Service/NoticeService.java" afterPath="$PROJECT_DIR$/src/main/java/Service/NoticeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Utils/TimeFormat.java" afterPath="$PROJECT_DIR$/src/main/java/Utils/TimeFormat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/common_result.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/common_result.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_switch.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_switch.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/send_express_order.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/send_express_order.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/order_detail.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/order_detail.jsp" />
     </list>
     <ignored path="schoolhelper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,12 +41,79 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Business.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Business.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="143" column="13" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
+            <state relative-caret-position="-726">
+              <caret line="245" column="17" selection-start-line="245" selection-start-column="17" selection-end-line="245" selection-end-column="17" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExpressController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/ExpressController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-31">
+              <caret line="276" column="34" selection-start-line="276" selection-start-column="22" selection-end-line="276" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ajax.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogTag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/LogTag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="send_express_order.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/send_express_order.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="7" />
+              <folding>
+                <marker date="1487234662234" expanded="true" signature="5928:6048" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendTime.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Entity/SendTime.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+              <folding>
+                <element signature="e#472#473#0" expanded="true" />
+                <element signature="e#535#536#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ManagerService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Service/ManagerService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="337" column="0" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
+              <folding>
+                <element signature="e#12834#12842#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,7 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/adBusiness.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/schoolNoticeList.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/School.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/User/UserCenter.java" />
@@ -102,7 +164,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/Manager.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/work_group.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/AppCgi.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Entity/SendTime.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/vippay_success.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/User/ExpressController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/ExpressOrder.java" />
@@ -123,12 +184,14 @@
         <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/common_result.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/order_detail.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java" />
         <option value="$PROJECT_DIR$/src/main/java/Service/NoticeService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/send_express_order.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/send_express_order.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/Entity/SendTime.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_switch.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java" />
       </list>
     </option>
   </component>
@@ -210,6 +273,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -387,7 +464,93 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="User" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1194,14 +1357,7 @@
       <workItem from="1486863047896" duration="16130000" />
       <workItem from="1486952962543" duration="19468000" />
       <workItem from="1487158194406" duration="13026000" />
-      <workItem from="1487213091819" duration="11813000" />
-    </task>
-    <task id="LOCAL-00002" summary="设计新的app模块20170107">
-      <created>1483795344626</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1483795344626</updated>
+      <workItem from="1487213091819" duration="15222000" />
     </task>
     <task id="LOCAL-00003" summary="联合构建登录、下载功能列表 20170107">
       <created>1483871457547</created>
@@ -1539,7 +1695,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487172115297</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="用户体验优化 配送过滤条件优化 配送逻辑优化">
+      <created>1487232832228</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1487232832229</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1575,7 +1738,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="548908000" />
+    <option name="totallyTimeSpent" value="552317000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1634,7 +1797,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加我的收入模块 清晰化列表" />
     <MESSAGE value="对接小骨头支付系统 企业转账直接结算工资" />
     <MESSAGE value="完成系统设置模块&#10;配置人员工资分配&#10;配置VIP充值方案&#10;配置系统多项内容" />
     <MESSAGE value="可控制式优惠方式 bug未检测" />
@@ -1659,7 +1821,8 @@
     <MESSAGE value="修复、优化订单导出多个环节" />
     <MESSAGE value="变更字段 增加导出订单失效机制" />
     <MESSAGE value="收入问题bug修复" />
-    <option name="LAST_COMMIT_MESSAGE" value="收入问题bug修复" />
+    <MESSAGE value="用户体验优化 配送过滤条件优化 配送逻辑优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="用户体验优化 配送过滤条件优化 配送逻辑优化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1672,22 +1835,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/school_manage_select.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="33" column="42" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/schoolNotice.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="39" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/show_feedback_resp.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -1926,14 +2073,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/ExpressController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="283" column="32" selection-start-line="283" selection-start-column="32" selection-end-line="283" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/right_reload.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1946,14 +2085,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/SendTime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2022,22 +2153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/LogTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="93" column="19" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Utils/TimeFormat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -2056,14 +2171,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="434">
@@ -2074,28 +2181,87 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/send_express_order.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="146" column="45" selection-start-line="146" selection-start-column="45" selection-end-line="146" selection-end-column="45" />
+        <state relative-caret-position="334">
+          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="7" />
           <folding>
-            <marker date="1487232643560" expanded="true" signature="6042:6162" ph="..." />
+            <marker date="1487234662234" expanded="true" signature="5928:6048" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Service/ManagerService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_switch.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="482" column="66" selection-start-line="482" selection-start-column="66" selection-end-line="482" selection-end-column="66" />
+        <state relative-caret-position="340">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/SendTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding>
-            <element signature="e#12525#12533#0" expanded="true" />
+            <element signature="e#472#473#0" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/ExpressController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="276" column="34" selection-start-line="276" selection-start-column="22" selection-end-line="276" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="143" column="13" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
+        <state relative-caret-position="-726">
+          <caret line="245" column="17" selection-start-line="245" selection-start-column="17" selection-end-line="245" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Service/ManagerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="337" column="0" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
+          <folding>
+            <element signature="e#12834#12842#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/Reason.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-106">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/LogTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="74" column="32" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
           <folding />
         </state>
       </provider>

@@ -17,9 +17,7 @@
     <script type='text/javascript'>
         var orderSum = ${fn:length(orders)};
         function empty_close() {
-            $.alert("空空如也", ":)", function () {
-                icesea.finish();
-            });
+            $.toast('没有订单，换一下过滤条件试试');
         }
 
         var tmp_orderid = -1;
@@ -87,8 +85,7 @@
         <!-- 你的html代码 -->
         <header class="bar bar-nav">
             <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
-            <a href="javascript:$('#set_picker').trigger('click');" class="icon icon-settings pull-right">&nbsp</a>
-            <jsp:include page="right_reload.jsp"/>
+            <a href="javascript:$('#set_picker').trigger('click');" class="icon icon-settings pull-right"></a>
             <h1 class="title">${school.schoolName}配送订单</h1>
         </header>
 
@@ -165,7 +162,7 @@
             {
                 textAlign: 'center',
                 values: ['-1'<c:forEach items="${stimes}" var="stm">,'${stm.id}'</c:forEach>],
-                displayValues: ['不限'<c:forEach items="${stimes}" var="stm">,'${stm.name}'</c:forEach>]
+                displayValues: ['不限'<c:forEach items="${stimes}" var="stm">,'${stm.shortName()}'</c:forEach>]
             }
         ]
     });
