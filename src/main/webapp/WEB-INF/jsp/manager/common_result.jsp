@@ -24,7 +24,7 @@
         <!-- 你的html代码 -->
         <!-- 这里是页面内容区 begin-->
         <div class="content">
-
+            ${url}
         </div>
         <!-- 这里是页面内容区 end-->
         <!-- 你的html代码 -->
@@ -39,8 +39,7 @@
     $.init();
     $.alert("${notice}", "${result?":)":":("}", function () {
         <c:if test="${is_url == true}">
-        $.showIndicator();
-        icesea.loadUrl('${url}');
+        icesea.loadUrl("${url}");
         </c:if>
         <c:if test="${is_url == false}">
         icesea.finish();

@@ -2,6 +2,7 @@ package Controllers.User;
 
 import Entity.*;
 import Entity.User.User;
+import Service.NoticeService;
 import Service.UserService;
 import Utils.ExpressOrderValidate;
 import Utils.MD5;
@@ -30,7 +31,8 @@ public class ExpressController {
 
     @Resource
     UserService userService;
-
+    @Resource
+    NoticeService noticeService;
 
 
 
@@ -212,6 +214,7 @@ public class ExpressController {
                 /**
                  * 支付成功
                  * */
+                noticeService.paySuccess("会员卡支付成功",(double)order.getShouldPay()/100+"元","订单支付成功","代取快递",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/user_center.do");
                 user.setMy_money(user.getMy_money() - order.getShouldPay());
                 order.setHas_pay(true);
                 userService.update(order);
@@ -373,6 +376,7 @@ public class ExpressController {
                 userService.update(order);
                 userService.update(user);
                 session.setAttribute("user", user);
+                noticeService.paySuccess("会员卡支付成功","5元","校园搬运支付成功","校园搬运",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/user_center.do");
                 return "user/vippay_success";
             } else {
                 map.put("type", 2);

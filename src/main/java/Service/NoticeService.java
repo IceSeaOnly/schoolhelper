@@ -237,10 +237,10 @@ public class NoticeService {
 
     public void respFeedBack(int id, String openid) {
         JSONObject data = new JSONObject();
-        data.put("first", "客服回复了您的反馈");
-        data.put("keyword1", "客服反馈");
-        data.put("keyword2", TimeFormat.format(System.currentTimeMillis()));
-        data.put("remark", "点击查看反馈");
+        data.put("first", newItem("客服回复了您的反馈"));
+        data.put("keyword1", newItem("客服反馈"));
+        data.put("keyword2", newItem(TimeFormat.format(System.currentTimeMillis())));
+        data.put("remark", newItem("点击查看反馈"));
         JSONArray arr = new JSONArray();
         String url = "http://xiaogutou.qdxiaogutou.com/api/feedback.do?id="+id;
         arr.add(commonTPLMaker("UJJCnJjz7oqaiewVmLwJMiagrK8o5Zf4xsvxq9FGdmk", openid, url, data));
@@ -252,13 +252,20 @@ public class NoticeService {
         User user = userService.getUserById(user_id);
         if(user == null) return;
         JSONObject data = new JSONObject();
-        data.put("first", "您的"+id+"号订单已经完成退款");
-        data.put("reason", "管理员执行退款操作");
-        data.put("refund", (double)shouldPay/100+"元");
-        data.put("remark", s);
+        data.put("first", newItem("您的"+id+"号订单已经完成退款"));
+        data.put("reason", newItem("管理员执行退款操作"));
+        data.put("refund", newItem((double)shouldPay/100+"元"));
+        data.put("remark", newItem(s));
         JSONArray arr = new JSONArray();
         String url = "http://xiaogutou.qdxiaogutou.com/user/user_center.do";
         arr.add(commonTPLMaker("aysTZUEIPhvcGsaIViS75qMY0u9OfCQ0EfjHpRSAA10", user.getOpen_id(), url, data));
         DistributedTPLSend(arr);
+    }
+
+    public void CommonSMSSend(String tpl,String phone,JSONObject para){
+        JSONObject data = new JSONObject();
+        data.put("type","sms");
+        data.put("phone",phone);
+        data.put("param",para);
     }
 }

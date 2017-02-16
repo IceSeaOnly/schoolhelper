@@ -433,6 +433,7 @@ public class Business {
                               @RequestParam String alipay,
                               @RequestParam String openid,
                               @RequestParam String pdesc, //描述
+                              @RequestParam String addr, //详细地址
                               ModelMap map
     ) {
         if (!managerService.managerAccess2Privilege(managerId, "work_group")) {
@@ -445,8 +446,14 @@ public class Business {
             return "manager/common_result";
         }
 
+        if(addr.length()<1){
+            map.put("result", false);
+            map.put("is_url", false);
+            map.put("notice", "必须输入详细的地址");
+            return "manager/common_result";
+        }
         Manager m = (Manager) managerService.merge(
-                new Manager(name, phone, MD5.encryption("123456"), alipay, wxpay, openid, 0.0, pdesc));
+                new Manager(name, phone, MD5.encryption("123456"), alipay, wxpay, openid, 0.0, pdesc,addr));
         managerService.save(new PrivilegeDist(m.getId(), 18));
         map.put("result", true);
         map.put("notice", "添加成功,初始密码123456，请注意分配学校和权限，如需分红，请注意分配");

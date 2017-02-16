@@ -31,8 +31,9 @@ public class Manager {
     private double dividendRatio; // 分红比例
     private String pdesc; //对ta的描述
     private boolean could_delete;//是否可以被删除
+    private String address;//详细宿舍地址
 
-    public Manager(String name, String phone, String pass,String ali,String wx,String openId,double dr,String descStr) {
+    public Manager(String name, String phone, String pass,String ali,String wx,String openId,double dr,String descStr,String add) {
         this.pdesc = descStr;
         this.dividendRatio = dr;
         this.openId = openId;
@@ -46,6 +47,7 @@ public class Manager {
         this.regTime = System.currentTimeMillis();
         this.forbiden = false;
         this.could_delete = true;
+        this.address = add;
     }
 
     public Manager() {
@@ -193,5 +195,13 @@ public class Manager {
 
     public void setCould_delete(boolean could_delete) {
         this.could_delete = could_delete;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

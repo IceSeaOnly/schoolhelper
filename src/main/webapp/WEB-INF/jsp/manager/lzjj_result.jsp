@@ -22,6 +22,12 @@
                 icesea.finish();
             });
         }
+
+        function smsnotice(id) {
+            $.get("/ajax/smsnotice.do?managerId=${managerId}&schoolId=${schoolId}&orderId="+id,function (data, status) {
+                $.alert(data);
+            })
+        }
     </script>
 </head>
 <body>
@@ -56,7 +62,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="javascript:diff_call('${order.express_phone}','${order.receive_phone}')" class="link"><span class="icon icon-message"></span>&nbsp短信通知ta</a>
+                        <a href="javascript:smsnotice('${order.id}')" class="link"><span class="icon icon-message"></span>&nbsp短信通知ta</a>
                     </div>
 
                 </div>

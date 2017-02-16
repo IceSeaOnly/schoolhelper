@@ -160,6 +160,17 @@
                                 </div>
                             </div>
                         </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title label">详细地址</div>
+                                    <div class="item-input">
+                                        <input type="text" name="addr" placeholder="详细到宿舍号">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div class="content-block">

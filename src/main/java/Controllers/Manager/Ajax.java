@@ -11,6 +11,7 @@ import Service.UserService;
 import Utils.FailedAnswer;
 import Utils.HttpUtils;
 import Utils.MD5;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -440,5 +441,28 @@ public class Ajax {
             return "费用已设置为:"+(double)exp.getSendPrice()/100+"元";
         }
         return "无权操作";
+    }
+
+    @RequestMapping("smsnotice")
+    @ResponseBody
+    public String smsnotice(@RequestParam int managerId,
+                            @RequestParam int orderId,
+                            @RequestParam int schoolId
+                            ){
+        ExpressOrder order = managerService.getExpressOrderById(orderId);
+        if(order == null) return "非法操作";
+
+        if(order.getSchoolId() != schoolId) return "非法操作";
+
+        if(System.currentTimeMillis() - order.getLastSms() > 21600000){
+            Manager m = managerService.getManagerById(managerId);
+            JSONObject data = new JSONObject();
+            data.put("where",m.getAddress());
+            data.put("name",m.getName());
+            order.setLastSms(System.currentTimeMillis());
+            managerService.update(order);
+            noticeService.CommonSMSSend("SMS_46225057",order.getReceive_phone(),data);
+            return "已发送";
+        }else  return "发送太频繁了！";
     }
 }

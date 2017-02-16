@@ -23,13 +23,15 @@ public class SendExpressOrder {
     private String orderKey;
     private String name;
     private String phone;
+    private String expPhone;//快递点的电话
     private String address;
     private String open_id;
     private int schoolId;
 
     public SendExpressOrder(
-            String express, int shouldPay, boolean haspay, Date orderTime, String orderKey,
+            String express, String ephone,int shouldPay, boolean haspay, Date orderTime, String orderKey,
             String name, String phone, String address,String openid,int scid) {
+        this.expPhone = ephone;
         this.express = express;
         this.shouldPay = shouldPay;
         this.haspay = haspay;
@@ -131,5 +133,13 @@ public class SendExpressOrder {
 
     public void setSchoolId(int schoolId) {
         this.schoolId = schoolId;
+    }
+
+    public String getExpPhone() {
+        return expPhone;
+    }
+
+    public void setExpPhone(String expPhone) {
+        this.expPhone = expPhone;
     }
 }

@@ -216,7 +216,7 @@
                         <div class="item-content">
                             <div class="item-inner">
                                 <div class="item-title-row">
-                                    <div class="item-title">${stm.name}</div>
+                                    <div class="item-title">${stm.name} ${stm.s_limit}个</div>
                                     <div class="item-after">
                                         <label class="label-switch">
                                             <input type="checkbox" onchange="sendtime_changed(${stm.id})" <c:if test="${stm.available}">checked="checked"</c:if> />

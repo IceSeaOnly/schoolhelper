@@ -622,4 +622,22 @@ public class ManagerDao{
         session.close();
         return rs;
     }
+
+    public SchoolMoveOrder getSchoolMoveOrderByKey(String orderKey) {
+        Session session = sessionFactory.openSession();
+        SchoolMoveOrder so = (SchoolMoveOrder) session.createQuery("from SchoolMoveOrder where orderKey = :K")
+                .setParameter("K",orderKey)
+                .uniqueResult();
+        session.close();
+        return so;
+    }
+
+    public SendExpressOrder getSendExpressOrderByKey(String orderKey) {
+        Session session = sessionFactory.openSession();
+        SendExpressOrder so = (SendExpressOrder) session.createQuery("from SendExpressOrder where orderKey = :K")
+                .setParameter("K",orderKey)
+                .uniqueResult();
+        session.close();
+        return so;
+    }
 }

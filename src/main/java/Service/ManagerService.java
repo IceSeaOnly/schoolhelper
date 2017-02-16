@@ -491,4 +491,12 @@ public class ManagerService {
             return null;
         }
     }
+
+    public SchoolMoveOrder getSchoolMoveOrderByKey(String orderKey) {
+        return managerDao.getSchoolMoveOrderByKey(orderKey);
+    }
+
+    public SendExpressOrder getSendExpressOrderByKey(String orderKey) {
+        return managerDao.getSendExpressOrderByKey(orderKey);
+    }
 }

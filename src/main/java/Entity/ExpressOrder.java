@@ -44,6 +44,7 @@ public class ExpressOrder {
     private String courierNumber;//快递单号
     private int reason;//流程中出现问题的原因
     private boolean isLLJJ;//是否是楼长交接件
+    private Long lastSms;//上次发短信通知时间
 
 
 
@@ -148,6 +149,7 @@ public class ExpressOrder {
         this.schoolId = scid;
         this.reason = 0;
         this.isLLJJ = false;
+        this.lastSms = 1483200000000L;
     }
 
     public static int NORMAL_STATE = 0;
@@ -370,4 +372,11 @@ public class ExpressOrder {
         this.shouldPay = shouldPay;
     }
 
+    public Long getLastSms() {
+        return lastSms;
+    }
+
+    public void setLastSms(Long lastSms) {
+        this.lastSms = lastSms;
+    }
 }

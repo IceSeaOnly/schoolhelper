@@ -2,8 +2,11 @@ package Controllers;
 
 import Entity.SchoolMoveOrder;
 import Entity.SendExpressOrder;
+import Service.ManagerService;
+import Service.NoticeService;
 import Utils.MD5;
 import Utils.TimeFormat;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,53 +21,69 @@ import javax.annotation.Resource;
 @Controller
 @RequestMapping("/")
 public class ReceiveNotify {
-//    @Resource
-//    ManagerService managerService;
+    @Resource
+    ManagerService managerService;
+    @Resource
+    NoticeService noticeService;
 
-//    @RequestMapping("notify_school_move_paid")
-//    @ResponseBody
-//    public String notify_school_move_paid(@RequestParam String orderKey,@RequestParam String validate){
-//        System.out.println("SchoolMove Notify:"+orderKey+",validate"+validate);
-//        if(!MD5.encryption("binghai"+orderKey+"binghai").equals(validate))
-//            return "false";
-//
-//        SchoolMoveOrder smo = managerService.getPaidShoolMoveOrder(orderKey);
-//        if(smo == null)
-//            return "false";
-//
-//        StringBuilder sb = new StringBuilder();
-//        sb.append("OpenId:"+smo.getOpen_id());
-//        sb.append("<br>下单时间:"+ TimeFormat.format(smo.getOrderTime()));
-//        sb.append("<br>姓名:"+smo.getName());
-//        sb.append("<br>联系电话(点击拨打):<a href=\"tel:"+smo.getPhone()+"\">"+smo.getPhone()+"</a>");
-//        sb.append("<br>用车时间:"+smo.getMoveTime());
-//        sb.append("<br>状态：已支付。");
-//        String content =  sb.toString();
-//
-//        return "success";
-//    }
+    @RequestMapping("notify_school_move_paid")
+    @ResponseBody
+    public String notify_school_move_paid(@RequestParam String orderKey,@RequestParam String validate){
+        System.out.println("SchoolMove Notify:"+orderKey+",validate"+validate);
+        if(!MD5.encryption("binghai"+orderKey+"binghai").equals(validate))
+            return "false";
 
-//    @RequestMapping("notify_send_express_paid")
-//    @ResponseBody
-//    public String notify_send_express_paid(@RequestParam String orderKey,@RequestParam String validate){
-//
-//        if(!MD5.encryption("binghai"+orderKey+"binghai").equals(validate))
-//            return "false";
-//
-//        SendExpressOrder seo = managerService.getSendExpressOrder(orderKey);
-//        if(seo == null)
-//            return "false";
-//
-//        StringBuilder sb = new StringBuilder();
-//        sb.append("OpenId:"+seo.getOpen_id());
-//        sb.append("<br>下单时间:"+ TimeFormat.format(seo.getOrderTime()));
-//        sb.append("<br>姓名:"+seo.getName());
-//        sb.append("<br>联系电话(点击拨打):<a href=\"tel:"+seo.getPhone()+"\">"+seo.getPhone()+"</a>");
-//        sb.append("<br>代寄快递:"+seo.getExpress());
-//        sb.append("<br>取件地址:"+seo.getAddress());
-//        sb.append("<br>状态：已支付。");
-//        String content =  sb.toString();
-//
-//        return "success";
-//    }
+        SchoolMoveOrder smo = managerService.getSchoolMoveOrderByKey(orderKey);
+        if(smo == null)
+            return "false";
+
+        if(smo.isHaspay()){
+            JSONObject data = new JSONObject();
+            data.put("name",smo.getName()+","+smo.getPhone()+","+smo.getMoveTime());
+            noticeService.CommonSMSSend("SMS_47515056",smo.getPhone(),data);
+            noticeService.ReservationService(
+                    "服务人员已接单",
+                    "小骨头的服务人员将主动联系您",
+                    "校园搬运",
+                    TimeFormat.format(System.currentTimeMillis()),
+                    smo.getName(),
+                    "按实际收取",
+                    "请耐心等待服务",
+                    smo.getOpen_id(),
+                    "http://xiaogutou.qdxiaogutou.com/user/index.do");
+        }
+        return "success";
+    }
+
+    @RequestMapping("notify_send_express_paid")
+    @ResponseBody
+    public String notify_send_express_paid(@RequestParam String orderKey,@RequestParam String validate){
+
+        if(!MD5.encryption("binghai"+orderKey+"binghai").equals(validate))
+            return "false";
+
+        SendExpressOrder seo = managerService.getSendExpressOrderByKey(orderKey);
+        if(seo == null)
+            return "false";
+
+        if(seo.isHaspay()){
+            JSONObject data = new JSONObject();
+            data.put("where",seo.getAddress());
+            data.put("name",seo.getName()+seo.getPhone());
+            noticeService.CommonSMSSend("SMS_46215163",seo.getExpPhone(),data);
+            noticeService.ReservationService(
+                    "上门取件已接单",
+                    seo.getExpress()+"的服务人员将主动联系您",
+                    "上门取件",
+                    TimeFormat.format(System.currentTimeMillis()),
+                    seo.getName(),
+                    (double)seo.getShouldPay()/100+"元",
+                    "请耐心等待服务",
+                    seo.getOpen_id(),
+                    "http://xiaogutou.qdxiaogutou.com/user/index.do");
+        }
+
+
+        return "success";
+    }
 }
