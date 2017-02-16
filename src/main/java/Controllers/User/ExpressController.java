@@ -1,11 +1,15 @@
 package Controllers.User;
 
 import Entity.*;
+import Entity.Manager.Manager;
 import Entity.User.User;
+import Service.ManagerService;
 import Service.NoticeService;
 import Service.UserService;
 import Utils.ExpressOrderValidate;
 import Utils.MD5;
+import Utils.TimeFormat;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +33,8 @@ import static Utils.ExpressOrderHelper.getSendPart;
 @RequestMapping("user")
 public class ExpressController {
 
+    @Resource
+    ManagerService managerService;
     @Resource
     UserService userService;
     @Resource
@@ -66,7 +72,7 @@ public class ExpressController {
         SendExpress express = getSendExpress(select_express, expresses);
         if (express == null) return "errors/illegal";
         String orderKey = MD5.encryption(name + phone + address + System.currentTimeMillis());
-        SendExpressOrder seo = new SendExpressOrder(express.getExpressname(), express.getOrderPrice(), false, new Date(System.currentTimeMillis()), orderKey,
+        SendExpressOrder seo = new SendExpressOrder(express.getExpressname(),express.getPhone(), express.getOrderPrice(), false, new Date(System.currentTimeMillis()), orderKey,
                 name, phone, address, user.getOpen_id(),user.getSchoolId());
         userService.sava(seo);
         session.setAttribute("seo", seo);
@@ -88,6 +94,24 @@ public class ExpressController {
                 userService.update(order);
                 userService.update(user);
                 session.setAttribute("user", user);
+
+                JSONObject data = new JSONObject();
+                data.put("where",order.getAddress());
+                data.put("name",order.getName()+order.getPhone());
+                //管理分红
+                managerService.managerDividend(order.getSchoolId(),order.getShouldPay(),order.getId(),"代寄快递分红");
+                //通知
+                noticeService.CommonSMSSend("SMS_46215163",order.getExpPhone(),data);
+                noticeService.ReservationService(
+                        "上门取件已接单",
+                        order.getExpress()+"的服务人员将主动联系您",
+                        "上门取件",
+                        TimeFormat.format(System.currentTimeMillis()),
+                        "快递小哥",
+                        (double)order.getShouldPay()/100+"元",
+                        "请耐心等待服务",
+                        order.getOpen_id(),
+                        "http://xiaogutou.qdxiaogutou.com/user/index.do");
                 return "user/vippay_success";
             } else {
                 map.put("type", 3);
@@ -377,6 +401,23 @@ public class ExpressController {
                 userService.update(user);
                 session.setAttribute("user", user);
                 noticeService.paySuccess("会员卡支付成功","5元","校园搬运支付成功","校园搬运",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/user_center.do");
+                JSONObject data = new JSONObject();
+                data.put("name",order.getName()+","+order.getPhone());
+                SchoolConfigs sc = userService.getSchoolConfBySchoolId(order.getSchoolId());
+                //管理分红
+                managerService.managerDividend(sc.getSchoolId(),500,order.getId(),"校园搬运订单分红");
+                //通知
+                noticeService.CommonSMSSend("SMS_47515056",String.valueOf(sc.getServicePhone()),data);
+                noticeService.ReservationService(
+                        "服务人员已接单",
+                        "小骨头的服务人员将主动联系您",
+                        "校园搬运",
+                        TimeFormat.format(System.currentTimeMillis()),
+                        "骨头小哥",
+                        "按实际收取",
+                        "请耐心等待服务",
+                        order.getOpen_id(),
+                        "http://xiaogutou.qdxiaogutou.com/user/index.do");
                 return "user/vippay_success";
             } else {
                 map.put("type", 2);

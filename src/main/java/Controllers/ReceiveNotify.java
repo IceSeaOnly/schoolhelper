@@ -1,9 +1,11 @@
 package Controllers;
 
+import Entity.SchoolConfigs;
 import Entity.SchoolMoveOrder;
 import Entity.SendExpressOrder;
 import Service.ManagerService;
 import Service.NoticeService;
+import Service.UserService;
 import Utils.MD5;
 import Utils.TimeFormat;
 import com.alibaba.fastjson.JSONObject;
@@ -24,6 +26,8 @@ public class ReceiveNotify {
     @Resource
     ManagerService managerService;
     @Resource
+    UserService userService;
+    @Resource
     NoticeService noticeService;
 
     @RequestMapping("notify_school_move_paid")
@@ -39,18 +43,22 @@ public class ReceiveNotify {
 
         if(smo.isHaspay()){
             JSONObject data = new JSONObject();
-            data.put("name",smo.getName()+","+smo.getPhone()+","+smo.getMoveTime());
-            noticeService.CommonSMSSend("SMS_47515056",smo.getPhone(),data);
+            data.put("name",smo.getName()+","+smo.getPhone());
+            SchoolConfigs sc = userService.getSchoolConfBySchoolId(smo.getSchoolId());
+            noticeService.CommonSMSSend("SMS_47515056",String.valueOf(sc.getServicePhone()),data);
             noticeService.ReservationService(
                     "服务人员已接单",
                     "小骨头的服务人员将主动联系您",
                     "校园搬运",
                     TimeFormat.format(System.currentTimeMillis()),
-                    smo.getName(),
+                    "骨头小哥",
                     "按实际收取",
                     "请耐心等待服务",
                     smo.getOpen_id(),
                     "http://xiaogutou.qdxiaogutou.com/user/index.do");
+
+            //管理分红
+            managerService.managerDividend(sc.getSchoolId(),500,smo.getId(),"校园搬运订单分红");
         }
         return "success";
     }
@@ -76,11 +84,14 @@ public class ReceiveNotify {
                     seo.getExpress()+"的服务人员将主动联系您",
                     "上门取件",
                     TimeFormat.format(System.currentTimeMillis()),
-                    seo.getName(),
+                    "快递小哥",
                     (double)seo.getShouldPay()/100+"元",
                     "请耐心等待服务",
                     seo.getOpen_id(),
                     "http://xiaogutou.qdxiaogutou.com/user/index.do");
+
+            //管理分红
+            managerService.managerDividend(seo.getSchoolId(),seo.getShouldPay(),seo.getId(),"代寄快递分红");
         }
 
 

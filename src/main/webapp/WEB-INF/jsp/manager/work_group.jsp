@@ -68,6 +68,7 @@
                             手机号：${mr.phone}<br>
                             微信号：${mr.wxpay}<br>
                             支付宝：${mr.alipay}<br>
+                            描述：${mr.pdesc}
                         </div>
                     </div>
                     <div class="card-footer">

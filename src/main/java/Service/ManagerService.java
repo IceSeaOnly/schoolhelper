@@ -287,7 +287,7 @@ public class ManagerService {
     /**
      * 管理分红
      * */
-    public void managerDividend(int schoolId,int sum,int orderId) {
+    public void managerDividend(int schoolId,int sum,int orderId,String info) {
         // 列出该校所有管理
         ArrayList<Manager>ms = (ArrayList<Manager>) managerDao.listAllManagers(schoolId);
         // 为每个管理分红
@@ -298,7 +298,7 @@ public class ManagerService {
                         orderId,
                         (int)(sum*ms.get(i).getDividendRatio()),
                         ChargingSystem.Ftype,
-                        "取件订单分红"));
+                        info));
         }
     }
     /**
@@ -322,7 +322,7 @@ public class ManagerService {
      * */
     public void rewardSendOrder(int managerId, int schoolId, int orderId) {
         SchoolConfigs conf = userDao.getSchoolConfBySchoolId(schoolId);
-        ExpressOrder e = userDao.getExpressOrderById(managerId,orderId);
+        ExpressOrder e = userDao.getExpressOrderById(orderId);
         if(e != null && !e.isLLJJ() && conf != null){
             userDao.save(new ChargingSystem(
                     managerId,

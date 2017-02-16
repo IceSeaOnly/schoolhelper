@@ -115,6 +115,12 @@ public class UserDao {
         session.close();
         return order.getUser_id() == user_id ? order : null;
     }
+    public ExpressOrder getExpressOrderById(int order_id) {
+        Session session = sessionFactory.openSession();
+        ExpressOrder order = (ExpressOrder) session.get(ExpressOrder.class, order_id);
+        session.close();
+        return order;
+    }
 
 
     public ArrayList<SysMsg> getAllSysMsg(int schoolId) {

@@ -267,5 +267,14 @@ public class NoticeService {
         data.put("type","sms");
         data.put("phone",phone);
         data.put("param",para);
+        data.put("tpl",tpl);
+        if(account == null){
+            account = new CloudAccount(PassConfig.accessKey, PassConfig.secret, PassConfig.MNSurl);
+            client = account.getMNSClient();
+        }
+        Message message = new Message();
+        message.setMessageBody(data.toJSONString());
+        CloudQueue queue = client.getQueueRef("bone");
+        queue.putMessage(message);
     }
 }

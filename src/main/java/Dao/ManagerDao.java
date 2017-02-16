@@ -176,7 +176,8 @@ public class ManagerDao{
     public boolean updateExpressOrderResultReason(int managerId, int schoolId, int orderId, int status, int reasonId) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        int e = session.createQuery("update ExpressOrder set order_state = :ST,reason = :REA where id = :OID and schoolId = :SID")
+        int e = session.createQuery("update ExpressOrder set rider_id = :R, order_state = :ST,reason = :REA where id = :OID and schoolId = :SID")
+                .setParameter("R",managerId)
                 .setParameter("ST",status)
                 .setParameter("REA",reasonId)
                 .setParameter("OID",orderId)
@@ -446,6 +447,12 @@ public class ManagerDao{
             // 统计
             Long sum = (Long) session.createQuery("select sum(money) from ChargingSystem where mid = :M and valid = true and checked = true and settled = false ")
                     .setParameter("M",mid).uniqueResult();
+
+            if(sum < 100){ //最小转账金额1元
+                session.getTransaction().rollback();
+                session.close();
+                return null;
+            }
             // 标记已结算
             session.createQuery("update ChargingSystem set settled = true  where mid = :M and valid = true and checked = true and settled = false ")
                     .setParameter("M",mid).executeUpdate();
@@ -497,7 +504,7 @@ public class ManagerDao{
 
     public ArrayList<SendExpressOrder> listHelpSendOrders(int sid) {
         Session session = sessionFactory.openSession();
-        ArrayList<SendExpressOrder>rs = (ArrayList<SendExpressOrder>) session.createQuery("from SendExpressOrder where haspay = true and schoolId = :S order by id")
+        ArrayList<SendExpressOrder>rs = (ArrayList<SendExpressOrder>) session.createQuery("from SendExpressOrder where haspay = true and schoolId = :S order by id desc")
                 .setMaxResults(50)
                 .setParameter("S",sid)
                 .list();
