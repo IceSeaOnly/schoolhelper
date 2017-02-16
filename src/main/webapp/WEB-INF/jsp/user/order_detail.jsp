@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="../weixin_style/weui.css"/>
     <link rel="stylesheet" href="../weixin_style/example.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <meta charset="utf-8">
     <title>订单详情</title>
     <style>
@@ -169,7 +171,13 @@
         </div>
     </div>
 </div>
+<script type='text/javascript'
+        src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 
+<script>
+    $.init();
+</script>
 <script>
     //点击服务流程，蓝色滑块向左移动，切换到服务流程页
     $(".information").click(

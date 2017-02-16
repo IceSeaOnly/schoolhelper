@@ -176,11 +176,10 @@ public class ManagerDao{
     public boolean updateExpressOrderResultReason(int managerId, int schoolId, int orderId, int status, int reasonId) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        int e = session.createQuery("update ExpressOrder set order_state = :ST,reason = :REA where id = :OID and rider_id = :MID and schoolId = :SID")
+        int e = session.createQuery("update ExpressOrder set order_state = :ST,reason = :REA where id = :OID and schoolId = :SID")
                 .setParameter("ST",status)
                 .setParameter("REA",reasonId)
                 .setParameter("OID",orderId)
-                .setParameter("MID",managerId)
                 .setParameter("SID",schoolId).executeUpdate();
         session.getTransaction().commit();
         session.close();
@@ -414,7 +413,7 @@ public class ManagerDao{
     public void clearReward(int omid, int orderId, int ttype) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.createQuery("update ChargingSystem set isValid = false where mid = :M and mtype  = :T and oid = :O")
+        session.createQuery("update ChargingSystem set valid = false where mid = :M and mtype  = :T and oid = :O")
                 .setParameter("M",omid)
                 .setParameter("T",ttype)
                 .setParameter("O",orderId)
@@ -441,14 +440,14 @@ public class ManagerDao{
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         // 做标记
-        int eff = session.createQuery("update ChargingSystem set checked = true where mid = :M and isValid = true and isSettled = false ")
+        int eff = session.createQuery("update ChargingSystem set checked = true where mid = :M and valid = true and settled = false ")
                 .setParameter("M",mid).executeUpdate();
         if (eff != 0){
             // 统计
-            Long sum = (Long) session.createQuery("select sum(money) from ChargingSystem where mid = :M and isValid = true and checked = true and isSettled = false ")
+            Long sum = (Long) session.createQuery("select sum(money) from ChargingSystem where mid = :M and valid = true and checked = true and settled = false ")
                     .setParameter("M",mid).uniqueResult();
             // 标记已结算
-            session.createQuery("update ChargingSystem set isSettled = true  where mid = :M and isValid = true and checked = true and isSettled = false ")
+            session.createQuery("update ChargingSystem set settled = true  where mid = :M and valid = true and checked = true and settled = false ")
                     .setParameter("M",mid).executeUpdate();
             p = (PayLog) merge(
                     new PayLog(name,openId,
@@ -596,6 +595,30 @@ public class ManagerDao{
                 (ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where id in :S")
                 .setParameterList("S",ids)
                 .list();
+        session.close();
+        return rs;
+    }
+
+    /**
+     * 复杂参数的订单获取器
+     * */
+    public ArrayList<ExpressOrder> listExpressOrderByConfig(int sid,int mid, int pep, int otype, int part, int stime) {
+        Session session = sessionFactory.openSession();
+        String sql = "from ExpressOrder where schoolId = :SID "
+                +(pep==0?"":"and rider_id = :R ")
+                +(otype==0?"and order_state = 2 or order_state = -3 ":"and order_state = 2 ")
+                +(part<0?"":"and part = :P ")
+                +(stime<0?"":"and sendtime_id = :St");
+        Query query = session.createQuery(sql);
+        query.setParameter("SID",sid);
+        if(pep == 1)
+            query.setParameter("R",mid);
+        if(part>-1)
+            query.setParameter("P",part);
+        if(stime>-1)
+            query.setParameter("St",stime);
+
+        ArrayList<ExpressOrder>rs = (ArrayList<ExpressOrder>) query.list();
         session.close();
         return rs;
     }

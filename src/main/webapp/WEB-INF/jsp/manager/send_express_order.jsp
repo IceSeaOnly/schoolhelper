@@ -67,8 +67,10 @@
                     if (status == "success") {
                         if (data != "true")
                             $.toast("操作失败", 1000);
-                        else
+                        else{
+                            $.toast("配送成功,辛苦了");
                             $("#card" + orderId).hide();
+                        }
                     } else {
                         $.toast("操作失败", 1000);
                     }
@@ -85,14 +87,15 @@
         <!-- 你的html代码 -->
         <header class="bar bar-nav">
             <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
+            <a href="javascript:$('#set_picker').trigger('click');" class="icon icon-settings pull-right">&nbsp</a>
             <jsp:include page="right_reload.jsp"/>
             <h1 class="title">${school.schoolName}配送订单</h1>
         </header>
 
         <!-- 这里是页面内容区 begin-->
         <div class="content">
+            <input name="set_picker" id="set_picker" type="hidden"/>
             <c:forEach items="${orders}" var="order">
-
                 <div class="card" id="card${order.id}">
                     <div class="card-header">${order.express} 【${order.express_number}】【${order.arrive}】</div>
                     <div class="card-content">
@@ -103,6 +106,7 @@
                             配送手机：${order.receive_phone}<br>
                             宿舍位置：${order.sendTo}<br>
                             备注信息：${order.otherinfo }<br>
+                            <c:if test="${order.order_state != 2}"><span style="color: red">${order.reason2String()}</span></c:if>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -131,6 +135,40 @@
     $.init();
     if (orderSum == 0)
         empty_close();
+
+    var cur_config = '${cur_config}';
+    $("#set_picker").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">【过滤条件】</h1>\
+  </header>',
+        onClose:function(){
+            if($("#set_picker").val() != cur_config)
+                icesea.loadUrl('send_express_order.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID&config='+$("#set_picker").val());
+        },
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['everyone', 'mine'],
+                displayValues: ['不限', '我的']
+            },
+            {
+                textAlign: 'center',
+                values: ['new', 'all'],
+                displayValues: ['不限', '新件']
+            },
+            {
+                textAlign: 'center',
+                values: ['-1'<c:forEach items="${parts}" var="part">,'${part.id}'</c:forEach>],
+                displayValues: ['不限'<c:forEach items="${parts}" var="part">,'${part.partName}'</c:forEach>]
+            },
+            {
+                textAlign: 'center',
+                values: ['-1'<c:forEach items="${stimes}" var="stm">,'${stm.id}'</c:forEach>],
+                displayValues: ['不限'<c:forEach items="${stimes}" var="stm">,'${stm.name}'</c:forEach>]
+            }
+        ]
+    });
 </script>
 <jsp:include page="replaceToken.jsp"/>
 </body>

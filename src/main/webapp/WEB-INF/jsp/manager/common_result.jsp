@@ -39,7 +39,8 @@
     $.init();
     $.alert("${notice}", "${result?":)":":("}", function () {
         <c:if test="${is_url == true}">
-        icesea.loadUrl("${url}");
+        $.showIndicator();
+        icesea.loadUrl('${url}');
         </c:if>
         <c:if test="${is_url == false}">
         icesea.finish();

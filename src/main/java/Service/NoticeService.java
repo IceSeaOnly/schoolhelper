@@ -128,7 +128,20 @@ public class NoticeService {
         Message message = new Message();
         message.setMessageBody(ds.toJSONString());
         CloudQueue queue = client.getQueueRef("bone");
-        System.out.println(queue.putMessage(message) == null?"ali MNS responsed null":"ali MNS responsed not null");
+        queue.putMessage(message);
+    }
+    /**
+     * 日志服务转向分布式
+     * */
+    public static void DistributedLog(String log){
+        if(account == null){
+            account = new CloudAccount(PassConfig.accessKey, PassConfig.secret, PassConfig.MNSurl);
+            client = account.getMNSClient();
+        }
+        Message message = new Message();
+        message.setMessageBody(log);
+        CloudQueue queue = client.getQueueRef("boneLog");
+        queue.putMessage(message);
     }
     /**
      * 创建一个专为该订单服务的客服工单

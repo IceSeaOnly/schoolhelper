@@ -19,6 +19,8 @@ import java.util.List;
 public class ManagerService {
     @Resource
     ManagerDao managerDao;
+    @Resource
+    NoticeService noticeService;
     private static ArrayList<Reason> reasons;
     private static Long reason_update_time;
 
@@ -128,7 +130,8 @@ public class ManagerService {
     }
 
     public void log(int managerId,int log_tid,String status){
-        managerDao.save(new Log(log_tid, LogTag.getTagWithStatus(log_tid).getTagDesc()+" - "+status,managerId));
+        noticeService.DistributedLog(new Log(log_tid, LogTag.getTagWithStatus(log_tid).getTagDesc()+" - "+status,managerId).toString());
+        //managerDao.save(new Log(log_tid, LogTag.getTagWithStatus(log_tid).getTagDesc()+" - "+status,managerId));
     }
 
     /**
@@ -327,6 +330,9 @@ public class ManagerService {
                     conf.getEach_send(),
                     ChargingSystem.Stype,
                     "配送工资"));
+            log(managerId,11,orderId+"订单已赏配送费"+conf.getEach_send());
+        }else{
+            log(managerId,11,orderId+"订单赏配送费失败，e="+(e==null?"null,conf=":"not null,conf=")+"conf="+(conf==null?"null":"not null"));
         }
     }
 
@@ -452,5 +458,32 @@ public class ManagerService {
     public ArrayList<ExpressOrder> getExpressOrderByIds(ArrayList<Integer> ids) {
         ArrayList<ExpressOrder> rs = managerDao.getExpressOrderByIds(ids);
         return rs == null?new ArrayList<ExpressOrder>():rs;
+    }
+
+    /**
+     * config:配置信息
+     * 根据配置信息提取订单
+     * config为一个字符串，含有5个部分【取件人】【新旧件】【区域】【配送时间】
+     * 5个部分的默认配置参数为everyone all -1 -1，含义均为不限
+     * 两两以空格隔开
+     * 若config == ‘none’，则为默认配置
+     * */
+    public ArrayList<ExpressOrder> listExpressOrderByConfig(int sid, int managerId, String config) {
+        if(config.equals("none")){
+            config = "everyone all -1 -1";
+        }
+
+        String[] cfgs = config.split(" ");
+        if(cfgs.length != 4) return null;
+        try{
+            int pep = (cfgs[1].equals("everyone")?0:1);
+            int otype = (cfgs[2].equals("all")?0:1);
+            int part = Integer.parseInt(cfgs[3]);
+            int stime = Integer.parseInt(cfgs[4]);
+            ArrayList<ExpressOrder> res = managerDao.listExpressOrderByConfig(sid,managerId,pep,otype,part,stime);
+            return res == null?new ArrayList<ExpressOrder>():res;
+        }catch (Exception e){
+            return null;
+        }
     }
 }

@@ -139,26 +139,25 @@ public class Business {
 
     /**
      * 管理员配送订单
-     * send_express_order.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID
+     * send_express_order.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID&config=xxx
      */
     @RequestMapping("send_express_order")
     public String send_express_order(@RequestParam int managerId,
                                      @RequestParam int schoolId,
+                                     @RequestParam String config,
                                      ModelMap map) {
-        int year = TimeFormat.getThisYear(null);
-        int month = TimeFormat.getThisMonth(null);
-        int day = TimeFormat.getThisDay(null);
-        int orderState = 2; // -1 as default
-        int sendTime = -1;// -1 as default
         School school = managerService.getSchoolById(schoolId);
-        ArrayList<ExpressOrder> orders = managerService.managerAccess2School(managerId, schoolId) ?
-                managerService.commonOrderGet(schoolId, sendTime, year, month, day, orderState) : new ArrayList<ExpressOrder>();
         ArrayList<Reason> reasons = managerService.listAllReasons(Reason.SEND_ERR);
+        ArrayList<ExpressOrder>orders = managerService.listExpressOrderByConfig(schoolId,managerId,config);
+        if(orders == null) return permissionDeny(map);
         map.put("reasons", reasons);
         map.put("orders", orders);
         map.put("school", school);
         map.put("schoolId", schoolId);
+        map.put("parts",userService.listAllParts(schoolId));
+        map.put("stimes",userService.getAllSendTimes(schoolId,false));
         map.put("managerId", managerId);
+        map.put("cur_config",config);
         return "manager/send_express_order";
     }
 

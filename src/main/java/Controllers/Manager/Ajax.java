@@ -90,9 +90,15 @@ public class Ajax {
             @RequestParam boolean result,
             @RequestParam int reasonId){
 
-        if(result)
-            /** 赏配送费 注意判别是否是楼长交接件，如果是，则不再分配*/
+        /** 赏配送费 注意判别是否是楼长交接件，如果是，则不再分配*/
+        if(result){
+            managerService.log(managerId,11,orderId+"订单准备赏配送费");
             managerService.rewardSendOrder(managerId,schoolId,orderId);
+        }else{
+            managerService.log(managerId,11,orderId+"订单不能赏配送费，因为result=false");
+        }
+
+
         return String.valueOf(
                 managerService.updateExpressOrderResultReason(managerId,schoolId,orderId,result? ExpressOrder.SEND_SUCCESS:ExpressOrder.ORDER_SEND_FAILED,reasonId)
         );
