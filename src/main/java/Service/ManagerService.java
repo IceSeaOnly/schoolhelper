@@ -72,8 +72,8 @@ public class ManagerService {
         return managerDao.managerTakeOrder(managerId,managerName,schoolId,orderId);
     }
 
-    public boolean managerFetchOrder(int managerId, int schoolId, int orderId) {
-        return managerDao.managerFetchOrder(managerId,schoolId,orderId);
+    public boolean managerFetchOrder(int managerId, int schoolId, int orderId, int reasonId, boolean res) {
+        return managerDao.managerFetchOrder(managerId,schoolId,orderId,reasonId,res);
     }
 
     /**
@@ -498,5 +498,21 @@ public class ManagerService {
 
     public SendExpressOrder getSendExpressOrderByKey(String orderKey) {
         return managerDao.getSendExpressOrderByKey(orderKey);
+    }
+
+    public Long getSchoolMoveOrderSum(int schoolId) {
+        return managerDao.getSchoolMoveOrderSum(schoolId);
+    }
+
+    public Long getHelpSendOrderSum(int schoolId) {
+        return managerDao.getHelpSendOrderSum(schoolId);
+    }
+
+    public Long getExpressOrderSum(int schoolId) {
+        return managerDao.getExpressOrderSum(schoolId);
+    }
+
+    public Long getTodayExpressOrderSum(int schoolId) {
+        return managerDao.getTodayExpressOrderSum(schoolId);
     }
 }

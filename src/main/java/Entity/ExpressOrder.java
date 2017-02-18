@@ -55,7 +55,7 @@ public class ExpressOrder {
                 res = "配送失败";
                 break;
             case -2:
-                res = "不存在";
+                res = "取件失败";
                 break;
             case -1:
                 res = "已取消";

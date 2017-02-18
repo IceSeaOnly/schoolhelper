@@ -124,12 +124,13 @@ public class ManagerDao{
         return m;
     }
 
-    public boolean managerFetchOrder(int managerId, int schoolId, int orderId) {
+    public boolean managerFetchOrder(int managerId, int schoolId, int orderId, int reasonId, boolean res) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        int e = session.createQuery("update ExpressOrder set order_state = :ST where rider_id = :RID and schoolId = :SID and id = :OID and order_state = :OST")
-                .setParameter("ST",ExpressOrder.GOT_EXPRESS_SENDING)
+        int e = session.createQuery("update ExpressOrder set order_state = :ST,reason = :REAID where rider_id = :RID and schoolId = :SID and id = :OID and order_state = :OST")
+                .setParameter("ST",res?ExpressOrder.GOT_EXPRESS_SENDING:ExpressOrder.ORDER_NOT_EXIST)
                 .setParameter("RID",managerId)
+                .setParameter("REAID",reasonId)
                 .setParameter("SID",schoolId)
                 .setParameter("OID",orderId)
                 .setParameter("OST",ExpressOrder.ACCEPT_ORDER)
@@ -646,5 +647,42 @@ public class ManagerDao{
                 .uniqueResult();
         session.close();
         return so;
+    }
+
+    public Long getSchoolMoveOrderSum(int schoolId) {
+        Session session  = sessionFactory.openSession();
+        Long sum = (Long) session.createQuery("select coalesce(0,count(*)) from SchoolMoveOrder where schoolId = :S and haspay = true ")
+                .setParameter("S",schoolId)
+                .uniqueResult();
+        session.close();
+        return sum;
+    }
+
+    public Long getHelpSendOrderSum(int schoolId) {
+        Session session  = sessionFactory.openSession();
+        Long sum = (Long) session.createQuery("select coalesce(0,count(*)) from SendExpressOrder where schoolId = :S and haspay = true ")
+                .setParameter("S",schoolId)
+                .uniqueResult();
+        session.close();
+        return sum;
+    }
+
+    public Long getExpressOrderSum(int schoolId) {
+        Session session  = sessionFactory.openSession();
+        Long sum = (Long) session.createQuery("select coalesce(0,count(*)) from ExpressOrder where schoolId = :S and has_pay = true ")
+                .setParameter("S",schoolId)
+                .uniqueResult();
+        session.close();
+        return sum;
+    }
+
+    public Long getTodayExpressOrderSum(int schoolId) {
+        Session session  = sessionFactory.openSession();
+        Long sum = (Long) session.createQuery("select coalesce(0,count(*)) from ExpressOrder where schoolId = :S and has_pay = true and orderTimeStamp > :T")
+                .setParameter("T",TimeFormat.getTimesmorning())
+                .setParameter("S",schoolId)
+                .uniqueResult();
+        session.close();
+        return sum;
     }
 }

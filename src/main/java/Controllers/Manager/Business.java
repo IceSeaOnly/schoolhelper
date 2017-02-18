@@ -901,4 +901,54 @@ public class Business {
         }
         return arr.toJSONString();
     }
+
+    @RequestMapping("school_status")
+    public String school_status(@RequestParam int managerId,
+                                @RequestParam int schoolId,ModelMap map){
+        School school = managerService.getSchoolById(schoolId);
+        SchoolConfigs schoolConfigs = userService.getSchoolConfBySchoolId(schoolId);
+        Long moveSum = managerService.getSchoolMoveOrderSum(schoolId);
+        Long djSum = managerService.getHelpSendOrderSum(schoolId);
+        Long dqSum = managerService.getExpressOrderSum(schoolId);
+        Long todaySum = managerService.getTodayExpressOrderSum(schoolId);
+
+        map.put("moveSum",moveSum);
+        map.put("djSum",djSum);
+        map.put("dqSum",dqSum);
+        map.put("todaySum",todaySum);
+        map.put("school",school);
+        map.put("schoolId",schoolId);
+        map.put("managerId",managerId);
+        map.put("config",schoolConfigs);
+        return "manager/school_status";
+    }
+
+
+    @RequestMapping("modifypass")
+    public String modifypass(@RequestParam int managerId,ModelMap map){
+        map.put("managerId",managerId);
+        return "manager/modifypass";
+    }
+    @RequestMapping("modify_pass")
+    public String modify_pass(@RequestParam int managerId,
+                              @RequestParam String oldpass,
+                              @RequestParam String newpass,
+                              ModelMap map){
+        Manager manager = managerService.getManagerById(managerId);
+        if(manager.getPass().equals(MD5.encryption(oldpass))){
+            manager.setPass(MD5.encryption(newpass));
+            AppCgi.clearToken(managerId);
+            map.put("result", true);
+            map.put("is_url", false);
+            map.put("notice", "更新完成，请退出此账号重新登录");
+            return "manager/common_result";
+        }else{
+            map.put("result", false);
+            map.put("is_url", false);
+            map.put("notice", "旧密码不正确");
+            return "manager/common_result";
+        }
+    }
+
+
 }

@@ -57,17 +57,26 @@ public class Ajax {
     @ResponseBody
     public String fetch_order(
             @RequestParam int managerId,
+            @RequestParam int reasonId,
+            @RequestParam boolean res,
             @RequestParam int schoolId,
             @RequestParam int orderId){
-        /**
-         * 管理分红、分取件费
-         * */
-        managerService.log(managerId,2,orderId+"取件成功，mid="+managerId);
-        ExpressOrder order = managerService.getExpressOrderById(orderId);
-        if(order == null) return "false";
-        managerService.managerDividend(schoolId,order.getShouldPay(),orderId,"取件订单分红");
-        managerService.rewardFetchOrder(schoolId,managerId,orderId);
-        return String.valueOf(managerService.managerFetchOrder(managerId,schoolId,orderId));
+        boolean rs = managerService.managerFetchOrder(managerId,schoolId,orderId,reasonId,res);
+        if(res && rs){
+            /**
+             * 管理分红、分取件费
+             * */
+            managerService.log(managerId,2,orderId+"取件成功，mid="+managerId);
+            ExpressOrder order = managerService.getExpressOrderById(orderId);
+            if(order == null) return "false";
+            managerService.managerDividend(schoolId,order.getShouldPay(),orderId,"取件订单分红");
+            managerService.rewardFetchOrder(schoolId,managerId,orderId);
+            return "true";
+        }else if(!res && rs){
+            managerService.log(managerId,2,orderId+"取件失败，mid="+managerId+"，原因:"+managerService.reason2String(reasonId));
+            return "true";
+        }else return "false";
+
     }
 
     @RequestMapping("update_courier_number")
@@ -95,16 +104,15 @@ public class Ajax {
 
         /** 赏配送费 注意判别是否是楼长交接件，如果是，则不再分配*/
         if(result){
-            boolean res = managerService.updateExpressOrderResultReason(managerId,schoolId,orderId,result? ExpressOrder.SEND_SUCCESS:ExpressOrder.ORDER_SEND_FAILED,reasonId);
-            if(res){
-                managerService.log(managerId,11,orderId+"订单由"+managerId+"配送成功准备赏配送费");
-                managerService.rewardSendOrder(managerId,schoolId,orderId);
-                return "true";
-            }else return "false";
+            managerService.log(managerId,11,orderId+"订单由"+managerId+"配送成功准备赏配送费");
         }else{
-            managerService.log(managerId,11,orderId+"订单不能赏配送费，因为配送失败，原因"+ reasonId);
+            managerService.log(managerId,11,orderId+"订单不能赏配送费，因为配送失败，原因"+ managerService.reason2String(reasonId));
         }
-        return "false";
+        boolean res = managerService.updateExpressOrderResultReason(managerId,schoolId,orderId,result? ExpressOrder.SEND_SUCCESS:ExpressOrder.ORDER_SEND_FAILED,reasonId);
+        if(res){
+            managerService.rewardSendOrder(managerId,schoolId,orderId);
+            return "true";
+        }else return "false";
     }
 
     /**
@@ -156,7 +164,7 @@ public class Ajax {
     public String delete_reason(@RequestParam int managerId,
                                     @RequestParam int rid){
         if (managerService.managerAccess2Privilege(managerId,"reason_manage")){
-            managerService.log(managerId,11,"删除原因"+rid);
+            managerService.log(managerId,11,"删除原因:"+ managerService.reason2String(rid));
             managerService.deleteReason(rid);
             return "true";
         }

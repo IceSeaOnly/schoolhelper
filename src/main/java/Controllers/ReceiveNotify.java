@@ -1,8 +1,10 @@
 package Controllers;
 
+import Entity.ExpressOrder;
 import Entity.SchoolConfigs;
 import Entity.SchoolMoveOrder;
 import Entity.SendExpressOrder;
+import Entity.User.User;
 import Service.ManagerService;
 import Service.NoticeService;
 import Service.UserService;
@@ -11,6 +13,7 @@ import Utils.TimeFormat;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -30,7 +33,7 @@ public class ReceiveNotify {
     @Resource
     NoticeService noticeService;
 
-    @RequestMapping("notify_school_move_paid")
+    @RequestMapping(value = "notify_school_move_paid",method = RequestMethod.POST)
     @ResponseBody
     public String notify_school_move_paid(@RequestParam String orderKey,@RequestParam String validate){
         System.out.println("SchoolMove Notify:"+orderKey+",validate"+validate);
@@ -63,7 +66,7 @@ public class ReceiveNotify {
         return "success";
     }
 
-    @RequestMapping("notify_send_express_paid")
+    @RequestMapping(value = "notify_send_express_paid",method = RequestMethod.POST)
     @ResponseBody
     public String notify_send_express_paid(@RequestParam String orderKey,@RequestParam String validate){
 
@@ -95,6 +98,23 @@ public class ReceiveNotify {
         }
 
 
+        return "success";
+    }
+
+    @RequestMapping(value = "notify_express_paid",method = RequestMethod.POST)
+    public String notify_express_paid(@RequestParam String orderKey,@RequestParam String validate){
+        if(!MD5.encryption("binghai"+orderKey+"binghai").equals(validate))
+            return "false";
+        ExpressOrder order = userService.getExpressOrderByOrderKey(orderKey);
+        if(order != null)
+            if(order.isHas_pay()){
+                User user = userService.getUserById(order.getUser_id());
+                if(user != null){
+                    user.setOrder_sum(user.getOrder_sum()+1);
+                    managerService.update(user);
+                    noticeService.paySuccess("小骨头订单微信支付成功",order.getShouldPay()/100+"元","如有疑问或退款，请点我召唤客服","代取快递",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+order.getId());
+                }
+            }
         return "success";
     }
 }

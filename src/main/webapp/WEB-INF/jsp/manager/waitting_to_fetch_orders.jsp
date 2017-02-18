@@ -22,19 +22,54 @@
         }
 
         var tmp_orderid = -1;
-        function takeorder(orderId){
+
+        function takeorder(orderId,reasonid,res){
             if(tmp_orderid == orderId){
                 $("#card" + orderId).hide();
-                $.get("/ajax/fetch_order.do?token=${Stoken}&managerId=${managerId}&schoolId=${schoolId}&orderId="+orderId, function (data, status) {
+                $.showPreloader("正在通讯，请稍后...");
+                $.get("/ajax/fetch_order.do?token=${Stoken}&managerId=${managerId}&schoolId=${schoolId}&orderId="+orderId+"&reasonId="+reasonid+"&res="+res, function (data, status) {
                     if (status == "success") {
-                        if(data != "true")
-                            $.toast("操作失败", 1000);
+                        if(data == "true" && res == true){
+                            $.hidePreloader();
+                            $.toast("请上传快递条码", 1000);
+                            icesea.uploadCourierNumber(orderId);
+                        }else if(data == "true" && res == false){
+                            $.hidePreloader();
+                            $.toast("已记录", 1000);
+                        }
+
                     } else {
                         $.toast("操作失败", 1000);
                     }
                 });
-                icesea.uploadCourierNumber(orderId);
+
             }else tmp_orderid = orderId;
+        }
+
+        function can_not_fetch_success(id) {
+            var buttons1 = [
+                {
+                    text: '请选择失败原因',
+                    label: true
+                },
+                <c:forEach items="${reasons}" var="reason" varStatus="stat">
+                {
+                    text: '${reason.why}',
+                    onClick: function () {
+                        takeorder(id, ${reason.id},false);
+                    }
+                }
+                <c:if test="${!stat.last}">, </c:if>
+                </c:forEach>
+            ];
+            var buttons2 = [
+                {
+                    text: '取消',
+                    bg: 'danger'
+                }
+            ];
+            var groups = [buttons1, buttons2];
+            $.actions(groups);
         }
     </script>
 </head>
@@ -65,8 +100,10 @@
                         </div>
                     </div>
                     <div class="card-footer">
+                        <a href="javascript:can_not_fetch_success(${order.id});" class="link"><span
+                                class="icon icon-caret"></span>&nbsp取件失败</a>
                         <a href="javascript:diff_call('${order.express_phone}','${order.receive_phone}')" class="link"><span class="icon icon-phone"></span>&nbsp致电</a>
-                        <a href="javascript:takeorder(${order.id});" class="link"><span class="icon icon-check"></span>&nbsp已取件</a>
+                        <a href="javascript:takeorder(${order.id},0,true)" class="link"><span class="icon icon-check"></span>&nbsp已取件</a>
                     </div>
 
                 </div>
