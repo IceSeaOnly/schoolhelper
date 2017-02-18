@@ -69,9 +69,9 @@
 <!--banner广告-->
 <div class="banner_box swiper-container">
     <div id="banner" class="swiper-wrapper">
-        <div class="swiper-slide"><a href="https://weidian.com/item.html?itemID=1853626665&wfr=wx&share_id=251403590&code=0415LR9o0L4Vqp17uW9o0H93ao05LR9e&state=H5WXshare"><img src="http://image.binghai.site/data/f_14249008.jpg"></a></div>
-        <div class="swiper-slide"><a href="https://weidian.com/item.html?itemID=1853626665&wfr=wx&share_id=251403590&code=0415LR9o0L4Vqp17uW9o0H93ao05LR9e&state=H5WXshare"><img src="http://image.binghai.site/data/f_13862008.jpg"></a></div>
-        <div class="swiper-slide"><a href="https://weidian.com/item.html?itemID=1853626665&wfr=wx&share_id=251403590&code=0415LR9o0L4Vqp17uW9o0H93ao05LR9e&state=H5WXshare"><img src="http://image.binghai.site/data/f_87312529.jpg"></a></div>
+        <div class="swiper-slide"><a href="https://weidian.com/item.html?itemID=1824023062&wfr=qfriend&ifr=itemdetail"><img src="http://image.binghai.site/data/f_82540228.jpg"></a></div>
+        <div class="swiper-slide"><a ><img src="http://image.binghai.site/data/f_39636923.jpg"></a></div>
+        <div class="swiper-slide"><a ><img src="http://image.binghai.site/data/f_88627495.png"></a></div>
     </div>
     <div class="swiper-pagination"></div>
 </div>
