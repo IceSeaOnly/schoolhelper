@@ -18,11 +18,14 @@
         function check_and_submit() {
             var ch = document.myform.name_ch.value;
             var en = document.myform.name_en.value;
+            var ph = document.myform.servicePhone.value;
             var parent=/^[A-Za-z]+$/;
-            if(ch == "" || en == ""){
+            if(ch == "" || en == "" || ph == ""){
                 $.alert("不能为空！");
             }else if(!parent.test(en)){
                 $.alert("英文缩写中不得出现除英文以外的字符！");
+            }else if(ph.length != 11){
+                $.alert("请输入正确的手机号");
             }else{
                 $.confirm('学校只能增加不能删除，你确定添加一个新的学校吗？',
                         function () {
@@ -72,6 +75,17 @@
                                     <div class="item-title label">英文缩写</div>
                                     <div class="item-input">
                                         <input type="text" name="name_en" placeholder="如：SDUST">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title label">负责人手机号</div>
+                                    <div class="item-input">
+                                        <input type="text" name="servicePhone" placeholder="必填">
                                     </div>
                                 </div>
                             </div>

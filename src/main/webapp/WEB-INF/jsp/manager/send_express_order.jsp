@@ -74,7 +74,10 @@
                     }
                 });
 
-            } else tmp_orderid = orderId;
+            } else{
+                $.toast("防止误操作，请再点一次", 1000);
+                tmp_orderid = orderId;
+            }
         }
     </script>
 </head>

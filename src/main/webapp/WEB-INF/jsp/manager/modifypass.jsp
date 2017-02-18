@@ -1,3 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,13 +24,12 @@
         <!-- 你的html代码 -->
         <header class="bar bar-nav">
             <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
-            <a href="" class="icon icon-menu pull-right"></a>
             <h1 class="title">修改密码</h1>
         </header>
         <!-- 这里是页面内容区 begin-->
         <div class="content">
             <form method="post" action="modify_pass.do" id="form_pass" name="form_pass">
-                <input name="manager" value="${managerId}" type="hidden"/>
+                <input name="managerId" value="${managerId}" type="hidden"/>
                 <input name="token" value="${Stoken}" type="hidden"/>
                 <div class="list-block">
                     <ul>
@@ -58,7 +61,7 @@
                     <div class="row">
                         <div class="col-50"><a href="javascript:icesea.finish()"
                                                class="button button-big button-fill button-danger">取消</a></div>
-                        <div class="col-50"><a href="javascript:$('form_pass').submit()" class="button button-big button-fill button-success">提交</a>
+                        <div class="col-50"><a href="javascript:$('#form_pass').submit()" class="button button-big button-fill button-success">提交</a>
                         </div>
                     </div>
                 </div>

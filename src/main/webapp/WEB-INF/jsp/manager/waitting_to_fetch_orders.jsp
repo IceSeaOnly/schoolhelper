@@ -39,11 +39,15 @@
                         }
 
                     } else {
+                        $.hidePreloader();
                         $.toast("操作失败", 1000);
                     }
                 });
 
-            }else tmp_orderid = orderId;
+            }else{
+                $.toast("防止误操作，请再点一次", 1000);
+                tmp_orderid = orderId;
+            }
         }
 
         function can_not_fetch_success(id) {
@@ -97,6 +101,7 @@
                             取件手机：${order.express_phone}<br>
                             配送手机：${order.receive_phone}<br>
                             备注信息：${order.otherinfo }<br>
+                            <c:if test="${order.order_state == -2}"><span style="color: red">${order.reason2String()}</span></c:if>
                         </div>
                     </div>
                     <div class="card-footer">

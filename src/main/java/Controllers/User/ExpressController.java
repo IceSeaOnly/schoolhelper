@@ -7,6 +7,7 @@ import Service.ManagerService;
 import Service.NoticeService;
 import Service.UserService;
 import Utils.ExpressOrderValidate;
+import Utils.HttpUtils;
 import Utils.MD5;
 import Utils.TimeFormat;
 import com.alibaba.fastjson.JSONObject;
@@ -209,7 +210,54 @@ public class ExpressController {
         if (order == null) return "errors/illegal";
         map.put("order", order);
         if (order.isHas_pay() == false) return "user/ready_topay";
+        if((order.getOrder_state() == 0 || order.getOrder_state() == 1) && order.getOrderTimeStamp()<TimeFormat.getTimesmorning()){
+            map.put("title","抱歉");
+            map.put("msg","您的订单因无人接单即将进入退款流程，再次表示歉意");
+            map.put("btnmsg","点击继续");
+            map.put("url","refund_outofdate_order.do?oid="+id);
+            return "errors/msg";
+        }
         return "user/order_detail";
+    }
+
+    @RequestMapping("refund_outofdate_order")
+    public String refund_outofdate_order(@RequestParam int oid, ModelMap map, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        ExpressOrder order = userService.getExpressOrderById(user, oid);
+        if (order == null) return "errors/illegal";
+        if(order.getUser_id() != user.getId()) return "errors/illegal";
+        if(order.getOrderTimeStamp()>TimeFormat.getTimesmorning()) return "errors/illegal";
+        if(order.getOrder_state() != 1 || order.getOrder_state() != 0) return "errors/illegal";
+        if(!order.isHas_pay()) return "errors/illegal";
+        if(order.getOrder_state() == -1) return "errors/illegal";
+
+        String pass = session.getServletContext().getInitParameter("refund_pwd");
+        String url = session.getServletContext().getInitParameter("refund_url");
+        String validate = MD5.encryption(order.getOrderKey()+pass+order.getShouldPay());
+
+        String rs = HttpUtils.sendGet(url,"out_trade_no="+order.getOrderKey()+"&refund_fee="+order.getShouldPay()+"&validate="+validate);
+
+        if(rs.contains("SUCCESS")){
+            order.setOrder_state(-1);
+            managerService.update(order);
+            managerService.orderSumCutOne(order.getUser_id());
+            managerService.log(user.getId(),11,order.getId()+"订单超时退款:"+rs);
+            noticeService.refund(order.getId(),order.getUser_id(),order.getShouldPay(),"您的订单退款成功，按原路退回");
+        }else if(rs.contains("订单不存在")){ //余额支付订单
+            rs="余额支付单，";
+            order.setOrder_state(-1);
+            managerService.update(order);
+            managerService.orderSumCutOne(order.getUser_id());
+            boolean res = managerService.refundVipPay(order.getUser_id(),order.getShouldPay());
+            rs += (res?"已退款至账户":"但退款时发生错误");
+            managerService.log(user.getId(),11,order.getId()+"订单超时退款:"+rs);
+            noticeService.refund(order.getId(),order.getUser_id(),order.getShouldPay(),"您的订单退款结果:"+(res?"已退款至账户余额":"退款时发生错误"));
+        }
+        map.put("title","退款结果");
+        map.put("msg",rs);
+        map.put("btnmsg","好的");
+        map.put("url","user_center.do");
+        return "errors/msg";
     }
 
     @RequestMapping("go_to_pay")

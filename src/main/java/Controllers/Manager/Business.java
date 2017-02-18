@@ -127,7 +127,7 @@ public class Business {
         School school = managerService.getSchoolById(schoolId);
         ArrayList<ExpressOrder> orders = managerService.managerAccess2School(managerId, schoolId) ?
                 managerService.commonOrderGet(schoolId, sendTime, year, month, day, orderState) : new ArrayList<ExpressOrder>();
-
+        orders.addAll(managerService.commonOrderGet(schoolId, sendTime, year, month, day, -2));
         ArrayList<Reason> reasons = managerService.listAllReasons(Reason.FETCH_ERR);
         map.put("orders", orders);
         map.put("school", school);
@@ -605,6 +605,7 @@ public class Business {
                                      @RequestParam int jss,//楼长接收
                                      @RequestParam int aus,//自动开始
                                      @RequestParam int ausd,//自动结束
+                                     @RequestParam String phone,//自动结束
                                      @RequestParam String ausn,//自动停止说明
                                      @RequestParam String ausdn,//手动停止说明
                                      @RequestParam String shopUrl,//校园微店
@@ -613,12 +614,28 @@ public class Business {
         if (!managerService.managerAccess2Privilege(managerId, "xtsz") || !managerService.managerAccess2School(managerId, schoolId)) {
             return permissionDeny(map);
         }
+        if(phone.length() != 11){
+            map.put("result", false);
+            map.put("is_url", false);
+            map.put("notice", "手机号错误:"+phone);
+            return "manager/common_result";
+        }
+        Long sphone = null;
+        try{
+            sphone = Long.parseLong(phone);
+        }catch (Exception e){
+            map.put("result", false);
+            map.put("is_url", false);
+            map.put("notice", "手机号错误:"+phone);
+            return "manager/common_result";
+        }
         if (biggerThan0(qs, ss, zjs, jss)) {
             SchoolConfigs sc = userService.getSchoolConfBySchoolId(schoolId);
             sc.setFirst_cost(fristCost);
             sc.setEach_fetch(qs);
             sc.setEach_send(ss);
             sc.setEach_give(zjs);
+            sc.setServicePhone(sphone);
             sc.setEach_receive(jss);
             sc.setAuto_start(aus);
             sc.setAuto_close(ausd);
@@ -937,6 +954,7 @@ public class Business {
         Manager manager = managerService.getManagerById(managerId);
         if(manager.getPass().equals(MD5.encryption(oldpass))){
             manager.setPass(MD5.encryption(newpass));
+            managerService.update(manager);
             AppCgi.clearToken(managerId);
             map.put("result", true);
             map.put("is_url", false);

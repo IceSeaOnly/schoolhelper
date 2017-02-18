@@ -464,6 +464,16 @@
                         <li>
                             <div class="item-content">
                                 <div class="item-inner">
+                                    <div class="item-title label">负责人手机号</div>
+                                    <div class="item-input">
+                                        <input type="text" name="phone" placeholder="必填" value="${config.servicePhone}">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
                                     <div class="item-title label">首单金额</div>
                                     <div class="item-input">
                                         <input type="text" name="fristCost" placeholder="1<=整数" value="${config.first_cost}">

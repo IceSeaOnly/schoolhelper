@@ -1,3 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +49,7 @@
                             <div class="item-inner">
                                 <div class="item-title-row">
                                     <div class="item-title">今日收入</div>
-                                    <div class="item-after">￥200.50</div>
+                                    <div class="item-after">￥${config.sumIncome}</div>
                                 </div>
                             </div>
                         </div>
