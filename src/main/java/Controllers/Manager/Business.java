@@ -75,7 +75,7 @@ public class Business {
         int day = TimeFormat.getThisDay(TS);
         School school = managerService.getSchoolById(schoolId);
         ArrayList<ExpressOrder> orders =
-                managerService.commonOrderGet(schoolId, -1, year, month, day, -1);
+                managerService.commonOrderGet(-1, schoolId, -1, year, month, day, -1);
         ArrayList<Reason> reasons = managerService.listAllReasons(Reason.SEND_ERR);
         map.put("reasons", reasons);
         map.put("orders", orders);
@@ -102,7 +102,7 @@ public class Business {
         int sendTime = -1;// -1 as default
         School school = managerService.getSchoolById(schoolId);
         ArrayList<ExpressOrder> orders =
-                managerService.commonOrderGet(schoolId, sendTime, year, month, day, orderState);
+                managerService.commonOrderGet(-1, schoolId, sendTime, year, month, day, orderState);
         map.put("orders", orders);
         map.put("school", school);
         map.put("schoolId", schoolId);
@@ -126,8 +126,8 @@ public class Business {
         int sendTime = -1;// -1 as default
         School school = managerService.getSchoolById(schoolId);
         ArrayList<ExpressOrder> orders = managerService.managerAccess2School(managerId, schoolId) ?
-                managerService.commonOrderGet(schoolId, sendTime, year, month, day, orderState) : new ArrayList<ExpressOrder>();
-        orders.addAll(managerService.commonOrderGet(schoolId, sendTime, year, month, day, -2));
+                managerService.commonOrderGet(managerId, schoolId, sendTime, year, month, day, orderState) : new ArrayList<ExpressOrder>();
+        orders.addAll(managerService.commonOrderGet(managerId, schoolId, sendTime, year, month, day, -2));
         ArrayList<Reason> reasons = managerService.listAllReasons(Reason.FETCH_ERR);
         map.put("orders", orders);
         map.put("school", school);
@@ -148,16 +148,16 @@ public class Business {
                                      ModelMap map) {
         School school = managerService.getSchoolById(schoolId);
         ArrayList<Reason> reasons = managerService.listAllReasons(Reason.SEND_ERR);
-        ArrayList<ExpressOrder>orders = managerService.listExpressOrderByConfig(schoolId,managerId,config);
-        if(orders == null) return permissionDeny(map);
+        ArrayList<ExpressOrder> orders = managerService.listExpressOrderByConfig(schoolId, managerId, config);
+        if (orders == null) return permissionDeny(map);
         map.put("reasons", reasons);
         map.put("orders", orders);
         map.put("school", school);
         map.put("schoolId", schoolId);
-        map.put("parts",userService.listAllParts(schoolId));
-        map.put("stimes",userService.getAllSendTimes(schoolId,false));
+        map.put("parts", userService.listAllParts(schoolId));
+        map.put("stimes", userService.getAllSendTimes(schoolId, false));
         map.put("managerId", managerId);
-        map.put("cur_config",config);
+        map.put("cur_config", config);
         return "manager/send_express_order";
     }
 
@@ -209,12 +209,39 @@ public class Business {
         int sendTime = -1;// -1 as default
         School school = managerService.getSchoolById(schoolId);
         ArrayList<ExpressOrder> orders = managerService.managerAccess2School(managerId, schoolId) ?
-                managerService.commonOrderGet(schoolId, sendTime, year, month, day, orderState) : new ArrayList<ExpressOrder>();
+                managerService.commonOrderGet(-1, schoolId, sendTime, year, month, day, orderState) : new ArrayList<ExpressOrder>();
+        ArrayList<ExpressOrder> rs = filterOrder(orders);
         map.put("schoolId", schoolId);
         map.put("managerId", managerId);
         map.put("schoolName", school.getSchoolName());
-        map.put("orders", orders);
+        map.put("orders", rs);
         return "manager/lzjj_send";
+    }
+
+    @RequestMapping("lzjjQRmake")
+    public String lzjjQRmake(@RequestParam int managerId,
+                             @RequestParam int schoolId,
+                             @RequestParam String[] checked_orders,
+                             ModelMap map) {
+        String data = transfer2Json(checked_orders);
+        managerService.log(managerId,6,managerId+"楼长送出订单"+data);
+        map.put("result", true);
+        map.put("is_url", true);
+        map.put("url", "javascript:icesea.makeQRcode('bone_client_web://lzjj_receive.do?managerId=MANAGERID&token=TOKEN&data=" + data + "&omid=" + managerId + "&schoolId=" + schoolId + "');");
+        map.put("notice", "数据准备完毕，戳我生成二维码");
+        return "manager/common_result";
+    }
+
+    /**
+     * 过滤没有被设置为楼长交接单的订单
+     */
+    private ArrayList<ExpressOrder> filterOrder(ArrayList<ExpressOrder> orders) {
+        ArrayList<ExpressOrder> tmp = new ArrayList<ExpressOrder>();
+        for (int i = 0; i < orders.size(); i++) {
+            if (!orders.get(i).isLLJJ())
+                tmp.add(orders.get(i));
+        }
+        return tmp;
     }
 
     /**
@@ -224,26 +251,33 @@ public class Business {
     @RequestMapping("lzjj_receive")
     public String lzjj_receive(@RequestParam int managerId,
                                @RequestParam int schoolId,
-                               @RequestParam int orderId,
                                @RequestParam int omid, // 旧的管理员id
-                               @RequestParam String key,
+                               @RequestParam String data,
                                ModelMap map) {
         ArrayList<ExpressOrder> orders = new ArrayList<ExpressOrder>();
         if (managerService.managerAccess2School(managerId, schoolId)) {
-            ExpressOrder it = managerService.getExpressOrderById(orderId);
-            if (it != null)
-                if (it.getRider_id() == omid && key.equals(it.makeLZJJKey())) {
+            JSONArray arr = JSONArray.parseArray(data);
+            for (int i = 0; i < arr.size(); i++) {
+                ExpressOrder it = managerService.getExpressOrderById(arr.getInteger(i));
+                if (it != null && !it.isLLJJ()) {
                     Manager m = managerService.getManagerById(managerId);
                     it.setRider_id(m.getId());
                     it.setRider_name(m.getName());
                     it.setLLJJ(true); //标记为楼长交接件
-                    managerService.update(it);
                     orders.add(it);
-
+                    managerService.log(m.getId(),7,m.getId()+"楼长接收订单"+it.getId());
                     /** 赏工资*/
-                    managerService.rewardT(omid, schoolId, orderId);
-                    managerService.rewardR(managerId, schoolId, orderId);
+                    managerService.rewardT(omid, schoolId, it.getId());
+                    managerService.rewardR(managerId, schoolId, it.getId());
+
+                    JSONObject jdata = new JSONObject();
+                    jdata.put("where",m.getAddress());
+                    jdata.put("name",m.getName());
+                    it.setLastSms(System.currentTimeMillis());
+                    managerService.update(it);
+                    noticeService.CommonSMSSend("SMS_46225057",it.getReceive_phone(),jdata);
                 }
+            }
         }
         School school = managerService.getSchoolById(schoolId);
         map.put("schoolId", schoolId);
@@ -446,14 +480,14 @@ public class Business {
             return "manager/common_result";
         }
 
-        if(addr.length()<1){
+        if (addr.length() < 1) {
             map.put("result", false);
             map.put("is_url", false);
             map.put("notice", "必须输入详细的地址");
             return "manager/common_result";
         }
         Manager m = (Manager) managerService.merge(
-                new Manager(name, phone, MD5.encryption("123456"), alipay, wxpay, openid, 0.0, pdesc,addr));
+                new Manager(name, phone, MD5.encryption("123456"), alipay, wxpay, openid, 0.0, pdesc, addr));
         managerService.save(new PrivilegeDist(m.getId(), 18));
         map.put("result", true);
         map.put("notice", "添加成功,初始密码123456，请注意分配学校和权限，如需分红，请注意分配");
@@ -614,19 +648,19 @@ public class Business {
         if (!managerService.managerAccess2Privilege(managerId, "xtsz") || !managerService.managerAccess2School(managerId, schoolId)) {
             return permissionDeny(map);
         }
-        if(phone.length() != 11){
+        if (phone.length() != 11) {
             map.put("result", false);
             map.put("is_url", false);
-            map.put("notice", "手机号错误:"+phone);
+            map.put("notice", "手机号错误:" + phone);
             return "manager/common_result";
         }
         Long sphone = null;
-        try{
+        try {
             sphone = Long.parseLong(phone);
-        }catch (Exception e){
+        } catch (Exception e) {
             map.put("result", false);
             map.put("is_url", false);
-            map.put("notice", "手机号错误:"+phone);
+            map.put("notice", "手机号错误:" + phone);
             return "manager/common_result";
         }
         if (biggerThan0(qs, ss, zjs, jss)) {
@@ -693,7 +727,7 @@ public class Business {
             noticeService.publishNotice(msg);
             map.put("result", true);
             map.put("is_url", false);
-            map.put("notice", "发布任务已经在执行了");
+            map.put("notice", "发布任务已经在执行了，发送给本校今天下单的用户");
             return "manager/common_result";
         } else {
             return permissionDeny(map);
@@ -788,7 +822,7 @@ public class Business {
                              @RequestParam int price,
                              @RequestParam int exp_end,
                              ModelMap map) {
-        System.out.println("mid="+managerId);
+        System.out.println("mid=" + managerId);
         if (managerService.managerAccess2Privilege(managerId, "xtsz")) {
             Express exp = new Express(exp_name, price, schoolId, exp_end);
             managerService.save(exp);
@@ -873,19 +907,19 @@ public class Business {
     }
 
     @RequestMapping("out_put_order")
-    public String out_put_order(@RequestParam int managerId, @RequestParam int schoolId,ModelMap map){
-        if(managerService.managerAccess2Privilege(managerId,"out_put_order")
-                && managerService.managerAccess2School(managerId,schoolId)){
+    public String out_put_order(@RequestParam int managerId, @RequestParam int schoolId, ModelMap map) {
+        if (managerService.managerAccess2Privilege(managerId, "out_put_order")
+                && managerService.managerAccess2School(managerId, schoolId)) {
             ArrayList<ExpressOrder> orders =
-                    managerService.commonOrderGet(schoolId,
+                    managerService.commonOrderGet(-1, schoolId,
                             -1,
                             TimeFormat.getThisYear(null),
                             TimeFormat.getThisMonth(null),
-                            TimeFormat.getThisDay(null),1);
-            map.put("orders",orders);
-            map.put("schoolId",schoolId);
-            map.put("managerId",managerId);
-        }else return permissionDeny(map);
+                            TimeFormat.getThisDay(null), 1);
+            map.put("orders", orders);
+            map.put("schoolId", schoolId);
+            map.put("managerId", managerId);
+        } else return permissionDeny(map);
         return "manager/out_put_order";
     }
 
@@ -893,20 +927,20 @@ public class Business {
     public String makeOutPutOrders(@RequestParam int managerId,
                                    @RequestParam int schoolId,
                                    @RequestParam String[] checked_orders,
-                                   ModelMap map){
-        if(checked_orders.length < 1){
+                                   ModelMap map) {
+        if (checked_orders.length < 1) {
             map.put("result", false);
             map.put("is_url", false);
             map.put("notice", "没有选择任何订单");
             return "manager/common_result";
         }
         String json = transfer2Json(checked_orders);
-        OutPutOrders out = new OutPutOrders(json,managerId,schoolId);
+        OutPutOrders out = new OutPutOrders(json, managerId, schoolId);
         managerService.save(out);
-        String url = "http://xiaogutou.qdxiaogutou.com/api/output.do?k="+out.getSkey();
+        String url = "http://xiaogutou.qdxiaogutou.com/api/output.do?k=" + out.getSkey();
         map.put("result", true);
         map.put("is_url", true);
-        map.put("url","javascript:icesea.copy2clipboard('"+url+"');icesea.finish();");
+        map.put("url", "javascript:icesea.copy2clipboard('" + url + "');icesea.finish();");
         map.put("notice", "已生成链接,请粘贴到需要的地方");
         return "manager/common_result";
     }
@@ -921,38 +955,41 @@ public class Business {
 
     @RequestMapping("school_status")
     public String school_status(@RequestParam int managerId,
-                                @RequestParam int schoolId,ModelMap map){
+                                @RequestParam int schoolId, ModelMap map) {
         School school = managerService.getSchoolById(schoolId);
         SchoolConfigs schoolConfigs = userService.getSchoolConfBySchoolId(schoolId);
         Long moveSum = managerService.getSchoolMoveOrderSum(schoolId);
         Long djSum = managerService.getHelpSendOrderSum(schoolId);
         Long dqSum = managerService.getExpressOrderSum(schoolId);
         Long todaySum = managerService.getTodayExpressOrderSum(schoolId);
+        Long todayIncome = managerService.getTodayExpressTodayIncome(schoolId);
 
-        map.put("moveSum",moveSum);
-        map.put("djSum",djSum);
-        map.put("dqSum",dqSum);
-        map.put("todaySum",todaySum);
-        map.put("school",school);
-        map.put("schoolId",schoolId);
-        map.put("managerId",managerId);
-        map.put("config",schoolConfigs);
+        map.put("moveSum", moveSum);
+        map.put("djSum", djSum);
+        map.put("dqSum", dqSum);
+        map.put("todaySum", todaySum);
+        map.put("todayIncome", todayIncome);
+        map.put("school", school);
+        map.put("schoolId", schoolId);
+        map.put("managerId", managerId);
+        map.put("config", schoolConfigs);
         return "manager/school_status";
     }
 
 
     @RequestMapping("modifypass")
-    public String modifypass(@RequestParam int managerId,ModelMap map){
-        map.put("managerId",managerId);
+    public String modifypass(@RequestParam int managerId, ModelMap map) {
+        map.put("managerId", managerId);
         return "manager/modifypass";
     }
+
     @RequestMapping("modify_pass")
     public String modify_pass(@RequestParam int managerId,
                               @RequestParam String oldpass,
                               @RequestParam String newpass,
-                              ModelMap map){
+                              ModelMap map) {
         Manager manager = managerService.getManagerById(managerId);
-        if(manager.getPass().equals(MD5.encryption(oldpass))){
+        if (manager.getPass().equals(MD5.encryption(oldpass))) {
             manager.setPass(MD5.encryption(newpass));
             managerService.update(manager);
             AppCgi.clearToken(managerId);
@@ -960,7 +997,7 @@ public class Business {
             map.put("is_url", false);
             map.put("notice", "更新完成，请退出此账号重新登录");
             return "manager/common_result";
-        }else{
+        } else {
             map.put("result", false);
             map.put("is_url", false);
             map.put("notice", "旧密码不正确");

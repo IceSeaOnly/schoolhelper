@@ -4,6 +4,7 @@ import Controllers.SysConfig;
 import Service.NoticeService;
 import Utils.MD5;
 import Utils.TimeFormat;
+import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 
 import java.util.Scanner;
@@ -22,7 +23,7 @@ public class test_open_id {
     }
     @Test
     public void test(){
-
+        System.out.println(MD5.encryption("1041414957"));
     }
 
     public static void main(String[] args) {

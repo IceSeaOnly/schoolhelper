@@ -49,7 +49,7 @@
                             <div class="item-inner">
                                 <div class="item-title-row">
                                     <div class="item-title">今日收入</div>
-                                    <div class="item-after">￥${config.sumIncome}</div>
+                                    <div class="item-after">￥${todayIncome/100}</div>
                                 </div>
                             </div>
                         </div>

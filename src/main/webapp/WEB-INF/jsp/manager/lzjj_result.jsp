@@ -23,11 +23,6 @@
             });
         }
 
-        function smsnotice(id) {
-            $.get("/ajax/smsnotice.do?managerId=${managerId}&schoolId=${schoolId}&orderId="+id,function (data, status) {
-                $.alert(data);
-            })
-        }
     </script>
 </head>
 <body>
@@ -61,10 +56,6 @@
                             备注信息：${order.otherinfo }<br>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="javascript:smsnotice('${order.id}')" class="link"><span class="icon icon-message"></span>&nbsp短信通知ta</a>
-                    </div>
-
                 </div>
             </c:forEach>
         </div>
@@ -75,14 +66,12 @@
 </div>
 
 <script type='text/javascript'
-        src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+               src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
 <script>
     $.init();
-
-    if(orderSum == 0)
-        empty_close();
+    $.alert("当前订单均已发送短信通知");
 </script>
 <jsp:include page="replaceToken.jsp"/>
 </body>

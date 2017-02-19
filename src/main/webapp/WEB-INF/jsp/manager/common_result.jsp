@@ -24,7 +24,10 @@
         <!-- 你的html代码 -->
         <!-- 这里是页面内容区 begin-->
         <div class="content">
-            ${url}
+            <div class="content-padded">
+                <p>${url}</p>
+            </div>
+
         </div>
         <!-- 这里是页面内容区 end-->
         <!-- 你的html代码 -->

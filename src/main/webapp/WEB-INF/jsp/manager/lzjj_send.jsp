@@ -35,31 +35,46 @@
 
         <!-- 这里是页面内容区 begin-->
         <div class="content">
-            <c:forEach items="${orders}" var="order">
-
-                <div class="card" id="card${order.id}">
-                    <div class="card-header">${order.express} 【${order.express_number}】【${order.arrive}】</div>
-                    <div class="card-content">
-                        <div class="card-content-inner">
-                            用户姓名：${order.express_name}<br>
-                            用户标示：${order.user_id}<br>
-                            取件手机：${order.express_phone}<br>
-                            配送手机：${order.receive_phone}<br>
-                            配&nbsp&nbsp送&nbsp&nbsp员：${order.rider_name}<br>
-                            下单时间：${order.orderTime}<br>
-                            宿舍位置：${order.sendTo}<br>
-                            当前状态：${order.state_toString()}<br>
-                            是否异常：${order.reason2String()}<br>
-                            备注信息：${order.otherinfo }<br>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="javascript:diff_call('${order.express_phone}','${order.receive_phone}')" class="link"><span class="icon icon-phone"></span>&nbsp致电</a>
-                        <a href="javascript:icesea.makeQRcode('bone_client_web://lzjj_receive.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN&orderId=${order.id}&key=${order.makeLZJJKey()}&omid=${managerId}')" class="link"><span class="icon icon-friends"></span>&nbsp交接</a>
-                    </div>
-
+            <form action="lzjjQRmake.do" method="post" id="form_select" name="form_select">
+                <input name="managerId" value="${managerId}" type="hidden"/>
+                <input name="token" value="${Stoken}" type="hidden"/>
+                <input name="schoolId" value="${schoolId}" type="hidden"/>
+                <div class="list-block  media-list">
+                    <ul>
+                        <c:forEach items="${orders}" var="order">
+                            <li>
+                                <label class="label-checkbox item-content">
+                                    <input type="checkbox" value="${order.id}" name="checked_orders">
+                                    <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">${order.express}
+                                                【${order.express_number}】【${order.arrive}】
+                                            </div>
+                                        </div>
+                                        <div class="item-subtitle">
+                                            用户姓名：${order.express_name}<br>
+                                            取件手机：${order.express_phone}<br>
+                                            配送手机：${order.receive_phone}<br>
+                                            配&nbsp&nbsp送&nbsp&nbsp员：${order.rider_name}<br>
+                                            下单时间：${order.orderTime}<br>
+                                            <span style="color: red">宿舍位置：${order.sendTo}</span><br>
+                                            当前状态：${order.state_toString()}<br>
+                                            是否异常：${order.reason2String()}<br>
+                                        </div>
+                                        <div class="item-text">
+                                            备注信息：${order.otherinfo }
+                                        </div>
+                                    </div>
+                                </label>
+                            </li>
+                        </c:forEach>
+                    </ul>
                 </div>
-            </c:forEach>
+                <div class="content-block">
+                    <p><a href="javascript:$('#form_select').submit()" class="button button-big">选好了</a></p>
+                </div>
+            </form>
         </div>
 
         <!-- 这里是页面内容区 end-->

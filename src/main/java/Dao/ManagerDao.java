@@ -42,11 +42,12 @@ public class ManagerDao{
         session.close();
     }
 
-    public ArrayList<ExpressOrder> commonOrderGet(int schoolId, Long from, Long end, int sendTime, int orderState) {
+    public ArrayList<ExpressOrder> commonOrderGet(int mid,int schoolId, Long from, Long end, int sendTime, int orderState) {
         Session session = sessionFactory.openSession();
         Query q = session.createQuery("from ExpressOrder where schoolId = :SID and orderTimeStamp between :F and :E"
                 +(sendTime == -1?"":" and sendtime_id = :S")
-                +(orderState == -1?"":" and order_state = :STA"))
+                +(orderState == -1?"":" and order_state = :STA")
+                +(mid == -1?"":" and rider_id = :MID"))
                 .setParameter("SID",schoolId)
                 .setParameter("F",from)
                 .setParameter("E",end);
@@ -56,6 +57,10 @@ public class ManagerDao{
 
         if(orderState != -1){
             q.setParameter("STA",orderState);
+        }
+
+        if(mid != -1){
+            q.setParameter("MID",mid);
         }
         ArrayList<ExpressOrder>orders = (ArrayList<ExpressOrder>)q.list();
         session.close();
@@ -678,6 +683,16 @@ public class ManagerDao{
     public Long getTodayExpressOrderSum(int schoolId) {
         Session session  = sessionFactory.openSession();
         Long sum = (Long) session.createQuery("select coalesce(count(*),0) from ExpressOrder where schoolId = :S and has_pay = true and orderTimeStamp > :T")
+                .setParameter("T",TimeFormat.getTimesmorning())
+                .setParameter("S",schoolId)
+                .uniqueResult();
+        session.close();
+        return sum;
+    }
+
+    public Long getTodayExpressTodayIncome(int schoolId) {
+        Session session = sessionFactory.openSession();
+        Long sum = (Long) session.createQuery("select coalesce(sum(shouldPay),0) from ExpressOrder where schoolId = :S and has_pay = true and orderTimeStamp > :T")
                 .setParameter("T",TimeFormat.getTimesmorning())
                 .setParameter("S",schoolId)
                 .uniqueResult();

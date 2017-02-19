@@ -6,19 +6,22 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" line="221" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" line="445" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" line="248" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" line="450" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f61553a9-0e16-4d1e-a6a1-00c903410e29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/ReceiveNotify.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ReceiveNotify.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/User/ExpressController.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/User/ExpressController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" afterPath="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" afterPath="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Service/NoticeService.java" afterPath="$PROJECT_DIR$/src/main/java/Service/NoticeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/helpsend_set.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/helpsend_set.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/sys_setting.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/sys_setting.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Test/test_open_id.java" afterPath="$PROJECT_DIR$/src/main/java/Test/test_open_id.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/common_result.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/common_result.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_result.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_result.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_send.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_send.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/school_status.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/school_status.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
     </list>
     <ignored path="schoolhelper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,64 +48,10 @@
       <file leaf-file-name="Business.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="934" column="30" selection-start-line="934" selection-start-column="30" selection-end-line="934" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="helpsend_set.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/helpsend_set.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sys_setting.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/sys_setting.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="298" column="34" selection-start-line="298" selection-start-column="34" selection-end-line="299" selection-end-column="34" />
+            <state relative-caret-position="423">
+              <caret line="277" column="43" selection-start-line="277" selection-start-column="43" selection-end-line="277" selection-end-column="43" />
               <folding>
-                <marker date="1487471790000" expanded="true" signature="31280:31405" ph="..." />
-                <marker date="1487471790000" expanded="true" signature="31709:31836" ph="..." />
-                <marker date="1487471790000" expanded="true" signature="32132:32251" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExpressController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/ExpressController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReceiveNotify.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ReceiveNotify.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="111" column="26" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManagerService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Service/ManagerService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding>
-                <element signature="e#12873#12881#0" expanded="true" />
+                <element signature="e#9235#9249#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,11 +60,21 @@
       <file leaf-file-name="NoticeService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Service/NoticeService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="194">
+              <caret line="266" column="69" selection-start-line="266" selection-start-column="65" selection-end-line="266" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ajax.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="89">
+              <caret line="463" column="56" selection-start-line="463" selection-start-column="56" selection-end-line="463" selection-end-column="56" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,8 +86,8 @@
       <list>
         <option value="spring-beans.schema" />
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -143,10 +102,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Entity/SchoolConfigs.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Entity/SendExpress.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/privilege_manage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/Express.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/ExpressOrderHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/LogTag.java" />
@@ -172,28 +127,32 @@
         <option value="$PROJECT_DIR$/src/main/java/Entity/SendTime.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_switch.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/common_result.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/SendExpressOrder.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_result.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/Manager.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/work_group.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Dao/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/ExpressOrder.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/send_express_order.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/modifypass.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/school_status.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/waitting_to_fetch_orders.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/zjxx.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/helpsend_set.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/sys_setting.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java" />
         <option value="$PROJECT_DIR$/src/main/java/Service/NoticeService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/ReceiveNotify.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/User/ExpressController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/UpdateLog.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_send.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/common_result.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_result.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/Test/test_open_id.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/school_status.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
       </list>
     </option>
   </component>
@@ -305,6 +264,136 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -351,7 +440,7 @@
       <recent name="F:\ideaWorkstation\schoolhelper\src\main\webapp\js" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.test_open_id.md5">
+  <component name="RunManager" selected="JUnit.test_open_id.test">
     <configuration default="false" name="test_open_id.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -992,9 +1081,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.test_open_id.md5" />
-        <item index="1" class="java.lang.String" itemvalue="Application.test_open_id" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.test_open_id.test" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.test_open_id.test" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.test_open_id.md5" />
+        <item index="2" class="java.lang.String" itemvalue="Application.test_open_id" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.ManagerDao.ss" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.ManagerDao.createSchool" />
       </list>
@@ -1081,14 +1170,7 @@
       <workItem from="1487158194406" duration="13026000" />
       <workItem from="1487213091819" duration="31067000" />
       <workItem from="1487398456768" duration="18504000" />
-      <workItem from="1487469773826" duration="2037000" />
-    </task>
-    <task id="LOCAL-00009" summary="取件流程完成 20170111">
-      <created>1484144981292</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1484144981292</updated>
+      <workItem from="1487469773826" duration="14763000" />
     </task>
     <task id="LOCAL-00010" summary="完成部分配送失败原因选择逻辑 20170111">
       <created>1484148249331</created>
@@ -1426,16 +1508,17 @@
       <option name="project" value="LOCAL" />
       <updated>1487432951802</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="若干bug修复&#10;">
+      <created>1487471865038</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1487471865038</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_open_id_md5 - 2017.02.05 at 23h 07m 59s.xml">
-      <configuration name="test_open_id.md5" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="test_open_id_md5 - 2017.02.05 at 23h 10m 44s.xml">
-      <configuration name="test_open_id.md5" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="test_open_id_md5 - 2017.02.05 at 23h 11m 21s.xml">
       <configuration name="test_open_id.md5" configurationId="JUnit" />
     </history-entry>
@@ -1457,12 +1540,18 @@
     <history-entry file="test_open_id_test - 2017.02.01 at 22h 25m 09s.xml">
       <configuration name="test_open_id.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="test_open_id_test - 2017.02.19 at 17h 12m 38s.xml">
+      <configuration name="test_open_id.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_open_id_test - 2017.02.19 at 22h 01m 19s.xml">
+      <configuration name="test_open_id.test" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="test_open_id_testReplace - 2017.01.08 at 16h 48m 20s.xml">
       <configuration name="test_open_id.testReplace" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="588703000" />
+    <option name="totallyTimeSpent" value="601429000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1475,11 +1564,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.4969697" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3251634" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251634" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1493,7 +1582,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23712121" sideWeight="0.4869281" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23712121" sideWeight="0.4869281" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2128788" sideWeight="0.5130719" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1521,7 +1610,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="系统设置bug修复 发布消息bug修复" />
     <MESSAGE value="发布消息bug修复" />
     <MESSAGE value="用户首页优化 开店控制bug修复" />
     <MESSAGE value="增加退款功能" />
@@ -1546,7 +1634,8 @@
     <MESSAGE value="新增学校概况模块 新增取件异常模块 新增密码修改模块 多处bug修复" />
     <MESSAGE value="bug修复 模块优化" />
     <MESSAGE value="体验优化 广告更新&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="体验优化 广告更新&#10;" />
+    <MESSAGE value="若干bug修复&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="若干bug修复&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1559,54 +1648,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/ChargingSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/my_incomes.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="42" column="210" selection-start-line="42" selection-start-column="210" selection-end-line="42" selection-end-column="210" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/right_reload.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/SendPart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/history_orders.do.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="67" column="54" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/Conversation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/order_detail.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="179" column="9" selection-start-line="179" selection-start-column="9" selection-end-line="179" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1614,6 +1660,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="48" column="60" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1629,6 +1676,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1636,14 +1684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-106">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="74" column="32" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1659,21 +1699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/LogTag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/common_result.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1685,13 +1710,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_result.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="26" column="60" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1711,6 +1730,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1726,6 +1746,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1733,6 +1754,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="70" column="41" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1755,6 +1777,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
           <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+          <folding>
+            <marker date="1487414414421" expanded="true" signature="6005:6125" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1770,6 +1795,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3660">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1777,6 +1803,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1697">
           <caret line="56" column="30" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1792,6 +1819,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1807,20 +1835,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="65" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/school_status.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="51" column="79" selection-start-line="51" selection-start-column="79" selection-end-line="51" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="134" column="44" selection-start-line="134" selection-start-column="44" selection-end-line="134" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -1829,6 +1843,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
           <caret line="71" column="29" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1836,6 +1851,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
           <caret line="201" column="16" selection-start-line="201" selection-start-column="16" selection-end-line="201" selection-end-column="16" />
+          <folding>
+            <element signature="e#4561#4562#0" expanded="false" />
+            <element signature="e#4609#4610#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1843,6 +1862,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
           <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1850,21 +1870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="87" column="77" selection-start-line="87" selection-start-column="77" selection-end-line="87" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="101" column="25" selection-start-line="101" selection-start-column="25" selection-end-line="101" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="934" column="30" selection-start-line="934" selection-start-column="30" selection-end-line="934" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1873,14 +1878,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="543">
           <caret line="37" column="49" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/helpsend_set.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -1901,6 +1898,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/ExpressController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/sys_setting.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1913,46 +1918,167 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/helpsend_set.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="336" column="17" selection-start-line="336" selection-start-column="17" selection-end-line="336" selection-end-column="17" />
+        <state relative-caret-position="170">
+          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Service/NoticeService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/Log.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="400">
+          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/UpdateLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/output_res.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-840">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/LogTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/out_put_order.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-700">
+          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/common_result.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_send.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="68" column="29" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ReceiveNotify.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="97" column="18" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_result.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="72" column="13" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Test/test_open_id.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#533#534#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Service/ManagerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="429">
+          <caret line="520" column="50" selection-start-line="520" selection-start-column="50" selection-end-line="520" selection-end-column="50" />
           <folding>
-            <element signature="e#12873#12881#0" expanded="true" />
+            <element signature="e#12885#12893#0" expanded="true" />
+            <element signature="e#17483#17484#0" expanded="true" />
+            <element signature="e#17550#17551#0" expanded="true" />
+            <element signature="e#17610#17611#0" expanded="true" />
+            <element signature="e#17680#17681#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/ReceiveNotify.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="111" column="26" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
+        <state relative-caret-position="543">
+          <caret line="699" column="19" selection-start-line="699" selection-start-column="19" selection-end-line="699" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/ExpressController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/school_status.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="294">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="71" column="74" selection-start-line="71" selection-start-column="74" selection-end-line="71" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="277" column="43" selection-start-line="277" selection-start-column="43" selection-end-line="277" selection-end-column="43" />
+          <folding>
+            <element signature="e#9235#9249#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Service/NoticeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="266" column="69" selection-start-line="266" selection-start-column="65" selection-end-line="266" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="463" column="56" selection-start-line="463" selection-start-column="56" selection-end-line="463" selection-end-column="56" />
           <folding />
         </state>
       </provider>

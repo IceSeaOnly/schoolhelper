@@ -34,10 +34,10 @@ public class ManagerService {
         managerDao.updateLostLogin(phone);
     }
 
-    public ArrayList<ExpressOrder> commonOrderGet(int schoolId, int sendTime, int year, int month, int day, int orderState) {
+    public ArrayList<ExpressOrder> commonOrderGet(int mid,int schoolId, int sendTime, int year, int month, int day, int orderState) {
         Long from = TimeFormat.data2Timestamp(year,month,day);
         Long end = from+86400000L;
-        ArrayList<ExpressOrder> res = managerDao.commonOrderGet(schoolId,from,end,sendTime,orderState);
+        ArrayList<ExpressOrder> res = managerDao.commonOrderGet(mid,schoolId,from,end,sendTime,orderState);
         return res == null?new ArrayList<ExpressOrder>():res;
     }
 
@@ -515,5 +515,9 @@ public class ManagerService {
 
     public Long getTodayExpressOrderSum(int schoolId) {
         return managerDao.getTodayExpressOrderSum(schoolId);
+    }
+
+    public Long getTodayExpressTodayIncome(int schoolId) {
+        return managerDao.getTodayExpressTodayIncome(schoolId);
     }
 }
