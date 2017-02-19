@@ -45,6 +45,7 @@ public class ReceiveNotify {
             return "false";
 
         if(smo.isHaspay()){
+            income_add(smo.getSchoolId(),500);
             JSONObject data = new JSONObject();
             data.put("name",smo.getName()+","+smo.getPhone());
             SchoolConfigs sc = userService.getSchoolConfBySchoolId(smo.getSchoolId());
@@ -78,6 +79,7 @@ public class ReceiveNotify {
             return "false";
 
         if(seo.isHaspay()){
+            income_add(seo.getSchoolId(),seo.getShouldPay());
             JSONObject data = new JSONObject();
             data.put("where",seo.getAddress());
             data.put("name",seo.getName()+seo.getPhone());
@@ -112,9 +114,17 @@ public class ReceiveNotify {
                 if(user != null){
                     user.setOrder_sum(user.getOrder_sum()+1);
                     managerService.update(user);
+                    income_add(user.getSchoolId(),order.getShouldPay());
                     noticeService.paySuccess("小骨头订单微信支付成功",order.getShouldPay()/100+"元","如有疑问或退款，请点我召唤客服","代取快递",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+order.getId());
                 }
             }
         return "success";
+    }
+
+    private void income_add(int sid,int many){
+        SchoolConfigs sc = userService.getSchoolConfBySchoolId(sid);
+        sc.setSumIncome(sc.getSumIncome()+many);
+        managerService.update(sc);
+        managerService.log(-1,11,sc.getId()+"学校总收入变为[NotifyModified]:"+sc.getSumIncome());
     }
 }

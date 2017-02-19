@@ -286,6 +286,7 @@ public class ExpressController {
                 /**
                  * 支付成功
                  * */
+                income_add(user.getSchoolId(),order.getShouldPay());
                 noticeService.paySuccess("小骨头订单余额支付成功",order.getShouldPay()/100+"元","如有疑问或退款，请点我召唤客服","代取快递",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+order.getId());
                 user.setMy_money(user.getMy_money() - order.getShouldPay());
                 order.setHas_pay(true);
@@ -448,6 +449,7 @@ public class ExpressController {
                 userService.update(order);
                 userService.update(user);
                 session.setAttribute("user", user);
+                income_add(user.getSchoolId(),500);
                 noticeService.paySuccess("会员卡支付成功","5元","校园搬运支付成功","校园搬运",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/user_center.do");
                 JSONObject data = new JSONObject();
                 data.put("name",order.getName()+","+order.getPhone());
@@ -487,5 +489,12 @@ public class ExpressController {
         userService.sava(smo);
         session.setAttribute("smo", smo);
         return "user/ready_to_pay_schoolmove";
+    }
+
+    private void income_add(int sid,int many){
+        SchoolConfigs sc = userService.getSchoolConfBySchoolId(sid);
+        sc.setSumIncome(sc.getSumIncome()+many);
+        managerService.update(sc);
+        managerService.log(-1,11,sc.getId()+"学校总收入变为[vip pay]:"+sc.getSumIncome());
     }
 }

@@ -25,6 +25,7 @@ public class ManagerService {
     private static Long reason_update_time;
 
 
+
     public Manager ManagerLogin(String phone, String pass) {
         return managerDao.managerLogin(phone,pass);
     }

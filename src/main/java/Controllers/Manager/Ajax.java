@@ -385,6 +385,10 @@ public class Ajax {
                 managerService.update(order);
                 managerService.orderSumCutOne(order.getUser_id());
                 managerService.log(managerId,11,id+"订单退款:"+rs);
+                SchoolConfigs sc = userService.getSchoolConfBySchoolId(order.getSchoolId());
+                sc.setSumIncome(sc.getSumIncome()-order.getShouldPay());
+                managerService.update(sc);
+                managerService.log(managerId,11,sc.getId()+"学校总收入变为:"+sc.getSumIncome());
                 noticeService.refund(order.getId(),order.getUser_id(),order.getShouldPay(),"您的订单退款成功，按原路退回");
             }else if(rs.contains("订单不存在")){ //余额支付订单
                 rs="余额支付单，";
@@ -393,6 +397,10 @@ public class Ajax {
                 managerService.orderSumCutOne(order.getUser_id());
                 boolean res = managerService.refundVipPay(order.getUser_id(),order.getShouldPay());
                 rs += (res?"已退款至账户":"但退款时发生错误");
+                SchoolConfigs sc = userService.getSchoolConfBySchoolId(order.getSchoolId());
+                sc.setSumIncome(sc.getSumIncome()-order.getShouldPay());
+                managerService.update(sc);
+                managerService.log(managerId,11,sc.getId()+"学校总收入变为:"+sc.getSumIncome());
                 managerService.log(managerId,11,id+"订单退款:"+rs);
                 noticeService.refund(order.getId(),order.getUser_id(),order.getShouldPay(),"您的订单退款结果:"+(res?"已退款至账户余额":"退款时发生错误"));
             }

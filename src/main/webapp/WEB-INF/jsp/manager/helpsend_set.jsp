@@ -16,8 +16,9 @@
     <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
     <script>
         function delete_es(id) {
-            $.get("/ajax/deleteSendExpress.do?managerId=${managerId}&token=${token}&id="+id,function (data, status) {
-                alert("data");
+            $.get("/ajax/deleteSendExpress.do?managerId=${managerId}&token=${Stoken}&id="+id,function (data, status) {
+                $.alert(data);
+                $("#esid_"+id).hide();
             })
         }
     </script>
@@ -68,7 +69,7 @@
             <div class="list-block media-list">
                 <ul>
                     <c:forEach items="${ess}" var="es">
-                        <li id="vipls_${es.id}">
+                        <li id="esid_${es.id}">
                             <div class="item-content">
                                 <div class="item-inner">
                                     <div class="item-title-row">

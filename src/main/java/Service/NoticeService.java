@@ -4,6 +4,7 @@ import Dao.NoticeDao;
 import Entity.ExpressOrder;
 import Entity.Manager.Conversation;
 import Entity.Manager.Log;
+import Entity.SchoolConfigs;
 import Entity.SysMsg;
 import Entity.User.User;
 import Utils.HttpUtils;
@@ -35,6 +36,7 @@ public class NoticeService {
     NoticeDao noticeDao;
     @Resource
     UserService userService;
+
 
     /**
      * 支付成功通知

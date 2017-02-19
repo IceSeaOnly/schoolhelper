@@ -287,7 +287,7 @@
                             <div class="item-content">
                                 <div class="item-inner">
                                     <div class="item-title-row">
-                                        <div class="item-title">${exp.expressName} ￥${exp.sendPrice/100}</div>
+                                        <div class="item-title">${exp.expressName} ￥${exp.sendPrice/100} @${exp.hour_out_of_service}</div>
                                         <div class="item-after">
                                             <a href="javascript:reset_exp(${exp.id})" class="button">设置</a>&nbsp&nbsp
                                             <label class="label-switch">
