@@ -44,10 +44,10 @@ public class ManagerDao{
 
     public ArrayList<ExpressOrder> commonOrderGet(int mid,int schoolId, Long from, Long end, int sendTime, int orderState) {
         Session session = sessionFactory.openSession();
-        Query q = session.createQuery("from ExpressOrder where schoolId = :SID and orderTimeStamp between :F and :E"
+        Query q = session.createQuery("from ExpressOrder where has_pay = true and schoolId = :SID and orderTimeStamp between :F and :E"
                 +(sendTime == -1?"":" and sendtime_id = :S")
                 +(orderState == -1?"":" and order_state = :STA")
-                +(mid == -1?"":" and rider_id = :MID"))
+                +(mid == -1?" order by id desc":" and rider_id = :MID  order by id desc"))
                 .setParameter("SID",schoolId)
                 .setParameter("F",from)
                 .setParameter("E",end);
@@ -381,7 +381,7 @@ public class ManagerDao{
 
     public ArrayList<Conversation> listWaitCService(int schoolId) {
         Session session = sessionFactory.openSession();
-        ArrayList<Conversation>cs = (ArrayList<Conversation>) session.createQuery("from Conversation where serverid = -1 and schoolId = :S")
+        ArrayList<Conversation>cs = (ArrayList<Conversation>) session.createQuery("from Conversation where serverid = -1 and schoolId = :S  order by id desc")
                 .setParameter("S",schoolId)
                 .list();
         session.close();
@@ -390,7 +390,7 @@ public class ManagerDao{
 
     public ArrayList<Conversation> listMyCService(int managerId,boolean status) {
         Session session = sessionFactory.openSession();
-        ArrayList<Conversation>cs = (ArrayList<Conversation>) session.createQuery("from Conversation where serverid = :S and isServerEnd = :ST")
+        ArrayList<Conversation>cs = (ArrayList<Conversation>) session.createQuery("from Conversation where serverid = :S and isServerEnd = :ST  order by id desc")
                 .setParameter("ST",status)
                 .setParameter("S",managerId)
                 .list();
