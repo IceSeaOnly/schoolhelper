@@ -45,9 +45,9 @@ public class PayLog {
         this.mid = mid;
     }
 
-    public PayLog(int mid, int amount) {
+    public PayLog(int mid, Long amount) {
         this.mid = mid;
-        this.amount = amount;
+        this.amount = amount.intValue();
     }
 
     public PayLog() {

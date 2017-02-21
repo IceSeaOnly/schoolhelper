@@ -100,6 +100,7 @@
                     <div class="card-header">${order.express} 【${order.express_number}】【${order.arrive}】</div>
                     <div class="card-content">
                         <div class="card-content-inner">
+                            取件员：<span style="color:green"> ${order.rider_name}</span><br>
                             下单时间：${order.orderTime}<br>
                             用户姓名：${order.express_name}<br>
                             取件手机：${order.express_phone}<br>

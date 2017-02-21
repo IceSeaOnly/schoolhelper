@@ -143,8 +143,16 @@ public class ExpressController {
         user = userService.getUserByOpenId(user.getOpen_id());
         session.setAttribute("user", user);
         if (user.getUsername().equals("") && user.getPhone().equals("")) {
-            map.put("should_complete_user_info", true);
-            return "user/user_center";
+            map.put("is_url",true);
+            map.put("notice","请先完善信息~");
+            map.put("url","/user/change_my_info.do");
+            return "user/common_result";
+        }
+        if(user.getDormitory() == null || user.getDormitory().equals("")){
+            map.put("is_url",true);
+            map.put("notice","请填写宿舍号以便送件上门哦~");
+            map.put("url","/user/change_my_info.do");
+            return "user/common_result";
         }
 
         // 查询是否正在服务中

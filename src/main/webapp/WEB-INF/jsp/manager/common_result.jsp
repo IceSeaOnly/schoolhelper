@@ -41,13 +41,14 @@
 <script>
     $.init();
     <c:if test="${is_url == true}">
-    $.toast(${notice});
-    window.location.href = "${url}";
+    $.alert("${notice}", "${result?":)":":("}", function () {
+        window.location.href = "${url}";
+    });
+
     </c:if>
 
     <c:if test="${is_url != true}">
     $.alert("${notice}", "${result?":)":":("}", function () {
-        icesea.finish();
     });
     </c:if>
 </script>

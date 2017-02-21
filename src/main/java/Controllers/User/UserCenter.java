@@ -103,12 +103,14 @@ public class UserCenter {
                               @RequestParam String phone,
                               @RequestParam int part,
                               @RequestParam String building,
+                              @RequestParam String dormitory,
                               HttpSession session){
         User user = (User) session.getAttribute("user");
         user.setUsername(name);
         user.setPhone(phone);
         user.setPart(part);
         user.setBuilding(building);
+        user.setDormitory(dormitory);
         userService.update(user);
         return "redirect:/user/user_center.do";
     }

@@ -19,6 +19,7 @@ public class User {
     private String phone;
     private int part; // 宿舍区id
     private String building; //楼号
+    private String dormitory;//宿舍号
     private int order_sum;
     private int memery_points;//会员积分
     private boolean vip; // 成为会员
@@ -28,8 +29,9 @@ public class User {
     public User() {
     }
 
-    public User(String open_id, String username, String phone, int part, String building, int order_sum, int memery_points,int scid) {
+    public User(String open_id, String username, String phone, int part, String building,String dormitory, int order_sum, int memery_points,int scid) {
         this.open_id = open_id;
+        this.dormitory = dormitory;
         this.username = username;
         this.phone = phone;
         this.part = part;
@@ -139,5 +141,13 @@ public class User {
 
     public void setSchoolId(int schoolId) {
         this.schoolId = schoolId;
+    }
+
+    public String getDormitory() {
+        return dormitory;
+    }
+
+    public void setDormitory(String dormitory) {
+        this.dormitory = dormitory;
     }
 }

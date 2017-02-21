@@ -32,8 +32,8 @@
         }
         function begin_search() {
             $.prompt('姓名/订单号/手机号', function (value) {
-                if(value.length != 0)
-                    window.location.href="history_orders.do?managerId=${managerId}&schoolId=${schoolId}&yyyy_MM_dd="+displayValues+"&token=${Stoken}&search="+value;
+                if(value != "")
+                    window.location.href="history_orders.do?managerId=${managerId}&schoolId=${schoolId}&yyyy_MM_dd=/&token=${Stoken}&search="+value;
             });
         }
     </script>
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <c:if test="${order.order_state == 0 || order.order_state == 1}">
+                        <c:if test="${order.order_state == 0 || order.order_state == 1 || order.order_state == -2}">
                             <a href="javascript:refund(${order.id})" class="link"><span class="icon icon-refresh"></span>&nbsp退款</a>
                         </c:if>
 

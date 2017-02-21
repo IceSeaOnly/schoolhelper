@@ -373,7 +373,7 @@ public class Ajax {
             if(order == null) return "参数错误";
             if(!order.isHas_pay()) return "参数错误";
             if(order.getOrder_state() == -1) return "该订单已经退款，不能再次退款";
-            if(order.getOrder_state()!=0 && order.getOrder_state() != 1) return "已进入任务流程，无法退款";
+            if(order.getOrder_state()!=0 && order.getOrder_state() != 1&& order.getOrder_state() != -2) return "已进入任务流程，无法退款";
             String pass = session.getServletContext().getInitParameter("refund_pwd");
             String url = session.getServletContext().getInitParameter("refund_url");
             String validate = MD5.encryption(order.getOrderKey()+pass+order.getShouldPay());

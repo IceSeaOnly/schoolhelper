@@ -23,7 +23,10 @@ public class test_open_id {
     }
     @Test
     public void test(){
-        System.out.println(System.currentTimeMillis());
+        Long date = -1L;
+        System.out.println(date.equals(-1L));
+        date = (date.equals(-1L)?TimeFormat.getTimesmorning():date);
+        System.out.println(date);
     }
 
     public static void main(String[] args) {

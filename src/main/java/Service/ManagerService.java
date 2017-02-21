@@ -569,7 +569,7 @@ public class ManagerService {
     }
 
     public static String getSchoolName(int schoolId) {
-        if(schools == null)
+        if(schools != null)
         for (int i = 0; i < schools.size(); i++) {
             if(schools.get(i).getId() == schoolId)
                 return schools.get(i).getSchoolName();

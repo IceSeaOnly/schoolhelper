@@ -719,13 +719,15 @@ public class ManagerDao{
         ArrayList<PayLog>logs = new ArrayList<PayLog>();
         Session session = sessionFactory.openSession();
         List rs = session.createQuery("select mid,sum(money) from ChargingSystem where valid = true and time between :S and :E group by mid")
+                .setParameter("S",date)
+                .setParameter("E",date+86400000)
                 .list();
         session.close();
         if(rs != null){
             for (Object data :
                     rs) {
                 Object[] rss = (Object[]) data;
-                logs.add(new PayLog((Integer) rss[0],(Integer) rss[1]));
+                logs.add(new PayLog((Integer) rss[0],(Long) rss[1]));
             }
         }
         return logs;

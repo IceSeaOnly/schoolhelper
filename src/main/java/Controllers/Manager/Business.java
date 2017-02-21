@@ -70,7 +70,7 @@ public class Business {
     public String histroy_orders(@RequestParam int managerId,
                                  @RequestParam int schoolId,
                                  @RequestParam String yyyy_MM_dd,
-                                 @RequestParam String search,
+                                 String search,
                                  ModelMap map) {
         yyyy_MM_dd = yyyy_MM_dd.equals("/") ? TimeFormat.format2yyyy_MM_dd(System.currentTimeMillis()) : yyyy_MM_dd;
         Long TS = TimeFormat.data2Timestamp(yyyy_MM_dd);
@@ -1027,7 +1027,7 @@ public class Business {
     @RequestMapping("Reconciliation")
     public String Reconciliation(@RequestParam int managerId,
                                  @RequestParam Long date,ModelMap map){
-        date = (date == -1?TimeFormat.getTimesmorning():date);
+        date = (date.equals(-1L)?TimeFormat.getTimesmorning():date);
         Long perDate = date-86400000;
         Long outSum = managerService.getOutSum(0L);
         Long todayOutSum = managerService.getOutSum(date);

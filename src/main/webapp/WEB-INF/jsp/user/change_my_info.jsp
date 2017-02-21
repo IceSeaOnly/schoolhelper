@@ -28,13 +28,13 @@
         <p class="page_desc">为了更好地为您服务，请填写真实信息，您的所有信息均采用加密保存。</p>
     </div>
     <div class="odform">
-        <form action="/user/update_info.do" method="post">
+        <form action="/user/update_info.do" method="post" >
 
             <div class="weui_cell ">
                 <div class="weui_cell_hd"><label class="weui_label">姓名</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" name="name" type="text" placeholder="请输入真实姓名"
-                           value="${user.username}"
+                           value="${user.username}" required="required"
                     />
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div class="weui_cell_hd"><label class="weui_label">手机号码</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" name="phone" type="number" pattern="[0-9]*" placeholder="请输入手机号码"
-                           value="${user.phone}"/>
+                           value="${user.phone}" required="required"/>
                 </div>
             </div>
 
@@ -64,8 +64,15 @@
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="weui_label">宿舍楼号</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" name="building" type="text" placeholder="请输入宿舍楼号"
+                    <input class="weui_input" name="building" type="text" placeholder="请输入宿舍楼号" required="required"
                            value="${user.building}"/>
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd"><label class="weui_label">宿舍号</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" name="dormitory" type="text" placeholder="请输入宿舍楼号" required="required"
+                           value="${user.dormitory}"/>
                 </div>
             </div>
             <div class="bd spacing">

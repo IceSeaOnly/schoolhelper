@@ -115,6 +115,9 @@ function validate_form() {
         alert("别着急，你还没填好呢！");
         return false;
     }
+	if(sms.length>7){
+		alert("快递编号是短信中取件序号哦，请检查输入！");
+	}
     if (otherinfo_.length > 20) {
         alert("你的备注好长啊，短一点好吗？");
         return false;
@@ -161,7 +164,7 @@ function validate_form() {
 				</select>
 			</div>
 			<div class="input-group">
-				<label >快递编号</label> <input type="text" 
+				<label >取件号</label> <input type="text"
 					name="sms" placeholder="短信通知中的快递序号">
 			</div>
 			<div class="input-group">
@@ -181,11 +184,11 @@ function validate_form() {
 			</div>
 			<div class="input-group">
 				<label >收件人</label> <input type="text" 
-					name="express_name" placeholder="请输入快递单上的姓名" value="${user.username}">
+					name="express_name" placeholder="请输入快递单上的姓名" value="${user.username}" required="required">
 			</div>
 			<div class="input-group">
 				<label >手机号码</label> <input type="text" 
-					name="express_phone" placeholder="请输入快递单上的手机号码" pattern="[0-9]*" value="${user.phone}">
+					name="express_phone" placeholder="请输入快递单上的手机号码" pattern="[0-9]*" value="${user.phone}" required="required">
 			</div>
 			
 			<div class="input-group">
@@ -202,16 +205,16 @@ function validate_form() {
 			</div>
 			
 			<div class="input-group">
-				<label >宿舍楼号</label> <input type="text" 
-					name="building" placeholder="请输入宿舍楼号" value="${user.building}">
+				<label >宿舍信息</label> <input type="text"
+					name="building" placeholder="楼号-宿舍号" value="${user.building}-${user.dormitory}" required="required">
 			</div>
 			<div class="input-group">
 				<label >配送给</label> <input type="text" 
-					name="sendto_name" placeholder="请输入真实姓名" value="${user.username}">
+					name="sendto_name" placeholder="请输入真实姓名" value="${user.username}" required="required">
 			</div>
 			<div class="input-group">
 				<label >手机号码</label> <input type="text" 
-					name="sendto_phone" pattern="[0-9]*" placeholder="请输入手机号码"
+					name="sendto_phone" pattern="[0-9]*" placeholder="请输入手机号码" required="required"
                            value="${user.phone}">
 			</div>
 			<div class="input-group">
