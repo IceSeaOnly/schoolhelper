@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>通用结果告知页</title>
+    <title>电子对账</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,12 +22,29 @@
 <div class="page-group">
     <div class="page page-current">
         <!-- 你的html代码 -->
+        <header class="bar bar-nav">
+            <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
+            <a href="Reconciliation.do?managerId=${managerId}&token=${Stoken}&date=${perDate}" class="icon icon-clock pull-right external"></a>
+            <h1 class="title">${date}电子对账</h1>
+        </header>
         <!-- 这里是页面内容区 begin-->
         <div class="content">
             <div class="content-padded">
-                <p>${url}</p>
+                <p>总支出:￥${outSum/100}</p>
+                <p>今日支出:￥${todayOutSum/100}</p>
             </div>
-
+            <div class="list-block">
+                <ul>
+                    <c:forEach items="${payLogs}" var="log">
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title">${log.mName}</div>
+                            <div class="item-after">￥${log.amount/100}</div>
+                        </div>
+                    </li>
+                    </c:forEach>
+                </ul>
+            </div>
         </div>
         <!-- 这里是页面内容区 end-->
         <!-- 你的html代码 -->
@@ -40,16 +57,6 @@
 <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
 <script>
     $.init();
-    <c:if test="${is_url == true}">
-    $.toast(${notice});
-    window.location.href = "${url}";
-    </c:if>
-
-    <c:if test="${is_url != true}">
-    $.alert("${notice}", "${result?":)":":("}", function () {
-        icesea.finish();
-    });
-    </c:if>
 </script>
 <jsp:include page="replaceToken.jsp"/>
 </body>

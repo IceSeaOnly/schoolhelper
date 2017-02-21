@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -43,6 +45,7 @@ public class Business {
     @RequestMapping("list_function")
     public String list_function(@RequestParam int managerId, HttpSession session) {
         managerService.listAllReasons(0);//初始化原因列表，防止nullpoint错误
+        userService.listAllSchool();
         ArrayList<IndexItemEntity> fs = managerService.listMyFunctions(managerId);
         String nk = (String) session.getAttribute("Stoken");
         return SuccessAnswer.successWithObject(nk, fs);
@@ -67,6 +70,7 @@ public class Business {
     public String histroy_orders(@RequestParam int managerId,
                                  @RequestParam int schoolId,
                                  @RequestParam String yyyy_MM_dd,
+                                 @RequestParam String search,
                                  ModelMap map) {
         yyyy_MM_dd = yyyy_MM_dd.equals("/") ? TimeFormat.format2yyyy_MM_dd(System.currentTimeMillis()) : yyyy_MM_dd;
         Long TS = TimeFormat.data2Timestamp(yyyy_MM_dd);
@@ -74,8 +78,7 @@ public class Business {
         int month = TimeFormat.getThisMonth(TS);
         int day = TimeFormat.getThisDay(TS);
         School school = managerService.getSchoolById(schoolId);
-        ArrayList<ExpressOrder> orders =
-                managerService.commonOrderGet(-1, schoolId, -1, year, month, day, -1);
+        ArrayList<ExpressOrder> orders = search == null?managerService.commonOrderGet(-1, schoolId, -1, year, month, day, -1):searchOrders(search);
         ArrayList<Reason> reasons = managerService.listAllReasons(Reason.SEND_ERR);
         map.put("reasons", reasons);
         map.put("orders", orders);
@@ -85,6 +88,13 @@ public class Business {
         map.put("yyyy_MM_dd", yyyy_MM_dd);
         map.put("max_date", TimeFormat.format2yyyy_MM_dd(System.currentTimeMillis()));
         return "manager/history_orders.do";
+    }
+
+    /**
+     * 查询订单
+     * */
+    private ArrayList<ExpressOrder> searchOrders(String search) {
+        return managerService.searchOrders(search);
     }
 
 
@@ -103,6 +113,7 @@ public class Business {
         School school = managerService.getSchoolById(schoolId);
         ArrayList<ExpressOrder> orders =
                 managerService.commonOrderGet(-1, schoolId, sendTime, year, month, day, orderState);
+        Collections.sort(orders);
         map.put("orders", orders);
         map.put("school", school);
         map.put("schoolId", schoolId);
@@ -128,6 +139,7 @@ public class Business {
         ArrayList<ExpressOrder> orders = managerService.managerAccess2School(managerId, schoolId) ?
                 managerService.commonOrderGet(managerId, schoolId, sendTime, year, month, day, orderState) : new ArrayList<ExpressOrder>();
         orders.addAll(managerService.commonOrderGet(managerId, schoolId, sendTime, year, month, day, -2));
+        Collections.sort(orders);
         ArrayList<Reason> reasons = managerService.listAllReasons(Reason.FETCH_ERR);
         map.put("orders", orders);
         map.put("school", school);
@@ -154,10 +166,11 @@ public class Business {
         map.put("orders", orders);
         map.put("school", school);
         map.put("schoolId", schoolId);
+        map.put("managerId", managerId);
         map.put("parts", userService.listAllParts(schoolId));
         map.put("stimes", userService.getAllSendTimes(schoolId, false));
         map.put("managerId", managerId);
-        map.put("cur_config", config);
+        map.put("cur_config", config.equals("none")?"everyone all -1 -1":config);
         return "manager/send_express_order";
     }
 
@@ -939,9 +952,9 @@ public class Business {
         managerService.save(out);
         String url = "http://xiaogutou.qdxiaogutou.com/api/output.do?k=" + out.getSkey();
         map.put("result", true);
-        map.put("is_url", true);
-        map.put("url", "javascript:icesea.copy2clipboard('" + url + "');icesea.finish();");
-        map.put("notice", "已生成链接,请粘贴到需要的地方");
+        map.put("is_url", false);
+        map.put("url", url);
+        map.put("notice", "已生成链接,请复制粘贴到需要的地方");
         return "manager/common_result";
     }
 
@@ -964,6 +977,7 @@ public class Business {
         Long todaySum = managerService.getTodayExpressOrderSum(schoolId);
         Long todayIncome = managerService.getTodayExpressTodayIncome(schoolId);
 
+
         map.put("moveSum", moveSum);
         map.put("djSum", djSum);
         map.put("dqSum", dqSum);
@@ -973,6 +987,7 @@ public class Business {
         map.put("schoolId", schoolId);
         map.put("managerId", managerId);
         map.put("config", schoolConfigs);
+
         return "manager/school_status";
     }
 
@@ -1006,4 +1021,24 @@ public class Business {
     }
 
 
+    /**
+     * 电子对账
+     * */
+    @RequestMapping("Reconciliation")
+    public String Reconciliation(@RequestParam int managerId,
+                                 @RequestParam Long date,ModelMap map){
+        date = (date == -1?TimeFormat.getTimesmorning():date);
+        Long perDate = date-86400000;
+        Long outSum = managerService.getOutSum(0L);
+        Long todayOutSum = managerService.getOutSum(date);
+        List<PayLog>payLogs = managerService.getReconciliationList(date);
+
+        map.put("managerId",managerId);
+        map.put("perDate",perDate);
+        map.put("date",TimeFormat.format2yyyy_MM_dd(date));
+        map.put("outSum",outSum);
+        map.put("todayOutSum",todayOutSum);
+        map.put("payLogs",payLogs);
+        return "manager/reconciliation";
+    }
 }

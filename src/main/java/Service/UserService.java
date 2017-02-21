@@ -198,6 +198,7 @@ public class UserService {
 
     public ArrayList<School> listAllSchool() {
         ArrayList<School> res = userDao.listAllSchool();
+        ManagerService.schools = res;
         return res == null?new ArrayList<School>():res;
     }
 

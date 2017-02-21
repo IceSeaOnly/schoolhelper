@@ -23,7 +23,7 @@ public class test_open_id {
     }
     @Test
     public void test(){
-        System.out.println(MD5.encryption("1041414957"));
+        System.out.println(System.currentTimeMillis());
     }
 
     public static void main(String[] args) {

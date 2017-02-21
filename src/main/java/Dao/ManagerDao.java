@@ -64,6 +64,10 @@ public class ManagerDao{
         }
         ArrayList<ExpressOrder>orders = (ArrayList<ExpressOrder>)q.list();
         session.close();
+        for (int i = 0; i < orders.size(); i++) {
+            if(orders.get(i).getSchoolId() != schoolId)
+                orders.remove(i);
+        }
         return orders;
     }
 
@@ -618,7 +622,7 @@ public class ManagerDao{
         Session session = sessionFactory.openSession();
         String sql = "from ExpressOrder where schoolId = :SID "
                 +(pep==0?"":"and rider_id = :R ")
-                +(otype==0?"and order_state = 2 or order_state = -3 ":"and order_state = 2 ")
+                +(otype==0?"and (order_state = 2 or order_state = -3) ":"and order_state = 2 ")
                 +(part<0?"":"and part = :P ")
                 +(stime<0?"":"and sendtime_id = :St");
         Query query = session.createQuery(sql);
@@ -629,7 +633,6 @@ public class ManagerDao{
             query.setParameter("P",part);
         if(stime>-1)
             query.setParameter("St",stime);
-
         ArrayList<ExpressOrder>rs = (ArrayList<ExpressOrder>) query.list();
         session.close();
         return rs;
@@ -698,5 +701,53 @@ public class ManagerDao{
                 .uniqueResult();
         session.close();
         return sum;
+    }
+
+
+    public Long getOutSum(long date) {
+        Session session = sessionFactory.openSession();
+        Long sum = (Long) session.createQuery("select coalesce(sum(money),0) from ChargingSystem where valid = true and time between :S and :E")
+                .setParameter("S",date)
+                .setParameter("E",date==0?9487663392000L:date+86400000)
+                .uniqueResult();
+        session.close();
+        return sum;
+    }
+
+
+    public List<PayLog> getReconciliationList(Long date) {
+        ArrayList<PayLog>logs = new ArrayList<PayLog>();
+        Session session = sessionFactory.openSession();
+        List rs = session.createQuery("select mid,sum(money) from ChargingSystem where valid = true and time between :S and :E group by mid")
+                .list();
+        session.close();
+        if(rs != null){
+            for (Object data :
+                    rs) {
+                Object[] rss = (Object[]) data;
+                logs.add(new PayLog((Integer) rss[0],(Integer) rss[1]));
+            }
+        }
+        return logs;
+    }
+
+    public ArrayList<ExpressOrder> searchOrderByPhone(String search) {
+        ArrayList<ExpressOrder> rs = new ArrayList<ExpressOrder>();
+        Session session = sessionFactory.openSession();
+        rs.addAll((ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where has_pay = true and (express_phone = :P or receive_phone = :P) order by id desc")
+                .setParameter("P",search)
+                .list());
+        session.close();
+        return rs;
+    }
+
+    public ArrayList<ExpressOrder> searchOrderByName(String search) {
+        ArrayList<ExpressOrder> rs = new ArrayList<ExpressOrder>();
+        Session session = sessionFactory.openSession();
+        rs.addAll((ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where has_pay = true and (express_name = :P or receive_name = :P) order by id desc")
+                .setParameter("P",search)
+                .list());
+        session.close();
+        return rs;
     }
 }

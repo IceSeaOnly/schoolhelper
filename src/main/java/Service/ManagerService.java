@@ -22,6 +22,7 @@ public class ManagerService {
     @Resource
     NoticeService noticeService;
     private static ArrayList<Reason> reasons;
+    public static ArrayList<School> schools;
     private static Long reason_update_time;
 
 
@@ -364,21 +365,14 @@ public class ManagerService {
         return res == null?new ArrayList<ChargingSystem>():res;
     }
 
-    private static Long lastLogs = null;
+
     public ArrayList<PayLog> makePayLogs() {
-        if(lastLogs == null)
-            lastLogs = System.currentTimeMillis()-1800001;
-        if(System.currentTimeMillis() - lastLogs > 1800000){
-            ArrayList<PayLog> rs = new ArrayList<PayLog>();
-            lastLogs = System.currentTimeMillis();
+
+        if(System.currentTimeMillis() - TimeFormat.getTimesWeekmorning() > 518400000){
             ArrayList<Manager>ms = (ArrayList<Manager>) managerDao.listAllManagers();
             for (int i = 0; i < ms.size(); i++) { //对所有管理员逐一统计
-                PayLog t = managerDao.payLog(ms.get(i).getId(),ms.get(i).getOpenId(),ms.get(i).getName());
-                if(t != null){
-                    rs.add(t);
-                }
+                managerDao.payLog(ms.get(i).getId(),ms.get(i).getOpenId(),ms.get(i).getName());
             }
-            return rs;
         }
         ArrayList<PayLog> rs = managerDao.listPayLogs();
         return rs==null?new ArrayList<PayLog>():rs;
@@ -519,5 +513,67 @@ public class ManagerService {
 
     public Long getTodayExpressTodayIncome(int schoolId) {
         return managerDao.getTodayExpressTodayIncome(schoolId);
+    }
+
+
+    /**
+     * 支出统计
+     * @Param date 开始时间
+     * */
+    public Long getOutSum(long date) {
+        return managerDao.getOutSum(date);
+    }
+
+    /**
+     * 下载这一天的对账单
+     * */
+    public List<PayLog> getReconciliationList(Long date) {
+        List<Manager>ms = listAllManagers();
+        List<PayLog>logs = managerDao.getReconciliationList(date);
+        for (int i = 0; i < logs.size(); i++) {
+            logs.get(i).setmName(getNameFromList(ms,logs.get(i).getMid()));
+        }
+        return logs;
+    }
+
+    private String getNameFromList(List<Manager> ms, int mid) {
+        for (int i = 0; i < ms.size(); i++) {
+            if(ms.get(i).getId() == mid)
+                return ms.get(i).getName();
+        }
+        return "无名氏";
+    }
+
+    /**
+     * 搜索订单
+     * @Param search 姓名/手机号/订单号
+     * */
+    public ArrayList<ExpressOrder> searchOrders(String search) {
+        if(search.length() == 11 && onlyDigit(search)){ //11位且仅有数字，判断为手机号
+            return managerDao.searchOrderByPhone(search);
+        }else if(onlyDigit(search)){ //仅有数字，判断为订单号
+            ArrayList<ExpressOrder>rs = new ArrayList<ExpressOrder>();
+            rs.add(managerDao.getExpressOrderById(Integer.parseInt(search)));
+            return rs;
+        }else{ //认为是姓名
+            return managerDao.searchOrderByName(search);
+        }
+    }
+
+    private boolean onlyDigit(String search) {
+        try{
+            Long.parseLong(search);
+            return true;
+        }catch (Exception e){}
+        return false;
+    }
+
+    public static String getSchoolName(int schoolId) {
+        if(schools == null)
+        for (int i = 0; i < schools.size(); i++) {
+            if(schools.get(i).getId() == schoolId)
+                return schools.get(i).getSchoolName();
+        }
+        return "校名未知";
     }
 }

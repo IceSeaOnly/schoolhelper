@@ -94,7 +94,7 @@
 
         <!-- 这里是页面内容区 begin-->
         <div class="content">
-            <input name="set_picker" id="set_picker" type="hidden"/>
+            <input name="set_picker" id="set_picker" type="hidden" value="cur_config"/>
             <c:forEach items="${orders}" var="order">
                 <div class="card" id="card${order.id}">
                     <div class="card-header">${order.express} 【${order.express_number}】【${order.arrive}】</div>
@@ -144,7 +144,7 @@
   </header>',
         onClose:function(){
             if($("#set_picker").val() != cur_config)
-                icesea.loadUrl('send_express_order.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID&config='+$("#set_picker").val());
+                window.location.href='send_express_order.do?managerId=${managerId}&token=${Stoken}&schoolId=${schoolId}&config='+$("#set_picker").val();
         },
         cols: [
             {
@@ -154,7 +154,7 @@
             },
             {
                 textAlign: 'center',
-                values: ['new', 'all'],
+                values: ['all', 'new'],
                 displayValues: ['不限', '新件']
             },
             {

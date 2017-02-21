@@ -45,6 +45,11 @@ public class PayLog {
         this.mid = mid;
     }
 
+    public PayLog(int mid, int amount) {
+        this.mid = mid;
+        this.amount = amount;
+    }
+
     public PayLog() {
     }
 

@@ -2,7 +2,9 @@ package Controllers.User;
 
 import Entity.ExpressOrder;
 import Entity.Manager.Conversation;
+import Entity.Manager.Manager;
 import Entity.User.User;
+import Service.ManagerService;
 import Service.NoticeService;
 import Service.OrderService;
 import Service.UserService;
@@ -23,6 +25,8 @@ import java.util.ArrayList;
 @RequestMapping("user")
 public class Order {
 
+    @Resource
+    ManagerService managerService;
     @Resource
     OrderService orderService;
     @Resource
@@ -48,6 +52,10 @@ public class Order {
 
         try {
             Conversation conversation = noticeService.newOrderConversation(user,order,session.getServletContext());
+            ArrayList<Manager>ms = managerService.lisSchoolManagers(user.getSchoolId());
+            for (int i = 0; i < ms.size(); i++) {
+                noticeService.ComstomServiceMessage(managerService.getSchoolName(order.getSchoolId())+"有新的客服工单，请注意处理","用户申请客服","刚刚到达",System.currentTimeMillis(),"请打开app处理客服工单","",ms.get(i).getOpenId());
+            }
             noticeService.ComstomServiceMessage("客服会话已生成","订单咨询","正在服务",System.currentTimeMillis(),"订单"+oid+"的客服会话已生成，点击进入",conversation.getUserEnter(),user.getOpen_id());
             return "redirect:"+conversation.getUserEnter();
         } catch (UnsupportedEncodingException e) {

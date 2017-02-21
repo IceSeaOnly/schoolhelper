@@ -63,7 +63,7 @@
 <script>
     $.init();
     <c:if test="${fn:length(logs) == 0}">
-    $.alert("结算周期不得短于30分钟，请稍后再看");
+    $.toast('每周日为结算期');
     </c:if>
 </script>
 <jsp:include page="replaceToken.jsp"/>

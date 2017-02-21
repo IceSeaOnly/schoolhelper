@@ -18,7 +18,7 @@
     <script>
         var orderSum = ${fn:length(orders)};
         function empty_close() {
-            $.alert("空空如也");
+            $.toast("没有任何记录");
         }
         function refund(id) {
             $.confirm('你确定退款吗？', function () {
@@ -30,6 +30,12 @@
                 })
             });
         }
+        function begin_search() {
+            $.prompt('姓名/订单号/手机号', function (value) {
+                if(value.length != 0)
+                    window.location.href="history_orders.do?managerId=${managerId}&schoolId=${schoolId}&yyyy_MM_dd="+displayValues+"&token=${Stoken}&search="+value;
+            });
+        }
     </script>
 </head>
 <body>
@@ -39,7 +45,7 @@
         <!-- 你的html代码 -->
         <header class="bar bar-nav">
             <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
-            <a href="javascript:$('#bdate-picker').trigger('click');" class="icon icon-menu pull-right"></a>
+            <a href="javascript:begin_search()" class="icon icon-search pull-right"></a>
             <h1 class="title">${school.schoolName}历史订单</h1>
         </header>
 
@@ -101,7 +107,7 @@
         maxDate:['${max_date}'],
         onChange:function (p, values, displayValues) {
             if($.trim(values+"") != $.trim(displayValues))
-                icesea.loadUrl("history_orders.do?managerId=${managerId}&schoolId=${schoolId}&yyyy_MM_dd="+displayValues+"&token=${Stoken}");
+                window.location.href="history_orders.do?managerId=${managerId}&schoolId=${schoolId}&yyyy_MM_dd="+displayValues+"&token=${Stoken}";
         }
     });
 </script>
