@@ -107,6 +107,7 @@
                             配送手机：${order.receive_phone}<br>
                             宿舍位置：${order.sendTo}<br>
                             备注信息：${order.otherinfo }<br>
+                            附加信息：<span style="color: red">${order.managerAdditional }</span><br>
                             <c:if test="${order.order_state != 2}"><span style="color: red">${order.reason2String()}</span></c:if>
                         </div>
                     </div>

@@ -507,7 +507,7 @@ public class ManagerService {
         return managerDao.getExpressOrderSum(schoolId);
     }
 
-    public Long getTodayExpressOrderSum(int schoolId) {
+    public ArrayList<ExpressOrder> getTodayExpressOrderSum(int schoolId) {
         return managerDao.getTodayExpressOrderSum(schoolId);
     }
 
@@ -575,5 +575,10 @@ public class ManagerService {
                 return schools.get(i).getSchoolName();
         }
         return "校名未知";
+    }
+
+    public ArrayList<ExpressOrder> getOrdersByStatus(int managerId, Integer[] status) {
+        ArrayList<ExpressOrder> rs = managerDao.getOrdersByStatus(managerId,status);
+        return rs == null?new ArrayList<ExpressOrder>():rs;
     }
 }

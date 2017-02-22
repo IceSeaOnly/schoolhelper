@@ -42,6 +42,7 @@
         </header>
         <!-- 这里是页面内容区 begin-->
         <div class="content">
+
             <div class="list-block">
                 <ul>
                     <c:forEach items="${privileges}" var="privilege">

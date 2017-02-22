@@ -34,6 +34,9 @@
                     <p>暂无记录</p>
                 </div>
             </c:if>
+            <div class="row" align="center">
+                <span style="color:Crimson">我的总收入:￥${ins_sum/100}</span>
+            </div>
             <div class="list-block media-list">
                 <ul>
                     <c:forEach items="${ins}" var="in">

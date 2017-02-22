@@ -481,4 +481,25 @@ public class Ajax {
             return "已发送";
         }else  return "发送太频繁了！";
     }
+
+    @RequestMapping("add_additional")
+    public String add_additional(@RequestParam int managerId,@RequestParam int id,@RequestParam String content){
+        ExpressOrder order = managerService.getExpressOrderById(id);
+        if(order != null){
+            order.setManagerAdditional(content+";"+(order.getManagerAdditional()==null?"":order.getManagerAdditional()));
+            managerService.update(order);
+            managerService.log(managerId,11,id+"订单附加信息:"+content);
+            return "已备注，刷新可见";
+        }else{
+            return "订单不存在";
+        }
+    }
+
+    @RequestMapping("cs_notice_changed")
+    public String cs_notice_changed(@RequestParam int managerId){
+        Manager manager = managerService.getManagerById(managerId);
+        manager.setCs_notice(!manager.isCs_notice());
+        managerService.update(manager);
+        return manager.isCs_notice()?"已开启接收工单通知":"已关闭工单通知";
+    }
 }

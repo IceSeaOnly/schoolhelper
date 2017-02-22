@@ -63,6 +63,7 @@
                             下单时间：${order.orderTime}<br>
                             宿舍位置：${order.sendTo}<br>
                             备注信息：${order.otherinfo }<br>
+                            附加信息：<span style="color: red">${order.managerAdditional }</span><br>
                         </div>
                     </div>
                     <div class="card-footer">

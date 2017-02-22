@@ -676,16 +676,16 @@ public class ManagerDao{
 
     public Long getExpressOrderSum(int schoolId) {
         Session session  = sessionFactory.openSession();
-        Long sum = (Long) session.createQuery("select coalesce(count(*),0) from ExpressOrder where schoolId = :S and has_pay = true ")
+        Long sum = (Long) session.createQuery("select coalesce(count(*),0) from ExpressOrder where schoolId = :S and order_state != -1 and has_pay = true ")
                 .setParameter("S",schoolId)
                 .uniqueResult();
         session.close();
         return sum;
     }
 
-    public Long getTodayExpressOrderSum(int schoolId) {
+    public ArrayList<ExpressOrder> getTodayExpressOrderSum(int schoolId) {
         Session session  = sessionFactory.openSession();
-        Long sum = (Long) session.createQuery("select coalesce(count(*),0) from ExpressOrder where schoolId = :S and has_pay = true and orderTimeStamp > :T")
+        ArrayList<ExpressOrder> sum = (ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where schoolId = :S and has_pay = true and orderTimeStamp > :T")
                 .setParameter("T",TimeFormat.getTimesmorning())
                 .setParameter("S",schoolId)
                 .uniqueResult();
@@ -749,6 +749,17 @@ public class ManagerDao{
         rs.addAll((ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where has_pay = true and (express_name = :P or receive_name = :P) order by id desc")
                 .setParameter("P",search)
                 .list());
+        session.close();
+        return rs;
+    }
+
+    public ArrayList<ExpressOrder> getOrdersByStatus(int managerId, Integer[] status) {
+        ArrayList<ExpressOrder> rs = null;
+        Session session = sessionFactory.openSession();
+        rs = (ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where has_pay = true and rider_id = :R and order_state in :ST order by id desc")
+                .setParameterList("ST",status)
+                .setParameter("R",managerId)
+                .list();
         session.close();
         return rs;
     }

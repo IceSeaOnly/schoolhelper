@@ -29,6 +29,25 @@
         </header>
         <!-- 这里是页面内容区 begin-->
         <div class="content">
+            <div class="row" align="center">
+                <span style="color:Crimson">【今日统计参数】</span>
+            </div>
+            <div class="content-padded">
+                <div class="row" align="center">
+                    <div class="col-20"><span style="color:YellowGreen">有效</span></div>
+                    <div class="col-20"><span style="color:red">待接</span></div>
+                    <div class="col-20"><span style="color:blue">待取</span></div>
+                    <div class="col-20"><span style="color:coral">待送</span></div>
+                    <div class="col-20"><span style="color:green">完成</span></div>
+                </div>
+                <div class="row" align="center">
+                    <div class="col-20"><span style="color:YellowGreen">${todaySum_v}</span></div>
+                    <div class="col-20"><span style="color:red">${todaySum_t}</span></div>
+                    <div class="col-20"><span style="color:blue">${todaySum_f}+${todaySum_f_f}</span></div>
+                    <div class="col-20"><span style="color:coral">${todaySum_s}+${todaySum_s_f}</span></div>
+                    <div class="col-20"><span style="color:green">${todaySum_c}</span></div>
+                </div>
+            </div>
             <div class="list-block media-list">
                 <ul>
                     <li>
@@ -37,7 +56,7 @@
                             <div class="item-inner">
                                 <div class="item-title-row">
                                     <div class="item-title">${school.schoolName} ${school.tag}</div>
-                                    <div class="item-after">NO.${schoolId}</div>
+                                    <div class="item-after">No.${schoolId}</div>
                                 </div>
                                 <div class="item-subtitle">${config.servicePhone}</div>
                             </div>

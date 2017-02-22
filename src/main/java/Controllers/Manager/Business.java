@@ -125,20 +125,17 @@ public class Business {
     /**
      * 管理员查看待取订单
      * waitting_to_fetch_orders.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID
+     * orderstatus = 1,-2
      */
     @RequestMapping("waitting_to_fetch_orders")
     public String waitting_to_fetch_orders(@RequestParam int managerId,
                                            @RequestParam int schoolId,
                                            ModelMap map) {
-        int year = TimeFormat.getThisYear(null);
-        int month = TimeFormat.getThisMonth(null);
-        int day = TimeFormat.getThisDay(null);
-        int orderState = 1; // -1 as default
-        int sendTime = -1;// -1 as default
+
         School school = managerService.getSchoolById(schoolId);
         ArrayList<ExpressOrder> orders = managerService.managerAccess2School(managerId, schoolId) ?
-                managerService.commonOrderGet(managerId, schoolId, sendTime, year, month, day, orderState) : new ArrayList<ExpressOrder>();
-        orders.addAll(managerService.commonOrderGet(managerId, schoolId, sendTime, year, month, day, -2));
+                managerService.getOrdersByStatus(managerId,new Integer[]{1,-2}) : new ArrayList<ExpressOrder>();
+
         Collections.sort(orders);
         ArrayList<Reason> reasons = managerService.listAllReasons(Reason.FETCH_ERR);
         map.put("orders", orders);
@@ -601,7 +598,16 @@ public class Business {
                              ModelMap map) {
         List<ChargingSystem> ins = managerService.listMyIncomes(managerId);
         map.put("ins", ins);
+        map.put("ins_sum",getIncomeSum(ins));
         return "manager/my_incomes";
+    }
+
+    private int getIncomeSum(List<ChargingSystem> ins) {
+        int sum = 0;
+        for (int i = 0; i < ins.size(); i++) {
+            sum += ins.get(i).getMoney();
+        }
+        return sum;
     }
 
     /**
@@ -974,14 +980,21 @@ public class Business {
         Long moveSum = managerService.getSchoolMoveOrderSum(schoolId);
         Long djSum = managerService.getHelpSendOrderSum(schoolId);
         Long dqSum = managerService.getExpressOrderSum(schoolId);
-        Long todaySum = managerService.getTodayExpressOrderSum(schoolId);
+        ArrayList<ExpressOrder>tdorders = managerService.getTodayExpressOrderSum(schoolId);
         Long todayIncome = managerService.getTodayExpressTodayIncome(schoolId);
 
 
         map.put("moveSum", moveSum);
         map.put("djSum", djSum);
         map.put("dqSum", dqSum);
-        map.put("todaySum", todaySum);
+        map.put("todaySum", tdorders.size());//全部
+        map.put("todaySum_v", tdorders.size()-getOrderSizeByStatus(tdorders,-1));//有效
+        map.put("todaySum_t", getOrderSizeByStatus(tdorders,0));//待接
+        map.put("todaySum_f", getOrderSizeByStatus(tdorders,1));//待取
+        map.put("todaySum_f_f", getOrderSizeByStatus(tdorders,-2));//取件失败的待取
+        map.put("todaySum_s", getOrderSizeByStatus(tdorders,2));//待送
+        map.put("todaySum_s_f", getOrderSizeByStatus(tdorders,-3));//送件失败的待送
+        map.put("todaySum_c", getOrderSizeByStatus(tdorders,3));//完成
         map.put("todayIncome", todayIncome);
         map.put("school", school);
         map.put("schoolId", schoolId);
@@ -991,10 +1004,23 @@ public class Business {
         return "manager/school_status";
     }
 
+    /**
+     * 统计订单中st状态的数量
+     * */
+    private int getOrderSizeByStatus(ArrayList<ExpressOrder> tdorders, int st) {
+        int sum = 0;
+        for (int i = 0; i < tdorders.size(); i++) {
+            if(tdorders.get(i).getOrder_state() == st)
+                sum++;
+        }
+        return sum;
+    }
+
 
     @RequestMapping("modifypass")
     public String modifypass(@RequestParam int managerId, ModelMap map) {
         map.put("managerId", managerId);
+        map.put("manager",managerService.getManagerById(managerId));
         return "manager/modifypass";
     }
 

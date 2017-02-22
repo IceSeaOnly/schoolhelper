@@ -32,6 +32,7 @@ public class Manager {
     private String pdesc; //对ta的描述
     private boolean could_delete;//是否可以被删除
     private String address;//详细宿舍地址
+    private boolean cs_notice;//客服通知
 
     public Manager(String name, String phone, String pass,String ali,String wx,String openId,double dr,String descStr,String add) {
         this.pdesc = descStr;
@@ -48,6 +49,7 @@ public class Manager {
         this.forbiden = false;
         this.could_delete = true;
         this.address = add;
+        this.cs_notice = true;
     }
 
     public Manager() {
@@ -203,5 +205,13 @@ public class Manager {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public boolean isCs_notice() {
+        return cs_notice;
+    }
+
+    public void setCs_notice(boolean cs_notice) {
+        this.cs_notice = cs_notice;
     }
 }

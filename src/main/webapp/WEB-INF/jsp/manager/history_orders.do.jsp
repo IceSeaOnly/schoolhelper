@@ -36,6 +36,15 @@
                     window.location.href="history_orders.do?managerId=${managerId}&schoolId=${schoolId}&yyyy_MM_dd=/&token=${Stoken}&search="+value;
             });
         }
+
+        function add_additional(id) {
+            $.prompt('附加信息', function (value) {
+                if(value != "")
+                    $.post("/ajax/add_additional.do?managerId=${managerId}&token=${Stoken}&content="+value+"&id="+id,function (data, status) {
+                        $.toast(data);
+                    });
+            });
+        }
     </script>
 </head>
 <body>
@@ -74,6 +83,7 @@
                             是否异常：${order.reason2String()}<br>
                             订单费用：￥<fmt:formatNumber value="${(order.shouldPay/100)}" pattern="##.##" minFractionDigits="2" ></fmt:formatNumber><br>
                             备注信息：${order.otherinfo }<br>
+                            附加信息：<span style="color: red">${order.managerAdditional }</span><br>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -81,6 +91,7 @@
                             <a href="javascript:refund(${order.id})" class="link"><span class="icon icon-refresh"></span>&nbsp退款</a>
                         </c:if>
 
+                        <a href="javascript:add_additional(${order.id})" class="link"><span class="icon icon-edit"></span>&nbsp附加</a>
                         <a href="javascript:diff_call('${order.express_phone}','${order.receive_phone}')" class="link"><span class="icon icon-phone"></span>&nbsp致电</a>
                     </div>
                 </div>

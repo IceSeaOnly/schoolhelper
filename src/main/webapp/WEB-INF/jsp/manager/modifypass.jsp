@@ -14,7 +14,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
-
+    <script>
+        function cs_notice_changed(){
+            $.get("/ajax/cs_notice_changed.do?managerId=${managerId}&token=${Stoken}",function (data, status) {
+                $.toast(data);
+            });
+        }
+    </script>
 
 </head>
 <body>
@@ -24,10 +30,25 @@
         <!-- 你的html代码 -->
         <header class="bar bar-nav">
             <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
-            <h1 class="title">修改密码</h1>
+            <h1 class="title">个人中心</h1>
         </header>
         <!-- 这里是页面内容区 begin-->
         <div class="content">
+            <div class="list-block">
+                <ul>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title">新工单通知</div>
+                            <div class="item-after">
+                                <label class="label-switch">
+                                    <input type="checkbox" />
+                                    <input type="checkbox" <c:if test="${manager.cs_notice}">checked="checked"</c:if> onchange="cs_notice_changed()">
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
             <form method="post" action="modify_pass.do" id="form_pass" name="form_pass">
                 <input name="managerId" value="${managerId}" type="hidden"/>
                 <input name="token" value="${Stoken}" type="hidden"/>
