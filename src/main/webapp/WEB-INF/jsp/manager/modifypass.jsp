@@ -17,7 +17,7 @@
     <script>
         function cs_notice_changed(){
             $.get("/ajax/cs_notice_changed.do?managerId=${managerId}&token=${Stoken}",function (data, status) {
-                $.toast(data);
+                $.toast('data');
             });
         }
     </script>
@@ -41,8 +41,8 @@
                             <div class="item-title">新工单通知</div>
                             <div class="item-after">
                                 <label class="label-switch">
-                                    <input type="checkbox" />
-                                    <input type="checkbox" <c:if test="${manager.cs_notice}">checked="checked"</c:if> onchange="cs_notice_changed()">
+                                    <input type="checkbox" <c:if test="${manager.cs_notice}">checked="checked"</c:if> onchange="cs_notice_changed()"/>
+                                    <div class="checkbox"></div>
                                 </label>
                             </div>
                         </div>

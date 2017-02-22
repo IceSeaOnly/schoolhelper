@@ -98,6 +98,7 @@
                         <div class="card-content-inner">
                             下单时间：${order.orderTime}<br>
                             用户姓名：${order.express_name}<br>
+                            宿舍位置：${order.sendTo}<br>
                             取件手机：${order.express_phone}<br>
                             配送手机：${order.receive_phone}<br>
                             备注信息：${order.otherinfo }<br>

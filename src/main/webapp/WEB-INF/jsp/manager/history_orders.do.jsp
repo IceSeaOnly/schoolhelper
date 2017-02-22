@@ -41,7 +41,7 @@
             $.prompt('附加信息', function (value) {
                 if(value != "")
                     $.post("/ajax/add_additional.do?managerId=${managerId}&token=${Stoken}&content="+value+"&id="+id,function (data, status) {
-                        $.toast(data);
+                        $.toast('data');
                     });
             });
         }

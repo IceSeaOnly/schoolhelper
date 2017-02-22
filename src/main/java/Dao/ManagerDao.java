@@ -688,7 +688,7 @@ public class ManagerDao{
         ArrayList<ExpressOrder> sum = (ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where schoolId = :S and has_pay = true and orderTimeStamp > :T")
                 .setParameter("T",TimeFormat.getTimesmorning())
                 .setParameter("S",schoolId)
-                .uniqueResult();
+                .list();
         session.close();
         return sum;
     }
