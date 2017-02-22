@@ -483,6 +483,7 @@ public class Ajax {
     }
 
     @RequestMapping("add_additional")
+    @ResponseBody
     public String add_additional(@RequestParam int managerId,@RequestParam int id,@RequestParam String content){
         ExpressOrder order = managerService.getExpressOrderById(id);
         if(order != null){
@@ -496,6 +497,7 @@ public class Ajax {
     }
 
     @RequestMapping("cs_notice_changed")
+    @ResponseBody
     public String cs_notice_changed(@RequestParam int managerId){
         Manager manager = managerService.getManagerById(managerId);
         manager.setCs_notice(!manager.isCs_notice());
