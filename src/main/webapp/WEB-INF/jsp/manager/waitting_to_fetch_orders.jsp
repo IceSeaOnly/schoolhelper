@@ -17,7 +17,6 @@
         var orderSum = ${fn:length(orders)};
         function empty_close() {
             $.alert("空空如也",":)",function () {
-                icesea.finish();
             });
         }
 
@@ -92,7 +91,7 @@
         <!-- 你的html代码 -->
         <header class="bar bar-nav">
             <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
-            <jsp:include page="right_reload.jsp"/>
+            <a  class="icon icon-app pull-right open-panel"></a>
             <h1 class="title">${school.schoolName}待取订单</h1>
         </header>
 
@@ -137,8 +136,6 @@
         <div class="list-block">
             <ul>
                 <!-- Text inputs -->
-
-
                 <li>
                     <div class="item-content">
                         <div class="item-media"><i class="icon icon-form-gender"></i></div>
@@ -147,8 +144,8 @@
                             <div class="item-input">
                                 <select onchange="javascript:select_changed($('#select_exp').val())" id="select_exp">
                                     <option value="all">不限</option>
-                                    <c:forEach items="expresses" var="express">
-                                        <option value="${express.expressName}">${express.expressName}</option>
+                                    <c:forEach items="${expresses}" var="exp">
+                                        <option value="${exp.expressName}">${exp.expressName}</option>
                                     </c:forEach>
                                 </select>
                             </div>
@@ -162,7 +159,7 @@
                             <div class="item-title label">扫码</div>
                             <div class="item-input">
                                 <label class="label-switch">
-                                    <input type="checkbox" id="scan_conf" name="scan_conf">
+                                    <input type="checkbox" id="scan_conf" name="scan_conf" checked="checked">
                                     <div class="checkbox"></div>
                                 </label>
                             </div>

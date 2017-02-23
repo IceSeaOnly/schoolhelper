@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -137,12 +139,11 @@ public class Business {
         ArrayList<ExpressOrder> orders = managerService.managerAccess2School(managerId, schoolId) ?
                 managerService.getOrdersByStatus(managerId, new Integer[]{1, -2}) : new ArrayList<ExpressOrder>();
         Collections.sort(orders);
-        // 筛选生效
-        orders = selectExrpess(orders,only);
         ArrayList<Reason> reasons = managerService.listAllReasons(Reason.FETCH_ERR);
         ArrayList<Express> expresses = userService.listAllExpresses(schoolId, true);
         map.put("expresses", expresses);
-        map.put("orders", orders);
+        // 筛选生效
+        map.put("orders", selectExrpess(orders,only));
         map.put("school", school);
         map.put("schoolId", schoolId);
         map.put("managerId", managerId);
@@ -152,15 +153,22 @@ public class Business {
 
 
     private ArrayList<ExpressOrder> selectExrpess(ArrayList<ExpressOrder>orders,String only){
+        ArrayList<ExpressOrder> rs = new ArrayList<ExpressOrder>();
+        try {
+            if(only !=null)
+            only = URLDecoder.decode(only,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         if (only != null) {
             if (!only.equals("all"))
                 for (int i = 0; i < orders.size(); i++) {
-                    if (!orders.get(i).getExpress().equals(only)) {
-                        orders.remove(i);
+                    if (orders.get(i).getExpress().equals(only)) {
+                        rs.add(orders.get(i));
                     }
                 }
-        }
-        return orders;
+        }else return orders;
+        return rs;
     }
     /**
      * 管理员配送订单
@@ -955,11 +963,11 @@ public class Business {
                             TimeFormat.getThisMonth(null),
                             TimeFormat.getThisDay(null), 1);
 
-            // 筛选生效
-            orders = selectExrpess(orders,only);
+
             ArrayList<Express> expresses = userService.listAllExpresses(schoolId, true);
             map.put("expresses", expresses);
-            map.put("orders", orders);
+            // 筛选生效
+            map.put("orders", selectExrpess(orders,only));
             map.put("schoolId", schoolId);
             map.put("managerId", managerId);
         } else return permissionDeny(map);

@@ -23,10 +23,8 @@ public class test_open_id {
     }
     @Test
     public void test(){
-        Long date = -1L;
-        System.out.println(date.equals(-1L));
-        date = (date.equals(-1L)?TimeFormat.getTimesmorning():date);
-        System.out.println(date);
+        //c03bc06262d96428dd66c23841c50ea3
+        System.out.println(MD5.encryption("123456"));
     }
 
     public static void main(String[] args) {

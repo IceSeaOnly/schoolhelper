@@ -103,7 +103,8 @@ public class ExpressOrder implements Comparable{
                 "备注信息:" + otherinfo +"<br>"+
                 "配送员姓名:" + rider_name +"<br>"+
                 "学校" + ManagerService.getSchoolName(schoolId)+"<br>"+
-                "错误信息:" + ManagerService.reason2String(reason) +"<br>";
+                "错误信息:" + ManagerService.reason2String(reason) +"<br>"+
+                "管理员备注:" +managerAdditional +"<br>";
     }
 
     public ExpressOrder(int user_id,

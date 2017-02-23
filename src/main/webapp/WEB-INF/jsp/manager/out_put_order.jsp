@@ -19,7 +19,6 @@
         var orderSum = ${fn:length(orders)};
         function empty_close() {
             $.alert("空空如也",":)",function () {
-                icesea.finish();
             });
         }
         function select_ok() {
@@ -42,7 +41,7 @@
         </header>
         <!-- 这里是页面内容区 begin-->
         <div class="content">
-            <input name="set_picker" id="set_picker" type="hidden" value="${cur_config}"/>
+            <input name="set_picker" id="set_picker" type="hidden"/>
             <form action="makeOutPutOrders.do" method="post" id="form_select" name="form_select">
                 <input name="managerId" value="${managerId}" type="hidden"/>
                 <input name="token" value="${Stoken}" type="hidden"/>
@@ -101,13 +100,12 @@
   <h1 class="title">筛选快递</h1>\
   </header>',
         onClose:function(){
-            if($("#set_picker").val() != cur_config)
                 window.location.href='out_put_order.do?managerId=${managerId}&token=${Stoken}&schoolId=${schoolId}&only='+$("#set_picker").val();
         },
         cols: [
             {
                 textAlign: 'center',
-                values: ['all'<c:forEach items="${expresses}" var="express">,${express.expressName}</c:forEach> ]
+                values: ['all'<c:forEach items="${expresses}" var="express">,'${express.expressName}'</c:forEach> ]
             }
         ]
     });
