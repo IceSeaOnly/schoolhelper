@@ -117,6 +117,7 @@ function validate_form() {
     }
 	if(sms.length>7){
 		alert("快递编号是短信中取件序号哦，请检查输入！");
+		return false;
 	}
     if (otherinfo_.length > 20) {
         alert("你的备注好长啊，短一点好吗？");

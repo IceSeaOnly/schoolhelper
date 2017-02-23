@@ -145,13 +145,13 @@ public class ExpressController {
         if (user.getUsername().equals("") && user.getPhone().equals("")) {
             map.put("is_url",true);
             map.put("notice","请先完善信息~");
-            map.put("url","/user/change_my_info.do");
+            map.put("url","/user/change_my_school.do");
             return "user/common_result";
         }
         if(user.getDormitory() == null || user.getDormitory().equals("")){
             map.put("is_url",true);
             map.put("notice","请填写宿舍号以便送件上门哦~");
-            map.put("url","/user/change_my_info.do");
+            map.put("url","/user/change_my_school.do");
             return "user/common_result";
         }
 
@@ -295,7 +295,7 @@ public class ExpressController {
                  * 支付成功
                  * */
                 income_add(user.getSchoolId(),order.getShouldPay());
-                noticeService.paySuccess("小骨头订单余额支付成功",order.getShouldPay()/100+"元","如有疑问或退款，请点我召唤客服","代取快递",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+order.getId());
+                noticeService.paySuccess("小骨头订单余额支付成功",(double)order.getShouldPay()/100+"元","如有疑问或退款，请点我召唤客服","代取快递",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+order.getId());
                 user.setMy_money(user.getMy_money() - order.getShouldPay());
                 order.setHas_pay(true);
                 userService.update(order);

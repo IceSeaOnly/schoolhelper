@@ -17,7 +17,7 @@
     <script>
         function cs_notice_changed(){
             $.get("/ajax/cs_notice_changed.do?managerId=${managerId}&token=${Stoken}",function (data, status) {
-                $.toast('data');
+                $.toast(data);
             });
         }
     </script>

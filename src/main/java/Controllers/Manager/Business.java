@@ -130,6 +130,7 @@ public class Business {
     @RequestMapping("waitting_to_fetch_orders")
     public String waitting_to_fetch_orders(@RequestParam int managerId,
                                            @RequestParam int schoolId,
+                                           Integer only,
                                            ModelMap map) {
 
         School school = managerService.getSchoolById(schoolId);

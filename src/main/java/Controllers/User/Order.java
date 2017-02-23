@@ -37,6 +37,7 @@ public class Order {
     @RequestMapping("my_orders")
     public String my_orders(HttpSession session, ModelMap map){
         User user = (User) session.getAttribute("user");
+        orderService.updateOrderOutOfDate(user.getId());
         ArrayList<ExpressOrder> orders = orderService.getOrdersByUserId(user.getId(),user.getSchoolId());
         map.put("orders",orders);
         return "user/my_orders";

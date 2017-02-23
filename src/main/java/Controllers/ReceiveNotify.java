@@ -115,7 +115,7 @@ public class ReceiveNotify {
                     user.setOrder_sum(user.getOrder_sum()+1);
                     managerService.update(user);
                     income_add(user.getSchoolId(),order.getShouldPay());
-                    noticeService.paySuccess("小骨头订单微信支付成功",order.getShouldPay()/100+"元","如有疑问或退款，请点我召唤客服","代取快递",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+order.getId());
+                    noticeService.paySuccess("小骨头订单微信支付成功",(double)order.getShouldPay()/100+"元","如有疑问或退款，请点我召唤客服","代取快递",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+order.getId());
                 }
             }
         return "success";

@@ -1,6 +1,7 @@
 package Dao;
 
 import Entity.ExpressOrder;
+import Entity.SysMsg;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -25,5 +26,16 @@ public class OrderDao {
                 .list();
         session.close();
         return res;
+    }
+
+    public void updateOrderOutOfDate(int userId) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.createQuery("update ExpressOrder set order_state = -1 where user_id = :U and has_pay = false and :T - orderTimeStamp > 300000")
+                .setParameter("U",userId)
+                .setParameter("T", System.currentTimeMillis())
+                .executeUpdate();
+        session.getTransaction().commit();
+        session.close();
     }
 }

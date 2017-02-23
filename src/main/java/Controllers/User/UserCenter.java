@@ -50,7 +50,10 @@ public class UserCenter {
         map.put("schoolname",getSchoolName(user.getSchoolId()));
         map.put("sconfig",userService.getSchoolConfBySchoolId(user.getSchoolId()));
         if(user.getUsername().equals("") && user.getPhone().equals("")){
-            map.put("should_complete_user_info",true);
+            map.put("is_url",true);
+            map.put("notice","请先完善信息~");
+            map.put("url","/user/change_my_school.do");
+            return "user/common_result";
         }else map.put("should_complete_user_info",false);
 
         //return "user/user_center"; 启用新版首页

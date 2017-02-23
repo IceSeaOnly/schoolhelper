@@ -94,7 +94,7 @@
 
         <!-- 这里是页面内容区 begin-->
         <div class="content">
-            <input name="set_picker" id="set_picker" type="hidden" value="cur_config"/>
+            <input name="set_picker" id="set_picker" type="hidden" value="${cur_config}"/>
             <c:forEach items="${orders}" var="order">
                 <div class="card" id="card${order.id}">
                     <div class="card-header">${order.express} 【${order.express_number}】【${order.arrive}】</div>

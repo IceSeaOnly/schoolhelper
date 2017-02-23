@@ -19,4 +19,11 @@ public class OrderService {
         ArrayList<ExpressOrder> res = orderDao.getOrdersByUserId(id,schoolId);
         return (res == null?new ArrayList<ExpressOrder>():res);
     }
+
+    /**
+     * 超时订单设置为无效
+     * */
+    public void updateOrderOutOfDate(int userId) {
+        orderDao.updateOrderOutOfDate(userId);
+    }
 }
