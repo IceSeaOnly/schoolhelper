@@ -78,7 +78,7 @@ public class Business {
         int month = TimeFormat.getThisMonth(TS);
         int day = TimeFormat.getThisDay(TS);
         School school = managerService.getSchoolById(schoolId);
-        ArrayList<ExpressOrder> orders = search == null?managerService.commonOrderGet(-1, schoolId, -1, year, month, day, -1):searchOrders(search);
+        ArrayList<ExpressOrder> orders = search == null ? managerService.commonOrderGet(-1, schoolId, -1, year, month, day, -1) : searchOrders(search, schoolId);
         ArrayList<Reason> reasons = managerService.listAllReasons(Reason.SEND_ERR);
         map.put("reasons", reasons);
         map.put("orders", orders);
@@ -92,9 +92,9 @@ public class Business {
 
     /**
      * 查询订单
-     * */
-    private ArrayList<ExpressOrder> searchOrders(String search) {
-        return managerService.searchOrders(search);
+     */
+    private ArrayList<ExpressOrder> searchOrders(String search, int sid) {
+        return managerService.searchOrders(search, sid);
     }
 
 
@@ -130,15 +130,18 @@ public class Business {
     @RequestMapping("waitting_to_fetch_orders")
     public String waitting_to_fetch_orders(@RequestParam int managerId,
                                            @RequestParam int schoolId,
-                                           Integer only,
+                                           String only,
                                            ModelMap map) {
 
         School school = managerService.getSchoolById(schoolId);
         ArrayList<ExpressOrder> orders = managerService.managerAccess2School(managerId, schoolId) ?
-                managerService.getOrdersByStatus(managerId,new Integer[]{1,-2}) : new ArrayList<ExpressOrder>();
-
+                managerService.getOrdersByStatus(managerId, new Integer[]{1, -2}) : new ArrayList<ExpressOrder>();
         Collections.sort(orders);
+        // 筛选生效
+        orders = selectExrpess(orders,only);
         ArrayList<Reason> reasons = managerService.listAllReasons(Reason.FETCH_ERR);
+        ArrayList<Express> expresses = userService.listAllExpresses(schoolId, true);
+        map.put("expresses", expresses);
         map.put("orders", orders);
         map.put("school", school);
         map.put("schoolId", schoolId);
@@ -147,6 +150,18 @@ public class Business {
         return "manager/waitting_to_fetch_orders";
     }
 
+
+    private ArrayList<ExpressOrder> selectExrpess(ArrayList<ExpressOrder>orders,String only){
+        if (only != null) {
+            if (!only.equals("all"))
+                for (int i = 0; i < orders.size(); i++) {
+                    if (!orders.get(i).getExpress().equals(only)) {
+                        orders.remove(i);
+                    }
+                }
+        }
+        return orders;
+    }
     /**
      * 管理员配送订单
      * send_express_order.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID&config=xxx
@@ -168,7 +183,7 @@ public class Business {
         map.put("parts", userService.listAllParts(schoolId));
         map.put("stimes", userService.getAllSendTimes(schoolId, false));
         map.put("managerId", managerId);
-        map.put("cur_config", config.equals("none")?"everyone all -1 -1":config);
+        map.put("cur_config", config.equals("none") ? "everyone all -1 -1" : config);
         return "manager/send_express_order";
     }
 
@@ -235,7 +250,7 @@ public class Business {
                              @RequestParam String[] checked_orders,
                              ModelMap map) {
         String data = transfer2Json(checked_orders);
-        managerService.log(managerId,6,managerId+"楼长送出订单"+data);
+        managerService.log(managerId, 6, managerId + "楼长送出订单" + data);
         map.put("result", true);
         map.put("is_url", true);
         map.put("url", "javascript:icesea.makeQRcode('bone_client_web://lzjj_receive.do?managerId=MANAGERID&token=TOKEN&data=" + data + "&omid=" + managerId + "&schoolId=" + schoolId + "');");
@@ -276,17 +291,17 @@ public class Business {
                     it.setRider_name(m.getName());
                     it.setLLJJ(true); //标记为楼长交接件
                     orders.add(it);
-                    managerService.log(m.getId(),7,m.getId()+"楼长接收订单"+it.getId());
+                    managerService.log(m.getId(), 7, m.getId() + "楼长接收订单" + it.getId());
                     /** 赏工资*/
                     managerService.rewardT(omid, schoolId, it.getId());
                     managerService.rewardR(managerId, schoolId, it.getId());
 
                     JSONObject jdata = new JSONObject();
-                    jdata.put("where",m.getAddress());
-                    jdata.put("name",m.getName());
+                    jdata.put("where", m.getAddress());
+                    jdata.put("name", m.getName());
                     it.setLastSms(System.currentTimeMillis());
                     managerService.update(it);
-                    noticeService.CommonSMSSend("SMS_46225057",it.getReceive_phone(),jdata);
+                    noticeService.CommonSMSSend("SMS_46225057", it.getReceive_phone(), jdata);
                 }
             }
         }
@@ -599,7 +614,7 @@ public class Business {
                              ModelMap map) {
         List<ChargingSystem> ins = managerService.listMyIncomes(managerId);
         map.put("ins", ins);
-        map.put("ins_sum",getIncomeSum(ins));
+        map.put("ins_sum", getIncomeSum(ins));
         return "manager/my_incomes";
     }
 
@@ -927,7 +942,10 @@ public class Business {
     }
 
     @RequestMapping("out_put_order")
-    public String out_put_order(@RequestParam int managerId, @RequestParam int schoolId, ModelMap map) {
+    public String out_put_order(@RequestParam int managerId,
+                                @RequestParam int schoolId,
+                                String only,
+                                ModelMap map) {
         if (managerService.managerAccess2Privilege(managerId, "out_put_order")
                 && managerService.managerAccess2School(managerId, schoolId)) {
             ArrayList<ExpressOrder> orders =
@@ -936,6 +954,11 @@ public class Business {
                             TimeFormat.getThisYear(null),
                             TimeFormat.getThisMonth(null),
                             TimeFormat.getThisDay(null), 1);
+
+            // 筛选生效
+            orders = selectExrpess(orders,only);
+            ArrayList<Express> expresses = userService.listAllExpresses(schoolId, true);
+            map.put("expresses", expresses);
             map.put("orders", orders);
             map.put("schoolId", schoolId);
             map.put("managerId", managerId);
@@ -981,7 +1004,7 @@ public class Business {
         Long moveSum = managerService.getSchoolMoveOrderSum(schoolId);
         Long djSum = managerService.getHelpSendOrderSum(schoolId);
         Long dqSum = managerService.getExpressOrderSum(schoolId);
-        ArrayList<ExpressOrder>tdorders = managerService.getTodayExpressOrderSum(schoolId);
+        ArrayList<ExpressOrder> tdorders = managerService.getTodayExpressOrderSum(schoolId);
         Long todayIncome = managerService.getTodayExpressTodayIncome(schoolId);
 
 
@@ -989,13 +1012,13 @@ public class Business {
         map.put("djSum", djSum);
         map.put("dqSum", dqSum);
         map.put("todaySum", tdorders.size());//全部
-        map.put("todaySum_v", tdorders.size()-getOrderSizeByStatus(tdorders,-1));//有效
-        map.put("todaySum_t", getOrderSizeByStatus(tdorders,0));//待接
-        map.put("todaySum_f", getOrderSizeByStatus(tdorders,1));//待取
-        map.put("todaySum_f_f", getOrderSizeByStatus(tdorders,-2));//取件失败的待取
-        map.put("todaySum_s", getOrderSizeByStatus(tdorders,2));//待送
-        map.put("todaySum_s_f", getOrderSizeByStatus(tdorders,-3));//送件失败的待送
-        map.put("todaySum_c", getOrderSizeByStatus(tdorders,3));//完成
+        map.put("todaySum_v", tdorders.size() - getOrderSizeByStatus(tdorders, -1));//有效
+        map.put("todaySum_t", getOrderSizeByStatus(tdorders, 0));//待接
+        map.put("todaySum_f", getOrderSizeByStatus(tdorders, 1));//待取
+        map.put("todaySum_f_f", getOrderSizeByStatus(tdorders, -2));//取件失败的待取
+        map.put("todaySum_s", getOrderSizeByStatus(tdorders, 2));//待送
+        map.put("todaySum_s_f", getOrderSizeByStatus(tdorders, -3));//送件失败的待送
+        map.put("todaySum_c", getOrderSizeByStatus(tdorders, 3));//完成
         map.put("todayIncome", todayIncome);
         map.put("school", school);
         map.put("schoolId", schoolId);
@@ -1007,11 +1030,11 @@ public class Business {
 
     /**
      * 统计订单中st状态的数量
-     * */
+     */
     private int getOrderSizeByStatus(ArrayList<ExpressOrder> tdorders, int st) {
         int sum = 0;
         for (int i = 0; i < tdorders.size(); i++) {
-            if(tdorders.get(i).getOrder_state() == st)
+            if (tdorders.get(i).getOrder_state() == st)
                 sum++;
         }
         return sum;
@@ -1021,7 +1044,7 @@ public class Business {
     @RequestMapping("modifypass")
     public String modifypass(@RequestParam int managerId, ModelMap map) {
         map.put("managerId", managerId);
-        map.put("manager",managerService.getManagerById(managerId));
+        map.put("manager", managerService.getManagerById(managerId));
         return "manager/modifypass";
     }
 
@@ -1050,22 +1073,22 @@ public class Business {
 
     /**
      * 电子对账
-     * */
+     */
     @RequestMapping("Reconciliation")
     public String Reconciliation(@RequestParam int managerId,
-                                 @RequestParam Long date,ModelMap map){
-        date = (date.equals(-1L)?TimeFormat.getTimesmorning():date);
-        Long perDate = date-86400000;
+                                 @RequestParam Long date, ModelMap map) {
+        date = (date.equals(-1L) ? TimeFormat.getTimesmorning() : date);
+        Long perDate = date - 86400000;
         Long outSum = managerService.getOutSum(0L);
         Long todayOutSum = managerService.getOutSum(date);
-        List<PayLog>payLogs = managerService.getReconciliationList(date);
+        List<PayLog> payLogs = managerService.getReconciliationList(date);
 
-        map.put("managerId",managerId);
-        map.put("perDate",perDate);
-        map.put("date",TimeFormat.format2yyyy_MM_dd(date));
-        map.put("outSum",outSum);
-        map.put("todayOutSum",todayOutSum);
-        map.put("payLogs",payLogs);
+        map.put("managerId", managerId);
+        map.put("perDate", perDate);
+        map.put("date", TimeFormat.format2yyyy_MM_dd(date));
+        map.put("outSum", outSum);
+        map.put("todayOutSum", todayOutSum);
+        map.put("payLogs", payLogs);
         return "manager/reconciliation";
     }
 }

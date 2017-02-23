@@ -733,20 +733,22 @@ public class ManagerDao{
         return logs;
     }
 
-    public ArrayList<ExpressOrder> searchOrderByPhone(String search) {
+    public ArrayList<ExpressOrder> searchOrderByPhone(String search, int sid) {
         ArrayList<ExpressOrder> rs = new ArrayList<ExpressOrder>();
         Session session = sessionFactory.openSession();
-        rs.addAll((ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where has_pay = true and (express_phone = :P or receive_phone = :P) order by id desc")
+        rs.addAll((ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where has_pay = true and schoolId = :S and (express_phone = :P or receive_phone = :P) order by id desc")
+                .setParameter("S",sid)
                 .setParameter("P",search)
                 .list());
         session.close();
         return rs;
     }
 
-    public ArrayList<ExpressOrder> searchOrderByName(String search) {
+    public ArrayList<ExpressOrder> searchOrderByName(String search, int sid) {
         ArrayList<ExpressOrder> rs = new ArrayList<ExpressOrder>();
         Session session = sessionFactory.openSession();
-        rs.addAll((ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where has_pay = true and (express_name = :P or receive_name = :P) order by id desc")
+        rs.addAll((ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where has_pay = true and schoolId = :S and (express_name = :P or receive_name = :P) order by id desc")
+                .setParameter("S",sid)
                 .setParameter("P",search)
                 .list());
         session.close();

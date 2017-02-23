@@ -27,6 +27,7 @@
                 $("#form_select").submit();
             });
         }
+
     </script>
 </head>
 <body>
@@ -36,12 +37,12 @@
         <!-- 你的html代码 -->
         <header class="bar bar-nav">
             <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
+            <a href="javascript:$('#set_picker').trigger('click');" class="icon icon-settings pull-right"></a>
             <h1 class="title">订单导出</h1>
         </header>
-
-
         <!-- 这里是页面内容区 begin-->
         <div class="content">
+            <input name="set_picker" id="set_picker" type="hidden" value="${cur_config}"/>
             <form action="makeOutPutOrders.do" method="post" id="form_select" name="form_select">
                 <input name="managerId" value="${managerId}" type="hidden"/>
                 <input name="token" value="${Stoken}" type="hidden"/>
@@ -92,6 +93,24 @@
     $.init();
     if (orderSum == 0)
         empty_close();
+</script>
+<script>
+    $("#set_picker").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">筛选快递</h1>\
+  </header>',
+        onClose:function(){
+            if($("#set_picker").val() != cur_config)
+                window.location.href='out_put_order.do?managerId=${managerId}&token=${Stoken}&schoolId=${schoolId}&only='+$("#set_picker").val();
+        },
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['all'<c:forEach items="${expresses}" var="express">,${express.expressName}</c:forEach> ]
+            }
+        ]
+    });
 </script>
 <jsp:include page="replaceToken.jsp"/>
 </body>

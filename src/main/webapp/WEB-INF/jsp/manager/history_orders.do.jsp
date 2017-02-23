@@ -73,6 +73,7 @@
                     <div class="card-content">
                         <div class="card-content-inner">
                             用户姓名：${order.express_name}<br>
+                            收件姓名：${order.receive_name}<br>
                             用户标示：${order.user_id}<br>
                             取件手机：${order.express_phone}<br>
                             配送手机：${order.receive_phone}<br>

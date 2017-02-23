@@ -31,8 +31,12 @@
                     if (status == "success") {
                         if(data == "true" && res == true){
                             $.hidePreloader();
-                            $.toast("请上传快递条码", 1000);
-                            icesea.uploadCourierNumber(orderId);
+                            if($('#scan_conf').is(':checked') == true){
+                                $.toast("请上传快递条码", 1000);
+                                icesea.uploadCourierNumber(orderId);
+                            }else{
+                                $.toast("辛苦了，谢谢", 1000);
+                            }
                         }else if(data == "true" && res == false){
                             $.hidePreloader();
                             $.toast("已记录", 1000);
@@ -74,6 +78,10 @@
             ];
             var groups = [buttons1, buttons2];
             $.actions(groups);
+        }
+
+        function select_changed(name) {
+            window.location.href="waitting_to_fetch_orders.do?managerId=${managerId}&token=${Stoken}&schoolId=${schoolId}&only="+name;
         }
     </script>
 </head>
@@ -119,6 +127,50 @@
         <!-- 这里是页面内容区 end-->
 
         <!-- 你的html代码 -->
+    </div>
+    <div class="panel-overlay"></div>
+    <!-- Left Panel with Reveal effect -->
+    <div class="panel panel-left panel-reveal theme-dark" id='panel-left-demo'>
+        <div class="content-block">
+            <p>滑动关闭或<a href="#" class="close-panel">点击这里</a></p>
+        </div>
+        <div class="list-block">
+            <ul>
+                <!-- Text inputs -->
+
+
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">筛选</div>
+                            <div class="item-input">
+                                <select onchange="javascript:select_changed($('#select_exp').val())" id="select_exp">
+                                    <option value="all">不限</option>
+                                    <c:forEach items="expresses" var="express">
+                                        <option value="${express.expressName}">${express.expressName}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-toggle"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title label">扫码</div>
+                            <div class="item-input">
+                                <label class="label-switch">
+                                    <input type="checkbox" id="scan_conf" name="scan_conf">
+                                    <div class="checkbox"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 

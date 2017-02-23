@@ -9,8 +9,10 @@ import Entity.SysMsg;
 import Service.ManagerService;
 import Service.NoticeService;
 import Utils.HttpUtils;
+import Utils.Safe;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import java.util.ArrayList;
 
 /**
@@ -116,8 +119,19 @@ public class Api {
      *
      * */
     @RequestMapping("output")
-    public String output(@RequestParam String k,ModelMap map){
+    public String output(@RequestParam String k, ModelMap map,HttpServletRequest req){
         OutPutOrders out = managerService.getOutPutOrderByKey(k);
+        if(out == null){
+            map.put("result",false);
+            map.put("is_url",false);
+            map.put("notice","非法凭据，ip地址已记录");
+            try {
+                managerService.log(-1,11,"查看订单导出非法key值，ip:"+ Safe.getIpAddr(req));
+            } catch (Exception e) {
+                managerService.log(-1,11,"订单导出记录非法ip出现异常:"+e.getMessage());
+            }
+            return "manager/common_result";
+        }
         if(System.currentTimeMillis() > out.getInvalidTime()){
             map.put("result",false);
             map.put("is_url",false);

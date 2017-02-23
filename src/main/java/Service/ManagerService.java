@@ -548,15 +548,15 @@ public class ManagerService {
      * 搜索订单
      * @Param search 姓名/手机号/订单号
      * */
-    public ArrayList<ExpressOrder> searchOrders(String search) {
+    public ArrayList<ExpressOrder> searchOrders(String search,int sid) {
         if(search.length() == 11 && onlyDigit(search)){ //11位且仅有数字，判断为手机号
-            return managerDao.searchOrderByPhone(search);
+            return managerDao.searchOrderByPhone(search,sid);
         }else if(onlyDigit(search)){ //仅有数字，判断为订单号
             ArrayList<ExpressOrder>rs = new ArrayList<ExpressOrder>();
             rs.add(managerDao.getExpressOrderById(Integer.parseInt(search)));
             return rs;
         }else{ //认为是姓名
-            return managerDao.searchOrderByName(search);
+            return managerDao.searchOrderByName(search,sid);
         }
     }
 
