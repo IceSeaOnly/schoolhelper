@@ -765,4 +765,13 @@ public class ManagerDao{
         session.close();
         return rs;
     }
+
+    public Long getMyIncomeSum(int managerId) {
+        Session session = sessionFactory.openSession();
+        Long sum = (Long) session.createQuery("select coalesce(sum(money),0) from ChargingSystem where mid = :M and valid = true ")
+                .setParameter("M",managerId)
+                .uniqueResult();
+        session.close();
+        return sum;
+    }
 }

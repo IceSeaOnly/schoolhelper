@@ -622,17 +622,10 @@ public class Business {
                              ModelMap map) {
         List<ChargingSystem> ins = managerService.listMyIncomes(managerId);
         map.put("ins", ins);
-        map.put("ins_sum", getIncomeSum(ins));
+        map.put("ins_sum", managerService.getMyIncomeSum(managerId));
         return "manager/my_incomes";
     }
 
-    private int getIncomeSum(List<ChargingSystem> ins) {
-        int sum = 0;
-        for (int i = 0; i < ins.size(); i++) {
-            sum += ins.get(i).getMoney();
-        }
-        return sum;
-    }
 
     /**
      * 工资清算

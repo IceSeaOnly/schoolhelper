@@ -581,4 +581,8 @@ public class ManagerService {
         ArrayList<ExpressOrder> rs = managerDao.getOrdersByStatus(managerId,status);
         return rs == null?new ArrayList<ExpressOrder>():rs;
     }
+
+    public Long getMyIncomeSum(int managerId) {
+        return managerDao.getMyIncomeSum(managerId);
+    }
 }

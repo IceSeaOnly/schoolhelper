@@ -13,7 +13,8 @@ public class TimeFormat {
     public static String format(Date date){
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return df.format(date);
-    }    public static String format(Long date){
+    }
+    public static String format(Long date){
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return df.format(date);
     }

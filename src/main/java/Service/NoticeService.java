@@ -47,12 +47,29 @@ public class NoticeService {
         data.put("first", newItem(detailcontent));
         data.put("orderMoneySum", newItem(moneysum));
         data.put("orderProductName", newItem(productName));
-        data.put("Remark", newItem(remark));
+        data.put("Remark", newItem(remark,"#FF0000"));
         JSONArray arr = new JSONArray();
         arr.add(commonTPLMaker("QL9zFOOV9JpJQwP2uFgXLlleebgM34ViORxyXFCxSOA", openid, url, data));
         DistributedTPLSend(arr);
     }
 
+    /**
+     * 充值提醒
+     * */
+    public void chargeSuccess(String detailcontent,String userNo, String moneysum,String jiFen,
+                           String chargeType, String remark, String openid, String url) {
+        JSONObject data = new JSONObject();
+        data.put("first", newItem(detailcontent));
+        data.put("keyword1", newItem(userNo));
+        data.put("keyword2", newItem(moneysum));
+        data.put("keyword3", newItem(jiFen));
+        data.put("keyword4", newItem(chargeType));
+        data.put("keyword5", newItem(TimeFormat.format(System.currentTimeMillis())));
+        data.put("remark", newItem(remark,"#FF0000"));
+        JSONArray arr = new JSONArray();
+        arr.add(commonTPLMaker("uCSlXj7JbUHbOhjhqvlHCAEYzCFig-rn0O1qYQkQVRE", openid, url, data));
+        DistributedTPLSend(arr);
+    }
     /**
      * 客服消息类通知
      */
