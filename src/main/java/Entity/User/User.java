@@ -25,6 +25,7 @@ public class User {
     private boolean vip; // 成为会员
     private int my_money; // 会员卡余额,单位分
     private int schoolId;
+    private int freeSum;//免单券数量
 
     public User() {
     }
@@ -41,6 +42,7 @@ public class User {
         this.vip = false;
         this.my_money = 0;
         this.schoolId = scid;
+        this.freeSum = 0;
     }
 
     public User(String openid) {
@@ -149,5 +151,13 @@ public class User {
 
     public void setDormitory(String dormitory) {
         this.dormitory = dormitory;
+    }
+
+    public int getFreeSum() {
+        return freeSum;
+    }
+
+    public void setFreeSum(int freeSum) {
+        this.freeSum = freeSum;
     }
 }

@@ -34,8 +34,8 @@
     </li>
     <li>
         <a href="">
-            <h2>0</h2>
-            <p>开发中</p>
+            <h2>${user.freeSum}</h2>
+            <p>免单券</p>
         </a>
     </li>
     <li>

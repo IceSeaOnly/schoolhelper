@@ -355,25 +355,37 @@ public class ExpressController {
         }
         /** 确定该配送时段还有名额 end*/
 
+
         Express ex = getExpress(express, expresses,user.getSchoolId());
         SendPart pa = getSendPart(part, parts,user.getSchoolId());
         // 计算费用 单位分
         int cost = ex.getSendPrice() + pa.getSendPrice();
+        boolean free_this = false;
+        /** 20170224 免单检测 begin*/
+        user = userService.getUserById(user.getId());
+        if(user.getFreeSum()>0){
+            cost = 1;
+            free_this = true;
+            user.setFreeSum(user.getFreeSum()-1);
+            user.setOrder_sum(user.getOrder_sum()+1);
+            userService.update(user);
+        }else{
+            /**
+             * 2016/9/19 关闭首单免费机制
+             * 2017/2/7 可控制免费机制
+             * */
+            SchoolConfigs sc = userService.getSchoolConfBySchoolId(user.getSchoolId());
+            if(sc.isFirstDiscount())
+                cost = FirstDiscount(user, express_phone, sendto_phone, cost);
 
-        /**
-         * 2016/9/19 关闭首单免费机制
-         * 2017/2/7 可控制免费机制
-         * */
-        SchoolConfigs sc = userService.getSchoolConfBySchoolId(user.getSchoolId());
-        if(sc.isFirstDiscount())
-            cost = FirstDiscount(user, express_phone, sendto_phone, cost);
-
-        /**
-         * 2016/9/30 满十减一
-         * 2017/2/7 可控制满十减一
-         * */
-        if(sc.isIfTenThenFree())
-            cost = IF10THENFREE(user, cost, session);
+            /**
+             * 2016/9/30 满十减一
+             * 2017/2/7 可控制满十减一
+             * */
+            if(sc.isIfTenThenFree())
+                cost = IF10THENFREE(user, cost, session);
+        }
+        /** 20170224 免单检测 end*/
 
         String orderKey = MD5.encryption(System.currentTimeMillis() + user.getId() + user.getPhone());
 
@@ -399,13 +411,20 @@ public class ExpressController {
                 user.getSchoolId()
         );
 
-        userService.sava(order);
-        map.put("order", order);
-        /**
-         * 当前订单放置在session中
-         * */
-        session.setAttribute("cur_order", order);
-        return "user/ready_topay";
+        if(free_this){
+            order.setHas_pay(true);
+            noticeService.paySuccess("免单券支付成功","0元","该订单由免单券支付","小骨头订单",user.getOpen_id(),"");
+            userService.sava(order);
+            return "redirect:my_orders.do";
+        }else{
+            userService.sava(order);
+            map.put("order", order);
+            /**
+             * 当前订单放置在session中
+             * */
+            session.setAttribute("cur_order", order);
+            return "user/ready_topay";
+        }
     }
 
     /**

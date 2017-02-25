@@ -210,21 +210,9 @@ public class ManagerService {
         return managerDao.listAllSchool();
     }
 
-    public ArrayList<Manager> lisSchoolManagers(int sid) {
-        ArrayList<Manager> all = (ArrayList<Manager>) listAllManagers();
-        ArrayList<SchoolDist> sl = listSchoolDist(sid);
-
-        ArrayList<Integer>indexs = new ArrayList<Integer>();
-        for (int i = 0; i < sl.size(); i++) {
-            indexs.add(sl.get(i).getManagerId());
-        }
-        for (int i = 0; i < all.size(); i++) {
-            if(indexs.contains(all.get(i).getId()))
-                all.get(i).setTmp_tag(true);
-            else
-                all.get(i).setTmp_tag(false);
-        }
-        return all;
+    public ArrayList<Manager> listSchoolManagers(int sid) {
+        ArrayList<Manager> all = managerDao.listSchoolManagers(sid);
+        return all == null?new ArrayList<Manager>():all;
     }
 
     private ArrayList<SchoolDist> listSchoolDist(int sid) {
@@ -584,5 +572,25 @@ public class ManagerService {
 
     public Long getMyIncomeSum(int managerId) {
         return managerDao.getMyIncomeSum(managerId);
+    }
+
+    /**
+     * 拉取所有用户，如果是sid学校的管理员，则做标记
+     * */
+    public ArrayList<Manager> listAllManagersAndMarkThisSchool(int sid) {
+        ArrayList<Manager> all = (ArrayList<Manager>) listAllManagers();
+        ArrayList<SchoolDist> sl = listSchoolDist(sid);
+
+        ArrayList<Integer>indexs = new ArrayList<Integer>();
+        for (int i = 0; i < sl.size(); i++) {
+            indexs.add(sl.get(i).getManagerId());
+        }
+        for (int i = 0; i < all.size(); i++) {
+            if(indexs.contains(all.get(i).getId()))
+                all.get(i).setTmp_tag(true);
+            else
+                all.get(i).setTmp_tag(false);
+        }
+        return all;
     }
 }

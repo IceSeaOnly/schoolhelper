@@ -1,8 +1,6 @@
 package Controllers.User;
 
-import Entity.AdGroup;
-import Entity.Express;
-import Entity.SendPart;
+import Entity.*;
 import Entity.User.User;
 import Service.UserService;
 import Utils.MailSendThread;
@@ -41,25 +39,40 @@ public class Index {
         return "user/computer_help";
     }
 
-    @RequestMapping("take_computer_help_order")
-    public String take_computer_help_order(
-            @RequestParam String name,
-            @RequestParam String qq,
-            @RequestParam String helpwhat,
-            @RequestParam String time,
-            HttpSession session
-    ){
-        User user = (User) session.getAttribute("user");
-        ArrayList<SendPart> parts = userService.listAllParts(user.getSchoolId());
 
-        String title = "电脑服务订单";
-        String content = "提交时间:"+new Date(System.currentTimeMillis())+"<br>姓名:"+name+"<br>QQ:"+qq
-                +"<br>问题描述："+helpwhat+"<br>期望被联系时间："+time
-                +"<br>-------------------------<br>"+"下单微信信息：<br>OpenId:"+user.getOpen_id()+"<br>姓名："+user.getUsername()
-                +"<br>手机号："+user.getPhone()+"<br>"
-                +getSendPart(user.getPart(),parts,user.getSchoolId()).getPartName()+" "+user.getBuilding()+"<br>";
-        String sendTo = "17854258196@139.com";
-        new MailSendThread(sendTo,title,content).start();
-        return "/user/computer_help_ordered";
+
+    /**
+     * 免单活动通用处理机制
+     * */
+    @RequestMapping("free_activity")
+    public String free_activity(@RequestParam int gid, ModelMap map,HttpSession session){
+        map.put("is_url",false);
+        User u = (User) session.getAttribute("user");
+        Gift gift = userService.getGiftById(gid);
+
+        if(gift == null){
+            map.put("result",false);
+            map.put("notice","非法参数");
+        }
+
+        if(gift.getSum() > 0){
+            boolean exist = userService.giftExist(gid,u.getId());
+            if(!exist){
+                gift.setSum(gift.getSum()-1);
+                userService.update(gift); //名额建减一
+                userService.sava(new GiftRecord(u.getId(),gid,u.getUsername(),u.getOpen_id()));//写入领取记录
+                u.setFreeSum(u.getFreeSum()+1);//免单加1
+                userService.update(u);
+                map.put("result",true);
+                map.put("notice","领取成功，快去下单吧！");
+            }else{
+                map.put("result",true);
+                map.put("notice","您已经领取过了，快去下单吧！");
+            }
+        }else{
+            map.put("result",false);
+            map.put("notice","来晚一步，活动名额已经没啦！");
+        }
+        return "user/common_result";
     }
 }

@@ -22,7 +22,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -428,7 +427,7 @@ public class Business {
             return permissionDeny(map);
         }
         map.put("sid", sid);
-        map.put("managers", managerService.lisSchoolManagers(sid));
+        map.put("managers", managerService.listAllManagersAndMarkThisSchool(sid));
         map.put("managerId", managerId);
         map.put("schoolName", managerService.getSchoolById(sid).getSchoolName());
         return "manager/glxxgly";
@@ -652,7 +651,7 @@ public class Business {
             map.put("managerId", managerId);
             map.put("schoolId", schoolId);
             map.put("schoolName", managerService.getSchoolById(schoolId).getSchoolName());
-            map.put("ms", managerService.lisSchoolManagers(schoolId));
+            map.put("ms", managerService.listSchoolManagers(schoolId));
             map.put("config", userService.getSchoolConfBySchoolId(schoolId));
             map.put("vips", userService.getAllVipMeals(schoolId));
             map.put("parts", userService.listAllParts(schoolId));

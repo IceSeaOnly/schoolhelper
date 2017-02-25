@@ -774,4 +774,13 @@ public class ManagerDao{
         session.close();
         return sum;
     }
+
+    public ArrayList<Manager> listSchoolManagers(int sid) {
+        Session session = sessionFactory.openSession();
+        ArrayList<Manager>rs= (ArrayList<Manager>) session.createQuery("from Manager where id in (select managerId from SchoolDist where schoolId = :S)")
+                .setParameter("S",sid)
+                .list();
+        session.close();
+        return rs;
+    }
 }

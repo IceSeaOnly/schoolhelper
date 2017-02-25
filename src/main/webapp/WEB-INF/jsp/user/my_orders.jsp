@@ -220,8 +220,28 @@
             <!--已完成-->
             <div class="order_box">
                 <c:forEach items="${orders}" var="order">
-                    <c:if test="${order.order_state == -1 || order.order_state == 3}">
+                    <c:if test="${order.order_state == 3}">
                         <div class="order" onClick="document.location='/user/see_order_detail.do?id=${order.id}';">
+                            <div class="border_top"></div>
+                            <div class="order_title">${order.express} ${order.express_number} ${order.express_name} ${order.express_phone}</div>
+                            <div class="order_text">
+                                <div class="border_top"></div>
+                                <h1>下单时间：${order.orderTime}</h1>
+                                <h2>${order.sendTo} ${order.receive_name} ${order.receive_phone}</h2>
+                                <p>￥${order.shouldPay/100.0}</p>
+                                <div class="border_bottom"></div>
+                            </div>
+                            <c:if test="${order.order_state == -1}">
+                                <div class="cancel">已取消</div>
+                            </c:if>
+                            <c:if test="${order.order_state == 3}">
+                                <div class="cancel" style="border:1px solid #01aff0; color:#01aff0;">已完成</div>
+                            </c:if>
+                            <div class="border_bottom"></div>
+                        </div>
+                    </c:if>
+                    <c:if test="${order.order_state == -1">
+                        <div class="order">
                             <div class="border_top"></div>
                             <div class="order_title">${order.express} ${order.express_number} ${order.express_name} ${order.express_phone}</div>
                             <div class="order_text">

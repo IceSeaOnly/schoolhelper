@@ -222,7 +222,7 @@ function validate_form() {
 				<label >附加备注</label> <input type="text" 
 					name="otherinfo" placeholder="附加备注，勿超过20字">
 			</div>
-			<a href="javascript:this.form.submit();"><button>马上下单</button></a>
+			<a href="javascript:this.form.submit();"><button>${user.freeSum>0?"使用免单券下单":"马上下单"}</button></a>
 		</form>
 	</div>
 

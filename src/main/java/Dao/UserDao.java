@@ -33,7 +33,7 @@ public class UserDao {
         Session session = sessionFactory.openSession();
         User user = new User(openid);
         session.beginTransaction();
-        session.save(user);
+        user = (User) session.merge(user);
         session.getTransaction().commit();
         session.close();
         return user;
@@ -262,5 +262,24 @@ public class UserDao {
         User u = (User) session.get(User.class,user_id);
         session.close();
         return u;
+    }
+
+    public Gift getGiftById(int gid) {
+        Session session  = sessionFactory.openSession();
+        Gift gift = (Gift) session.createQuery("from Gift where id = :G")
+                .setParameter("G",gid)
+                .uniqueResult();
+        session.close();
+        return gift;
+    }
+
+    public boolean giftExist(int gid, int uid) {
+        Session session = sessionFactory.openSession();
+        Long sum = (Long) session.createQuery("select coalesce(count(*),0) from GiftRecord where gid = :G and uid = :U")
+                .setParameter("G",gid)
+                .setParameter("U",uid)
+                .uniqueResult();
+        session.close();
+        return sum>0;
     }
 }

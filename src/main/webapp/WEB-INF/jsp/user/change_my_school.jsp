@@ -54,7 +54,7 @@
 
     <div
             style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-        <p>青岛小骨头·版权所有·V4.0</p>
+        <p>青岛小骨头·版权所有·V5.0</p>
         <p>
             <a href="http://www.binghai.site" target="_blank">Powered by 冰海</a>
         </p>

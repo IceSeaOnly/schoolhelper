@@ -29,6 +29,7 @@ public class test_open_id {
 
     public static void main(String[] args) {
         String openid = "oz1S1v_7W7O1t-KxfdFK5Sk6eJVs";
+
         new NoticeService()
                 .chargeSuccess("小骨头赠款到账",
                         "6604",

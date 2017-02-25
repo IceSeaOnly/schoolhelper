@@ -205,4 +205,12 @@ public class UserService {
     public User getUserById(int user_id) {
         return userDao.getUserById(user_id);
     }
+
+    public Gift getGiftById(int gid) {
+        return userDao.getGiftById(gid);
+    }
+
+    public boolean giftExist(int gid, int uid) {
+        return userDao.giftExist(gid,uid);
+    }
 }

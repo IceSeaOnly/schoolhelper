@@ -60,6 +60,8 @@
                 <value>Entity.Express</value>
                 <value>Entity.SysConfigs</value>
                 <value>Entity.SysMsg</value>
+                <value>Entity.Gift</value>
+                <value>Entity.GiftRecord</value>
                 <value>Entity.School</value>
                 <value>Entity.SendTime</value>
                 <value>Entity.SendExpress</value>
