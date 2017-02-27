@@ -11,17 +11,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f61553a9-0e16-4d1e-a6a1-00c903410e29" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-20-47-124.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-20-58-380.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-21-08-724.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-21-20-767.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-21-54-863.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-22-20-684.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-22-35-362.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-22-56-249.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-23-06-999.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-23-33-697.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-23-39-391.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-23-47-335.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-23-50-433.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-24-10-602.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-24-16-715.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-24-24-592.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-24-38-129.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-25-07-691.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-25-21-547.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-25-36-568.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-25-58-465.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-26-07-596.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-26-11-990.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-26-29-630.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-24-18-27-03-866.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-26-11-20-52-667.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-26-11-20-59-697.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-26-11-23-53-752.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-26-11-24-18-405.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/Screenshot_2017-02-26-11-24-34-991.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/githubScreenshot_2017-02-24-18-31-45-583.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/githubScreenshot_2017-02-24-18-31-51-699.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/githubScreenshot_2017-02-24-18-32-04-252.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img_github/githubScreenshot_2017-02-24-18-32-11-672.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Ajax.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" afterPath="$PROJECT_DIR$/src/main/java/Dao/ManagerDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Entity/Manager/PayLog.java" afterPath="$PROJECT_DIR$/src/main/java/Entity/Manager/PayLog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" afterPath="$PROJECT_DIR$/src/main/java/Service/ManagerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Utils/UserValidate.java" afterPath="$PROJECT_DIR$/src/main/java/Utils/UserValidate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/my_incomes.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/my_incomes.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/help_express.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/help_express.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/member_center.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/member_center.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/my_orders.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/my_orders.jsp" />
     </list>
     <ignored path="schoolhelper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -193,6 +217,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -227,9 +253,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1016,14 +1040,8 @@
       <workItem from="1487930576474" duration="844000" />
       <workItem from="1487933990756" duration="7330000" />
       <workItem from="1488073384361" duration="1194000" />
-      <workItem from="1488191997595" duration="3384000" />
-    </task>
-    <task id="LOCAL-00022" summary="svn转git&#10;增加若干微信api调用&#10;增加微信客户端使用客服系统">
-      <created>1485791647225</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1485791647225</updated>
+      <workItem from="1488191997595" duration="3508000" />
+      <workItem from="1488203331920" duration="37000" />
     </task>
     <task id="LOCAL-00023" summary="完善与客服系统的对接 修复若干bug&#10;完善与app对接，修复若干bug">
       <created>1485858863817</created>
@@ -1361,7 +1379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487995319231</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="修复支付工资异常">
+      <created>1488197833379</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1488197833429</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1397,7 +1422,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="662904000" />
+    <option name="totallyTimeSpent" value="663065000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1410,11 +1435,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.4969697" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251634" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1427,7 +1451,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22803031" sideWeight="0.4869281" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22803031" sideWeight="0.4869281" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2128788" sideWeight="0.5130719" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1439,6 +1463,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44117647" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251634" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50653595" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1456,7 +1481,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="系统设置增加配送时段设置 更新部分逻辑 系统设置的bug修复" />
     <MESSAGE value="修复bug 联合测试 支付、退款bug修复" />
     <MESSAGE value="订单导出" />
     <MESSAGE value="修复、优化订单导出多个环节" />
@@ -1481,7 +1505,8 @@
     <MESSAGE value="bug修复" />
     <MESSAGE value="收入bug修复" />
     <MESSAGE value="免单功能 列出校园管理员功能修复" />
-    <option name="LAST_COMMIT_MESSAGE" value="免单功能 列出校园管理员功能修复" />
+    <MESSAGE value="修复支付工资异常" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复支付工资异常" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1512,7 +1537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1111">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1520,10 +1544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-          <folding>
-            <element signature="e#613#614#0" expanded="false" />
-            <element signature="e#666#667#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1531,7 +1551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
           <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1561,9 +1580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1623,7 +1639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="443">
           <caret line="117" column="66" selection-start-line="117" selection-start-column="66" selection-end-line="117" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1653,7 +1668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
           <caret line="266" column="4" selection-start-line="266" selection-start-column="4" selection-end-line="266" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1661,20 +1675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#416#417#0" expanded="false" />
-            <element signature="e#449#450#0" expanded="false" />
-            <element signature="e#477#478#0" expanded="false" />
-            <element signature="e#508#509#0" expanded="false" />
-            <element signature="e#535#536#0" expanded="false" />
-            <element signature="e#575#576#0" expanded="false" />
-            <element signature="e#607#608#0" expanded="false" />
-            <element signature="e#634#635#0" expanded="false" />
-            <element signature="e#660#661#0" expanded="false" />
-            <element signature="e#695#696#0" expanded="false" />
-            <element signature="e#725#726#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1689,7 +1689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
           <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1697,7 +1696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1705,7 +1703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="243" column="42" selection-start-line="243" selection-start-column="42" selection-end-line="243" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1713,10 +1710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-          <folding>
-            <element signature="e#613#614#0" expanded="false" />
-            <element signature="e#666#667#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1738,9 +1731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="75" column="33" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1748,7 +1738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="55" column="61" selection-start-line="55" selection-start-column="61" selection-end-line="55" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1756,7 +1745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
           <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1764,7 +1752,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1772,7 +1759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
           <caret line="26" column="34" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1780,7 +1766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
           <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1788,7 +1773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="683">
           <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1796,7 +1780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="27" column="23" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1804,7 +1787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1812,7 +1794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1820,7 +1801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="85" column="24" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1828,10 +1808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
-          <folding>
-            <element signature="e#333#334#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1839,7 +1815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="26" column="65" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1847,7 +1822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2560">
           <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1863,7 +1837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="192" column="5" selection-start-line="192" selection-start-column="5" selection-end-line="192" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1879,11 +1852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
           <caret line="597" column="39" selection-start-line="597" selection-start-column="39" selection-end-line="597" selection-end-column="39" />
-          <folding>
-            <element signature="e#19466#19475#0" expanded="true" />
-            <element signature="e#19877#19878#0" expanded="true" />
-            <element signature="e#19938#19939#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1891,7 +1859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="126" column="27" selection-start-line="126" selection-start-column="27" selection-end-line="126" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1899,7 +1866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
           <caret line="220" column="24" selection-start-line="220" selection-start-column="24" selection-end-line="220" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1907,7 +1873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
