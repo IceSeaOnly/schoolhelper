@@ -42,10 +42,10 @@ public class test_open_id {
     }
     @Test
     public void md5(){
-        File file = new File("F:\\ideaWorkstation\\schoolhelper\\img_github");
+        File file = new File("F:\\ideaWorkstation\\schoolhelper\\img_github\\JPEG");
         String[] dir = file.list();
         for (int i = 0; i < dir.length; i++) {
-            System.out.println("![](https://github.com/IceSeaOnly/schoolhelper/blob/master/img_github/"+dir[i]+")");
+            System.out.println("![](https://github.com/IceSeaOnly/schoolhelper/blob/master/img_github/JPEG/"+dir[i]+")");
         }
 
     }
