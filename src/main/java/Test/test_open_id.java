@@ -7,6 +7,7 @@ import Utils.TimeFormat;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.Scanner;
 
 /**
@@ -41,7 +42,11 @@ public class test_open_id {
     }
     @Test
     public void md5(){
-        String wd = "bone_client_web://123456";
-        System.out.println(MD5.encryption(String.valueOf(11486303952995L)+100+"5wNA7Hxzz3hJJjhaqGJ0"));
+        File file = new File("F:\\ideaWorkstation\\schoolhelper\\img_github");
+        String[] dir = file.list();
+        for (int i = 0; i < dir.length; i++) {
+            System.out.println("![](https://github.com/IceSeaOnly/schoolhelper/blob/master/img_github/"+dir[i]+")");
+        }
+
     }
 }
