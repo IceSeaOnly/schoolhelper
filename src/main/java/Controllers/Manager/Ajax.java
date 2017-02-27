@@ -208,23 +208,23 @@ public class Ajax {
             p.makePass(pass);
             // 发起支付
             String res = HttpUtils.sendPost(url,"passwd="+p.getPasswd()+"&orderid="+p.getTradeNo()+"&amount="+p.getAmount()+"&openid="+p.getOpenId()+"&desc="+p.getPdesc());
-            if(res.equals("result_code:SUCCESS")){
-                // 支付成功，标记
-                p.setHasPay(true);
-                managerService.update(p);
-                rs.put("result","支付成功");
-                managerService.log(managerId,11,"成功支付工资订单"+orderId);
-                return rs.toJSONString();
-            }else{
+            managerService.log(managerId,11,"支付返回信息:"+res);
+            if(res.contains("FAIL")){
                 // 支付失败，更换支付单号
                 p.reMakeTradeNo();
                 managerService.update(p);
                 rs.put("result",res);
                 managerService.log(managerId,11,"工资订单"+orderId+"支付失败，"+res);
                 return rs.toJSONString();
+            }else if(res.contains("SUCCESS")){
+                // 支付成功，标记
+                p.setHasPay(true);
+                managerService.update(p);
+                rs.put("result","支付成功");
+                managerService.log(managerId,11,"成功支付工资订单"+orderId);
+                return rs.toJSONString();
             }
         }
-
         rs.put("result","财务服务器出了一点问题...请稍后重试");
         return rs.toJSONString();
     }

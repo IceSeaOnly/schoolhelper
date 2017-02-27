@@ -77,7 +77,7 @@
         </a>
     </li>
     <li>
-        <a href="tel:123456">
+        <a href="tel:${sconfig.servicePhone}">
             <img src="../20161224_images/i5.png"/>
             <span>呼叫客服</span>
             <i class="am-icon-angle-right"></i>

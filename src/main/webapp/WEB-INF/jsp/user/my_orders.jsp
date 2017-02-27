@@ -240,7 +240,7 @@
                             <div class="border_bottom"></div>
                         </div>
                     </c:if>
-                    <c:if test="${order.order_state == -1">
+                    <c:if test="${order.order_state == -1}">
                         <div class="order">
                             <div class="border_top"></div>
                             <div class="order_title">${order.express} ${order.express_number} ${order.express_name} ${order.express_phone}</div>

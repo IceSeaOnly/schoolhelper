@@ -97,7 +97,6 @@ function validate_form() {
     var ex = document.myform.express.value;
     var sms_ = document.myform.sms.value;
     var otherinfo_ = document.myform.otherinfo.value;
-    var time_validate_ = document.myform.time_validate;
 	var part_ = document.myform.part.value;
 	var bd = document.myform.building.value;
 	var sid = document.myform.sendtime_id.value;
@@ -111,11 +110,11 @@ function validate_form() {
 		return false;
 	}
 
-    if ( sms_ == "") {
+    if (sms_ == "") {
         alert("别着急，你还没填好呢！");
         return false;
     }
-	if(sms.length>7){
+	if(sms_.length>7){
 		alert("快递编号是短信中取件序号哦，请检查输入！");
 		return false;
 	}
@@ -124,25 +123,16 @@ function validate_form() {
         return false;
     }
     if (ex < 0) {
-            alert("哎呀,这家快递需要在12点前下单哦！现在不可以啦！");
-            return false;
+        alert("哎呀,这家快递需要在12点前下单哦！现在不可以啦！");
+		return false;
     }
 
-    if (ex == '错误选择') {
+    if (ex > 999) {
         alert("别着急！你还没有选择快递呢！");
         return false;
     }
 	
-	if(bd.length > 2){
-		alert("宿舍楼号限2位，如:B10请填写10");
-		return false;
-	}
 
-    var timestamp = Date.parse(new Date());
-    if(timestamp - time_validate_ > 300000){
-        alert("这个页面太久没有活动了，信息可能不准确了呢，请刷新一下再重新下单！")
-        return false;
-    }
     return true;
 }
 
@@ -158,7 +148,7 @@ function validate_form() {
               onsubmit="return validate_form();">
 			<div class="input-group">
 				<label>快递名称</label> <select  name="express">
-					<option value="错误选择">请选择</option>
+					<option value="9999">请选择</option>
 					<c:forEach items="${expresses}" var="express">
                             <option value="${express.id}">${express.expressName}</option>
                         </c:forEach>

@@ -593,4 +593,8 @@ public class ManagerService {
         }
         return all;
     }
+
+    public Long getWaitIncomeSum(int managerId) {
+        return managerDao.getWaitIncomeSum(managerId);
+    }
 }

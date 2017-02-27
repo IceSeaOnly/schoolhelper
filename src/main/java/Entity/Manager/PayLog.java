@@ -123,7 +123,9 @@ public class PayLog {
 
     public void setHasPay(boolean hasPay) {
         this.hasPay = hasPay;
-        if(hasPay) payTime = System.currentTimeMillis();
+        if(hasPay){
+            completeTime = payTime = System.currentTimeMillis();
+        }
     }
 
     public int getMid() {

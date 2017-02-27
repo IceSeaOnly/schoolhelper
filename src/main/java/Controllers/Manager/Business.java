@@ -622,6 +622,7 @@ public class Business {
         List<ChargingSystem> ins = managerService.listMyIncomes(managerId);
         map.put("ins", ins);
         map.put("ins_sum", managerService.getMyIncomeSum(managerId));
+        map.put("ins_wait",managerService.getWaitIncomeSum(managerId));
         return "manager/my_incomes";
     }
 

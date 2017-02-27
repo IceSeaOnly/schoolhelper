@@ -35,7 +35,8 @@
                 </div>
             </c:if>
             <div class="row" align="center">
-                <span style="color:Crimson">我的总收入:￥${ins_sum/100}</span>
+                <p><span style="color:Crimson">我的总收入:￥${ins_sum/100}</span></p>
+                <p><span style="color:green">待结算:￥${ins_wait/100}</span></p>
             </div>
             <div class="list-block media-list">
                 <ul>
