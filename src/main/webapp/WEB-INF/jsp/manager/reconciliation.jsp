@@ -32,13 +32,15 @@
             <div class="content-padded">
                 <p>总支出:￥${outSum/100}</p>
                 <p>今日支出:￥${todayOutSum/100}</p>
+                <p><span style="color: green">■ 取件数</span></p>
+                <p><span style="color: red">■ 配送数</span></p>
             </div>
             <div class="list-block">
                 <ul>
                     <c:forEach items="${payLogs}" var="log">
                     <li class="item-content">
                         <div class="item-inner">
-                            <div class="item-title">${log.mName}</div>
+                            <div class="item-title">${log.mName} <span style="color: green">${log.pdesc}</span> <span style="color: red">${log.passwd}</span></div>
                             <div class="item-after">￥${log.amount/100}</div>
                         </div>
                     </li>

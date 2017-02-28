@@ -293,11 +293,15 @@ public class ManagerService {
     }
     /**
      * 赏取件费
+     * 返回值为true的时候，表示此单可以分红
+     * 返回值为false的时候，表示此单已经分红过，有旧的取件费作废
      * */
     @Resource
     UserDao userDao;
-    public void rewardFetchOrder(int schoolId, int managerId,int orderId) {
+    public boolean rewardFetchOrder(int schoolId, int managerId,int orderId) {
         SchoolConfigs conf = userDao.getSchoolConfBySchoolId(schoolId);
+        int eff = managerDao.clearReward(managerId,orderId,ChargingSystem.Qtype);
+        log(managerId,11,orderId+"订单重复的取件费已经删除，共"+eff+"条");
         if(conf != null){
             userDao.save(new ChargingSystem(
                     managerId,
@@ -306,6 +310,7 @@ public class ManagerService {
                     ChargingSystem.Qtype,
                     "取件工资"));
         }
+        return eff == 0;
     }
     /**
      * 赏配送费
@@ -313,6 +318,8 @@ public class ManagerService {
     public void rewardSendOrder(int managerId, int schoolId, int orderId) {
         SchoolConfigs conf = userDao.getSchoolConfBySchoolId(schoolId);
         ExpressOrder e = userDao.getExpressOrderById(orderId);
+        int eff = managerDao.clearReward(managerId,orderId,ChargingSystem.Stype);
+        log(managerId,11,orderId+"订单重复的配送费已经删除，共"+eff+"条");
         if(e != null && !e.isLLJJ() && conf != null){
             userDao.save(new ChargingSystem(
                     managerId,
@@ -521,9 +528,25 @@ public class ManagerService {
         for (int i = 0; i < logs.size(); i++) {
             logs.get(i).setmName(getNameFromList(ms,logs.get(i).getMid()));
         }
+        // 借用 pdesc,passwd设置取件数、配送数
+        for (int i = 0; i < logs.size(); i++) {
+            logs.get(i).setPdesc(getTodayWordIndex(logs.get(i).getMid(),ChargingSystem.Qtype,date));
+            logs.get(i).setPasswd(getTodayWordIndex(logs.get(i).getMid(),ChargingSystem.Stype,date));
+        }
         return logs;
     }
 
+    /**
+     * 获取某个工作人员今天的工作指标，stype为ChargingSystem中的5个指标之一
+     * */
+    private String getTodayWordIndex(int mid, int stype, Long date) {
+        Long sum = managerDao.getTodayWordIndex(mid,stype,date);
+        return sum == null?"0":String.valueOf(sum);
+    }
+
+    /**
+     * 从管理员名单中找出id为mid的名字
+     * */
     private String getNameFromList(List<Manager> ms, int mid) {
         for (int i = 0; i < ms.size(); i++) {
             if(ms.get(i).getId() == mid)

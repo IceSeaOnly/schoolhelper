@@ -136,7 +136,7 @@ public class ManagerDao{
     public boolean managerFetchOrder(int managerId, int schoolId, int orderId, int reasonId, boolean res) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        int e = session.createQuery("update ExpressOrder set order_state = :ST,reason = :REAID where rider_id = :RID and schoolId = :SID and id = :OID")
+        int e = session.createQuery("update ExpressOrder set order_state = :ST,reason = :REAID where rider_id = :RID and schoolId = :SID and id = :OID and order_state != 2")
                 .setParameter("ST",res?ExpressOrder.GOT_EXPRESS_SENDING:ExpressOrder.ORDER_NOT_EXIST)
                 .setParameter("RID",managerId)
                 .setParameter("REAID",reasonId)
@@ -185,7 +185,7 @@ public class ManagerDao{
     public boolean updateExpressOrderResultReason(int managerId, int schoolId, int orderId, int status, int reasonId) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        int e = session.createQuery("update ExpressOrder set rider_id = :R, order_state = :ST,reason = :REA where id = :OID and schoolId = :SID")
+        int e = session.createQuery("update ExpressOrder set rider_id = :R, order_state = :ST,reason = :REA where id = :OID and schoolId = :SID and order_state != 3")
                 .setParameter("R",managerId)
                 .setParameter("ST",status)
                 .setParameter("REA",reasonId)
@@ -420,16 +420,17 @@ public class ManagerDao{
         return rs;
     }
 
-    public void clearReward(int omid, int orderId, int ttype) {
+    public int clearReward(int omid, int orderId, int ttype) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.createQuery("update ChargingSystem set valid = false where mid = :M and mtype  = :T and oid = :O")
+        int eff = session.createQuery("update ChargingSystem set valid = false where mid = :M and mtype  = :T and oid = :O")
                 .setParameter("M",omid)
                 .setParameter("T",ttype)
                 .setParameter("O",orderId)
                 .executeUpdate();
         session.getTransaction().commit();
         session.close();
+        return eff;
     }
 
     public List<ChargingSystem> listMyIncomes(int managerId) {
@@ -715,6 +716,9 @@ public class ManagerDao{
     }
 
 
+    /**
+     * 下载今天的对账单
+     * */
     public List<PayLog> getReconciliationList(Long date) {
         ArrayList<PayLog>logs = new ArrayList<PayLog>();
         Session session = sessionFactory.openSession();
@@ -788,6 +792,18 @@ public class ManagerDao{
         Session session = sessionFactory.openSession();
         Long sum = (Long) session.createQuery("select coalesce(sum(money),0) from ChargingSystem where mid = :M and valid = true and checked = false ")
                 .setParameter("M",managerId)
+                .uniqueResult();
+        session.close();
+        return sum;
+    }
+
+    public Long getTodayWordIndex(int mid, int stype, Long date) {
+        Session session = sessionFactory.openSession();
+        Long sum = (Long) session.createQuery("select coalesce(count (*),0) from ChargingSystem where  mid = :M and mtype = :MT and time between :S and :E")
+                .setParameter("S",date)
+                .setParameter("E",date+86400000)
+                .setParameter("M",mid)
+                .setParameter("MT",stype)
                 .uniqueResult();
         session.close();
         return sum;

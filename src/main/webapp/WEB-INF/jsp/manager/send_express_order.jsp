@@ -61,13 +61,13 @@
 
         function send_success(orderId) {
             if (tmp_orderid == orderId) {
+                $("#card" + orderId).hide();
                 $.get("/ajax/express_order_send_result.do?token=${Stoken}&managerId=${managerId}&schoolId=${schoolId}&orderId=" + orderId + "&result=true&reasonId=0", function (data, status) {
                     if (status == "success") {
                         if (data != "true")
-                            $.toast("操作失败", 1000);
+                            $.toast("操作失败，该订单已配送", 1000);
                         else{
                             $.toast("配送成功,辛苦了");
-                            $("#card" + orderId).hide();
                         }
                     } else {
                         $.toast("操作失败", 1000);
