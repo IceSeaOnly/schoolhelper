@@ -2,6 +2,7 @@ package Controllers.User;
 
 import Entity.*;
 import Entity.User.User;
+import Service.NoticeService;
 import Service.UserService;
 import Utils.MailSendThread;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ import static Utils.ExpressOrderHelper.getSendPart;
 @RequestMapping("user")
 public class Index {
 
+    @Resource
+    NoticeService noticeService;
     @Resource
     UserService userService;
 
@@ -66,13 +69,15 @@ public class Index {
                 userService.update(u);
                 map.put("result",true);
                 map.put("notice","领取成功，快去下单吧！");
+
+                noticeService.chargeSuccess("恭喜您在"+gift.getName()+"活动中获得一张免单券",""+u.getId(),"免单券1张","0","免单券","免单券领取成功，快去下单吧！",u.getOpen_id(),"");
             }else{
                 map.put("result",true);
                 map.put("notice","您已经领取过了，快去下单吧！");
             }
         }else{
             map.put("result",false);
-            map.put("notice","来晚一步，活动名额已经没啦！");
+            map.put("notice","来晚一步，今天的活动名额已经没啦！明天再来看看吧！");
         }
         return "user/common_result";
     }

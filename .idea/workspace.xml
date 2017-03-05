@@ -12,9 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f61553a9-0e16-4d1e-a6a1-00c903410e29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/User/Index.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/User/Index.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Entity/Gift.java" afterPath="$PROJECT_DIR$/src/main/java/Entity/Gift.java" />
     </list>
     <ignored path="schoolhelper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,21 +36,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Business.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Business.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="894">
-              <caret line="105" column="22" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
+            <state relative-caret-position="120">
+              <caret line="183" column="21" selection-start-line="183" selection-start-column="21" selection-end-line="183" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Index.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Index.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/Index.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="823">
-              <caret line="66" column="28" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
+            <state relative-caret-position="309">
+              <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -130,8 +128,8 @@
         <option value="$PROJECT_DIR$/src/main/java/Utils/UrlUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/Filter/UserFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/Gift.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controllers/User/Index.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controllers/User/Index.java" />
       </list>
     </option>
   </component>
@@ -320,7 +318,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Manager" />
+              <option name="myItemId" value="User" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1118,14 +1116,7 @@
       <workItem from="1488191997595" duration="3508000" />
       <workItem from="1488203331920" duration="1919000" />
       <workItem from="1488285318936" duration="8268000" />
-      <workItem from="1488715306951" duration="1326000" />
-    </task>
-    <task id="LOCAL-00028" summary="对接小骨头支付系统 企业转账直接结算工资">
-      <created>1486308402194</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1486308402194</updated>
+      <workItem from="1488715306951" duration="2333000" />
     </task>
     <task id="LOCAL-00029" summary="完成系统设置模块&#10;配置人员工资分配&#10;配置VIP充值方案&#10;配置系统多项内容">
       <created>1486480119105</created>
@@ -1463,7 +1454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488715964438</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="优先显示取件失败的订单">
+      <created>1488716660356</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1488716660356</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1499,7 +1497,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="674541000" />
+    <option name="totallyTimeSpent" value="675548000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1558,7 +1556,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="收入问题bug修复" />
     <MESSAGE value="用户体验优化 配送过滤条件优化 配送逻辑优化" />
     <MESSAGE value="日志分离改为分布式 业务逻辑bug修复" />
     <MESSAGE value="校园搬运 代寄订单系统完善 通知系统进一步优化" />
@@ -1583,7 +1580,8 @@
     <MESSAGE value="UPDATE说明图片" />
     <MESSAGE value="修复工资发放上的bug" />
     <MESSAGE value="回调url完整，bug修复" />
-    <option name="LAST_COMMIT_MESSAGE" value="回调url完整，bug修复" />
+    <MESSAGE value="优先显示取件失败的订单" />
+    <option name="LAST_COMMIT_MESSAGE" value="优先显示取件失败的订单" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1965,18 +1963,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/Index.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="823">
-          <caret line="66" column="28" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
+        <state relative-caret-position="120">
+          <caret line="183" column="21" selection-start-line="183" selection-start-column="21" selection-end-line="183" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/Index.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="894">
-          <caret line="105" column="22" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
+        <state relative-caret-position="309">
+          <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
           <folding />
         </state>
       </provider>
