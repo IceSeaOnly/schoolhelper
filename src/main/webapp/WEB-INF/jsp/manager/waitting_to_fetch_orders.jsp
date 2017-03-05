@@ -25,11 +25,9 @@
         function takeorder(orderId,reasonid,res){
             if(tmp_orderid == orderId){
                 $("#card" + orderId).hide();
-                $.showPreloader("正在通讯，请稍后...");
                 $.get("/ajax/fetch_order.do?token=${Stoken}&managerId=${managerId}&schoolId=${schoolId}&orderId="+orderId+"&reasonId="+reasonid+"&res="+res, function (data, status) {
                     if (status == "success") {
                         if(data == "true" && res == true){
-                            $.hidePreloader();
                             if($('#scan_conf').is(':checked') == true){
                                 $.toast("请上传快递条码", 1000);
                                 icesea.uploadCourierNumber(orderId);
@@ -37,12 +35,10 @@
                                 $.toast("辛苦了，谢谢", 1000);
                             }
                         }else if(data == "true" && res == false){
-                            $.hidePreloader();
                             $.toast("已记录", 1000);
                         }
 
                     } else {
-                        $.hidePreloader();
                         $.toast("操作失败", 1000);
                     }
                 });

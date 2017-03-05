@@ -1,5 +1,6 @@
 package Filter;
 
+import Utils.UrlUtil;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,7 +16,7 @@ public class UserFilter implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object o) throws Exception {
         HttpSession session = req.getSession();
         if(session.getAttribute("user") == null){
-            session.setAttribute("backUrl",req.getRequestURL().toString());
+            session.setAttribute("backUrl", UrlUtil.getFullUrl(req));
             resp.sendRedirect("/userlogin.do");
             return false;
         }
@@ -29,4 +30,6 @@ public class UserFilter implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
 
     }
+
+
 }

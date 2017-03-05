@@ -53,9 +53,7 @@ public class Index {
         if(gift == null){
             map.put("result",false);
             map.put("notice","非法参数");
-        }
-
-        if(gift.getSum() > 0){
+        }else if(gift.getSum() > 0){
             boolean exist = userService.giftExist(gid,u.getId());
             if(!exist){
                 gift.setSum(gift.getSum()-1);
