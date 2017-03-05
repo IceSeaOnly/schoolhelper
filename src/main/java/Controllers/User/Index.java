@@ -53,6 +53,9 @@ public class Index {
         if(gift == null){
             map.put("result",false);
             map.put("notice","非法参数");
+        }else if(gift.isOnlyNewCustomer() && u.getOrder_sum() != 0){
+            map.put("result",true);
+            map.put("notice","这个优惠仅限新用户哦~");
         }else if(gift.getSum() > 0){
             boolean exist = userService.giftExist(gid,u.getId());
             if(!exist){

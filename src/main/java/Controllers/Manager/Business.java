@@ -80,6 +80,7 @@ public class Business {
         int day = TimeFormat.getThisDay(TS);
         School school = managerService.getSchoolById(schoolId);
         ArrayList<ExpressOrder> orders = search == null ? managerService.commonOrderGet(-1, schoolId, -1, year, month, day, -1) : searchOrders(search, schoolId);
+        FetchFailFirst(orders);
         ArrayList<Reason> reasons = managerService.listAllReasons(Reason.SEND_ERR);
         map.put("reasons", reasons);
         map.put("orders", orders);
@@ -89,6 +90,22 @@ public class Business {
         map.put("yyyy_MM_dd", yyyy_MM_dd);
         map.put("max_date", TimeFormat.format2yyyy_MM_dd(System.currentTimeMillis()));
         return "manager/history_orders.do";
+    }
+
+    /**
+     * 优先显示取件失败的订单
+     * */
+    private void FetchFailFirst(ArrayList<ExpressOrder> orders) {
+        int len = orders.size();
+        int cur = 0;
+        for (int i = 0; i < len; i++) {
+            if(orders.get(i).getOrder_state() == ExpressOrder.ORDER_NOT_EXIST){
+                ExpressOrder t = orders.get(cur);
+                orders.set(cur,orders.get(i));
+                orders.set(i,t);
+                cur++;
+            }
+        }
     }
 
     /**

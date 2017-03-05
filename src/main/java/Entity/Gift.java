@@ -17,6 +17,7 @@ public class Gift {
     private int id;
     private String name;
     private int sum;
+    private boolean onlyNewCustomer;//仅限新用户
 
     public Gift() {
     }
@@ -43,5 +44,13 @@ public class Gift {
 
     public void setSum(int sum) {
         this.sum = sum;
+    }
+
+    public boolean isOnlyNewCustomer() {
+        return onlyNewCustomer;
+    }
+
+    public void setOnlyNewCustomer(boolean onlyNewCustomer) {
+        this.onlyNewCustomer = onlyNewCustomer;
     }
 }
