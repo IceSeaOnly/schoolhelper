@@ -69,9 +69,9 @@
 <!--banner广告-->
 <div class="banner_box swiper-container">
     <div id="banner" class="swiper-wrapper">
+		<div class="swiper-slide"><a href="http://weixin.qdxiaogutou.com/zcsm_ad.php"><img src="http://image.binghai.site/data/f_53534234.jpg"></a></div>
         <div class="swiper-slide"><a href="https://union-click.jd.com/jdc?d=67DO1O"><img src="http://image.binghai.site/data/f_96459925.jpg"></a></div>
         <div class="swiper-slide"><a href="https://weidian.com/item.html?itemID=1824023062&wfr=qfriend&ifr=itemdetail"><img src="http://image.binghai.site/data/f_82540228.jpg"></a></div>
-        <div class="swiper-slide"><a ><img src="http://image.binghai.site/data/f_39636923.jpg"></a></div>
     </div>
     <div class="swiper-pagination"></div>
 </div>

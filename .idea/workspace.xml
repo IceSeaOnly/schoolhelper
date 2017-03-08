@@ -11,8 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f61553a9-0e16-4d1e-a6a1-00c903410e29" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Entity/Manager/SalaryConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controllers/User/Index.java" afterPath="$PROJECT_DIR$/src/main/java/Controllers/User/Index.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user/index.jsp" />
     </list>
     <ignored path="schoolhelper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,22 +38,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Business.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java">
+      <file leaf-file-name="SalaryConfig.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/SalaryConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="183" column="21" selection-start-line="183" selection-start-column="21" selection-end-line="183" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Index.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/Index.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="340">
+              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#596#597#0" expanded="true" />
+                <element signature="e#621#622#0" expanded="true" />
+                <element signature="e#654#655#0" expanded="true" />
+                <element signature="e#682#683#0" expanded="true" />
+                <element signature="e#709#710#0" expanded="true" />
+                <element signature="e#735#736#0" expanded="true" />
+                <element signature="e#770#771#0" expanded="true" />
+                <element signature="e#800#801#0" expanded="true" />
+                <element signature="e#827#828#0" expanded="true" />
+                <element signature="e#853#854#0" expanded="true" />
+                <element signature="e#888#889#0" expanded="true" />
+                <element signature="e#918#919#0" expanded="true" />
+                <element signature="e#949#950#0" expanded="true" />
+                <element signature="e#976#977#0" expanded="true" />
+                <element signature="e#1016#1017#0" expanded="true" />
+                <element signature="e#1048#1049#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,7 +89,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/UpdateLog.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_send.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/lzjj_result.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
@@ -103,7 +112,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/manager/out_put_order.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/TimeFormat.java" />
         <option value="$PROJECT_DIR$/src/main/java/Service/NoticeService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Entity/GiftRecord.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Api.java" />
         <option value="$PROJECT_DIR$/src/main/java/Service/UserService.java" />
@@ -130,6 +138,8 @@
         <option value="$PROJECT_DIR$/src/main/java/Entity/Gift.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/Manager/Business.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/User/Index.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entity/Manager/SalaryConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
       </list>
     </option>
   </component>
@@ -194,6 +204,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -243,6 +254,54 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schoolhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -288,7 +347,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
+              <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -314,11 +373,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
+              <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="User" />
+              <option name="myItemId" value="Manager" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -326,7 +385,6 @@
       </pane>
       <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1116,14 +1174,8 @@
       <workItem from="1488191997595" duration="3508000" />
       <workItem from="1488203331920" duration="1919000" />
       <workItem from="1488285318936" duration="8268000" />
-      <workItem from="1488715306951" duration="2333000" />
-    </task>
-    <task id="LOCAL-00029" summary="完成系统设置模块&#10;配置人员工资分配&#10;配置VIP充值方案&#10;配置系统多项内容">
-      <created>1486480119105</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1486480119105</updated>
+      <workItem from="1488715306951" duration="2814000" />
+      <workItem from="1488977606631" duration="149000" />
     </task>
     <task id="LOCAL-00030" summary="可控制式优惠方式 bug未检测">
       <created>1486480376093</created>
@@ -1461,7 +1513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488716660356</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="免单券领取成功增加提醒">
+      <created>1488717690266</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1488717690266</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1497,7 +1556,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="675548000" />
+    <option name="totallyTimeSpent" value="676178000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1514,7 +1573,6 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.4969697" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251634" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1539,6 +1597,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44117647" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251634" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50653595" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1556,7 +1615,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="用户体验优化 配送过滤条件优化 配送逻辑优化" />
     <MESSAGE value="日志分离改为分布式 业务逻辑bug修复" />
     <MESSAGE value="校园搬运 代寄订单系统完善 通知系统进一步优化" />
     <MESSAGE value="多处bug修复" />
@@ -1581,7 +1639,8 @@
     <MESSAGE value="修复工资发放上的bug" />
     <MESSAGE value="回调url完整，bug修复" />
     <MESSAGE value="优先显示取件失败的订单" />
-    <option name="LAST_COMMIT_MESSAGE" value="优先显示取件失败的订单" />
+    <MESSAGE value="免单券领取成功增加提醒" />
+    <option name="LAST_COMMIT_MESSAGE" value="免单券领取成功增加提醒" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1594,18 +1653,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Safe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Express.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-206">
           <caret line="18" column="30" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1627,7 +1678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1642,14 +1692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="365" column="19" selection-start-line="365" selection-start-column="19" selection-end-line="365" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="63" column="40" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1790,7 +1832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-526">
           <caret line="74" column="25" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1826,7 +1867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
           <caret line="158" column="41" selection-start-line="158" selection-start-column="41" selection-end-line="158" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1834,7 +1874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1842,7 +1881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="24" column="25" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1865,7 +1903,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
           <caret line="121" column="9" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1873,9 +1910,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="67" column="48" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="48" />
-          <folding>
-            <marker date="1488290152425" expanded="true" signature="6209:6329" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1883,7 +1917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1891,7 +1924,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
           <caret line="113" column="43" selection-start-line="113" selection-start-column="43" selection-end-line="113" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1899,7 +1931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1557">
           <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1907,7 +1938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1915,7 +1945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1923,7 +1952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1931,7 +1959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1939,7 +1966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="18" column="67" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1947,7 +1973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="38" column="38" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1955,11 +1980,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="443">
           <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-          <folding>
-            <element signature="e#849#850#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="60" column="29" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1971,11 +1999,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controllers/User/Index.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+        <state relative-caret-position="340">
+          <caret line="50" column="50" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Manager/SalaryConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+            <element signature="e#770#771#0" expanded="true" />
+            <element signature="e#800#801#0" expanded="true" />
+            <element signature="e#827#828#0" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#888#889#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+            <element signature="e#949#950#0" expanded="true" />
+            <element signature="e#976#977#0" expanded="true" />
+            <element signature="e#1016#1017#0" expanded="true" />
+            <element signature="e#1048#1049#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
