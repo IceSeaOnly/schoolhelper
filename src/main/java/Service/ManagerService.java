@@ -620,4 +620,11 @@ public class ManagerService {
     public Long getWaitIncomeSum(int managerId) {
         return managerDao.getWaitIncomeSum(managerId);
     }
+
+    /**
+     * 订单转移
+     * */
+    public int dealTransferOrder(int managerId, int schoolId, int towho_select, Integer[] checked_orders) {
+        return managerDao.dealTransferOrder(managerId,schoolId,towho_select,checked_orders);
+    }
 }

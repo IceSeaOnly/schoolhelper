@@ -808,4 +808,20 @@ public class ManagerDao{
         session.close();
         return sum;
     }
+
+    public int dealTransferOrder(int managerId, int schoolId, int towho_select, Integer[] checked_orders) {
+        Manager m = getManagerById(towho_select);
+        if(m == null) return 0;
+
+        Session session = sessionFactory.openSession();
+        int eff = session.createQuery("update ExpressOrder set rider_id = :R,rider_name = :N where rider_id = :MID and schoolId = :S and order_state = 1 and id in :IDS")
+                .setParameter("R",m.getId())
+                .setParameter("N",m.getName())
+                .setParameter("MID",managerId)
+                .setParameter("S",schoolId)
+                .setParameterList("IDS",checked_orders)
+                .executeUpdate();
+        session.close();
+        return eff;
+    }
 }

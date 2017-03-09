@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>订单导出</title>
+    <title>转交今日任务</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,9 +22,13 @@
             });
         }
         function select_ok() {
-            $.confirm('即将导出订单信息，谨防泄露信息！一旦导出将不可撤销！确定导出？', function () {
+            var who = document.form_select.towho_select.value;
+            if(who == -1 || who == ${managerId}){
+                $.toast('请选择转交给谁');
+                $('#towho_select').trigger('click');
+            }else{
                 $("#form_select").submit();
-            });
+            }
         }
 
     </script>
@@ -37,15 +41,16 @@
         <header class="bar bar-nav">
             <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
             <a href="javascript:$('#set_picker').trigger('click');" class="icon icon-settings pull-right"></a>
-            <h1 class="title">订单导出</h1>
+            <h1 class="title">转交今日任务</h1>
         </header>
         <!-- 这里是页面内容区 begin-->
         <div class="content">
             <input name="set_picker" id="set_picker" type="hidden"/>
-            <form action="makeOutPutOrders.do" method="post" id="form_select" name="form_select">
+            <form action="dealTransferOrder.do" method="post" id="form_select" name="form_select">
                 <input name="managerId" value="${managerId}" type="hidden"/>
                 <input name="token" value="${Stoken}" type="hidden"/>
                 <input name="schoolId" value="${schoolId}" type="hidden"/>
+                <input name="towho_select" id="towho_select" value="-1" type="hidden"/>
                 <div class="list-block  media-list">
                     <ul>
                         <c:forEach items="${orders}" var="order">
@@ -102,12 +107,27 @@
   <h1 class="title">筛选快递</h1>\
   </header>',
         onClose:function(){
-                window.location.href='out_put_order.do?managerId=${managerId}&token=${Stoken}&schoolId=${schoolId}&only='+$("#set_picker").val();
+            window.location.href='transfer_order.do?managerId=${managerId}&token=${Stoken}&schoolId=${schoolId}&only='+$("#set_picker").val();
         },
         cols: [
             {
                 textAlign: 'center',
                 values: ['all'<c:forEach items="${expresses}" var="express">,'${express.expressName}'</c:forEach> ]
+            }
+        ]
+    });
+</script>
+<script>
+    $("#towho_select").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">选择转交人</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: [-1<c:forEach items="${friends}" var="friend">,${friend.id}</c:forEach>],
+                displayValues: [''<c:forEach items="${friends}" var="friend">,'${friend.name}'</c:forEach>]
             }
         ]
     });

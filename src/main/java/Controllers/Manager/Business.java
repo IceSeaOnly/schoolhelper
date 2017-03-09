@@ -383,10 +383,11 @@ public class Business {
      */
     @RequestMapping("privilege_manage_select")
     public String privilege_manage_select(@RequestParam int managerId,
+                                          @RequestParam int schoolId,
                                           ModelMap map) {
         if (!managerService.managerAccess2Privilege(managerId, "qxgl"))
             return permissionDeny(map);
-        List<Manager> ms = managerService.listAllManagers();
+        List<Manager> ms = managerService.listSchoolManagers(schoolId);
         map.put("managers", ms);
         map.put("managerId", managerId);
         return "manager/privilege_manage_select";
@@ -1108,5 +1109,54 @@ public class Business {
         map.put("todayOutSum", todayOutSum);
         map.put("payLogs", payLogs);
         return "manager/reconciliation";
+    }
+
+    /**
+     * 订单转移
+     * */
+    @RequestMapping("transfer_order")
+    public String transfer_order(@RequestParam int managerId,@RequestParam int schoolId,
+                                 String only,
+                                 ModelMap map){
+
+            ArrayList<ExpressOrder> orders =
+                    managerService.commonOrderGet(managerId, schoolId,
+                            -1,
+                            TimeFormat.getThisYear(null),
+                            TimeFormat.getThisMonth(null),
+                            TimeFormat.getThisDay(null), 1);
+
+            ArrayList<Express> expresses = userService.listAllExpresses(schoolId, true);
+            map.put("expresses", expresses);
+            // 筛选生效
+            map.put("orders", selectExrpess(orders,only));
+            map.put("friends",managerService.listSchoolManagers(schoolId));
+            map.put("schoolId", schoolId);
+            map.put("managerId", managerId);
+
+        return "manager/transfer_order";
+    }
+
+    /**
+     * 处理订单转移
+     * */
+    @RequestMapping("dealTransferOrder")
+    public String dealTransferOrder(@RequestParam int managerId,
+                                    @RequestParam int schoolId,
+                                    @RequestParam int towho_select,
+                                    @RequestParam Integer[] checked_orders,
+                                    ModelMap map){
+        if (checked_orders.length < 1) {
+            map.put("is_url", false);
+            map.put("result", false);
+            map.put("notice", "没有选择任何订单");
+            return "manager/common_result";
+        }
+        int eff = managerService.dealTransferOrder(managerId,schoolId,towho_select,checked_orders);
+        map.put("result", true);
+        map.put("is_url", false);
+        map.put("notice", "操作已完成,共"+eff+"单");
+        return "manager/common_result";
+
     }
 }
