@@ -69,7 +69,7 @@
             <c:forEach items="${orders}" var="order">
 
                 <div class="card" id="card${order.id}">
-                    <div class="card-header">${order.express} 【${order.express_number}】【${order.arrive}】</div>
+                    <div class="card-header"style="color: ${order.order_state<-1?"red":(order.order_state == -1?"black":(order.order_state<3?"orange":"green"))}">${order.express} 【${order.express_number}】【${order.arrive}】</div>
                     <div class="card-content">
                         <div class="card-content-inner">
                             用户姓名：${order.express_name}<br>
