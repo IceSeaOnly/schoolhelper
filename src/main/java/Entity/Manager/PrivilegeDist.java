@@ -18,6 +18,7 @@ public class PrivilegeDist {
     private int privilegeId;
 
 
+
     public PrivilegeDist(int managerId, int privilegeId) {
         this.managerId = managerId;
         this.privilegeId = privilegeId;
@@ -25,6 +26,7 @@ public class PrivilegeDist {
 
     public PrivilegeDist() {
     }
+
 
     public int getId() {
         return id;

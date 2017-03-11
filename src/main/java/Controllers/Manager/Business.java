@@ -47,9 +47,23 @@ public class Business {
     public String list_function(@RequestParam int managerId, HttpSession session) {
         managerService.listAllReasons(0);//初始化原因列表，防止nullpoint错误
         userService.listAllSchool();
+        Manager m = managerService.getManagerById(managerId);
         ArrayList<IndexItemEntity> fs = managerService.listMyFunctions(managerId);
+        fs = m.isCould_delete()?deleteSuperOnly(fs):fs;
         String nk = (String) session.getAttribute("Stoken");
         return SuccessAnswer.successWithObject(nk, fs);
+    }
+
+    /**
+     * 删除仅超管可见的项目
+     * */
+    private ArrayList<IndexItemEntity> deleteSuperOnly(ArrayList<IndexItemEntity> fs) {
+        ArrayList<IndexItemEntity> rs = new ArrayList<IndexItemEntity>();
+        for (int i = 0; i < fs.size(); i++) {
+            if(!fs.get(i).isSuper_only())
+                rs.add(fs.get(i));
+        }
+        return rs;
     }
 
     /**
@@ -390,6 +404,7 @@ public class Business {
         List<Manager> ms = managerService.listSchoolManagers(schoolId);
         map.put("managers", ms);
         map.put("managerId", managerId);
+        map.put("schoolId", schoolId);
         return "manager/privilege_manage_select";
     }
 
@@ -420,6 +435,8 @@ public class Business {
         return "manager/school_manage_select";
     }
 
+
+
     /**
      * 管理学校管理员--选择学校
      */
@@ -429,6 +446,7 @@ public class Business {
         if (!managerService.managerAccess2Privilege(managerId, "xxgl")) {
             return permissionDeny(map);
         }
+
         map.put("schools", managerService.lisAllSchool());
         map.put("managerId", managerId);
         return "manager/glxxgly_select";
@@ -500,18 +518,21 @@ public class Business {
      * 管理队伍
      */
     @RequestMapping("work_group")
-    public String work_group(@RequestParam int managerId,
+    public String work_group(
+            @RequestParam int managerId,
+            @RequestParam int schoolId,
                              ModelMap map) {
         if (!managerService.managerAccess2Privilege(managerId, "work_group")) {
             return permissionDeny(map);
         }
-        map.put("managers", managerService.listAllManagers());
+        map.put("managers", managerService.listSchoolManagers(schoolId));
         map.put("managerId", managerId);
+        map.put("schoolId", schoolId);
         return "manager/work_group";
     }
 
     @RequestMapping("manager_add")
-    public String manager_add(@RequestParam int managerId,
+    public String manager_add(@RequestParam int managerId, @RequestParam int schoolId,
                               @RequestParam String name,
                               @RequestParam String phone,
                               @RequestParam String wxpay,
@@ -540,10 +561,11 @@ public class Business {
         Manager m = (Manager) managerService.merge(
                 new Manager(name, phone, MD5.encryption("123456"), alipay, wxpay, openid, 0.0, pdesc, addr));
         managerService.save(new PrivilegeDist(m.getId(), 18));
+        managerService.save(new SchoolDist(schoolId,m.getId()));
         map.put("result", true);
-        map.put("notice", "添加成功,初始密码123456，请注意分配学校和权限，如需分红，请注意分配");
+        map.put("notice", "添加成功,初始密码123456，请注意分配权限，如需分红，请注意分配");
         map.put("is_url", true);
-        map.put("url", "school_manage_select.do?managerId=MANAGERID&token=TOKEN");
+        map.put("url", "privilege_manage_select.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID");
         return "manager/common_result";
     }
 

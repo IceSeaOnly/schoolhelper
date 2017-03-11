@@ -93,6 +93,7 @@
             <form action="manager_add.do" method="post" id="manager_form" name="manager_form">
                 <input name="token" value="${Stoken}" type="hidden"/>
                 <input name="managerId" value="${managerId}" type="hidden"/>
+                <input name="schoolId" value="${schoolId}" type="hidden"/>
                 <div class="list-block">
                     <ul>
                         <li>

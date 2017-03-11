@@ -49,4 +49,11 @@ public class test_open_id {
         }
 
     }
+
+    @Test
+    public void time(){
+        Long t = System.currentTimeMillis() - TimeFormat.getTimesWeekmorning();
+        //518400000
+        //462133987
+    }
 }

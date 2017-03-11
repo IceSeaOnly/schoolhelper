@@ -19,6 +19,7 @@ public class IndexItemEntity {
     private String function;
     private String functionUrl;
     private boolean tmp_status; // 用来表示页面的临时变量
+    private boolean super_only;//仅超管可用
 
     public IndexItemEntity(int id, String imageUrl, String name, String function, String functionUrl) {
         this.id = id;
@@ -29,6 +30,14 @@ public class IndexItemEntity {
     }
 
     public IndexItemEntity() {
+    }
+
+    public boolean isSuper_only() {
+        return super_only;
+    }
+
+    public void setSuper_only(boolean super_only) {
+        this.super_only = super_only;
     }
 
     public String getImageUrl() {
