@@ -1,6 +1,7 @@
 package Controllers.Manager;
 
 import Entity.*;
+import Entity.Manager.IndexItemEntity;
 import Entity.Manager.Manager;
 import Entity.Manager.PayLog;
 import Entity.Manager.Reason;
@@ -11,6 +12,7 @@ import Service.UserService;
 import Utils.FailedAnswer;
 import Utils.HttpUtils;
 import Utils.MD5;
+import Utils.SuccessAnswer;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2017/1/9.
@@ -513,5 +516,43 @@ public class Ajax {
         manager.setCs_notice(!manager.isCs_notice());
         managerService.update(manager);
         return manager.isCs_notice() ? "已开启接收工单通知" : "已关闭工单通知";
+    }
+
+    /**
+     * 管理员请求权限列表
+     */
+    @ResponseBody
+    @RequestMapping("list_function")
+    public String list_function(@RequestParam int managerId, HttpSession session) {
+        managerService.listAllReasons(0);//初始化原因列表，防止nullpoint错误
+        userService.listAllSchool();
+        Manager m = managerService.getManagerById(managerId);
+        ArrayList<IndexItemEntity> fs = managerService.listMyFunctions(managerId);
+        fs = m.isCould_delete()?deleteSuperOnly(fs):fs;
+        String nk = (String) session.getAttribute("Stoken");
+        return SuccessAnswer.successWithObject(nk, fs);
+    }
+
+    /**
+     * 删除仅超管可见的项目
+     * */
+    private ArrayList<IndexItemEntity> deleteSuperOnly(ArrayList<IndexItemEntity> fs) {
+        ArrayList<IndexItemEntity> rs = new ArrayList<IndexItemEntity>();
+        for (int i = 0; i < fs.size(); i++) {
+            if(!fs.get(i).isSuper_only())
+                rs.add(fs.get(i));
+        }
+        return rs;
+    }
+
+    /**
+     * 管理员请求所管辖的学校列表
+     */
+    @ResponseBody
+    @RequestMapping("list_school")
+    public String list_school(@RequestParam int managerId, HttpSession session) {
+        ArrayList<School> fs = managerService.listMySchool(managerId);
+        String nk = (String) session.getAttribute("Stoken");
+        return SuccessAnswer.successWithObject(nk, fs);
     }
 }

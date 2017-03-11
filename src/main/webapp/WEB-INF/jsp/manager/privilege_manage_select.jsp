@@ -24,7 +24,7 @@
         <!-- 你的html代码 -->
         <header class="bar bar-nav">
             <a href="javascript:icesea.finish()" class="icon icon-left pull-left"></a>
-            <a href="glxxgly.do?managerId=${managerId}&token=${Stoken}&sid=${schoolId}" class="icon icon-share pull-right"></a>
+            <a href="glxxgly.do?managerId=${managerId}&token=${Stoken}&sid=${schoolId}" class="icon icon-share pull-right external"></a>
             <h1 class="title">选择管理员</h1>
         </header>
         <!-- 这里是页面内容区 begin-->
@@ -38,7 +38,7 @@
                                 <a href="privilege_manage.do?managerId=${managerId}&token=${Stoken}&mid=${manager.id}" class="item-link item-content external">
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="$.alert('超管不可操作')" class="item-link item-content">
+                                    <a href="javascript:$.alert('超管不可操作')" class="item-link item-content">
                                 </c:otherwise>
                             </c:choose>
                                 <div class="item-inner">

@@ -39,43 +39,11 @@ public class Business {
     @Resource
     UserService userService;
 
-    /**
-     * 管理员请求权限列表
-     */
-    @ResponseBody
-    @RequestMapping("list_function")
-    public String list_function(@RequestParam int managerId, HttpSession session) {
-        managerService.listAllReasons(0);//初始化原因列表，防止nullpoint错误
-        userService.listAllSchool();
-        Manager m = managerService.getManagerById(managerId);
-        ArrayList<IndexItemEntity> fs = managerService.listMyFunctions(managerId);
-        fs = m.isCould_delete()?deleteSuperOnly(fs):fs;
-        String nk = (String) session.getAttribute("Stoken");
-        return SuccessAnswer.successWithObject(nk, fs);
-    }
 
-    /**
-     * 删除仅超管可见的项目
-     * */
-    private ArrayList<IndexItemEntity> deleteSuperOnly(ArrayList<IndexItemEntity> fs) {
-        ArrayList<IndexItemEntity> rs = new ArrayList<IndexItemEntity>();
-        for (int i = 0; i < fs.size(); i++) {
-            if(!fs.get(i).isSuper_only())
-                rs.add(fs.get(i));
-        }
-        return rs;
-    }
 
-    /**
-     * 管理员请求所管辖的学校列表
-     */
-    @ResponseBody
-    @RequestMapping("list_school")
-    public String list_school(@RequestParam int managerId, HttpSession session) {
-        ArrayList<School> fs = managerService.listMySchool(managerId);
-        String nk = (String) session.getAttribute("Stoken");
-        return SuccessAnswer.successWithObject(nk, fs);
-    }
+
+
+
 
 
     /**
