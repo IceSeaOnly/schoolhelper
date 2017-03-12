@@ -8,6 +8,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 
 import java.io.File;
+import java.util.Calendar;
 import java.util.Scanner;
 
 /**
@@ -52,8 +53,10 @@ public class test_open_id {
 
     @Test
     public void time(){
-        Long t = System.currentTimeMillis() - TimeFormat.getTimesWeekmorning();
-        //518400000
-        //462133987
+        Calendar cal = Calendar.getInstance();
+        System.out.println(cal.get(Calendar.DAY_OF_WEEK));
+        System.out.println(cal.get(Calendar.DAY_OF_MONTH));
+        System.out.println(cal.get(Calendar.DAY_OF_WEEK_IN_MONTH));
+        System.out.println(cal.get(Calendar.DAY_OF_YEAR));
     }
 }

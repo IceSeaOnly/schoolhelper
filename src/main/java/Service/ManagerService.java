@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -362,8 +363,8 @@ public class ManagerService {
 
 
     public ArrayList<PayLog> makePayLogs() {
-
-        if(System.currentTimeMillis() - TimeFormat.getTimesWeekmorning() > 518400000){
+        Calendar cal = Calendar.getInstance();
+        if(cal.get(Calendar.DAY_OF_WEEK) == 1){
             ArrayList<Manager>ms = (ArrayList<Manager>) managerDao.listAllManagers();
             for (int i = 0; i < ms.size(); i++) { //对所有管理员逐一统计
                 managerDao.payLog(ms.get(i).getId(),ms.get(i).getOpenId(),ms.get(i).getName());
