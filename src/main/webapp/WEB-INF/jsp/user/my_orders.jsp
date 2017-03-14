@@ -186,7 +186,7 @@
         <img src="../images/order-none.fw.png">
         <p>您暂时没有相关的订单</p>
         <a href="/user/help_express.do">
-            <button>下一单</button>
+            <button>点我下单</button>
         </a>
     </c:if>
     <c:if test="${fn:length(orders) != 0}">
@@ -271,7 +271,7 @@
     <div class="border_top"></div>
     <div class="nav_index chenge" onclick="document.location='/user/index.do';">
         <img src="../images/index_gray.png">
-        <h1>首页</h1>
+        <h1>下单</h1>
     </div>
     <div class="nav_order chenge" onclick="document.location='/user/my_orders.do';">
         <img src="../images/order_blue.png">

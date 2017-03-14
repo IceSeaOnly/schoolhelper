@@ -155,7 +155,7 @@
                             <div class="item-title label">扫码</div>
                             <div class="item-input">
                                 <label class="label-switch">
-                                    <input type="checkbox" id="scan_conf" name="scan_conf" checked="checked">
+                                    <input type="checkbox" id="scan_conf" name="scan_conf">
                                     <div class="checkbox"></div>
                                 </label>
                             </div>

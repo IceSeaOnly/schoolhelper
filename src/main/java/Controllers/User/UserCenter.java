@@ -115,7 +115,7 @@ public class UserCenter {
         user.setBuilding(building);
         user.setDormitory(dormitory);
         userService.update(user);
-        return "redirect:/user/user_center.do";
+        return "redirect:/user/index.do";
     }
     @RequestMapping("update_school")
     public String update_school(@RequestParam int school,

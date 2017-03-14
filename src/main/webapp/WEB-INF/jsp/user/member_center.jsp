@@ -92,7 +92,7 @@
         <li>
             <a href="/user/index.do">
                 <span class="am-icon-home"></span>
-                <span class="am-navbar-label">首页</span>
+                <span class="am-navbar-label">下单</span>
             </a>
         </li>
         <li>

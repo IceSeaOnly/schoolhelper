@@ -118,7 +118,7 @@
     <div class="border_top"></div>
     <div class="nav_index chenge" onclick="document.location='/user/index.do';">
         <img src="../images/index_blue.png">
-        <h1 style=" color:#01AFF0">首页</h1>
+        <h1 style=" color:#01AFF0">下单</h1>
     </div>
     <div class="nav_order chenge" onclick="document.location='/user/my_orders.do';" >
         <img src="../images/order_gray.png">
