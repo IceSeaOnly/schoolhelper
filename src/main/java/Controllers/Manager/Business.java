@@ -527,7 +527,7 @@ public class Business {
             return "manager/common_result";
         }
         Manager m = (Manager) managerService.merge(
-                new Manager(name, phone, MD5.encryption("123456"), alipay, wxpay, openid, 0.0, pdesc, addr));
+                new Manager(name, phone, MD5.encryption("123456"), alipay, wxpay, openid, pdesc, addr));
         managerService.save(new PrivilegeDist(m.getId(), 18));
         managerService.save(new SchoolDist(schoolId,m.getId()));
         map.put("result", true);

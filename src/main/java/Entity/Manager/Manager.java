@@ -1,5 +1,7 @@
 package Entity.Manager;
 
+import com.alibaba.fastjson.JSONArray;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -28,15 +30,17 @@ public class Manager {
     private String alipay;
     private String wxpay;
     private String openId;
-    private double dividendRatio; // 分红比例
+    private String dividendRatio; // 分红比例20170317升级，double改为String，json格式存储针对某个学校的分红比例
     private String pdesc; //对ta的描述
     private boolean could_delete;//是否可以被删除
     private String address;//详细宿舍地址
     private boolean cs_notice;//客服通知
 
-    public Manager(String name, String phone, String pass,String ali,String wx,String openId,double dr,String descStr,String add) {
+    public Manager(String name, String phone, String pass,String ali,
+                   String wx,String openId,String descStr,String add) {
         this.pdesc = descStr;
-        this.dividendRatio = dr;
+        JSONArray arr = new JSONArray();
+        this.dividendRatio = arr.toJSONString();
         this.openId = openId;
         this.alipay = ali;
         this.wxpay = wx;
@@ -175,11 +179,11 @@ public class Manager {
         this.openId = openId;
     }
 
-    public double getDividendRatio() {
+    public String getDividendRatio() {
         return dividendRatio;
     }
 
-    public void setDividendRatio(double dividendRatio) {
+    public void setDividendRatio(String dividendRatio) {
         this.dividendRatio = dividendRatio;
     }
 
@@ -213,5 +217,43 @@ public class Manager {
 
     public void setCs_notice(boolean cs_notice) {
         this.cs_notice = cs_notice;
+    }
+
+    public void setDividendRatio(int schoolId, double val) {
+        JSONArray arr = JSONArray.parseArray(getDividendRatio());
+        for (int i = 0; i < arr.size(); i++) {
+            SalaryConfig config = arr.getObject(i,SalaryConfig.class);
+            if(config.getSid() == schoolId){
+                config.setRate(val);
+                arr.remove(i);
+                arr.add(config);
+                setDividendRatio(arr.toJSONString());
+                return;
+            }
+        }
+        addSalaryConfig(schoolId,val);
+    }
+
+
+    public void addSalaryConfig(int schoolId, double val) {
+        JSONArray arr = JSONArray.parseArray(getDividendRatio());
+        arr.add(new SalaryConfig(schoolId,val));
+        setDividendRatio(arr.toJSONString());
+    }
+
+    public SalaryConfig getSalaryConfig(int schoolId) {
+        JSONArray arr = JSONArray.parseArray(getDividendRatio());
+        for (int i = 0; i < arr.size(); i++) {
+            SalaryConfig config = arr.getObject(i,SalaryConfig.class);
+            if(config.getSid() == schoolId)
+                return config;
+        }
+        return null;
+    }
+
+    public double printSchoolConfig(int sid){
+        SalaryConfig config = getSalaryConfig(sid);
+        if(config!=null) return config.getRate();
+        return 0.0;
     }
 }

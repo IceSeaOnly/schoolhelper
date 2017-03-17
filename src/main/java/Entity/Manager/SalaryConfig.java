@@ -1,47 +1,19 @@
 package Entity.Manager;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 /**
- * Created by Administrator on 2017/3/8.
- * 工资配置，用来one2one配置学校和管理员的分红关系
+ * Created by Administrator on 2017/3/17.
+ * 用来在manager的分红中以json的格式表示分红比例
  */
-@Entity
-@Table
 public class SalaryConfig {
-    @Id
-    @GeneratedValue
-    private int id;
-    private int mid;
-    private int sid;
-    private double rate;
+    private int sid; //学校
+    private Double rate; //分红比例
 
-    public SalaryConfig() {
-    }
-
-    public SalaryConfig(int mid, int sid, double rate) {
-        this.mid = mid;
+    public SalaryConfig(int sid, Double rate) {
         this.sid = sid;
         this.rate = rate;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getMid() {
-        return mid;
-    }
-
-    public void setMid(int mid) {
-        this.mid = mid;
+    public SalaryConfig() {
     }
 
     public int getSid() {
@@ -52,11 +24,11 @@ public class SalaryConfig {
         this.sid = sid;
     }
 
-    public double getRate() {
+    public Double getRate() {
         return rate;
     }
 
-    public void setRate(double rate) {
+    public void setRate(Double rate) {
         this.rate = rate;
     }
 }

@@ -1,9 +1,11 @@
 package Test;
 
 import Controllers.SysConfig;
+import Entity.Manager.SalaryConfig;
 import Service.NoticeService;
 import Utils.MD5;
 import Utils.TimeFormat;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 
@@ -25,8 +27,13 @@ public class test_open_id {
     }
     @Test
     public void test(){
-        //c03bc06262d96428dd66c23841c50ea3
-        System.out.println(MD5.encryption("123456"));
+        JSONArray array = JSONArray.parseArray("[{\"rate\":0.1,\"sid\":1},{\"rate\":0.2,\"sid\":2}]");
+
+        SalaryConfig config = array.getObject(0,SalaryConfig.class);
+        SalaryConfig config2 = array.getObject(1,SalaryConfig.class);
+        System.out.println(config.getRate());
+        System.out.println(config2.getRate());
+
     }
 
     public static void main(String[] args) {
@@ -56,4 +63,5 @@ public class test_open_id {
 
         System.out.println(TimeFormat.data2Timestamp(2017,2,27));
     }
+
 }

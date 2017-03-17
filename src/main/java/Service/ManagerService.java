@@ -283,11 +283,11 @@ public class ManagerService {
         ArrayList<Manager>ms = (ArrayList<Manager>) managerDao.listAllManagers(schoolId);
         // 为每个管理分红
         for (int i = 0; i < ms.size(); i++) {
-            if(ms.get(i).getDividendRatio() > 0.00)
+            if(ms.get(i).getSalaryConfig(schoolId) != null)
                 managerDao.save(new ChargingSystem(
                         ms.get(i).getId(),
                         orderId,
-                        (int)(sum*ms.get(i).getDividendRatio()),
+                        (int)(sum*ms.get(i).getSalaryConfig(schoolId).getRate()),
                         ChargingSystem.Ftype,
                         info));
         }

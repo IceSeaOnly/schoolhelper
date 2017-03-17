@@ -245,12 +245,16 @@ public class Ajax {
      */
     @RequestMapping("update_salary_conf")
     @ResponseBody
-    public String update_salary_conf(@RequestParam int pid, @RequestParam double val, @RequestParam int managerId) {
+    public String update_salary_conf(@RequestParam int pid,
+                                     @RequestParam double val,
+                                     @RequestParam int managerId,
+                                     @RequestParam int schoolId
+    ) {
         if (managerService.managerAccess2Privilege(managerId, "xtsz")) {
             if (val >= 0 && val < 1) {
                 Manager manager = managerService.getManagerById(pid);
                 if (manager == null) return "非法操作";
-                manager.setDividendRatio(val);
+                manager.setDividendRatio(schoolId,val);
                 managerService.update(manager);
                 managerService.log(managerId, 11, pid + "工资更新为" + val);
                 return "更新成功";

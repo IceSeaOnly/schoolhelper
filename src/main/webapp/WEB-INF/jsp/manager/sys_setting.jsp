@@ -18,7 +18,7 @@
 
         function update_salary_config(pid) {
             var nt = $("#salary_conf_" + pid).val()
-            $.get("/ajax/update_salary_conf.do?token=${Stoken}&managerId=${managerId}&pid=" + pid + "&val=" + nt, function (data, status) {
+            $.get("/ajax/update_salary_conf.do?token=${Stoken}&managerId=${managerId}&schoolId=${schoolId}&pid=" + pid + "&val=" + nt, function (data, status) {
                 if (status == "success")
                     $.alert(data);
                 else
@@ -118,7 +118,7 @@
                                 <div class="item-inner">
                                     <div class="item-title label">${per.name}</div>
                                     <div class="item-input">
-                                        <input id="salary_conf_${per.id}" value="${per.dividendRatio}" type="text"
+                                        <input id="salary_conf_${per.id}" value="${per.printSchoolConfig(schoolId)}" type="text"
                                                placeholder="0 <= 输入 < 1">
                                     </div>
                                     <div class="item-after">
