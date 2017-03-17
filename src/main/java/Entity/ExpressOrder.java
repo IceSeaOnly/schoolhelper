@@ -47,7 +47,9 @@ public class ExpressOrder implements Comparable{
     private Long lastSms;//上次发短信通知时间
     private String managerAdditional;//管理员附加通知
 
-
+    public String sendTime2String(){
+        return ManagerService.sendTime2String(sendtime_id);
+    }
 
     public String state_toString(){
         String res = "";

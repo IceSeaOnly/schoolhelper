@@ -55,6 +55,7 @@ public class AppCgi {
         // 登录成功，修改最新登录信息
         managerService.updateLastLogin(phone);
         // 预置信息
+        managerService.listAllSendTime();
         ArrayList<School> schools = managerService.listMySchool(manager.getId());
         manager.setTmp_token(newToken(manager.getId()));
         manager.setTmp_schoolId(schools.get(0) == null?-1:schools.get(0).getId());

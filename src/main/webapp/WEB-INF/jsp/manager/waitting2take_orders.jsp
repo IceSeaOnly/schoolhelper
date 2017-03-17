@@ -61,6 +61,7 @@
                     <div class="card-content">
                         <div class="card-content-inner">
                             下单时间：${order.orderTime}<br>
+                            <span style="color:red"><b>配送时间：${order.sendTime2String()}</b></span><br>
                             宿舍位置：${order.sendTo}<br>
                             备注信息：${order.otherinfo }<br>
                             附加信息：<span style="color: red">${order.managerAdditional }</span><br>

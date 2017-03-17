@@ -824,4 +824,12 @@ public class ManagerDao{
         session.close();
         return eff;
     }
+
+    public ArrayList<SendTime> listAllSendTime() {
+        Session session = sessionFactory.openSession();
+        ArrayList<SendTime>times = (ArrayList<SendTime>) session.createQuery("from SendTime ")
+                .list();
+        session.close();
+        return times;
+    }
 }

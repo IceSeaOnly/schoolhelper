@@ -24,6 +24,7 @@ public class ManagerService {
     NoticeService noticeService;
     private static ArrayList<Reason> reasons;
     public static ArrayList<School> schools;
+    public static ArrayList<SendTime>sendTimes;
     private static Long reason_update_time;
 
 
@@ -589,6 +590,15 @@ public class ManagerService {
         return "校名未知";
     }
 
+    public static String sendTime2String(int id){
+        if(sendTimes != null)
+            for (int i = 0; i < sendTimes.size(); i++) {
+                if(sendTimes.get(i).getId() == id) return sendTimes.get(i).getName();
+            }
+        return "【配送时间无法确定】";
+    }
+
+
     public ArrayList<ExpressOrder> getOrdersByStatus(int managerId, Integer[] status) {
         ArrayList<ExpressOrder> rs = managerDao.getOrdersByStatus(managerId,status);
         return rs == null?new ArrayList<ExpressOrder>():rs;
@@ -627,5 +637,9 @@ public class ManagerService {
      * */
     public int dealTransferOrder(int managerId, int schoolId, int towho_select, Integer[] checked_orders) {
         return managerDao.dealTransferOrder(managerId,schoolId,towho_select,checked_orders);
+    }
+
+    public void listAllSendTime() {
+        sendTimes = managerDao.listAllSendTime();
     }
 }

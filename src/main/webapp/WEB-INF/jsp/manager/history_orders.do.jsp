@@ -79,6 +79,7 @@
                             配送手机：${order.receive_phone}<br>
                             配&nbsp&nbsp送&nbsp&nbsp员：${order.rider_name}<br>
                             下单时间：${order.orderTime}<br>
+                            <span style="color:red"><b>配送时间：${order.sendTime2String()}</b></span><br>
                             宿舍位置：${order.sendTo}<br>
                             当前状态：${order.state_toString()}<br>
                             是否异常：${order.reason2String()}<br>

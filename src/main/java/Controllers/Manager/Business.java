@@ -40,12 +40,6 @@ public class Business {
     UserService userService;
 
 
-
-
-
-
-
-
     /**
      * 查看历史订单，包括今天
      */
@@ -946,6 +940,7 @@ public class Business {
             map.put("is_url", true);
             map.put("url", "http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN#sendtime_config");
             map.put("notice", "添加成功");
+            managerService.listAllSendTime();
             return "manager/common_result";
         } else return permissionDeny(map);
     }
