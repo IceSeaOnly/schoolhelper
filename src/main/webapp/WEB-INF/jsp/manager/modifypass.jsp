@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>修改密码</title>
+    <title>个人中心</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
     <script>
-        function cs_notice_changed(){
-            $.get("/ajax/cs_notice_changed.do?managerId=${managerId}&token=${Stoken}",function (data, status) {
+        function status_changed(url){
+            $.get("/ajax/"+url+".do?managerId=${managerId}&token=${Stoken}",function (data, status) {
                 $.toast(data);
             });
         }
@@ -41,7 +41,18 @@
                             <div class="item-title">新工单通知</div>
                             <div class="item-after">
                                 <label class="label-switch">
-                                    <input type="checkbox" <c:if test="${manager.cs_notice}">checked="checked"</c:if> onchange="cs_notice_changed()"/>
+                                    <input type="checkbox" <c:if test="${manager.cs_notice}">checked="checked"</c:if> onchange="status_changed('cs_notice_changed')"/>
+                                    <div class="checkbox"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title">新订单通知</div>
+                            <div class="item-after">
+                                <label class="label-switch">
+                                    <input type="checkbox" <c:if test="${manager.newOrderNotice}">checked="checked"</c:if> onchange="status_changed('newOrderNotice')"/>
                                     <div class="checkbox"></div>
                                 </label>
                             </div>

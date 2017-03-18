@@ -40,4 +40,10 @@ public class MD5 {
         return re_md5;
     }
 
+    /**
+     * 生成随机的短密码
+     * */
+    public static String sortPass() {
+        return MD5.encryption(System.currentTimeMillis()+"").substring(17);
+    }
 }

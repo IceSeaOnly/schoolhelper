@@ -1,6 +1,7 @@
 package Controllers.User;
 
 import Entity.ExpressOrder;
+import Entity.Manager.AppPushMsg;
 import Entity.Manager.Conversation;
 import Entity.Manager.Manager;
 import Entity.User.User;
@@ -55,8 +56,11 @@ public class Order {
             Conversation conversation = noticeService.newOrderConversation(user,order,session.getServletContext());
             ArrayList<Manager>ms = managerService.listSchoolManagers(user.getSchoolId());
             for (int i = 0; i < ms.size(); i++) {
-                if(ms.get(i).isCs_notice())
-                    noticeService.ComstomServiceMessage(managerService.getSchoolName(order.getSchoolId())+"有新的客服工单，请注意处理","用户申请客服","刚刚到达",System.currentTimeMillis(),"请打开app处理客服工单","",ms.get(i).getOpenId());
+                if(ms.get(i).isCs_notice()){
+                    AppPushMsg msg = (AppPushMsg) managerService.merge(new AppPushMsg("新客服工单","新的客服工单",ms.get(i).getPhone()));
+                    noticeService.pushToAppClient(msg);
+                    //noticeService.ComstomServiceMessage(managerService.getSchoolName(order.getSchoolId())+"有新的客服工单，请注意处理","用户申请客服","刚刚到达",System.currentTimeMillis(),"请打开app处理客服工单","",ms.get(i).getOpenId());
+                }
             }
             noticeService.ComstomServiceMessage("客服会话已生成","订单咨询","正在服务",System.currentTimeMillis(),"订单"+oid+"的客服会话已生成，点击进入",conversation.getUserEnter(),user.getOpen_id());
             return "redirect:"+conversation.getUserEnter();

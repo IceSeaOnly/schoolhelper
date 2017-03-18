@@ -35,6 +35,7 @@ public class Manager {
     private boolean could_delete;//是否可以被删除
     private String address;//详细宿舍地址
     private boolean cs_notice;//客服通知
+    private boolean newOrderNotice;//新订单通知
 
     public Manager(String name, String phone, String pass,String ali,
                    String wx,String openId,String descStr,String add) {
@@ -54,6 +55,7 @@ public class Manager {
         this.could_delete = true;
         this.address = add;
         this.cs_notice = true;
+        this.newOrderNotice = true;
     }
 
     public Manager() {
@@ -255,5 +257,13 @@ public class Manager {
         SalaryConfig config = getSalaryConfig(sid);
         if(config!=null) return config.getRate();
         return 0.0;
+    }
+
+    public boolean isNewOrderNotice() {
+        return newOrderNotice;
+    }
+
+    public void setNewOrderNotice(boolean newOrderNotice) {
+        this.newOrderNotice = newOrderNotice;
     }
 }

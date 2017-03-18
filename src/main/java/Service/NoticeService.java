@@ -2,6 +2,7 @@ package Service;
 
 import Dao.NoticeDao;
 import Entity.ExpressOrder;
+import Entity.Manager.AppPushMsg;
 import Entity.Manager.Conversation;
 import Entity.Manager.Log;
 import Entity.SchoolConfigs;
@@ -140,26 +141,25 @@ public class NoticeService {
         JSONObject ds = new JSONObject();
         ds.put("type","wxnotice");
         ds.put("datas",arr);
-        if(account == null){
-            account = new CloudAccount(PassConfig.accessKey, PassConfig.secret, PassConfig.MNSurl);
-            client = account.getMNSClient();
-        }
-        Message message = new Message();
-        message.setMessageBody(ds.toJSONString());
-        CloudQueue queue = client.getQueueRef("bone");
-        queue.putMessage(message);
+        sendToMessageQueue("bone",ds.toJSONString());
     }
     /**
      * 日志服务转向分布式
      * */
     public static void DistributedLog(String log){
+        sendToMessageQueue("boneLog",log);
+    }
+    /**
+     * 发布到消息队列
+     * */
+    public static void sendToMessageQueue(String queueName,String msgBody){
         if(account == null){
             account = new CloudAccount(PassConfig.accessKey, PassConfig.secret, PassConfig.MNSurl);
             client = account.getMNSClient();
         }
         Message message = new Message();
-        message.setMessageBody(log);
-        CloudQueue queue = client.getQueueRef("boneLog");
+        message.setMessageBody(msgBody);
+        CloudQueue queue = client.getQueueRef(queueName);
         queue.putMessage(message);
     }
     /**
@@ -287,13 +287,16 @@ public class NoticeService {
         data.put("phone",phone);
         data.put("param",para);
         data.put("tpl",tpl);
-        if(account == null){
-            account = new CloudAccount(PassConfig.accessKey, PassConfig.secret, PassConfig.MNSurl);
-            client = account.getMNSClient();
-        }
-        Message message = new Message();
-        message.setMessageBody(data.toJSONString());
-        CloudQueue queue = client.getQueueRef("bone");
-        queue.putMessage(message);
+        sendToMessageQueue("bone",data.toJSONString());
+    }
+
+    /**
+     * 推送到手机端的通知
+     * */
+    public void pushToAppClient(AppPushMsg msg) {
+        JSONObject data = new JSONObject();
+        data.put("type","alipush");
+        data.put("msg",msg);
+        sendToMessageQueue("bone",data.toJSONString());
     }
 }

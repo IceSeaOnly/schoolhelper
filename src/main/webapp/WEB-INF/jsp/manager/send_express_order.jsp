@@ -102,6 +102,7 @@
                         <div class="card-content-inner">
                             取件员：<span style="color:green"> ${order.rider_name}</span><br>
                             下单时间：${order.orderTime}<br>
+                            <span style="color:red"><b>配送时间：${order.sendTime2String()}</b></span><br>
                             用户姓名：${order.express_name}<br>
                             取件手机：${order.express_phone}<br>
                             配送手机：${order.receive_phone}<br>

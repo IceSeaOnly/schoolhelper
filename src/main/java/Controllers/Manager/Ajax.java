@@ -513,6 +513,9 @@ public class Ajax {
         }
     }
 
+    /**
+     * 新工单通知
+     * */
     @RequestMapping("cs_notice_changed")
     @ResponseBody
     public String cs_notice_changed(@RequestParam int managerId) {
@@ -520,6 +523,18 @@ public class Ajax {
         manager.setCs_notice(!manager.isCs_notice());
         managerService.update(manager);
         return manager.isCs_notice() ? "已开启接收工单通知" : "已关闭工单通知";
+    }
+
+    /**
+     * 新订单推送通知
+     * */
+    @RequestMapping("newOrderNotice")
+    @ResponseBody
+    public String newOrderNotice(@RequestParam int managerId) {
+        Manager manager = managerService.getManagerById(managerId);
+        manager.setNewOrderNotice(!manager.isNewOrderNotice());
+        managerService.update(manager);
+        return manager.isNewOrderNotice() ? "已开启新订单推送通知" : "已关闭新订单推送通知";
     }
 
     /**

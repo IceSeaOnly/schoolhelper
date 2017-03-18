@@ -46,6 +46,7 @@
                 <value>Entity.Manager.OutPutOrders</value>
                 <value>Entity.Manager.Conversation</value>
                 <value>Entity.Manager.ChargingSystem</value>
+                <value>Entity.Manager.AppPushMsg</value>
                 <value>Entity.Manager.Log</value>
                 <value>Entity.Manager.PayLog</value>
                 <value>Entity.Manager.SalaryConfig</value>
