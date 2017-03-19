@@ -5,6 +5,7 @@ import Entity.ExpressOrder;
 import Entity.Manager.AppPushMsg;
 import Entity.Manager.Conversation;
 import Entity.Manager.Log;
+import Entity.Manager.Manager;
 import Entity.SchoolConfigs;
 import Entity.SysMsg;
 import Entity.User.User;
@@ -35,6 +36,9 @@ public class NoticeService {
 
     @Resource
     NoticeDao noticeDao;
+
+    @Resource
+    ManagerService managerService;
     @Resource
     UserService userService;
 
@@ -43,7 +47,7 @@ public class NoticeService {
      * 支付成功通知
      */
     public void paySuccess(String detailcontent, String moneysum,
-                           String remark, String productName, String openid, String url) {
+                           String remark, String productName, String openid, String url,ExpressOrder obj) {
         JSONObject data = new JSONObject();
         data.put("first", newItem(detailcontent));
         data.put("orderMoneySum", newItem(moneysum));
@@ -52,6 +56,24 @@ public class NoticeService {
         JSONArray arr = new JSONArray();
         arr.add(commonTPLMaker("QL9zFOOV9JpJQwP2uFgXLlleebgM34ViORxyXFCxSOA", openid, url, data));
         DistributedTPLSend(arr);
+        if(obj != null){
+            notifyNewOrder(ManagerService.sendTime2String(obj.getSendtime_id()),obj.getSchoolId());
+        }
+    }
+
+    /**
+     * 推送消息到该校管理员
+     * */
+    public void notifyNewOrder(String time, int schoolId) {
+        ArrayList<Manager>ms = managerService.listSchoolManagers(schoolId);
+        for (int i = 0; i < ms.size(); i++) {
+            if(ms.get(i).isNewOrderNotice()){
+                AppPushMsg msg = (AppPushMsg) managerService.merge(new AppPushMsg(
+                        "要求"+time+"配送",
+                        "新订单到达",ms.get(i).getPhone()));
+                pushToAppClient(msg);
+            }
+        }
     }
 
     /**

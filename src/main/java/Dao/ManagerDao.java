@@ -696,7 +696,7 @@ public class ManagerDao{
 
     public Long getTodayExpressTodayIncome(int schoolId) {
         Session session = sessionFactory.openSession();
-        Long sum = (Long) session.createQuery("select coalesce(sum(shouldPay),0) from ExpressOrder where schoolId = :S and has_pay = true and orderTimeStamp > :T")
+        Long sum = (Long) session.createQuery("select coalesce(sum(shouldPay),0) from ExpressOrder where schoolId = :S and has_pay = true and orderTimeStamp > :T and order_state != -1")
                 .setParameter("T",TimeFormat.getTimesmorning())
                 .setParameter("S",schoolId)
                 .uniqueResult();

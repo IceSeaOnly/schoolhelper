@@ -118,27 +118,13 @@ public class ReceiveNotify {
                     user.setOrder_sum(user.getOrder_sum()+1);
                     managerService.update(user);
                     income_add(user.getSchoolId(),order.getShouldPay());
-                    noticeService.paySuccess("小骨头订单微信支付成功",(double)order.getShouldPay()/100+"元","如有疑问或退款，请点我召唤客服","代取快递",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+order.getId());
-                    notifyNewOrder(ManagerService.sendTime2String(order.getSendtime_id()),user.getSchoolId());
+                    noticeService.paySuccess("小骨头订单微信支付成功",(double)order.getShouldPay()/100+"元","如有疑问或退款，请点我召唤客服","代取快递",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+order.getId(),order);
                 }
             }
         return "success";
     }
 
-    /**
-     * 推送消息到该校管理员
-     * */
-    private void notifyNewOrder(String time, int schoolId) {
-        ArrayList<Manager>ms = managerService.listSchoolManagers(schoolId);
-        for (int i = 0; i < ms.size(); i++) {
-            if(ms.get(i).isNewOrderNotice()){
-                AppPushMsg msg = (AppPushMsg) managerService.merge(new AppPushMsg(
-                        "要求"+time+"配送",
-                        "新订单到达",ms.get(i).getPhone()));
-                noticeService.pushToAppClient(msg);
-            }
-        }
-    }
+
 
     private void income_add(int sid,int many){
         SchoolConfigs sc = userService.getSchoolConfBySchoolId(sid);

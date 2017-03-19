@@ -1,6 +1,7 @@
 package Test;
 
 import Controllers.SysConfig;
+import Entity.Manager.AppPushMsg;
 import Entity.Manager.SalaryConfig;
 import Service.NoticeService;
 import Utils.MD5;
@@ -27,13 +28,10 @@ public class test_open_id {
     }
     @Test
     public void test(){
-        JSONArray array = JSONArray.parseArray("[{\"rate\":0.1,\"sid\":1},{\"rate\":0.2,\"sid\":2}]");
-
-        SalaryConfig config = array.getObject(0,SalaryConfig.class);
-        SalaryConfig config2 = array.getObject(1,SalaryConfig.class);
-        System.out.println(config.getRate());
-        System.out.println(config2.getRate());
-
+        JSONObject data = new JSONObject();
+        data.put("type","alipush");
+        data.put("msg",new AppPushMsg("22点配送","新订单通知","17854258196"));
+        System.out.println(data.toJSONString());
     }
 
     public static void main(String[] args) {
