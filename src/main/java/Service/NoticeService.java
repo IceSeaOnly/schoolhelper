@@ -259,7 +259,7 @@ public class NoticeService {
         data.put("keyword3", newItem(msg.getTimeStr()));
         data.put("keyword4", newItem("点击查看详细内容"));
         data.put("remark", newItem("点击查看详细内容"));
-        ArrayList<String> openids = noticeDao.listSchoolAllOpenIds(msg.getSchoolId());
+        ArrayList<String> openids = noticeDao.todayOrderedUsers(msg.getSchoolId());
         System.out.println("all openid is "+openids.size());
         threadPublis(openids, url, data);
     }

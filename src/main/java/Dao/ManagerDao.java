@@ -832,4 +832,14 @@ public class ManagerDao{
         session.close();
         return times;
     }
+
+    public Long getTodayIncome(Long date) {
+        Session session = sessionFactory.openSession();
+        Long sum = (Long) session.createQuery("select coalesce(sum(shouldPay),0) from ExpressOrder where has_pay = true and order_state != -1 and orderTimeStamp between :S and :E")
+                .setParameter("S",date)
+                .setParameter("E",date==0?9487663392000L:date+86400000)
+                .uniqueResult();
+        session.close();
+        return sum;
+    }
 }

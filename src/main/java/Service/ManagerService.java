@@ -642,4 +642,9 @@ public class ManagerService {
     public void listAllSendTime() {
         sendTimes = managerDao.listAllSendTime();
     }
+
+    // 今日代取快递收入
+    public Long getTodayIncome(Long date) {
+        return managerDao.getTodayIncome(date);
+    }
 }

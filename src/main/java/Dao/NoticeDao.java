@@ -1,6 +1,7 @@
 package Dao;
 
 import Entity.Manager.Conversation;
+import Utils.TimeFormat;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -85,6 +86,17 @@ public class NoticeDao {
         Session session = sessionFactory.openSession();
         ArrayList<String>rs = (ArrayList<String>) session.createQuery("select open_id from User where schoolId = :S")
                 .setParameter("S",schoolId)
+                .list();
+        session.close();
+        return rs;
+    }
+
+    // 返回今日下单的用户openid
+    public ArrayList<String> todayOrderedUsers(int schoolId) {
+        Session session = sessionFactory.openSession();
+        ArrayList<String>rs = (ArrayList<String>) session.createQuery("select open_id from User where schoolId = :S and id in (select user_id from ExpressOrder where orderTimeStamp > :T)")
+                .setParameter("S",schoolId)
+                .setParameter("T", TimeFormat.getTimesmorning())
                 .list();
         session.close();
         return rs;

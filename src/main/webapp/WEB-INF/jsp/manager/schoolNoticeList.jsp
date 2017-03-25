@@ -51,7 +51,8 @@
         </header>
         <div class="content">
             <div class="content-padded">
-                <p>· 发布后<span style="color:red">所有用户</span>都能收到此通知</p>
+                <p>· 微信限制群发消息，本功能<span style="color:red">仅限紧急通知使用</span>。</p>
+                <p>· 发布后<span style="color:red">今天下单的用户</span>都能收到此通知</p>
                 <p>· 发布后<span style="color:red">暂不可撤销</span></p>
             </div>
             <form action="publish_notice.do" method="post" id="form_notice">

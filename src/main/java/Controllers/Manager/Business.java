@@ -1085,6 +1085,7 @@ public class Business {
         Long perDate = date - 86400000;
         Long outSum = managerService.getOutSum(0L);
         Long todayOutSum = managerService.getOutSum(date);
+        Long todayIncome = managerService.getTodayIncome(date);
         List<PayLog> payLogs = managerService.getReconciliationList(date);
 
         map.put("managerId", managerId);
@@ -1092,6 +1093,7 @@ public class Business {
         map.put("date", TimeFormat.format2yyyy_MM_dd(date));
         map.put("outSum", outSum);
         map.put("todayOutSum", todayOutSum);
+        map.put("todayIncome", todayIncome);
         map.put("payLogs", payLogs);
         return "manager/reconciliation";
     }

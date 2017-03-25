@@ -30,8 +30,9 @@
         <!-- 这里是页面内容区 begin-->
         <div class="content">
             <div class="content-padded">
-                <p>总支出:￥${outSum/100}</p>
-                <p>今日支出:￥${todayOutSum/100}</p>
+                <p>历史总支出:￥${outSum/100}</p>
+                <p>今日代取收入:￥${todayIncome/100}</p>
+                <p>今日工资支出:￥${todayOutSum/100}</p>
                 <p><span style="color: green">■ 取件数</span></p>
                 <p><span style="color: red">■ 配送数</span></p>
             </div>
