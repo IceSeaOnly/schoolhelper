@@ -2,6 +2,7 @@ package Controllers.User;
 
 import Entity.*;
 import Entity.User.User;
+import Service.AvatarService;
 import Service.UserService;
 import Utils.MD5;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ import java.util.ArrayList;
 @RequestMapping("user")
 public class UserCenter {
 
+    @Resource
+    AvatarService avatarService;
     @Resource
     UserService userService;
 
@@ -78,6 +81,36 @@ public class UserCenter {
         return "user/change_my_school";
     }
 
+    public ModelMap emptyInsertError(ModelMap map){
+        map.put("title","未输入内容!");
+        map.put("msg","未输入内容");
+        map.put("btnmsg","返回我的");
+        map.put("url","/user/user_center.do");
+        return map;
+    }
+    @RequestMapping("post_danmu")
+    public String toPostDanmu(){
+        return "user/post_danmu";
+    }
+    @RequestMapping("post_danmu_forresult")
+    public String postDanmu(ModelMap map,@RequestParam String content,HttpSession session){
+        if(content.length() == 0){
+            emptyInsertError(map);
+            return "errors/msg";
+        }
+        User user = (User) session.getAttribute("user");
+        userService.sava(
+                new DanMu(false,
+                        user.getId(),
+                        content,
+                        avatarService.getRandomAvatar(user.getId()%2).getImg(),
+                        true));
+        map.put("title","发射成功");
+        map.put("msg","您的弹幕将显示在首页中哦");
+        map.put("btnmsg","走你");
+        map.put("url","/user/index.do");
+        return "errors/msg";
+    }
     @RequestMapping("to_feedback")
     public String to_feedback(){
         return "user/feedback";
@@ -85,14 +118,11 @@ public class UserCenter {
 
     @RequestMapping("feedback")
     public String feedback(ModelMap map,HttpSession session,@RequestParam String content){
-        User user = (User) session.getAttribute("user");
         if(content.length() == 0){
-            map.put("title","未输入内容!");
-            map.put("msg","未输入内容");
-            map.put("btnmsg","返回我的");
-            map.put("url","/user/user_center.do");
+            emptyInsertError(map);
             return "errors/msg";
         }
+        User user = (User) session.getAttribute("user");
         userService.sava(new FeedBack(user.getOpen_id(),content,System.currentTimeMillis()));
         map.put("title","反馈成功");
         map.put("msg","感谢您反馈");

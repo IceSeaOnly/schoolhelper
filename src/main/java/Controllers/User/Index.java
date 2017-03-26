@@ -2,6 +2,7 @@ package Controllers.User;
 
 import Entity.*;
 import Entity.User.User;
+import Service.DanMuService;
 import Service.NoticeService;
 import Service.UserService;
 import Utils.MailSendThread;
@@ -26,6 +27,8 @@ public class Index {
     NoticeService noticeService;
     @Resource
     UserService userService;
+    @Resource
+    DanMuService danMuService;
 
     @RequestMapping("index")
     public String index(ModelMap map,HttpSession session){
@@ -34,6 +37,7 @@ public class Index {
         ArrayList<AdGroup> adGroups = userService.getAdGroups(u);
         map.put("schoolshop",schoolshop);
         map.put("adGroups",adGroups);
+        map.put("danmus",danMuService.query(0));
         return "user/index";
     }
 
