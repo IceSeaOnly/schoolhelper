@@ -17,7 +17,10 @@ public class AvatarDao {
 
     public Avatars getRandomAvatar(int sex) {
         Session session = sessionFactory.openSession();
-        Avatars a = (Avatars) session.createQuery("from Avatars where sex = :S and id > ((select max(id) from Avatars)-(select min(id) from Avatars)) * RAND() + (select min(id) from Avatars) limit 1")
+        Long sum = (Long) session.createQuery("select count(*) from Avatars ")
+                .uniqueResult();
+        Avatars a = (Avatars) session.createQuery("from Avatars where sex = :S and id = :I")
+                .setParameter("I",System.currentTimeMillis()%sum)
                 .setParameter("S",sex)
                 .uniqueResult();
         session.close();

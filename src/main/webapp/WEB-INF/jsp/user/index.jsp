@@ -145,7 +145,7 @@
 </div>
 <script>
     <c:forEach items="${danmus}" var="danmu" varStatus="vs">
-        $('body').barrager({'info':'${danmu.info}','speed':${vs.index+8}});
+        $('body').barrager({'img':'${danmu.img}','info':'${danmu.info}','speed':${vs.index+8}});
     </c:forEach>;
 </script>
 <script>

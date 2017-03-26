@@ -20,6 +20,11 @@ public class Avatars {
     public Avatars() {
     }
 
+    public Avatars(int sex, String img) {
+        this.sex = sex;
+        this.img = img;
+    }
+
     public int getId() {
         return id;
     }

@@ -18,6 +18,7 @@ public class AvatarService {
      * 任意获取一个符合性别的头像
      * */
     public Avatars getRandomAvatar(int sex){
-        return avatarDao.getRandomAvatar(sex);
+        Avatars avatars = avatarDao.getRandomAvatar(sex);
+        return avatars == null?new Avatars(1,"http://image.binghai.site/data/f_99555199.png"):avatars;
     }
 }
