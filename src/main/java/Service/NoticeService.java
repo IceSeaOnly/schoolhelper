@@ -166,6 +166,21 @@ public class NoticeService {
         sendToMessageQueue("bone",ds.toJSONString());
     }
     /**
+     * 提醒取件失败
+     * */
+    public void NoticeFetchFailed(String reason,int id,String openid){
+        JSONObject data = new JSONObject();
+        data.put("first", newItem("您的快递取件失败"));
+        data.put("keyword1", newItem("刚刚"));
+        data.put("keyword2", newItem(reason));
+        data.put("keyword3", newItem(reason));
+        data.put("remark", newItem("请点击查看并申请客服服务，以处理此问题"));
+        JSONArray arr = new JSONArray();
+        String url = "http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id=="+id;
+        arr.add(commonTPLMaker("W-4A3QQP-WgFS4-Ve5V1eG272O1N1Kvzck3aHmQDbEg", openid, url, data));
+        DistributedTPLSend(arr);
+    }
+    /**
      * 日志服务转向分布式
      * */
     public static void DistributedLog(String log){

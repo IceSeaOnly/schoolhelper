@@ -19,7 +19,7 @@ public class DanMuDao {
     /**
      * 最新n条已审核的用户消息
      * */
-    public ArrayList<DanMu> lastestManagerDanmu(int n) {
+    public ArrayList<DanMu> lastestUserDanmu(int n) {
         Session session = sessionFactory.openSession();
         ArrayList<DanMu> rs = (ArrayList<DanMu>)
                 session.createQuery("from DanMu where priority = false and pass = true order by createTime desc")
@@ -29,7 +29,7 @@ public class DanMuDao {
         return rs;
     }
 
-    public ArrayList<DanMu> lastestUserDanmu(int n) {
+    public ArrayList<DanMu> lastestManagerDanmu(int n) {
         Session session = sessionFactory.openSession();
         ArrayList<DanMu> rs = (ArrayList<DanMu>)
                 session.createQuery("from DanMu where priority = true order by createTime desc")

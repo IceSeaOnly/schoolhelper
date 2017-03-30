@@ -25,10 +25,11 @@ public class DanMuService {
         ArrayList<DanMu> rs = new ArrayList<DanMu>();
         if(mode == 0){
             rs.addAll(lastestManagerDanmu(2));
-            rs.addAll(lastestUserDanmu(10-rs.size()));
+            rs.addAll(lastestUserDanmu(10));
         }else{
             rs.addAll(lastestUserDanmu(10));
         }
+        System.out.println("dm="+rs.size());
         return rs;
     }
 

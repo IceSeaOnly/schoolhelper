@@ -65,12 +65,12 @@ public class Ajax {
             @RequestParam int schoolId,
             @RequestParam int orderId) {
         boolean rs = managerService.managerFetchOrder(managerId, schoolId, orderId, reasonId, res);
+        ExpressOrder order = managerService.getExpressOrderById(orderId);
         if (res && rs) {
             /**
              * 管理分红、分取件费
              * */
             managerService.log(managerId, 2, orderId + "取件成功，mid=" + managerId);
-            ExpressOrder order = managerService.getExpressOrderById(orderId);
             if (order == null) return "false";
             if (managerService.rewardFetchOrder(schoolId, managerId, orderId)) {
                 managerService.managerDividend(schoolId, order.getShouldPay(), orderId, "取件订单分红");
@@ -78,6 +78,7 @@ public class Ajax {
             return "true";
         } else if (!res && rs) {
             managerService.log(managerId, 2, orderId + "取件失败，mid=" + managerId + "，原因:" + managerService.reason2String(reasonId));
+            noticeService.NoticeFetchFailed(managerService.reason2String(reasonId),orderId,userService.getUserById(order.getUser_id()).getOpen_id());
             return "true";
         } else return "false";
 

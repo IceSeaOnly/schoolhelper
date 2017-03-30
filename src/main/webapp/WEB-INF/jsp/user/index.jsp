@@ -17,17 +17,17 @@
     <link href="../css/swiper.min.css" rel="stylesheet" type="text/css">
 
     <!-- JS dependencies -->
-    <script type="text/javascript" src="../static/js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="../static/js/tinycolor-0.9.15.min.js"></script>
-    <script type="text/javascript" src="../dist/js/jquery.barrager.min.js"></script>
-    <script type="text/javascript" src="../static/syntaxhighlighter/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../static/syntaxhighlighter/scripts/shBrushJScript.js"></script>
-    <script type="text/javascript" src="../static/syntaxhighlighter/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript" src="../static/pick-a-color/js/pick-a-color-1.2.3.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../dist/css/barrager.css">
-    <link rel="stylesheet" type="text/css" href="../static/pick-a-color/css/pick-a-color-1.2.3.min.css">
-    <link type="text/css" rel="stylesheet" href="../static/syntaxhighlighter/styles/shCoreDefault.css"/>
+    <%--<script type="text/javascript" src="../static/js/jquery-1.9.1.min.js"></script>--%>
+    <%--<script type="text/javascript" src="../static/js/tinycolor-0.9.15.min.js"></script>--%>
+    <%--<script type="text/javascript" src="../dist/js/jquery.barrager.min.js"></script>--%>
+    <%--<script type="text/javascript" src="../static/syntaxhighlighter/scripts/shCore.js"></script>--%>
+    <%--<script type="text/javascript" src="../static/syntaxhighlighter/scripts/shBrushJScript.js"></script>--%>
+    <%--<script type="text/javascript" src="../static/syntaxhighlighter/scripts/shBrushPhp.js"></script>--%>
+    <%--<script type="text/javascript" src="../static/pick-a-color/js/pick-a-color-1.2.3.min.js"></script>--%>
+    <%--<link rel="stylesheet" type="text/css" href="../static/css/style.css" />--%>
+    <%--<link rel="stylesheet" type="text/css" href="../dist/css/barrager.css">--%>
+    <%--<link rel="stylesheet" type="text/css" href="../static/pick-a-color/css/pick-a-color-1.2.3.min.css">--%>
+    <%--<link type="text/css" rel="stylesheet" href="../static/syntaxhighlighter/styles/shCoreDefault.css"/>--%>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="format-detection" content="telephone=no" />
@@ -144,9 +144,9 @@
     </div>
 </div>
 <script>
-    <c:forEach items="${danmus}" var="danmu" varStatus="vs">
-        $('body').barrager({'img':'${danmu.img}','info':'${danmu.info}','speed':${vs.index+8}});
-    </c:forEach>;
+    <%--<c:forEach items="${danmus}" var="danmu" varStatus="vs">--%>
+        <%--$('body').barrager({'img':'${danmu.img}','info':'${danmu.info}','speed':${vs.index+8}});--%>
+    <%--</c:forEach>;--%>
 </script>
 <script>
     $(".statement").hide();

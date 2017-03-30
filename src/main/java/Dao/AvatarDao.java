@@ -20,7 +20,7 @@ public class AvatarDao {
         Long sum = (Long) session.createQuery("select count(*) from Avatars ")
                 .uniqueResult();
         Avatars a = (Avatars) session.createQuery("from Avatars where sex = :S and id = :I")
-                .setParameter("I",System.currentTimeMillis()%sum)
+                .setParameter("I",new Long(System.currentTimeMillis()%sum).intValue())
                 .setParameter("S",sex)
                 .uniqueResult();
         session.close();
