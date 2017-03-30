@@ -111,16 +111,26 @@ public class NoticeService {
     }
 
     /**
+     *
+     * */
+    public void NoticeManagers(int sid,String title,String content,String good,double money){
+        ArrayList<Manager>ms = managerService.listSchoolManagers(sid);
+        for (int i = 0; i < ms.size(); i++) {
+            ReservationService(title,
+                    content,
+                    good,
+                    "刚刚",
+                    "等待处理",
+                    money+"元",
+                    "remark",
+                    ms.get(i).getOpenId(),"");
+            pushToAppClient(new AppPushMsg(title,content,ms.get(i).getPhone()));
+        }
+    }
+    /**
      * 预付服务派单通知
      */
-    public void ReservationService(String first,
-                                   String content,
-                                   String good,
-                                   String serviceDate,
-                                   String name,
-                                   String money,
-                                   String remark,
-                                   String openid, String url) {
+    public void ReservationService(String first,String content, String good, String serviceDate, String name, String money, String remark, String openid, String url) {
         JSONObject data = new JSONObject();
         data.put("first", newItem(first));
         data.put("Content1", newItem(content));
@@ -176,7 +186,7 @@ public class NoticeService {
         data.put("keyword3", newItem(reason));
         data.put("remark", newItem("请点击查看并申请客服服务，以处理此问题"));
         JSONArray arr = new JSONArray();
-        String url = "http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id=="+id;
+        String url = "http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+id;
         arr.add(commonTPLMaker("W-4A3QQP-WgFS4-Ve5V1eG272O1N1Kvzck3aHmQDbEg", openid, url, data));
         DistributedTPLSend(arr);
     }

@@ -102,7 +102,8 @@ public class ExpressController {
                 //管理分红
                 managerService.managerDividend(order.getSchoolId(),order.getShouldPay(),order.getId(),"代寄快递分红");
                 //通知
-                noticeService.CommonSMSSend("SMS_46215163",order.getExpPhone(),data);
+                //noticeService.CommonSMSSend("SMS_46215163",order.getExpPhone(),data);
+                noticeService.NoticeManagers(order.getSchoolId(),order.getExpress()+"代寄订单",order.getName()+","+order.getAddress()+","+order.getPhone(),"代寄订单",order.getShouldPay()/100);
                 noticeService.ReservationService(
                         "上门取件已接单",
                         order.getExpress()+"的服务人员将主动联系您",
@@ -484,7 +485,8 @@ public class ExpressController {
                 //管理分红
                 managerService.managerDividend(sc.getSchoolId(),500,order.getId(),"校园搬运订单分红");
                 //通知
-                noticeService.CommonSMSSend("SMS_47515056",String.valueOf(sc.getServicePhone()),data);
+                //noticeService.CommonSMSSend("SMS_47515056",String.valueOf(sc.getServicePhone()),data);
+                noticeService.NoticeManagers(sc.getSchoolId(),"新校园搬运订单",order.getName()+","+order.getMoveTime()+","+order.getPhone(),"校园搬运订单",5.0);
                 noticeService.ReservationService(
                         "服务人员已接单",
                         "小骨头的服务人员将主动联系您",

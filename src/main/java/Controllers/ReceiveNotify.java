@@ -36,20 +36,7 @@ public class ReceiveNotify {
     @Resource
     NoticeService noticeService;
 
-    public void NoticeManagers(int sid,String title,String content,String good,double money){
-        ArrayList<Manager>ms = managerService.listSchoolManagers(sid);
-        for (int i = 0; i < ms.size(); i++) {
-            noticeService.ReservationService(title,
-                    content,
-                    good,
-                    "刚刚",
-                    "等待处理",
-                    money+"元",
-                    "remark",
-                    ms.get(i).getOpenId(),"");
-            noticeService.pushToAppClient(new AppPushMsg(title,content,ms.get(i).getPhone()));
-        }
-    }
+
     @RequestMapping(value = "notify_school_move_paid",method = RequestMethod.POST)
     @ResponseBody
     public String notify_school_move_paid(@RequestParam String orderKey,@RequestParam String validate){
@@ -67,7 +54,7 @@ public class ReceiveNotify {
             data.put("name",smo.getName()+","+smo.getPhone());
             SchoolConfigs sc = userService.getSchoolConfBySchoolId(smo.getSchoolId());
             //noticeService.CommonSMSSend("SMS_47515056",String.valueOf(sc.getServicePhone()),data);
-            NoticeManagers(sc.getSchoolId(),"新校园搬运订单",smo.getName()+","+smo.getMoveTime()+","+smo.getPhone(),"校园搬运订单",5.0);
+            noticeService.NoticeManagers(sc.getSchoolId(),"新校园搬运订单",smo.getName()+","+smo.getMoveTime()+","+smo.getPhone(),"校园搬运订单",5.0);
             noticeService.ReservationService(
                     "服务人员已接单",
                     "小骨头的服务人员将主动联系您",
@@ -102,7 +89,7 @@ public class ReceiveNotify {
             data.put("where",seo.getAddress());
             data.put("name",seo.getName()+seo.getPhone());
 //            noticeService.CommonSMSSend("SMS_46215163",seo.getExpPhone(),data);
-            NoticeManagers(seo.getSchoolId(),seo.getExpress()+"代寄订单",seo.getName()+","+seo.getAddress()+","+seo.getPhone(),"代寄订单",seo.getShouldPay()/100);
+            noticeService.NoticeManagers(seo.getSchoolId(),seo.getExpress()+"代寄订单",seo.getName()+","+seo.getAddress()+","+seo.getPhone(),"代寄订单",seo.getShouldPay()/100);
             noticeService.ReservationService(
                     "上门取件已接单",
                     seo.getExpress()+"的服务人员将主动联系您",
