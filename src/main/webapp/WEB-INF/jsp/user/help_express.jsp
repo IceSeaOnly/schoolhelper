@@ -114,7 +114,7 @@ function validate_form() {
         alert("别着急，你还没填好呢！");
         return false;
     }
-	if(sms_.length>9){
+	if(sms_.length>15){
 		alert("快递编号是短信中取件序号哦，请检查输入！");
 		return false;
 	}
