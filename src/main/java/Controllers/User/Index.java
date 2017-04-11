@@ -27,8 +27,8 @@ public class Index {
     NoticeService noticeService;
     @Resource
     UserService userService;
-    @Resource
-    DanMuService danMuService;
+//    @Resource
+//    DanMuService danMuService;
 
     @RequestMapping("index")
     public String index(ModelMap map,HttpSession session){
@@ -37,7 +37,7 @@ public class Index {
         ArrayList<AdGroup> adGroups = userService.getAdGroups(u);
         map.put("schoolshop",schoolshop);
         map.put("adGroups",adGroups);
-        map.put("danmus",danMuService.query(0));
+        //map.put("danmus",danMuService.query(0));
         return "user/index";
     }
 
@@ -68,13 +68,13 @@ public class Index {
             if(!exist){
                 gift.setSum(gift.getSum()-1);
                 userService.update(gift); //名额建减一
-                userService.sava(new GiftRecord(u.getId(),gid,u.getUsername(),u.getOpen_id()));//写入领取记录
-                u.setFreeSum(u.getFreeSum()+1);//免单加1
-                userService.update(u);
+                userService.sava(new GiftRecord(u.getId(),gid,u.getUsername(),u.getOpen_id(),gift.getExpiries()));//写入领取记录
+//                u.setFreeSum(u.getFreeSum()+1);//免单加1
+//                userService.update(u);
                 map.put("result",true);
-                map.put("notice","领取成功，快去下单吧！");
+                map.put("notice","领取成功!"+gift.getNotice());
 
-                noticeService.chargeSuccess("恭喜您在"+gift.getName()+"活动中获得一张免单券",""+u.getId(),"免单券1张","0","免单券","免单券领取成功，快去下单吧！",u.getOpen_id(),"");
+                noticeService.chargeSuccess("恭喜您在"+gift.getName()+"活动中获得一张免单券",""+u.getId(),"免单券1张","0","免单券","免单券领取成功，快去下单吧！"+gift.getNotice(),u.getOpen_id(),"");
             }else{
                 map.put("result",true);
                 map.put("notice","您已经领取过了，快去下单吧！");
@@ -83,6 +83,7 @@ public class Index {
             map.put("result",false);
             map.put("notice","来晚一步，今天的活动名额已经没啦！明天再来看看吧！");
         }
+        map.put("is_url","/user/user_center.do");
         return "user/common_result";
     }
 }

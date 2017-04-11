@@ -3,6 +3,7 @@ package Controllers.User;
 import Entity.*;
 import Entity.Manager.Manager;
 import Entity.User.User;
+import Service.CouponService;
 import Service.ManagerService;
 import Service.NoticeService;
 import Service.UserService;
@@ -40,7 +41,8 @@ public class ExpressController {
     UserService userService;
     @Resource
     NoticeService noticeService;
-
+    @Resource
+    CouponService couponService;
 
 
     @RequestMapping("help_send_express")
@@ -190,6 +192,7 @@ public class ExpressController {
         map.put("parts", parts);
         map.put("expresses", expresses);
         map.put("time_validate", System.currentTimeMillis());
+        map.put("freeSum",couponService.howManyFreeIHave(user.getId()));
         return "user/help_express";
     }
 
@@ -364,12 +367,13 @@ public class ExpressController {
         boolean free_this = false;
         /** 20170224 免单检测 begin*/
         user = userService.getUserById(user.getId());
-        if(user.getFreeSum()>0){
+        if(couponService.howManyFreeIHave(user.getId())>0){
             cost = 1;
             free_this = true;
-            user.setFreeSum(user.getFreeSum()-1);
-            user.setOrder_sum(user.getOrder_sum()+1);
-            userService.update(user);
+//            user.setFreeSum(user.getFreeSum()-1);
+//            user.setOrder_sum(user.getOrder_sum()+1);
+//            userService.update(user);
+            couponService.consumeOneFreeGift(user.getId());
         }else{
             /**
              * 2016/9/19 关闭首单免费机制

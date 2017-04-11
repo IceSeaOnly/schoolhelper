@@ -1,12 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2016/8/30
-  Time: 9:40
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -33,13 +26,13 @@
         </a>
     </li>
     <li>
-        <a href="">
-            <h2>${user.freeSum}</h2>
+        <a href="/user/my_coupons.do">
+            <h2>${freeSum}</h2>
             <p>免单券</p>
         </a>
     </li>
     <li>
-        <a href="">
+        <a>
             <h2>0</h2>
             <p>开发中</p>
         </a>

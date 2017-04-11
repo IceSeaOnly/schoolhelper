@@ -22,18 +22,48 @@ public class GiftRecord {
     private String uname;
     private String openid;
     private Long getTime;
+    private Long outOfDate;//失效时间
     private String strTime;
+    private String outOfDateStr;
+    private boolean valid; //有效
 
-    public GiftRecord(int uid, int gid, String uname, String openid) {
+    public String getOutOfDateStr() {
+        return outOfDateStr;
+    }
+
+    public void setOutOfDateStr(String outOfDateStr) {
+        this.outOfDateStr = outOfDateStr;
+    }
+
+    public GiftRecord(int uid, int gid, String uname, String openid, Long exp) {
         this.uid = uid;
         this.gid = gid;
         this.uname = uname;
         this.openid = openid;
         this.getTime = System.currentTimeMillis();
         this.strTime = TimeFormat.format(this.getGetTime());
+        this.valid = true;
+        this.outOfDate = getGetTime()+exp;
+        this.outOfDateStr = TimeFormat.format(this.outOfDate);
     }
 
     public GiftRecord() {
+    }
+
+    public Long getOutOfDate() {
+        return outOfDate;
+    }
+
+    public void setOutOfDate(Long outOfDate) {
+        this.outOfDate = outOfDate;
+    }
+
+    public boolean isValid() {
+        return valid;
+    }
+
+    public void setValid(boolean valid) {
+        this.valid = valid;
     }
 
     public int getId() {

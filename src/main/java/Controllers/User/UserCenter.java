@@ -3,6 +3,7 @@ package Controllers.User;
 import Entity.*;
 import Entity.User.User;
 import Service.AvatarService;
+import Service.CouponService;
 import Service.UserService;
 import Utils.MD5;
 import org.springframework.stereotype.Controller;
@@ -26,7 +27,8 @@ public class UserCenter {
     AvatarService avatarService;
     @Resource
     UserService userService;
-
+    @Resource
+    CouponService couponService;
 
     @RequestMapping("check_send_orders")
     public String check_send_orders(ModelMap map,HttpSession session){
@@ -59,6 +61,7 @@ public class UserCenter {
             return "user/common_result";
         }else map.put("should_complete_user_info",false);
 
+        map.put("freeSum",couponService.howManyFreeIHave(user.getId()));
         //return "user/user_center"; 启用新版首页
         return "user/member_center";
     }
@@ -197,5 +200,25 @@ public class UserCenter {
                 return meals.get(i);
         }
         return null;
+    }
+
+    @RequestMapping("my_coupons")
+    public String my_coupons(HttpSession session,ModelMap map){
+        User user = (User) session.getAttribute("user");
+        ArrayList<GiftRecord> rs = couponService.getMyCoupons(user.getId());
+        ArrayList<GiftRecord> valid = getCoupons(rs,true);
+        ArrayList<GiftRecord> invalid = getCoupons(rs,false);
+        map.put("valid",valid);
+        map.put("invalid",invalid);
+        return "my_coupons";
+    }
+
+    private ArrayList<GiftRecord> getCoupons(ArrayList<GiftRecord> rs, boolean b) {
+        ArrayList<GiftRecord> rss = new ArrayList<GiftRecord>();
+        for (int i = 0; i < rs.size(); i++) {
+            if(rs.get(i).isValid() == b)
+                rss.add(rs.get(i));
+        }
+        return rss;
     }
 }
