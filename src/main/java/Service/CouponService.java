@@ -1,6 +1,7 @@
 package Service;
 
 import Dao.CouponDao;
+import Entity.Gift;
 import Entity.GiftRecord;
 import org.springframework.stereotype.Service;
 
@@ -45,5 +46,16 @@ public class CouponService {
     public ArrayList<GiftRecord> getMyCoupons(int id) {
         ArrayList<GiftRecord> rs = couponDao.getMyCoupons(id);
         return rs == null ? new ArrayList<GiftRecord>():rs;
+    }
+
+    // 返回g活动最新至多100条记录
+    public ArrayList<GiftRecord> listLasted100Record(int g) {
+        ArrayList<GiftRecord> rs = couponDao.listLasted100Record(g);
+        return rs == null?new ArrayList<GiftRecord>():rs;
+    }
+
+    public Long sumAllRecord(int g) {
+        Long sum = couponDao.sumAllRecord(g);
+        return sum == null ?0:sum;
     }
 }

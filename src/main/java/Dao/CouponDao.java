@@ -44,4 +44,23 @@ public class CouponDao {
         session.close();
         return rs;
     }
+
+    public ArrayList<GiftRecord> listLasted100Record(int g) {
+        Session session = sessionFactory.openSession();
+        ArrayList<GiftRecord>rs = (ArrayList<GiftRecord>) session.createQuery("from GiftRecord where gid = :G order by getTime desc")
+                .setParameter("G",g)
+                .setMaxResults(100)
+                .list();
+        session.close();
+        return rs;
+    }
+
+    public Long sumAllRecord(int g) {
+        Session session = sessionFactory.openSession();
+        Long sum = (Long) session.createQuery("select coalesce(count (*),0) from GiftRecord where gid = :G")
+                .setParameter("G",g)
+                .uniqueResult();
+        session.close();
+        return sum;
+    }
 }

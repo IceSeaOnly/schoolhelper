@@ -1,14 +1,14 @@
 package Controllers.Manager;
 
-import Entity.ExpressOrder;
-import Entity.FeedBack;
+import Entity.*;
 import Entity.Manager.Conversation;
 import Entity.Manager.Log;
 import Entity.Manager.OutPutOrders;
-import Entity.SysMsg;
+import Service.CouponService;
 import Service.ManagerService;
 import Service.NoticeService;
 import Utils.HttpUtils;
+import Utils.MD5;
 import Utils.Safe;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -34,6 +34,8 @@ public class Api {
 
     @Resource
     ManagerService managerService;
+    @Resource
+    CouponService couponService;
     @Resource
     NoticeService noticeService;
 
@@ -155,6 +157,30 @@ public class Api {
         }
         map.put("orders",orders);
         return "manager/output_res";
+    }
+
+    @RequestMapping("couponcheck")
+    public String couponcheck(@RequestParam String gid,ModelMap map){
+        int g = getGid(gid);
+        if(g == -1){
+            map.put("result",false);
+            map.put("is_url",false);
+            map.put("notice","凭据非法或超时失效，无法查看");
+            return "manager/common_result";
+        }
+        Long sum = couponService.sumAllRecord(g);
+        ArrayList<GiftRecord> rs = couponService.listLasted100Record(g);
+        map.put("rs",rs);
+        map.put("sum",sum);
+        return "manager/couponcheck";
+    }
+
+    private int getGid(String gid) {
+        for (int i = 0; i < 999; i++) {
+            if(MD5.encryption(i+"").equals(gid))
+                return i;
+        }
+        return -1;
     }
 
 }
