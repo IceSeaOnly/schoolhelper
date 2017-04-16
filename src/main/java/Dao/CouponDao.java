@@ -1,11 +1,13 @@
 package Dao;
 
 import Entity.GiftRecord;
+import Utils.TimeFormat;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import java.sql.Time;
 import java.util.ArrayList;
 
 /**
@@ -31,6 +33,18 @@ public class CouponDao {
         session.beginTransaction();
         session.createQuery("update GiftRecord set valid = false where id in :S")
                 .setParameterList("S",outOfdate)
+                .executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public void consumeFreeGift(ArrayList<Integer> outOfdate) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.createQuery("update GiftRecord set valid = false,used = true,useTime = :T,usedTimeStr = :TS where id in :S")
+                .setParameterList("S",outOfdate)
+                .setParameter("T",System.currentTimeMillis())
+                .setParameter("TS", TimeFormat.format(System.currentTimeMillis()))
                 .executeUpdate();
         session.getTransaction().commit();
         session.close();

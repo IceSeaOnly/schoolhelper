@@ -287,7 +287,7 @@
                             <div class="item-content">
                                 <div class="item-inner">
                                     <div class="item-title-row">
-                                        <div class="item-title">${exp.expressName} ￥${exp.sendPrice/100} @${exp.hour_out_of_service}</div>
+                                        <div class="item-title">${exp.expressName} ￥${exp.sendPrice/100} @${exp.hour_out_of_service}:${exp.minute_out_of_service}</div>
                                         <div class="item-after">
                                             <a href="javascript:reset_exp(${exp.id})" class="button">设置</a>&nbsp&nbsp
                                             <label class="label-switch">
@@ -331,9 +331,19 @@
                         <li>
                             <div class="item-content">
                                 <div class="item-inner">
-                                    <div class="item-title label">停止接单时间</div>
+                                    <div class="item-title label">停止接单时间H</div>
                                     <div class="item-input">
-                                        <input type="text" name="exp_end" id="exp_end" placeholder="点击选择">
+                                        <input type="text" name="exp_endH" id="exp_end" placeholder="点击选择">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">停止接单时间M</div>
+                                    <div class="item-input">
+                                        <input type="text" name="exp_endM" id="exp_end_M" placeholder="点击选择">
                                     </div>
                                 </div>
                             </div>
@@ -682,12 +692,24 @@
     $("#exp_end").picker({
         toolbarTemplate: '<header class="bar bar-nav">\
   <button class="button button-link pull-right close-picker">确定</button>\
-  <h1 class="title">24小时制</h1>\
+  <h1 class="title">选择小时</h1>\
   </header>',
         cols: [
             {
                 textAlign: 'center',
                 values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+            }
+        ]
+    });
+    $("#exp_end_M").picker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+  <button class="button button-link pull-right close-picker">确定</button>\
+  <h1 class="title">选择分钟</h1>\
+  </header>',
+        cols: [
+            {
+                textAlign: 'center',
+                values: [0,10,15,20,30,40,50,60]
             }
         ]
     });

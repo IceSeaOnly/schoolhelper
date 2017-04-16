@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -24,13 +25,13 @@
         </header>
         <!-- 这里是页面内容区 begin-->
         <div class="content">
-            <div class="content-block-title">总领取量:${sum}</div>
+            <div class="content-block-title">总领取量:${sum}<br>下面最最新至多100条领取记录<br>左侧为姓名或userId</div>
             <div class="list-block">
                 <ul>
                     <c:forEach items="${rs}" var="re">
                     <li class="item-content">
                         <div class="item-inner">
-                            <div class="item-title">${re.uname}</div>
+                            <div class="item-title">${fn:length(re.uname)>0?re.uname:re.uid}</div>
                             <div class="item-after">${re.strTime}</div>
                         </div>
                     </li>

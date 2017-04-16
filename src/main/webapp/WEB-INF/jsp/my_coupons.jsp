@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html>
@@ -34,13 +35,13 @@
 <body style="background-color: #f9f9f9;">
 <!--header顶部标题-->
 <div class="header">优惠券
-    <div class="header_left" onClick="window.history.go(-1)"><img src="images/return.png"></div>
+    <div class="header_left" onClick="window.history.go(-1)"><img src="../images/return.png"></div>
     <div class="header_right" id="open_sta" onClick="statement()">使用细则</div>
 </div>
 <!--term是否过期-->
 <div class="term_box">
-    <div class="term" style="color:#01aff0;">未使用</div>
-    <div class="term">过期券</div>
+    <div class="term" style="color:#01aff0;">${fn:length(valid) == 0?"失效券":"未使用"}</div>
+    <div class="term">${fn:length(valid) != 0?"失效券":"未使用"}</div>
     <div class="border_bottom"></div>
     <div class="blue"></div>
 </div>
@@ -71,8 +72,8 @@
                     <div class="border_top"></div>
                     <div class="border_right"></div>
                     <div class="border_bottom"></div>
-                    <h1>限<span>代取快递</span>使用</h1>
-                    <h2>使用期限：${iva.outOfDateStr}</h2>
+                    <h1><span style="color: red">${iva.used?"已使用":"已过期"}</span></h1>
+                    <h2>${iva.used?"使用时间":"使用期限"}：${iva.used?iva.usedTimeStr:iva.outOfDateStr}</h2>
                 </div>
             </div>
         </c:forEach>
@@ -86,7 +87,7 @@
     <div class="statement_header">使用细则
         <div class="border_bottom"></div>
     </div>
-    <img class="close" onClick="close_sta()" src="images/close.png">
+    <img class="close" onClick="close_sta()" src="../images/close.png">
     <div class="statement_text">
         <h1>1.什么是免单券？</h1>
         <p>免单券是在小骨头中下单抵扣下单费用的一种优惠券，目前免单券仅支持在代取快递中使用。</p>
@@ -102,6 +103,10 @@
     <div class="statement_text">
         <h1>4.免单券有使用限制吗？</h1>
         <p>在部分试营业校区，可能会有每天可用的免单券限制。</p>
+    </div>
+    <div class="statement_text">
+        <h1>5.免单券失效的原因有哪些？</h1>
+        <p>过期或使用都会使免单券失效。</p>
     </div>
 </div>
 <script>

@@ -858,11 +858,12 @@ public class Business {
                              @RequestParam String exp_name,
                              @RequestParam int schoolId,
                              @RequestParam int price,
-                             @RequestParam int exp_end,
+                             @RequestParam int exp_endH,
+                             @RequestParam int exp_endM,
                              ModelMap map) {
         System.out.println("mid=" + managerId);
         if (managerService.managerAccess2Privilege(managerId, "xtsz")) {
-            Express exp = new Express(exp_name, price, schoolId, exp_end);
+            Express exp = new Express(exp_name, price, schoolId, exp_endH,exp_endM);
             managerService.save(exp);
             map.put("result", true);
             map.put("is_url", true);

@@ -123,7 +123,7 @@ function validate_form() {
         return false;
     }
     if (ex < 0) {
-        alert("哎呀,这家快递需要在12点前下单哦！现在不可以啦！");
+        alert("哎呀,错过这家快递下单时间了！现在不可以啦！");
 		return false;
     }
 
@@ -156,7 +156,7 @@ function validate_form() {
 			</div>
 			<div class="input-group">
 				<label >取件号</label> <input type="text"
-					name="sms" placeholder="短信通知中的快递序号">
+					name="sms" placeholder="限填一个取件号">
 			</div>
 			<div class="input-group">
 				<label>配送时间</label> <select  name="sendtime_id">

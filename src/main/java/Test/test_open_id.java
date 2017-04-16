@@ -70,4 +70,9 @@ public class test_open_id {
         System.out.println(TimeFormat.data2Timestamp(2017,2,27));
     }
 
+    @Test
+    public void testTime(){
+        System.out.println(MD5.encryption("2"));
+    }
+
 }

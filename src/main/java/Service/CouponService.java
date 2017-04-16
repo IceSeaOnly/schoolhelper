@@ -23,7 +23,7 @@ public class CouponService {
         int sum = rs.size();
         ArrayList<Integer> outOfdate = new ArrayList<Integer>();
         for (int i = 0; i < rs.size(); i++) {
-            if(rs.get(i).getOutOfDate() > System.currentTimeMillis()){
+            if(rs.get(i).getOutOfDate() < System.currentTimeMillis()){
                 sum--;
                 outOfdate.add(rs.get(i).getId());
             }
@@ -39,7 +39,7 @@ public class CouponService {
         if(rs.size() > 0){
             ArrayList<Integer> outOfdate = new ArrayList<Integer>();
             outOfdate.add(rs.get(0).getId());
-            couponDao.setGiftRecordOutOfDate(outOfdate);
+            couponDao.consumeFreeGift(outOfdate);
         }
     }
 

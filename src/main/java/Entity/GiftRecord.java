@@ -26,6 +26,9 @@ public class GiftRecord {
     private String strTime;
     private String outOfDateStr;
     private boolean valid; //有效
+    private String usedTimeStr;
+    private Long useTime;
+    private boolean used;
 
     public String getOutOfDateStr() {
         return outOfDateStr;
@@ -45,6 +48,7 @@ public class GiftRecord {
         this.valid = true;
         this.outOfDate = getGetTime()+exp;
         this.outOfDateStr = TimeFormat.format(this.outOfDate);
+        this.used = false;
     }
 
     public GiftRecord() {
@@ -120,5 +124,29 @@ public class GiftRecord {
 
     public void setStrTime(String strTime) {
         this.strTime = strTime;
+    }
+
+    public String getUsedTimeStr() {
+        return usedTimeStr;
+    }
+
+    public void setUsedTimeStr(String usedTimeStr) {
+        this.usedTimeStr = usedTimeStr;
+    }
+
+    public Long getUseTime() {
+        return useTime;
+    }
+
+    public void setUseTime(Long useTime) {
+        this.useTime = useTime;
+    }
+
+    public boolean isUsed() {
+        return used;
+    }
+
+    public void setUsed(boolean used) {
+        this.used = used;
     }
 }
