@@ -19,35 +19,53 @@
 <div class="page-group">
     <div class="page page-current">
         <!-- 你的html代码 -->
-        <header class="bar bar-nav">
-            <h1 class="title">订单导出</h1>
-        </header>
+        <%--<header class="bar bar-nav">--%>
+            <%--<h1 class="title">订单导出</h1>--%>
+        <%--</header>--%>
         <!-- 这里是页面内容区 begin-->
         <div class="content">
-            <div class="list-block  media-list">
-                <ul>
-                    <c:forEach items="${orders}" var="order">
-                        <li>
-                                <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-                                <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <div class="item-title">${order.express}
-                                            【${order.express_number}】【${order.arrive}】
-                                        </div>
-                                    </div>
-                                    <div class="item-subtitle">
-                                        用户姓名：${order.express_name}<br>
-                                        取件手机：${order.express_phone}<br>
-                                        配送手机：${order.receive_phone}<br>
-                                    </div>
-                                    <div class="item-text">
-                                        备注信息：${order.otherinfo }
-                                    </div>
-                                </div>
-                        </li>
-                    </c:forEach>
-                </ul>
+            <div class="buttons-tab">
+                <a href="#tab1" class="tab-link active button">详细</a>
+                <a href="#tab2" class="tab-link button">统计</a>
             </div>
+            <div class="content-block">
+                <div class="tabs">
+                    <div id="tab1" class="tab active">
+                        <div class="list-block  media-list">
+                            <ul>
+                                <c:forEach items="${orders}" var="order">
+                                    <li>
+                                        <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">${order.express}
+                                                    【${order.express_number}】【${order.arrive}】
+                                                </div>
+                                            </div>
+                                            <div class="item-subtitle">
+                                                用户姓名：${order.express_name}<br>
+                                                取件手机：${order.express_phone}<br>
+                                                配送手机：${order.receive_phone}<br>
+                                            </div>
+                                            <div class="item-text">
+                                                备注信息：${order.otherinfo }
+                                            </div>
+                                        </div>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab">
+                        <div class="content-block">
+                            <c:forEach items="${omap}" var="entry">
+                                <p>${entry.key}:${entry.value}</p>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- 这里是页面内容区 end-->

@@ -331,7 +331,7 @@
                         <li>
                             <div class="item-content">
                                 <div class="item-inner">
-                                    <div class="item-title label">停止接单时间H</div>
+                                    <div class="item-title label">停止接单小时</div>
                                     <div class="item-input">
                                         <input type="text" name="exp_endH" id="exp_end" placeholder="点击选择">
                                     </div>
@@ -341,7 +341,7 @@
                         <li>
                             <div class="item-content">
                                 <div class="item-inner">
-                                    <div class="item-title label">停止接单时间M</div>
+                                    <div class="item-title label">停止接单分钟</div>
                                     <div class="item-input">
                                         <input type="text" name="exp_endM" id="exp_end_M" placeholder="点击选择">
                                     </div>

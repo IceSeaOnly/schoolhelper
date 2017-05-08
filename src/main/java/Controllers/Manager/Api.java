@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Administrator on 2017/1/30.
@@ -155,6 +156,14 @@ public class Api {
         if(orders == null || orders.size() < 1){
             return illigalVisit(map);
         }
+        HashMap<String,Integer> omap = new HashMap();
+        for (int i = 0; i < orders.size(); i++) {
+            if(omap.containsKey(orders.get(i).getExpress()))
+                omap.put(orders.get(i).getExpress(),omap.get(orders.get(i).getExpress())+1);
+            else
+                omap.put(orders.get(i).getExpress(),1);
+        }
+        map.put("omap",omap);
         map.put("orders",orders);
         return "manager/output_res";
     }

@@ -35,24 +35,28 @@ public class test_open_id {
     }
 
     public static void main(String[] args) {
-        String openid = "oz1S1v_7W7O1t-KxfdFK5Sk6eJVs";
+        String openids = "oz1S1v_7W7O1t-KxfdFK5Sk6eJVs";
+        String[] ops = openids.split(",");
+        NoticeService noticeService = new NoticeService();
+        for(String openid:ops){
+           noticeService.chargeSuccess("优惠券恢复提醒",
+                            "0",
+                            "免单券*1",
+                            "0",
+                            "系统赠送",
+                            "亲爱的用户您好，由于系统问题造成部分用户免单券异常失效，给您带来不便敬请谅解。经过系统升级，失效的免单券现已经为您恢复，再一次为我们的工作失误向您道歉，希望您能继续支持小骨头。",
+                            openid,"");
+            System.out.println(openid);
+        }
 
-//        new NoticeService()
-//                .chargeSuccess("小骨头赠款到账",
-//                        "6604",
-//                        "50.00元",
-//                        "0",
-//                        "系统赠款",
-//                        "亲爱的用户您好，50.00元赠款已经送到您的账户，再一次为我们的工作失误向您道歉，希望您能继续支持小骨头。",
-//                        openid,"");
-        new NoticeService().ReservationService("this is frist",
-                "this is content",
-                "this is good",
-                "today",
-                "name",
-                "10",
-                "remark",
-                openid,"");
+//        new NoticeService().ReservationService("this is frist",
+//                "this is content",
+//                "this is good",
+//                "today",
+//                "name",
+//                "10",
+//                "remark",
+//                openid,"");
     }
     @Test
     public void md5(){

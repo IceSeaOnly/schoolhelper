@@ -16,11 +16,24 @@
     <title>我的信息</title>
     <link rel="stylesheet" href="../weixin_style/weui.css"/>
     <link rel="stylesheet" href="../weixin_style/example.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <style>
         html {
             overflow-y: hidden;
         }
     </style>
+    <script>
+        function validation() {
+            if($("#schoolvar").val() != -1){
+                //$("#form_chsc").submit();
+                return true;
+            }else{
+                alert("请选择正确的学校！");
+                return false;
+            }
+            return false;
+        }
+    </script>
 </head>
 
 <body>
@@ -30,24 +43,25 @@
         <p class="page_desc">切换学校后请及时更新宿舍信息</p>
     </div>
     <div class="odform">
-        <form action="/user/update_school.do" method="post">
+        <form action="/user/update_school.do" method="post" id="form_chsc" onsubmit="return validation();">
             <div class="weui_cell">
                 <div class="weui_cell_hd"><label class="weui_label">选择学校</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <select class="weui_select" name="school">
+                    <select class="weui_select" id="schoolvar" name="school">
+                        <option value="-1" selected="true">点击选择</option>
                         <c:forEach items="${schools}" var="school">
-                            <c:if test="${user.schoolId == school.id}">
-                                <option value="${school.id}" selected="true">${school.schoolName}</option>
-                            </c:if>
-                            <c:if test="${user.schoolId != school.id}">
+                            <%--<c:if test="${user.schoolId == school.id}">--%>
+                                <%--<option value="${school.id}" selected="true">${school.schoolName}</option>--%>
+                            <%--</c:if>--%>
+                            <%--<c:if test="${user.schoolId != school.id}">--%>
                                 <option value="${school.id}">${school.schoolName}</option>
-                            </c:if>
+                            <%--</c:if>--%>
                         </c:forEach>
                     </select>
                 </div>
             </div>
             <div class="bd spacing">
-                <button onclick="form.submit()" class="weui_btn weui_btn_primary">提交更新</button>
+                <button class="weui_btn weui_btn_primary">提交更新</button>
             </div>
         </form>
     </div>

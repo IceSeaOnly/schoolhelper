@@ -27,6 +27,7 @@
 <h1 class="page_title">服务说明</h1>
 <div class="weui_msg">
     <div class="weui_text_area" align="left">
+        <p class="weui_msg_desc">* <span style="color: red;">急件、大件、贵重物品，请自取</span></p>
         <p class="weui_msg_desc">* 请填写当日手机短信上的提货码或编号</p>
         <p class="weui_msg_desc">* 填写快递单上的姓名电话</p>
         <p class="weui_msg_desc">* 因编号姓名电话填写不正确导致未能取件的，概不退款,可改为次日取件。</p>
