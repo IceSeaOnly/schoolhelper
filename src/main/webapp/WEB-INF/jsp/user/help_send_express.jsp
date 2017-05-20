@@ -64,9 +64,9 @@
         </div>
     </div>
     <br>
-    <div class="bd spacing">
-        <a href="http://weixin.qdxiaogutou.com/app/index.php?i=3&c=home&t=7" class="weui_btn weui_btn_plain_default">查看快递资费</a>
-    </div>
+    <%--<div class="bd spacing">--%>
+        <%--<a href="http://weixin.qdxiaogutou.com/app/index.php?i=3&c=home&t=7" class="weui_btn weui_btn_plain_default">查看快递资费</a>--%>
+    <%--</div>--%>
     <br>
     <div class="bd spacing">
         <input type="submit" value="提交订单" class="weui_btn weui_btn_primary">

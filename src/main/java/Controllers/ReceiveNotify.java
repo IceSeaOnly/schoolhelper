@@ -99,7 +99,7 @@ public class ReceiveNotify {
                     (double)seo.getShouldPay()/100+"元",
                     "请耐心等待服务",
                     seo.getOpen_id(),
-                    "http://xiaogutou.qdxiaogutou.com/user/index.do");
+                    "http://xiaogut ou.qdxiaogutou.com/user/index.do");
 
             //管理分红
             managerService.managerDividend(seo.getSchoolId(),seo.getShouldPay(),seo.getId(),"代寄快递分红");

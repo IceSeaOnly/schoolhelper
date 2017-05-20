@@ -161,7 +161,7 @@
                 </div>
                 <div class="msg_line">
                     <h1>配送员</h1>
-                    <p>${order.rider_name}</p>
+                    <p><a href="tel:${riderPhone}">${order.rider_name} ${riderPhone}</a></p>
                     <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>

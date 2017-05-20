@@ -219,7 +219,9 @@ public class ExpressController {
     public String see_order_detail(@RequestParam int id, ModelMap map, HttpSession session) {
         User user = (User) session.getAttribute("user");
         ExpressOrder order = userService.getExpressOrderById(user, id);
+        String riderPhone = managerService.getManagerById(order.getRider_id()).getPhone();
         if (order == null) return "errors/illegal";
+        map.put("riderPhone",riderPhone);
         map.put("order", order);
         if (order.isHas_pay() == false) return "user/ready_topay";
         if((order.getOrder_state() == 0 || order.getOrder_state() == 1) && order.getOrderTimeStamp()<TimeFormat.getTimesmorning()){

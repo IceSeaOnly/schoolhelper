@@ -288,6 +288,20 @@ public class NoticeService {
         System.out.println("all openid is "+openids.size());
         threadPublis(openids, url, data);
     }
+    /**
+     * 发布全校通知
+     */
+    public void publishNoticeByHand(String title,String businessType,String content,String managerName,String time,
+            String key4,ArrayList<String> openids,String url) {
+        JSONObject data = new JSONObject();
+        data.put("first", newItem(title,"#FF0000"));
+        data.put("keyword1", newItem(businessType));
+        data.put("keyword2", newItem(managerName));
+        data.put("keyword3", newItem(time));
+        data.put("keyword4", newItem(key4,"#FF0000"));
+        data.put("remark", newItem(content,"#458B00"));
+        threadPublis(openids, url, data);
+    }
 
     /**
      * 批量发布
@@ -295,7 +309,13 @@ public class NoticeService {
     public void threadPublis(final ArrayList<String> openids, final String url, final JSONObject data) {
         JSONArray arr = new JSONArray();
         for (int i = 0; i < openids.size(); i++) {
-            arr.add(commonTPLMaker("84wlEJrZ9Ak6ikc19gJa8G2FM0j34tf6M4e2NuKoBj0", openids.get(i), url, data));
+            //预警：arr.add(commonTPLMaker("84wlEJrZ9Ak6ikc19gJa8G2FM0j34tf6M4e2NuKoBj0", openids.get(i), url, data));
+            // 业务变更通知
+            arr.add(commonTPLMaker("_WTYCY90t9g6prdhEaGCx6ugWIueEe0a7OCQjJ7dcMQ", openids.get(i), url, data));
+            if(arr.size() > 20){
+                DistributedTPLSend(arr);
+                arr = new JSONArray();
+            }
         }
         DistributedTPLSend(arr);
     }
