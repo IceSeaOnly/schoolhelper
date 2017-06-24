@@ -51,10 +51,10 @@ public class test_open_id {
         }
         new NoticeService().publishNoticeByHand("业务变更通知",
                 "服务价格调整通知",
-                "各位同学，近3个月我们代取快递都是1.1元，但是低价运营确实给团队带来了很大压力。为了更好地服务大家提高效率，明天起，快递费用将进行一定比例地上调，暂定为校内1.5元；校外1.8元（大件另算）。感谢大家一直以来的支持与理解。我们将竭尽全力呵护您的快递。",
+                "亲爱的小骨头用户，端午节假期期间，本校代取费用调整为3元一件，节后调回原价。谢谢支持。",
                 "石油大运营团队",
-                "2017-5-14",
-                "新价格标准自2017-5-15开始生效",
+                "2017-5-27 15:10",
+                "端午节期间3元/件",
                 openids,"");
         System.out.println(openids.size()+" Complete.");
 //        String[] ops = openids.split(",");
@@ -92,7 +92,7 @@ public class test_open_id {
     @Test
     public void time(){
 
-        System.out.println(TimeFormat.data2Timestamp(2017,2,27));
+        System.out.println(MD5.encryption("3"));
     }
 
     @Test

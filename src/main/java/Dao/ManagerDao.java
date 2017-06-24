@@ -842,4 +842,13 @@ public class ManagerDao{
         session.close();
         return sum;
     }
+
+    public List<SchoolMoveOrder> getSchoolMoveOrderBySchoolId(int schoolId) {
+        Session session = sessionFactory.openSession();
+        List<SchoolMoveOrder> orders = session.createQuery("from SchoolMoveOrder where schoolId = :S order by id desc")
+                .setParameter("S",schoolId)
+                .list();
+        session.close();
+        return orders;
+    }
 }

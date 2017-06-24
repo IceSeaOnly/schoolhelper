@@ -1147,4 +1147,13 @@ public class Business {
         return "manager/common_result";
 
     }
+
+
+    @RequestMapping("querySchoolMoveOrders")
+    public String querySchoolMoveOrders(@RequestParam int schoolId,ModelMap map){
+        List<SchoolMoveOrder> orders = managerService.getSchoolMoveOrderBySchoolId(schoolId);
+        map.put("orders",orders);
+        return "manager/schoolMoveOrders";
+    }
+
 }

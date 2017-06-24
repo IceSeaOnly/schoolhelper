@@ -647,4 +647,8 @@ public class ManagerService {
     public Long getTodayIncome(Long date) {
         return managerDao.getTodayIncome(date);
     }
+
+    public List<SchoolMoveOrder> getSchoolMoveOrderBySchoolId(int schoolId) {
+        return managerDao.getSchoolMoveOrderBySchoolId(schoolId);
+    }
 }
