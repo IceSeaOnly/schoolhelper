@@ -201,7 +201,7 @@ public class NoticeService {
      * */
     public static void sendToMessageQueue(String queueName,String msgBody){
         if(account == null){
-            account = new CloudAccount(PassConfig.accessKey, PassConfig.secret, PassConfig.MNSurl);
+            account = new CloudAccount("","","");
             client = account.getMNSClient();
         }
         Message message = new Message();
