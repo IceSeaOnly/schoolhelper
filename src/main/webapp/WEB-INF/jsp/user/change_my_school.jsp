@@ -16,7 +16,7 @@
     <title>我的信息</title>
     <link rel="stylesheet" href="../weixin_style/weui.css"/>
     <link rel="stylesheet" href="../weixin_style/example.css"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="../js/jquery.js"></script>
     <style>
         html {
             overflow-y: hidden;
