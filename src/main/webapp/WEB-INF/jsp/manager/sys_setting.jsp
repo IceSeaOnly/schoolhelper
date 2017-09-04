@@ -398,6 +398,23 @@
                     <li>
                         <div class="item-content">
                             <div class="item-inner">
+                                <div class="item-title label">优惠控制</div>
+                                <div class="item-input">
+                                    <label class="label-switch">
+                                        <input type="checkbox"
+                                        <c:if test="${config.enableCoupon}">
+                                               checked="checked"
+                                        </c:if>
+                                               onchange="javascript:common_change('enableCoupon')">
+                                        <div class="checkbox"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
                                 <div class="item-title label">首单优惠</div>
                                 <div class="item-input">
                                     <label class="label-switch">

@@ -298,6 +298,22 @@ public class Ajax {
     }
 
     /**
+     * 控制优惠券使用策略
+     */
+    @RequestMapping("enableCoupon")
+    @ResponseBody
+    public String enableCoupon(@RequestParam int managerId,
+                                      @RequestParam int schoolId) {
+        if (managerService.managerAccess2Privilege(managerId, "xtsz")) {
+            SchoolConfigs sc = userService.getSchoolConfBySchoolId(schoolId);
+            sc.setEnableCoupon(!sc.isEnableCoupon());
+            managerService.update(sc);
+            return sc.isEnableCoupon() ? "已启用优惠券" : "已关闭优惠券使用";
+        }
+        return "无权操作";
+    }
+
+    /**
      * 控制满十减一策略
      */
     @RequestMapping("ifTenThenFree")
