@@ -369,7 +369,11 @@ public class ExpressController {
         boolean free_this = false;
         /** 20170224 免单检测 begin*/
         user = userService.getUserById(user.getId());
-        if(couponService.howManyFreeIHave(user.getId())>0){
+        SchoolConfigs sc = userService.getSchoolConfBySchoolId(user.getSchoolId());
+        /**
+         * 增加优惠券控制开关
+         * */
+        if(sc.isEnableCoupon() && couponService.howManyFreeIHave(user.getId())>0){
             cost = 1;
             free_this = true;
 //            user.setFreeSum(user.getFreeSum()-1);
@@ -381,7 +385,6 @@ public class ExpressController {
              * 2016/9/19 关闭首单免费机制
              * 2017/2/7 可控制免费机制
              * */
-            SchoolConfigs sc = userService.getSchoolConfBySchoolId(user.getSchoolId());
             if(sc.isFirstDiscount())
                 cost = FirstDiscount(user, express_phone, sendto_phone, cost);
 

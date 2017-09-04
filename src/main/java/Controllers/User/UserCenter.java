@@ -205,11 +205,13 @@ public class UserCenter {
     @RequestMapping("my_coupons")
     public String my_coupons(HttpSession session,ModelMap map){
         User user = (User) session.getAttribute("user");
+        SchoolConfigs sc = userService.getSchoolConfBySchoolId(user.getSchoolId());
         ArrayList<GiftRecord> rs = couponService.getMyCoupons(user.getId());
         ArrayList<GiftRecord> valid = getCoupons(rs,true);
         ArrayList<GiftRecord> invalid = getCoupons(rs,false);
         map.put("valid",valid);
         map.put("invalid",invalid);
+        map.put("schoolConfig",sc);
         return "my_coupons";
     }
 

@@ -58,7 +58,12 @@
                     <div class="border_right"></div>
                     <div class="border_bottom"></div>
                     <h1>限<span>代取快递</span>使用</h1>
-                    <h2>使用期限：${va.outOfDateStr}</h2>
+                    <c:if test="${schoolConfig.enableCoupon}">
+                        <h2>使用期限：${va.outOfDateStr}</h2>
+                    </c:if>
+                    <c:if test="${!schoolConfig.enableCoupon}">
+                        <h2>暂不可用</h2>
+                    </c:if>
                 </div>
             </div>
             </c:forEach>
@@ -107,6 +112,10 @@
     <div class="statement_text">
         <h1>5.免单券失效的原因有哪些？</h1>
         <p>过期或使用都会使免单券失效。</p>
+    </div>
+    <div class="statement_text">
+        <h1>6.免单券怎么使用？</h1>
+        <p>如果有可用的免单券，下单时会自动使用。</p>
     </div>
 </div>
 <script>

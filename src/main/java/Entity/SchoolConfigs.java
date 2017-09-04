@@ -24,6 +24,7 @@ public class SchoolConfigs {
     private boolean ifTenThenFree;//满十减一
     private boolean schoolMove;//校园搬运
     private boolean helpSend;//代寄
+    private boolean enableCoupon;//优惠券开关
     private String auto_close_info;
     private String hand_close_info;
     private String refund_url;
@@ -53,6 +54,7 @@ public class SchoolConfigs {
         this.refund_url = "http://weixin.qdxiaogutou.com/refund.php";
         this.each_fetch = this.each_send = this.each_fetch = this.each_receive = 0;
         this.servicePhone = 0L;
+        this.enableCoupon = true;
     }
 
     public SchoolConfigs() {
@@ -217,5 +219,13 @@ public class SchoolConfigs {
 
     public void setHelpSend(boolean helpSend) {
         this.helpSend = helpSend;
+    }
+
+    public boolean isEnableCoupon() {
+        return enableCoupon;
+    }
+
+    public void setEnableCoupon(boolean enableCoupon) {
+        this.enableCoupon = enableCoupon;
     }
 }
