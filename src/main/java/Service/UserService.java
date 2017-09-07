@@ -50,7 +50,7 @@ public class UserService {
     public int getFirstOrderCost(int cost,int sid) {
         SchoolConfigs sc = getSchoolConfBySchoolId(sid);
         int res = sc.getFirst_cost();
-        return res <cost ? cost : res;
+        return res < cost ? res : cost;
     }
 
     // 查询该phone使用过，如果是则返回true
