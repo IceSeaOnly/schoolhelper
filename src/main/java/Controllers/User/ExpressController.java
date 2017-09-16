@@ -56,7 +56,7 @@ public class ExpressController {
         }
 
         map.put("expresses", expresses);
-        String address = getSendPart(u.getPart(), userService.listAllParts(u.getSchoolId()),u.getSchoolId()).getPartName() + u.getBuilding();
+        String address = getSendPart(u.getPart(), userService.listAllParts(u.getSchoolId()), u.getSchoolId()).getPartName() + u.getBuilding();
         map.put("address", address);
         return "user/help_send_express";
     }
@@ -75,8 +75,8 @@ public class ExpressController {
         SendExpress express = getSendExpress(select_express, expresses);
         if (express == null) return "errors/illegal";
         String orderKey = MD5.encryption(name + phone + address + System.currentTimeMillis());
-        SendExpressOrder seo = new SendExpressOrder(express.getExpressname(),express.getPhone(), express.getOrderPrice(), false, new Date(System.currentTimeMillis()), orderKey,
-                name, phone, address, user.getOpen_id(),user.getSchoolId());
+        SendExpressOrder seo = new SendExpressOrder(express.getExpressname(), express.getPhone(), express.getOrderPrice(), false, new Date(System.currentTimeMillis()), orderKey,
+                name, phone, address, user.getOpen_id(), user.getSchoolId());
         userService.sava(seo);
         session.setAttribute("seo", seo);
         return "user/readyto_pay_help_send_express";
@@ -99,20 +99,20 @@ public class ExpressController {
                 session.setAttribute("user", user);
 
                 JSONObject data = new JSONObject();
-                data.put("where",order.getAddress());
-                data.put("name",order.getName()+order.getPhone());
+                data.put("where", order.getAddress());
+                data.put("name", order.getName() + order.getPhone());
                 //管理分红
-                managerService.managerDividend(order.getSchoolId(),order.getShouldPay(),order.getId(),"代寄快递分红");
+                managerService.managerDividend(order.getSchoolId(), order.getShouldPay(), order.getId(), "代寄快递分红");
                 //通知
                 //noticeService.CommonSMSSend("SMS_46215163",order.getExpPhone(),data);
-                noticeService.NoticeManagers(order.getSchoolId(),order.getExpress()+"代寄订单",order.getName()+","+order.getAddress()+","+order.getPhone(),"代寄订单",order.getShouldPay()/100);
+                noticeService.NoticeManagers(order.getSchoolId(), order.getExpress() + "代寄订单", order.getName() + "," + order.getAddress() + "," + order.getPhone(), "代寄订单", order.getShouldPay() / 100);
                 noticeService.ReservationService(
                         "上门取件已接单",
-                        order.getExpress()+"的服务人员将主动联系您",
+                        order.getExpress() + "的服务人员将主动联系您",
                         "上门取件",
                         TimeFormat.format(System.currentTimeMillis()),
                         "快递小哥",
-                        (double)order.getShouldPay()/100+"元",
+                        (double) order.getShouldPay() / 100 + "元",
                         "请耐心等待服务",
                         order.getOpen_id(),
                         "http://xiaogutou.qdxiaogutou.com/user/index.do");
@@ -122,7 +122,7 @@ public class ExpressController {
                 return "user/vippay_failed";
             }
         }
-        map.put("key",order.getOrderKey());
+        map.put("key", order.getOrderKey());
         return "user/pay_help_send_express";
     }
 
@@ -146,40 +146,40 @@ public class ExpressController {
         user = userService.getUserByOpenId(user.getOpen_id());
         session.setAttribute("user", user);
         if (user.getUsername().equals("") && user.getPhone().equals("")) {
-            map.put("is_url",true);
-            map.put("notice","请先完善信息~");
-            map.put("url","/user/change_my_school.do");
+            map.put("is_url", true);
+            map.put("notice", "请先完善信息~");
+            map.put("url", "/user/change_my_school.do");
             return "user/common_result";
         }
-        if(user.getDormitory() == null || user.getDormitory().equals("")){
-            map.put("is_url",true);
-            map.put("notice","请填写宿舍号以便送件上门哦~");
-            map.put("url","/user/change_my_school.do");
+        if (user.getDormitory() == null || user.getDormitory().equals("")) {
+            map.put("is_url", true);
+            map.put("notice", "请填写宿舍号以便送件上门哦~");
+            map.put("url", "/user/change_my_school.do");
             return "user/common_result";
         }
 
         // 查询是否正在服务中
         int state = userService.ExpressServiceRunning(user.getSchoolId());
         if (state != 0) {
-            String info = userService.getServiceStopReason(state,user.getSchoolId());
+            String info = userService.getServiceStopReason(state, user.getSchoolId());
             map.put("info", info);
             return "user/not_in_service";
         }
 
-        ArrayList<Entity.Express> expresses = OutOfService(userService.listAllExpresses(user.getSchoolId(),true));
-        if(expresses.size() == 0){
+        ArrayList<Entity.Express> expresses = OutOfService(userService.listAllExpresses(user.getSchoolId(), true));
+        if (expresses.size() == 0) {
             map.put("info", "尚未接入快递点");
             return "user/not_in_service";
         }
         ArrayList<SendPart> parts = userService.listAllParts(user.getSchoolId());
-        ArrayList<SendTime> sendTimes = userService.getAllSendTimes(user.getSchoolId(),true);
-        if(sendTimes.size()==0){
+        ArrayList<SendTime> sendTimes = userService.getAllSendTimes(user.getSchoolId(), true);
+        if (sendTimes.size() == 0) {
             map.put("info", "尚未设置配送时段");
             return "user/not_in_service";
         }
         /** 对每一个配送时段确定剩余名额，没有名额的id置为-1 begin*/
         for (int i = 0; i < sendTimes.size(); i++) {
-            Long cur = userService.getSendTimeCurrentSum(sendTimes.get(i).getId(),user.getSchoolId());
+            Long cur = userService.getSendTimeCurrentSum(sendTimes.get(i).getId(), user.getSchoolId());
             sendTimes.get(i).setCurSum(cur);
             if (cur >= sendTimes.get(i).getS_limit())
                 sendTimes.get(i).setId(-1);
@@ -192,7 +192,7 @@ public class ExpressController {
         map.put("parts", parts);
         map.put("expresses", expresses);
         map.put("time_validate", System.currentTimeMillis());
-        map.put("freeSum",couponService.howManyFreeIHave(user.getId()));
+        map.put("freeSum", couponService.howManyFreeIHave(user.getId()));
         return "user/help_express";
     }
 
@@ -219,16 +219,16 @@ public class ExpressController {
     public String see_order_detail(@RequestParam int id, ModelMap map, HttpSession session) {
         User user = (User) session.getAttribute("user");
         ExpressOrder order = userService.getExpressOrderById(user, id);
-        String riderPhone = managerService.getManagerById(order.getRider_id()).getPhone();
         if (order == null) return "errors/illegal";
-        map.put("riderPhone",riderPhone);
+        String riderPhone = order.getRider_id() > 0 ? managerService.getManagerById(order.getRider_id()).getPhone() : "暂未接单";
+        map.put("riderPhone", riderPhone);
         map.put("order", order);
         if (order.isHas_pay() == false) return "user/ready_topay";
-        if((order.getOrder_state() == 0 || order.getOrder_state() == 1) && order.getOrderTimeStamp()<TimeFormat.getTimesmorning()){
-            map.put("title","抱歉");
-            map.put("msg","您的订单因无人接单即将进入退款流程，再次表示歉意");
-            map.put("btnmsg","点击继续");
-            map.put("url","refund_outofdate_order.do?oid="+id);
+        if ((order.getOrder_state() == 0 || order.getOrder_state() == 1) && order.getOrderTimeStamp() < TimeFormat.getTimesmorning()) {
+            map.put("title", "抱歉");
+            map.put("msg", "您的订单因无人接单即将进入退款流程，再次表示歉意");
+            map.put("btnmsg", "点击继续");
+            map.put("url", "refund_outofdate_order.do?oid=" + id);
             return "errors/msg";
         }
         return "user/order_detail";
@@ -239,38 +239,38 @@ public class ExpressController {
         User user = (User) session.getAttribute("user");
         ExpressOrder order = userService.getExpressOrderById(user, oid);
         if (order == null) return "errors/illegal";
-        if(order.getUser_id() != user.getId()) return "errors/illegal";
-        if(order.getOrderTimeStamp()>TimeFormat.getTimesmorning()) return "errors/illegal";
-        if(order.getOrder_state() != 1 || order.getOrder_state() != 0) return "errors/illegal";
-        if(!order.isHas_pay()) return "errors/illegal";
-        if(order.getOrder_state() == -1) return "errors/illegal";
+        if (order.getUser_id() != user.getId()) return "errors/illegal";
+        if (order.getOrderTimeStamp() > TimeFormat.getTimesmorning()) return "errors/illegal";
+        if (order.getOrder_state() != 1 || order.getOrder_state() != 0) return "errors/illegal";
+        if (!order.isHas_pay()) return "errors/illegal";
+        if (order.getOrder_state() == -1) return "errors/illegal";
 
         String pass = session.getServletContext().getInitParameter("refund_pwd");
         String url = session.getServletContext().getInitParameter("refund_url");
-        String validate = MD5.encryption(order.getOrderKey()+pass+order.getShouldPay());
+        String validate = MD5.encryption(order.getOrderKey() + pass + order.getShouldPay());
 
-        String rs = HttpUtils.sendGet(url,"out_trade_no="+order.getOrderKey()+"&refund_fee="+order.getShouldPay()+"&validate="+validate);
+        String rs = HttpUtils.sendGet(url, "out_trade_no=" + order.getOrderKey() + "&refund_fee=" + order.getShouldPay() + "&validate=" + validate);
 
-        if(rs.contains("SUCCESS")){
+        if (rs.contains("SUCCESS")) {
             order.setOrder_state(-1);
             managerService.update(order);
             managerService.orderSumCutOne(order.getUser_id());
-            managerService.log(user.getId(),11,order.getId()+"订单超时退款:"+rs);
-            noticeService.refund(order.getId(),order.getUser_id(),order.getShouldPay(),"您的订单退款成功，按原路退回");
-        }else if(rs.contains("订单不存在")){ //余额支付订单
-            rs="余额支付单，";
+            managerService.log(user.getId(), 11, order.getId() + "订单超时退款:" + rs);
+            noticeService.refund(order.getId(), order.getUser_id(), order.getShouldPay(), "您的订单退款成功，按原路退回");
+        } else if (rs.contains("订单不存在")) { //余额支付订单
+            rs = "余额支付单，";
             order.setOrder_state(-1);
             managerService.update(order);
             managerService.orderSumCutOne(order.getUser_id());
-            boolean res = managerService.refundVipPay(order.getUser_id(),order.getShouldPay());
-            rs += (res?"已退款至账户":"但退款时发生错误");
-            managerService.log(user.getId(),11,order.getId()+"订单超时退款:"+rs);
-            noticeService.refund(order.getId(),order.getUser_id(),order.getShouldPay(),"您的订单退款结果:"+(res?"已退款至账户余额":"退款时发生错误"));
+            boolean res = managerService.refundVipPay(order.getUser_id(), order.getShouldPay());
+            rs += (res ? "已退款至账户" : "但退款时发生错误");
+            managerService.log(user.getId(), 11, order.getId() + "订单超时退款:" + rs);
+            noticeService.refund(order.getId(), order.getUser_id(), order.getShouldPay(), "您的订单退款结果:" + (res ? "已退款至账户余额" : "退款时发生错误"));
         }
-        map.put("title","退款结果");
-        map.put("msg",rs);
-        map.put("btnmsg","好的");
-        map.put("url","user_center.do");
+        map.put("title", "退款结果");
+        map.put("msg", rs);
+        map.put("btnmsg", "好的");
+        map.put("url", "user_center.do");
         return "errors/msg";
     }
 
@@ -300,8 +300,8 @@ public class ExpressController {
                 /**
                  * 支付成功
                  * */
-                income_add(user.getSchoolId(),order.getShouldPay());
-                noticeService.paySuccess("小骨头订单余额支付成功",(double)order.getShouldPay()/100+"元","如有疑问或退款，请点我召唤客服","代取快递",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+order.getId(),order);
+                income_add(user.getSchoolId(), order.getShouldPay());
+                noticeService.paySuccess("小骨头订单余额支付成功", (double) order.getShouldPay() / 100 + "元", "如有疑问或退款，请点我召唤客服", "代取快递", user.getOpen_id(), "http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id=" + order.getId(), order);
                 user.setMy_money(user.getMy_money() - order.getShouldPay());
                 order.setHas_pay(true);
                 userService.update(order);
@@ -349,7 +349,7 @@ public class ExpressController {
             return "redirect:errors/illegal";
         }
         /** 确定该配送时段还有名额 begin*/
-        Long cur_sum = userService.getSendTimeCurrentSum(sendtime_id,user.getSchoolId());
+        Long cur_sum = userService.getSendTimeCurrentSum(sendtime_id, user.getSchoolId());
         boolean curtime_pass = false;
         for (int i = 0; i < sendTimes.size(); i++) {
             if (sendTimes.get(i).getId() == sendtime_id && sendTimes.get(i).getS_limit() > cur_sum)
@@ -362,8 +362,8 @@ public class ExpressController {
         /** 确定该配送时段还有名额 end*/
 
 
-        Express ex = getExpress(express, expresses,user.getSchoolId());
-        SendPart pa = getSendPart(part, parts,user.getSchoolId());
+        Express ex = getExpress(express, expresses, user.getSchoolId());
+        SendPart pa = getSendPart(part, parts, user.getSchoolId());
         // 计算费用 单位分
         int cost = ex.getSendPrice() + pa.getSendPrice();
         boolean free_this = false;
@@ -373,26 +373,26 @@ public class ExpressController {
         /**
          * 增加优惠券控制开关
          * */
-        if(sc.isEnableCoupon() && couponService.howManyFreeIHave(user.getId())>0){
+        if (sc.isEnableCoupon() && couponService.howManyFreeIHave(user.getId()) > 0) {
             cost = 1;
             free_this = true;
 //            user.setFreeSum(user.getFreeSum()-1);
 //            user.setOrder_sum(user.getOrder_sum()+1);
 //            userService.update(user);
             couponService.consumeOneFreeGift(user.getId());
-        }else{
+        } else {
             /**
              * 2016/9/19 关闭首单免费机制
              * 2017/2/7 可控制免费机制
              * */
-            if(sc.isFirstDiscount())
+            if (sc.isFirstDiscount())
                 cost = FirstDiscount(user, express_phone, sendto_phone, cost);
 
             /**
              * 2016/9/30 满十减一
              * 2017/2/7 可控制满十减一
              * */
-            if(sc.isIfTenThenFree())
+            if (sc.isIfTenThenFree())
                 cost = IF10THENFREE(user, cost, session);
         }
         /** 20170224 免单检测 end*/
@@ -421,12 +421,12 @@ public class ExpressController {
                 user.getSchoolId()
         );
 
-        if(free_this){
+        if (free_this) {
             order.setHas_pay(true);
-            noticeService.paySuccess("免单券支付成功","0元","该订单由免单券支付","小骨头订单",user.getOpen_id(),"",order);
+            noticeService.paySuccess("免单券支付成功", "0元", "该订单由免单券支付", "小骨头订单", user.getOpen_id(), "", order);
             userService.sava(order);
             return "redirect:my_orders.do";
-        }else{
+        } else {
             userService.sava(order);
             map.put("order", order);
             /**
@@ -461,7 +461,7 @@ public class ExpressController {
         if (user.getOrder_sum() > 0) return cost;
 
         if (userService.phoneExsit(express_phone, sendto_phone)) return cost;
-        return userService.getFirstOrderCost(cost,user.getSchoolId());
+        return userService.getFirstOrderCost(cost, user.getSchoolId());
     }
 
     @RequestMapping("schoolmove")
@@ -486,16 +486,16 @@ public class ExpressController {
                 userService.update(order);
                 userService.update(user);
                 session.setAttribute("user", user);
-                income_add(user.getSchoolId(),500);
-                noticeService.paySuccess("会员卡支付成功","5元","校园搬运支付成功","校园搬运",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/user_center.do",null);
+                income_add(user.getSchoolId(), 500);
+                noticeService.paySuccess("会员卡支付成功", "5元", "校园搬运支付成功", "校园搬运", user.getOpen_id(), "http://xiaogutou.qdxiaogutou.com/user/user_center.do", null);
                 JSONObject data = new JSONObject();
-                data.put("name",order.getName()+","+order.getPhone());
+                data.put("name", order.getName() + "," + order.getPhone());
                 SchoolConfigs sc = userService.getSchoolConfBySchoolId(order.getSchoolId());
                 //管理分红
-                managerService.managerDividend(sc.getSchoolId(),500,order.getId(),"校园搬运订单分红");
+                managerService.managerDividend(sc.getSchoolId(), 500, order.getId(), "校园搬运订单分红");
                 //通知
                 //noticeService.CommonSMSSend("SMS_47515056",String.valueOf(sc.getServicePhone()),data);
-                noticeService.NoticeManagers(sc.getSchoolId(),"新校园搬运订单",order.getName()+","+order.getMoveTime()+","+order.getPhone(),"校园搬运订单",5.0);
+                noticeService.NoticeManagers(sc.getSchoolId(), "新校园搬运订单", order.getName() + "," + order.getMoveTime() + "," + order.getPhone(), "校园搬运订单", 5.0);
                 noticeService.ReservationService(
                         "服务人员已接单",
                         "小骨头的服务人员将主动联系您",
@@ -512,7 +512,7 @@ public class ExpressController {
                 return "user/vippay_failed";
             }
         }
-        map.put("key",order.getOrderKey());
+        map.put("key", order.getOrderKey());
         return "user/pay_schoolmove";
     }
 
@@ -523,16 +523,16 @@ public class ExpressController {
                                     HttpSession session) {
         User user = (User) session.getAttribute("user");
         String key = MD5.encryption(phone + name + System.currentTimeMillis()).substring(25) + System.currentTimeMillis();
-        SchoolMoveOrder smo = new SchoolMoveOrder(name, phone, movetime, user.getOpen_id(), key,user.getSchoolId());
+        SchoolMoveOrder smo = new SchoolMoveOrder(name, phone, movetime, user.getOpen_id(), key, user.getSchoolId());
         userService.sava(smo);
         session.setAttribute("smo", smo);
         return "user/ready_to_pay_schoolmove";
     }
 
-    private void income_add(int sid,int many){
+    private void income_add(int sid, int many) {
         SchoolConfigs sc = userService.getSchoolConfBySchoolId(sid);
-        sc.setSumIncome(sc.getSumIncome()+many);
+        sc.setSumIncome(sc.getSumIncome() + many);
         managerService.update(sc);
-        managerService.log(-1,11,sc.getId()+"学校总收入变为[vip pay]:"+sc.getSumIncome());
+        managerService.log(-1, 11, sc.getId() + "学校总收入变为[vip pay]:" + sc.getSumIncome());
     }
 }
