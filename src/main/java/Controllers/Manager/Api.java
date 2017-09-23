@@ -48,6 +48,15 @@ public class Api {
                                         HttpSession session){
         if(notice.equals("newMsg")){
             managerService.save(new Log(8,"会话新消息，cid="+cid+",type = "+type,-1));
+            if(type.equals("user")){
+                Conversation c = noticeService.getConversationByCid(cid);
+                c.setWaitingService(true);
+                managerService.update(c);
+            }else {
+                Conversation c = noticeService.getConversationByCid(cid);
+                c.setWaitingService(false);
+                managerService.update(c);
+            }
         }else if(notice.equals("serverEnd")){
             managerService.save(new Log(8,"客服结束会话，cid="+cid,-1));
             managerService.ConversationEnd(cid,1);

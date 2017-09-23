@@ -28,6 +28,7 @@ public class Conversation {
     private String ckey;
     private boolean isServerEnd;
     private boolean isUserEnd;
+    private boolean waitingService; //标记是否有新消息
     private int score;
     private String endText;
     private Long createTime;
@@ -36,6 +37,9 @@ public class Conversation {
         return "http://cservice.nanayun.cn/service/enterChat.do?ckey="+ckey+"&uid="+userid+"&cid="+cid+"&token="+userToken;
     }
     public String getServerEnter(){
+        return "CustomerServiceEnterChat.do?cid="+cid;
+    }
+    public String getRealServiceUrl(){
         return "http://cservice.nanayun.cn/service/enterChat.do?ckey="+ckey+"&uid="+serverid+"&cid="+cid+"&token="+serverToken;
     }
     public String getStatus(){
@@ -190,5 +194,13 @@ public class Conversation {
 
     public void setCreateTime(Long createTime) {
         this.createTime = createTime;
+    }
+
+    public boolean isWaitingService() {
+        return waitingService;
+    }
+
+    public void setWaitingService(boolean waitingService) {
+        this.waitingService = waitingService;
     }
 }

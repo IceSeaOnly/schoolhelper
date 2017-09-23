@@ -550,6 +550,18 @@ public class Business {
         return "manager/cservice";
     }
 
+    /**
+     * 客服进入会话
+     * */
+    @RequestMapping("CustomerServiceEnterChat")
+    public String CustomerServiceEnterChat(@RequestParam Long cid){
+        Conversation conversation = noticeService.getConversationByCid(cid);
+        conversation.setWaitingService(false);
+        managerService.update(conversation);
+
+        return "redirect:"+conversation.getRealServiceUrl();
+    }
+
 
     /**
      * 客服接入

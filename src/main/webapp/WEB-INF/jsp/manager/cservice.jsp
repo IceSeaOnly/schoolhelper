@@ -70,7 +70,12 @@
                                         <a href="${csin.getServerEnter()}" class="item-link item-content">
                                             <div class="item-media"><i class="icon icon-f7"></i></div>
                                             <div class="item-inner">
-                                                <div class="item-title">工单${csin.id}号正在服务，点击继续</div>
+                                                <c:if test="${csin.waitingService}">
+                                                    <div class="item-title">工单${csin.id}号 <span style="color: red">[新消息]</span></div>
+                                                </c:if>
+                                                <c:if test="${!csin.waitingService}">
+                                                    <div class="item-title">工单${csin.id}号正在会话...</div>
+                                                </c:if>
                                             </div>
                                         </a>
                                     </li>
