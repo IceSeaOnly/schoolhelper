@@ -551,19 +551,6 @@ public class Business {
     }
 
     /**
-     * 客服进入会话
-     * */
-    @RequestMapping("CustomerServiceEnterChat")
-    public String CustomerServiceEnterChat(@RequestParam Long cid){
-        Conversation conversation = noticeService.getConversationByCid(cid);
-        conversation.setWaitingService(false);
-        managerService.update(conversation);
-
-        return "redirect:"+conversation.getRealServiceUrl();
-    }
-
-
-    /**
      * 客服接入
      * csid是int类型的本地会话序号，非Long型cid
      */
@@ -588,11 +575,7 @@ public class Business {
                         "appKey=" + appKey + "&secret=" + secret + "&cid=" + c.getCid() + "&rid=" + managerId);
 
                 managerService.save(new Log(10, "cid=" + c.getCid() + "设置rid=" + managerId + ":" + data.getBoolean("result"), -1));
-                map.put("result", true);
-                map.put("is_url", true);
-                map.put("url", c.getServerEnter());
-                map.put("notice", "正在连接，请稍后...");
-                return "manager/common_result";
+                return "redirect:"+c.getServerEnter();
             }
         } else {
             return permissionDeny(map);

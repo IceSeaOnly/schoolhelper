@@ -21,6 +21,7 @@ public class ManagerFilter implements HandlerInterceptor {
         if(!AppCgi.validateToken(Integer.parseInt(req.getParameter("managerId")),req.getParameter("token"))){
             return false;
         }
+        req.getSession().setAttribute("managerId",req.getParameter("managerId"));
         return true;
     }
 

@@ -37,7 +37,7 @@ public class Conversation {
         return "http://cservice.nanayun.cn/service/enterChat.do?ckey="+ckey+"&uid="+userid+"&cid="+cid+"&token="+userToken;
     }
     public String getServerEnter(){
-        return "CustomerServiceEnterChat.do?cid="+cid;
+        return "/api/CustomerServiceEnterChat.do?cid="+cid;
     }
     public String getRealServiceUrl(){
         return "http://cservice.nanayun.cn/service/enterChat.do?ckey="+ckey+"&uid="+serverid+"&cid="+cid+"&token="+serverToken;
