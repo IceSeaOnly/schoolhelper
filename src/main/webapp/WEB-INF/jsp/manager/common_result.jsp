@@ -44,7 +44,6 @@
     $.alert("${notice}", "${result?":)":":("}", function () {
         window.location.href = "${url}";
     });
-
     </c:if>
 
     <c:if test="${is_url != true}">

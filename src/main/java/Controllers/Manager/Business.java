@@ -575,7 +575,11 @@ public class Business {
                         "appKey=" + appKey + "&secret=" + secret + "&cid=" + c.getCid() + "&rid=" + managerId);
 
                 managerService.save(new Log(10, "cid=" + c.getCid() + "设置rid=" + managerId + ":" + data.getBoolean("result"), -1));
-                return "redirect:"+c.getServerEnter();
+                map.put("result", true);
+                map.put("is_url", true);
+                map.put("url", c.getServerEnter());
+                map.put("notice", "正在连接，请稍后...");
+                return "manager/common_result";
             }
         } else {
             return permissionDeny(map);

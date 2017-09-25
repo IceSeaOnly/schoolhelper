@@ -211,7 +211,7 @@ public class Api {
         if (null == obj) {
             return null;
         }
-        Integer mid = (Integer) obj;
+        Integer mid = Integer.parseInt(obj.toString());
         if (conversation.getServerid() != mid) {
             return null;
         }
