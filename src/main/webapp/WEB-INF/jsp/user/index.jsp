@@ -83,9 +83,9 @@
 <!--banner广告-->
 <div class="banner_box swiper-container">
     <div id="banner" class="swiper-wrapper">
-        <div class="swiper-slide"><a href=""><img src="http://image.binghai.site/data/f_75976937.jpg"></a></div>
-        <div class="swiper-slide"><a href=""><img src="http://image.binghai.site/data/f_49050133.jpg"></a></div>
-        <div class="swiper-slide"><a href=""><img src="http://image.binghai.site/data/f_86531528.jpg"></a></div>
+        <div class="swiper-slide"><a href=""><img src="http://image.binghai.site/data/f_77365254.png"></a></div>
+        <div class="swiper-slide"><a href=""><img src="http://image.binghai.site/data/f_15787673.png"></a></div>
+        <div class="swiper-slide"><a href=""><img src="http://image.binghai.site/data/f_60173112.png"></a></div>
     </div>
     <div class="swiper-pagination"></div>
 </div>
