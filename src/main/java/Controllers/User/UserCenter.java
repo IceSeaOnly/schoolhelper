@@ -61,7 +61,7 @@ public class UserCenter {
             return "user/common_result";
         }else map.put("should_complete_user_info",false);
 
-        map.put("freeSum",couponService.howManyFreeIHave(user.getId()));
+        map.put("freeSum",couponService.howManyCouponIHave(user.getId()));
         //return "user/user_center"; 启用新版首页
         return "user/member_center";
     }

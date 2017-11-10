@@ -64,13 +64,13 @@ public class Index {
             if (!exist) {
                 gift.setSum(gift.getSum() - 1);
                 userService.update(gift); //名额建减一
-                userService.sava(new GiftRecord(u.getId(), gid, u.getUsername(), u.getOpen_id(), gift.getExpiries(),gift.getCtype(),gift.getLijian()));//写入领取记录
+                userService.sava(new GiftRecord(u.getId(), gid, u.getUsername(), u.getOpen_id(), gift.getExpiries(), gift.getCtype(), gift.getLijian()));//写入领取记录
 //                u.setFreeSum(u.getFreeSum()+1);//免单加1
 //                userService.update(u);
                 map.put("result", true);
                 map.put("notice", "领取成功!" + gift.getNotice());
 
-                noticeService.chargeSuccess("恭喜您在" + gift.getName() + "活动中获得一张" + (gift.getCtype() == 0 ? "免单" : "立减") + "券", "" + u.getId(), "免单券1张", "0", "免单券", "免单券领取成功，快去下单吧！" + gift.getNotice(), u.getOpen_id(), "");
+                noticeService.chargeSuccess("恭喜您在" + gift.getName() + "活动中获得一张" + (gift.getCtype() == 0 ? "免单" : "立减") + "券", "" + u.getId(), (gift.getCtype() == 0 ? "免单" : "立减") + "券1张", "0", "免单券", (gift.getCtype() == 0 ? "免单" : "立减") + "券领取成功，快去下单吧！" + gift.getNotice(), u.getOpen_id(), "");
             } else {
                 map.put("result", true);
                 map.put("notice", "您已经领取过了，快去下单吧！");

@@ -28,7 +28,7 @@
     <li>
         <a href="/user/my_coupons.do">
             <h2>${freeSum}</h2>
-            <p>免单券</p>
+            <p>优惠券</p>
         </a>
     </li>
     <li>

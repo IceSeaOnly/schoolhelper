@@ -90,4 +90,13 @@ public class CouponDao {
         session.close();
         return CollectionUtils.isEmpty(rs) ? null : rs.get(0);
     }
+
+    public int howManyCouponIHave(int userId) {
+        Session session = sessionFactory.openSession();
+        ArrayList<GiftRecord>rs = (ArrayList<GiftRecord>) session.createQuery("from GiftRecord where uid = :U and valid = true ")
+                .setParameter("U",userId)
+                .list();
+        session.close();
+        return rs.size();
+    }
 }

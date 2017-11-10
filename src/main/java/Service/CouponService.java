@@ -67,4 +67,8 @@ public class CouponService {
         }
         return g;
     }
+
+    public int howManyCouponIHave(int userId) {
+        return couponDao.howManyCouponIHave(userId);
+    }
 }
