@@ -52,12 +52,12 @@
         <div class="coupon_box">
             <c:forEach items="${valid}" var="va">
             <div class="coupon">
-                <div class="coupon_num">免单</div>
+                <div class="coupon_num">${va.ctype == 0?'免单':'立减'}</div>
                 <div class="coupon_text">
                     <div class="border_top"></div>
                     <div class="border_right"></div>
                     <div class="border_bottom"></div>
-                    <h1>限<span>代取快递</span>使用</h1>
+                    <h1><span  style="color: red">${va.ctype == 0 ? '限代取快递使用':'代取快递立减'+va.lijian/100.0}</span></h1>
                     <c:if test="${schoolConfig.enableCoupon}">
                         <h2>使用期限：${va.outOfDateStr}</h2>
                     </c:if>
@@ -72,12 +72,12 @@
         <div class="coupon_box  overdue">
         <c:forEach items="${invalid}" var="iva">
             <div class="coupon">
-                <div class="coupon_num">免单</div>
+                <div class="coupon_num">${iva.ctype == 0?'免单':'立减'}</div>
                 <div class="coupon_text">
                     <div class="border_top"></div>
                     <div class="border_right"></div>
                     <div class="border_bottom"></div>
-                    <h1><span style="color: red">${iva.used?"已使用":"已过期"}</span></h1>
+                    <h1><span>${iva.used?"已使用":"已过期"}</span></h1>
                     <h2>${iva.used?"使用时间":"使用期限"}：${iva.used?iva.usedTimeStr:iva.outOfDateStr}</h2>
                 </div>
             </div>

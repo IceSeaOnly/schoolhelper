@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Administrator on 2017/4/11.
@@ -57,5 +58,13 @@ public class CouponService {
     public Long sumAllRecord(int g) {
         Long sum = couponDao.sumAllRecord(g);
         return sum == null ?0:sum;
+    }
+
+    public GiftRecord consumeMaxCoupon(int uid) {
+        GiftRecord g = couponDao.getMaxLiJianCoupon(uid);
+        if(g != null){
+            couponDao.consumeFreeGift(Arrays.asList(g.getId()));
+        }
+        return g;
     }
 }

@@ -29,6 +29,8 @@ public class GiftRecord {
     private String usedTimeStr;
     private Long useTime;
     private boolean used;
+    private int ctype = 0;
+    private int clijian = 0;
 
     public String getOutOfDateStr() {
         return outOfDateStr;
@@ -38,7 +40,9 @@ public class GiftRecord {
         this.outOfDateStr = outOfDateStr;
     }
 
-    public GiftRecord(int uid, int gid, String uname, String openid, Long exp) {
+    public GiftRecord(int uid, int gid, String uname, String openid, Long exp,int ctype,int clijian) {
+        this.clijian = clijian;
+        this.ctype = ctype;
         this.uid = uid;
         this.gid = gid;
         this.uname = uname;
@@ -148,5 +152,21 @@ public class GiftRecord {
 
     public void setUsed(boolean used) {
         this.used = used;
+    }
+
+    public int getCtype() {
+        return ctype;
+    }
+
+    public void setCtype(int ctype) {
+        this.ctype = ctype;
+    }
+
+    public int getClijian() {
+        return clijian;
+    }
+
+    public void setClijian(int clijian) {
+        this.clijian = clijian;
     }
 }

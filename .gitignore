@@ -3,4 +3,5 @@
 *.war
 *.apk
 /target
+*.png
 PassConfig.java

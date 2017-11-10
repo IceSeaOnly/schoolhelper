@@ -19,9 +19,27 @@ public class Gift {
     private String notice; //领取后的提示消息
     private Long expiries;//到期时间，微秒
     private int sum;
+    private int ctype = 0; // 0 for 免单券，1 for 立减券
+    private int lijian = 0; // 立减多少
     private boolean onlyNewCustomer;//仅限新用户
 
     public Gift() {
+    }
+
+    public int getLijian() {
+        return lijian;
+    }
+
+    public void setLijian(int lijian) {
+        this.lijian = lijian;
+    }
+
+    public int getCtype() {
+        return ctype;
+    }
+
+    public void setCtype(int type) {
+        this.ctype = type;
     }
 
     public String getNotice() {

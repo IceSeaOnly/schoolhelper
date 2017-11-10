@@ -1,14 +1,18 @@
 package Dao;
 
+import Entity.Gift;
 import Entity.GiftRecord;
 import Utils.TimeFormat;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/4/11.
@@ -20,7 +24,7 @@ public class CouponDao {
 
     public ArrayList<GiftRecord> howManyFreeIHave(int uid) {
         Session session = sessionFactory.openSession();
-        ArrayList<GiftRecord>rs = (ArrayList<GiftRecord>) session.createQuery("from GiftRecord where uid = :U and valid = true ")
+        ArrayList<GiftRecord>rs = (ArrayList<GiftRecord>) session.createQuery("from GiftRecord where ctype = 0 and uid = :U and valid = true ")
                 .setParameter("U",uid)
                 .list();
         session.close();
@@ -38,7 +42,7 @@ public class CouponDao {
         session.close();
     }
 
-    public void consumeFreeGift(ArrayList<Integer> outOfdate) {
+    public void consumeFreeGift(List<Integer> outOfdate) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.createQuery("update GiftRecord set valid = false,used = true,useTime = :T,usedTimeStr = :TS where id in :S")
@@ -76,5 +80,14 @@ public class CouponDao {
                 .uniqueResult();
         session.close();
         return sum;
+    }
+
+    public GiftRecord getMaxLiJianCoupon(int uid) {
+        Session session = sessionFactory.openSession();
+        ArrayList<GiftRecord>rs = (ArrayList<GiftRecord>) session.createQuery("from GiftRecord where ctype = 1 and uid = :U and valid = true order by clijian desc")
+                .setParameter("U",uid)
+                .list();
+        session.close();
+        return CollectionUtils.isEmpty(rs) ? null : rs.get(0);
     }
 }

@@ -373,6 +373,7 @@ public class ExpressController {
         /**
          * 增加优惠券控制开关
          * */
+        GiftRecord gift = null;
         if (sc.isEnableCoupon() && couponService.howManyFreeIHave(user.getId()) > 0) {
             cost = 1;
             free_this = true;
@@ -380,6 +381,8 @@ public class ExpressController {
 //            user.setOrder_sum(user.getOrder_sum()+1);
 //            userService.update(user);
             couponService.consumeOneFreeGift(user.getId());
+        } else if (sc.isEnableCoupon() && (gift = couponService.consumeMaxCoupon(user.getId())) != null) {
+
         } else {
             /**
              * 2016/9/19 关闭首单免费机制
@@ -427,6 +430,18 @@ public class ExpressController {
             userService.sava(order);
             return "redirect:my_orders.do";
         } else {
+            // 2017.11.10新增立减优惠功能
+            if (gift != null) {
+                int after = order.getShouldPay() - gift.getClijian();
+                noticeService.paySuccess("立减券使用成功", gift.getClijian() / 100.0+"元", "立减" + gift.getClijian() / 100.0, "小骨头订单", user.getOpen_id(), "", null);
+                order.setShouldPay(after > 0 ? after : 0);
+                if (order.getShouldPay() == 0) {
+                    order.setHas_pay(true);
+                    noticeService.paySuccess("立减券全额支付成功", "0元", "该订单由立减券全额支付", "小骨头订单", user.getOpen_id(), "", order);
+                    userService.sava(order);
+                    return "redirect:my_orders.do";
+                }
+            }
             userService.sava(order);
             map.put("order", order);
             /**
