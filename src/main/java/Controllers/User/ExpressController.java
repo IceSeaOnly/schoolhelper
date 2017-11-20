@@ -138,11 +138,21 @@ public class ExpressController {
 
     @RequestMapping("help_express")
     public String help_express(ModelMap map, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+
+        /**
+         * 检查是否拉黑
+         * */
+        if(user.isBlackUser()){
+            map.put("is_url", false);
+            map.put("notice", "微信环境异常");
+            map.put("url", "");
+            return "user/common_result";
+        }
 
         /**
          * 2016.10.5 先检查信息是否完善
          * */
-        User user = (User) session.getAttribute("user");
         user = userService.getUserByOpenId(user.getOpen_id());
         session.setAttribute("user", user);
         if (user.getUsername().equals("") && user.getPhone().equals("")) {

@@ -26,6 +26,7 @@ public class User {
     private int my_money; // 会员卡余额,单位分
     private int schoolId;
     private int freeSum;//免单券数量
+    private boolean blackUser; // 是否在黑名单
 
     public User() {
     }
@@ -159,5 +160,13 @@ public class User {
 
     public void setFreeSum(int freeSum) {
         this.freeSum = freeSum;
+    }
+
+    public boolean isBlackUser() {
+        return blackUser;
+    }
+
+    public void setBlackUser(boolean blackUser) {
+        this.blackUser = blackUser;
     }
 }

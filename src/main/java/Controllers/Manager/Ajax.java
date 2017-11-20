@@ -591,4 +591,18 @@ public class Ajax {
         String nk = (String) session.getAttribute("Stoken");
         return SuccessAnswer.successWithObject(nk, fs);
     }
+
+    @ResponseBody
+    @RequestMapping("setBlackListUser")
+    public String setBlackListUser(@RequestParam int managerId,@RequestParam int userId, HttpSession session){
+        User user = userService.getUserById(userId);
+        if(user != null){
+            user.setBlackUser(true);
+            userService.update(user);
+            managerService.log(managerId,12,"把用户拉黑:"+userId);
+            return user.getUsername()+"已被拉黑";
+        }
+
+        return "参数错误";
+    }
 }
