@@ -30,6 +30,7 @@ public class LogTag {
         tags.add(new LogTag(9,"客服系统返回值"));
         tags.add(new LogTag(10,"cid设置rid"));
         tags.add(new LogTag(11,"ajax调用"));
+        tags.add(new LogTag(11,"拉黑用户"));
         //tags.add(new LogTag(8,""));
     }
 

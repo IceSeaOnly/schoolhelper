@@ -1,7 +1,10 @@
-*.xml
+.idea/*.xml
+.idea/artifacts/*
 *.jar
 *.war
 *.apk
+*.iml
 /target
 *.png
 PassConfig.java
+web.xml

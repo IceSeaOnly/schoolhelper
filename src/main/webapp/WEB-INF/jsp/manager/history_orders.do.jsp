@@ -45,6 +45,12 @@
                     });
             });
         }
+
+        function setBlackList(userId) {
+            $.post("/ajax/setBlackListUser.do?managerId=${managerId}&token=${Stoken}&userId="+userId,function (data, status) {
+                $.toast(data);
+            });
+        }
     </script>
 </head>
 <body>
@@ -94,6 +100,7 @@
                         </c:if>
 
                         <a href="javascript:add_additional(${order.id})" class="link"><span class="icon icon-edit"></span>&nbsp附加</a>
+                        <a href="javascript:setBlackList(${order.user_id})" class="link"><span class="icon icon-remove"></span>&nbsp拉黑</a>
                         <a href="javascript:diff_call('${order.express_phone}','${order.receive_phone}')" class="link"><span class="icon icon-phone"></span>&nbsp致电</a>
                     </div>
                 </div>
