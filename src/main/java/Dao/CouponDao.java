@@ -22,10 +22,11 @@ public class CouponDao {
     @Resource
     SessionFactory sessionFactory;
 
-    public ArrayList<GiftRecord> howManyFreeIHave(int uid) {
+    public ArrayList<GiftRecord> howManyFreeIHave(int uid,int sid) {
         Session session = sessionFactory.openSession();
-        ArrayList<GiftRecord>rs = (ArrayList<GiftRecord>) session.createQuery("from GiftRecord where ctype = 0 and uid = :U and valid = true ")
+        ArrayList<GiftRecord>rs = (ArrayList<GiftRecord>) session.createQuery("from GiftRecord where ctype = 0 and uid = :U and schoolId = :S and valid = true ")
                 .setParameter("U",uid)
+                .setParameter("S",sid)
                 .list();
         session.close();
         return rs;

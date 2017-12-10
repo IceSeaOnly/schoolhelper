@@ -19,8 +19,8 @@ public class CouponService {
     CouponDao couponDao;
 
     // 查询我有多少可用的免单券
-    public int howManyFreeIHave(int uid) {
-        ArrayList<GiftRecord> rs = couponDao.howManyFreeIHave(uid);
+    public int howManyFreeIHave(User user) {
+        ArrayList<GiftRecord> rs = couponDao.howManyFreeIHave(user.getId(),user.getSchoolId());
         if(rs == null) return 0;
         int sum = rs.size();
         ArrayList<Integer> outOfdate = new ArrayList<Integer>();
@@ -36,8 +36,8 @@ public class CouponService {
     }
 
     // 使用一张免单券
-    public void consumeOneFreeGift(int uid) {
-        ArrayList<GiftRecord> rs = couponDao.howManyFreeIHave(uid);
+    public void consumeOneFreeGift(User user) {
+        ArrayList<GiftRecord> rs = couponDao.howManyFreeIHave(user.getId(),user.getSchoolId());
         if(rs.size() > 0){
             ArrayList<Integer> outOfdate = new ArrayList<Integer>();
             outOfdate.add(rs.get(0).getId());

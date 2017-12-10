@@ -202,7 +202,7 @@ public class ExpressController {
         map.put("parts", parts);
         map.put("expresses", expresses);
         map.put("time_validate", System.currentTimeMillis());
-        map.put("freeSum", couponService.howManyFreeIHave(user.getId()));
+        map.put("freeSum", couponService.howManyFreeIHave(user));
         return "user/help_express";
     }
 
@@ -384,13 +384,13 @@ public class ExpressController {
          * 增加优惠券控制开关
          * */
         GiftRecord gift = null;
-        if (sc.isEnableCoupon() && couponService.howManyFreeIHave(user.getId()) > 0) {
+        if (sc.isEnableCoupon() && couponService.howManyFreeIHave(user) > 0) {
             cost = 1;
             free_this = true;
 //            user.setFreeSum(user.getFreeSum()-1);
 //            user.setOrder_sum(user.getOrder_sum()+1);
 //            userService.update(user);
-            couponService.consumeOneFreeGift(user.getId());
+            couponService.consumeOneFreeGift(user);
         } else if (sc.isEnableCoupon() && (gift = couponService.consumeMaxCoupon(user)) != null) {
 
         } else {
