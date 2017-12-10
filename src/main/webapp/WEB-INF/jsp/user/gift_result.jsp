@@ -56,13 +56,11 @@
                     <div class="content">
                         <div class="gift">
                             <span id="id_position">${notice}</span></div>
-                        <c:if test="${result}">
                             <div class="func" id="id_myBtn">
                                 <a href="/user/my_coupons.do">
                                     <button class="chest-btn">我的优惠券</button>
                                 </a>
                             </div>
-                        </c:if>
                     </div>
                 </div>
             </div>
