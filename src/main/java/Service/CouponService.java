@@ -3,6 +3,7 @@ package Service;
 import Dao.CouponDao;
 import Entity.Gift;
 import Entity.GiftRecord;
+import Entity.User.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -60,8 +61,8 @@ public class CouponService {
         return sum == null ?0:sum;
     }
 
-    public GiftRecord consumeMaxCoupon(int uid) {
-        GiftRecord g = couponDao.getMaxLiJianCoupon(uid);
+    public GiftRecord consumeMaxCoupon(User user) {
+        GiftRecord g = couponDao.getMaxLiJianCoupon(user.getId(),user.getSchoolId());
         if(g != null){
             couponDao.consumeFreeGift(Arrays.asList(g.getId()));
         }

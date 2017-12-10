@@ -58,7 +58,7 @@
                     <div class="border_right"></div>
                     <div class="border_bottom"></div>
                     <c:if test="${va.ctype == 0}">
-                        <h1><span>限代取快递使用</span></h1>
+                        <h1><span>${va.schoolName}代取快递使用</span></h1>
                     </c:if>
                     <c:if test="${va.ctype == 1}">
                     <h1><span>代取快递立减<fmt:formatNumber value="${(va.clijian/100.0)}" pattern="##.##"
@@ -101,28 +101,28 @@
     </div>
     <img class="close" onClick="close_sta()" src="../images/close.png">
     <div class="statement_text">
-        <h1>1.什么是免单券？</h1>
-        <p>免单券是在小骨头中下单抵扣下单费用的一种优惠券，目前免单券仅支持在代取快递中使用。</p>
+        <h1>1.什么是免单券/优惠券？</h1>
+        <p>免单券/优惠券是在小骨头中下单抵扣下单费用的一种优惠券，目前免单券/优惠券仅支持在代取快递中使用。</p>
     </div>
     <div class="statement_text">
-        <h1>2.如何获得免单券？</h1>
-        <p>小骨头不定期推出活动，可用参加活动获得免单券。</p>
+        <h1>2.如何获得免单券/优惠券？</h1>
+        <p>小骨头不定期推出活动，可用参加活动获得免单券/优惠券。</p>
     </div>
     <div class="statement_text">
-        <h1>3.免单券会过期吗？</h1>
+        <h1>3.免单券/优惠券会过期吗？</h1>
         <p>会过期，请在过期前使用。</p>
     </div>
     <div class="statement_text">
-        <h1>4.免单券有使用限制吗？</h1>
-        <p>在部分试营业校区，可能会有每天可用的免单券限制。</p>
+        <h1>4.免单券/优惠券有使用限制吗？</h1>
+        <p>有的，不同学校的券不能混用。在部分试营业校区，可能会有每天可用的免单券限制。</p>
     </div>
     <div class="statement_text">
-        <h1>5.免单券失效的原因有哪些？</h1>
-        <p>过期或使用都会使免单券失效。</p>
+        <h1>5.免单券/优惠券失效的原因有哪些？</h1>
+        <p>过期或使用都会使免单券/优惠券失效。</p>
     </div>
     <div class="statement_text">
-        <h1>6.免单券怎么使用？</h1>
-        <p>如果有可用的免单券，下单时会自动使用。</p>
+        <h1>6.免单券/优惠券怎么使用？</h1>
+        <p>如果有可用的免单券/优惠券，下单时会自动使用。</p>
     </div>
 </div>
 <script>

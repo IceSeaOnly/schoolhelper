@@ -8,8 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
 
 /**
  * Created by Administrator on 2016/8/30.
@@ -264,13 +262,13 @@ public class UserDao {
         return u;
     }
 
-    public Gift getGiftById(int gid) {
+    public ArrayList<Gift> getGiftById(int gid) {
         Session session  = sessionFactory.openSession();
-        Gift gift = (Gift) session.createQuery("from Gift where id = :G")
+        ArrayList<Gift> gifts = (ArrayList<Gift>) session.createQuery("from Gift where batchNo = :G")
                 .setParameter("G",gid)
                 .uniqueResult();
         session.close();
-        return gift;
+        return gifts;
     }
 
     public boolean giftExist(int gid, int uid) {

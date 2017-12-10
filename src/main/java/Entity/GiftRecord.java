@@ -18,7 +18,9 @@ public class GiftRecord {
     @GeneratedValue
     private int id;
     private int uid;
-    private int gid;
+    private int gid; // 2017.12.10升级:改为gift的批次号
+    private int schoolId; // 此优惠的可用学校,-1表示不限学校
+    private String schoolName;
     private String uname;
     private String openid;
     private Long getTime;
@@ -40,7 +42,9 @@ public class GiftRecord {
         this.outOfDateStr = outOfDateStr;
     }
 
-    public GiftRecord(int uid, int gid, String uname, String openid, Long exp,int ctype,int clijian) {
+    public GiftRecord(int uid, int gid,int schoolId,String schoolName, String uname, String openid, Long exp,int ctype,int clijian) {
+        this.schoolId = schoolId;
+        this.schoolName = schoolName;
         this.clijian = clijian;
         this.ctype = ctype;
         this.uid = uid;
@@ -168,5 +172,21 @@ public class GiftRecord {
 
     public void setClijian(int clijian) {
         this.clijian = clijian;
+    }
+
+    public int getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(int schoolId) {
+        this.schoolId = schoolId;
+    }
+
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
     }
 }

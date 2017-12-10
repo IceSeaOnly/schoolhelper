@@ -212,7 +212,7 @@ public class UserCenter {
         map.put("valid",valid);
         map.put("invalid",invalid);
         map.put("schoolConfig",sc);
-        return "my_coupons";
+        return "user/my_coupons";
     }
 
     private ArrayList<GiftRecord> getCoupons(ArrayList<GiftRecord> rs, boolean b) {

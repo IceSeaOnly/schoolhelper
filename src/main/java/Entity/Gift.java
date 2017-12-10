@@ -15,6 +15,9 @@ public class Gift {
     @Id
     @GeneratedValue
     private int id;
+    private int batchNo; //批次号，表示一个活动
+    private int schoolId; // 此优惠的可用学校,-1表示不限学校
+    private String schoolName;
     private String name;
     private String notice; //领取后的提示消息
     private Long expiries;//到期时间，微秒
@@ -88,5 +91,29 @@ public class Gift {
 
     public void setOnlyNewCustomer(boolean onlyNewCustomer) {
         this.onlyNewCustomer = onlyNewCustomer;
+    }
+
+    public int getBatchNo() {
+        return batchNo;
+    }
+
+    public void setBatchNo(int batchNo) {
+        this.batchNo = batchNo;
+    }
+
+    public int getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(int schoolId) {
+        this.schoolId = schoolId;
+    }
+
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
     }
 }

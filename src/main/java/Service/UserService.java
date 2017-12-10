@@ -206,7 +206,11 @@ public class UserService {
         return userDao.getUserById(user_id);
     }
 
-    public Gift getGiftById(int gid) {
+    /**
+     * 2017.12.10 逻辑升级
+     * gid为批次号
+     * */
+    public ArrayList<Gift> getGiftById(int gid) {
         return userDao.getGiftById(gid);
     }
 

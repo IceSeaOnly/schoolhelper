@@ -31,7 +31,7 @@ public class OrderDao {
     public void updateOrderOutOfDate(int userId) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.createQuery("update ExpressOrder set order_state = -1 where user_id = :U and has_pay = false and :T - orderTimeStamp > 300000")
+        session.createQuery("update ExpressOrder set order_state = -1 where user_id = :U and has_pay = false and orderTimeStamp + 1800000 < :T")
                 .setParameter("U",userId)
                 .setParameter("T", System.currentTimeMillis())
                 .executeUpdate();

@@ -58,8 +58,8 @@ public class AppCgi {
         managerService.listAllSendTime();
         ArrayList<School> schools = managerService.listMySchool(manager.getId());
         manager.setTmp_token(newToken(manager.getId()));
-        manager.setTmp_schoolId(schools.get(0) == null?-1:schools.get(0).getId());
-        manager.setTmp_schoolName(schools.get(0) == null?"未分配学校":schools.get(0).getSchoolName());
+        manager.setTmp_schoolId(schools.isEmpty() ?-1:schools.get(0).getId());
+        manager.setTmp_schoolName(schools.isEmpty() ?"未分配学校":schools.get(0).getSchoolName());
         return SuccessAnswer.successWithObject(manager.getTmp_token(),manager);
     }
 

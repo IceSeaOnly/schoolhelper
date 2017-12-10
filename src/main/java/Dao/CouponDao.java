@@ -82,10 +82,11 @@ public class CouponDao {
         return sum;
     }
 
-    public GiftRecord getMaxLiJianCoupon(int uid) {
+    public GiftRecord getMaxLiJianCoupon(int uid, int schoolId) {
         Session session = sessionFactory.openSession();
-        ArrayList<GiftRecord>rs = (ArrayList<GiftRecord>) session.createQuery("from GiftRecord where ctype = 1 and uid = :U and valid = true order by clijian desc")
+        ArrayList<GiftRecord>rs = (ArrayList<GiftRecord>) session.createQuery("from GiftRecord where ctype = 1 and uid = :U and schoolId = :SID and valid = true order by clijian desc")
                 .setParameter("U",uid)
+                .setParameter("SID",schoolId)
                 .list();
         session.close();
         return CollectionUtils.isEmpty(rs) ? null : rs.get(0);
