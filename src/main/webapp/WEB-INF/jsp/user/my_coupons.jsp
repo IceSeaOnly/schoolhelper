@@ -58,10 +58,10 @@
                     <div class="border_right"></div>
                     <div class="border_bottom"></div>
                     <c:if test="${va.ctype == 0}">
-                        <h1><span>${va.schoolName}代取快递使用</span></h1>
+                        <h1><span>${va.schoolName}代取快递</span></h1>
                     </c:if>
                     <c:if test="${va.ctype == 1}">
-                    <h1><span>代取快递立减<fmt:formatNumber value="${(va.clijian/100.0)}" pattern="##.##"
+                    <h1><span>${va.schoolName}代取立减<fmt:formatNumber value="${(va.clijian/100.0)}" pattern="##.##"
                                                       minFractionDigits="2"></fmt:formatNumber></span></h1>
                     </c:if>
 
