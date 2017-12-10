@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>选择优惠券使用的学校</title>
+    <title>选择优惠学校</title>
     <link rel="stylesheet" href="../weixin_style/weui.css"/>
     <link rel="stylesheet" href="../weixin_style/example.css"/>
     <script src="../js/jquery.js"></script>
@@ -31,7 +31,7 @@
 <body>
 <div style="overflow:hidden">
     <div class="hd">
-        <h1 class="page_title">选择优惠券使用的学校</h1>
+        <h1 class="page_title">选择优惠学校</h1>
     </div>
     <div class="odform">
         <form action="/user/free_activity.do" method="get" id="form_chsc" onsubmit="return validation();">
