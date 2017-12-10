@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Administrator on 2016/8/30.
@@ -57,7 +60,7 @@ public class Index {
         ArrayList<Gift> gifts = userService.getGiftById(gid);
         if (gifts.size() > 1 && schoolId == null) {
             // 先选择学校
-            map.put("schools", userService.listAllSchool());
+            map.put("schools", selectSchools(gifts, userService.listAllSchool()));
             map.put("gid", gid);
             return "user/select_school_4_gift";
         }
@@ -94,6 +97,22 @@ public class Index {
         }
         map.put("is_url", "/user/user_center.do");
         return "user/gift_result";
+    }
+
+    private List<School> selectSchools(ArrayList<Gift> gifts, ArrayList<School> schools) {
+        Set<Integer> sids = new HashSet<Integer>();
+        for (Gift g :
+                gifts) {
+            sids.add(g.getSchoolId());
+        }
+        ArrayList<School> rs = new ArrayList<School>();
+        for (School s :
+                schools) {
+            if (sids.contains(s.getId())) {
+                rs.add(s);
+            }
+        }
+        return rs;
     }
 
     /**
