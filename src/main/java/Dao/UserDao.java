@@ -266,7 +266,7 @@ public class UserDao {
         Session session  = sessionFactory.openSession();
         ArrayList<Gift> gifts = (ArrayList<Gift>) session.createQuery("from Gift where batchNo = :G")
                 .setParameter("G",gid)
-                .uniqueResult();
+                .list();
         session.close();
         return gifts;
     }
