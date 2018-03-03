@@ -42,7 +42,7 @@ public class GiftRecord {
         this.outOfDateStr = outOfDateStr;
     }
 
-    public GiftRecord(int uid, int gid,int schoolId,String schoolName, String uname, String openid, Long exp,int ctype,int clijian) {
+    public GiftRecord(int uid, int gid, int schoolId, String schoolName, String uname, String openid, Long exp, int ctype, int clijian) {
         this.schoolId = schoolId;
         this.schoolName = schoolName;
         this.clijian = clijian;
@@ -54,7 +54,7 @@ public class GiftRecord {
         this.getTime = System.currentTimeMillis();
         this.strTime = TimeFormat.format(this.getGetTime());
         this.valid = true;
-        this.outOfDate = getGetTime()+exp;
+        this.outOfDate = getGetTime() + exp;
         this.outOfDateStr = TimeFormat.format(this.outOfDate);
         this.used = false;
     }
@@ -71,7 +71,7 @@ public class GiftRecord {
     }
 
     public boolean isValid() {
-        return valid;
+        return outOfDate >= System.currentTimeMillis();
     }
 
     public void setValid(boolean valid) {

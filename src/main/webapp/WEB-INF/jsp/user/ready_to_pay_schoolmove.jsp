@@ -394,12 +394,12 @@
         </div>
 
         <h1>支付金额</h1>
-        <h2>￥5.0</h2>
+        <h2>￥<fmt:formatNumber value="${smo.shouldPay/100}" pattern="##.##" minFractionDigits="2" ></fmt:formatNumber>元 <span style="color:red">${smo.couponId>0?"(券)":""}</span> </h2>
 
         <div class="border_top" style="left:0px; top:0px;"></div>
     </div>
     <a>
-        <input type="submit" class="pay_btn" value="立即支付"/>
+        <input type="submit" class="pay_btn" value="立即支付${smo.couponId>0?"(已用券)":""}"/>
     </a>
 </form>
 

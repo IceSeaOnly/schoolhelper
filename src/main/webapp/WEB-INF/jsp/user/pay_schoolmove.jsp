@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0;http://weixin.qdxiaogutou.com/payloading.php?orderKey=${key}&type=2">
+    <meta http-equiv="refresh" content="0;http://pay.bigdata8.xin/payloading.php?orderKey=${key}&type=2">
     <script src="../js/jquery.js"></script>
     <link href="../css/css.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -20,7 +20,7 @@
 <!--充值成功：立即下单-->
 <div class="black"></div>
 <div class="success">如果浏览器没有自动跳转请点击：
-    <a href="http://weixin.qdxiaogutou.com/payloading.php?orderKey=${key}&type=2"><button>前往支付</button></a>
+    <a href="http://pay.bigdata8.xin/payloading.php?orderKey=${key}&type=2"><button>前往支付</button></a>
 </div>
 </body>
 </html>

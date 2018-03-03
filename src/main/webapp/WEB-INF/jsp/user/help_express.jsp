@@ -5,7 +5,7 @@
 <head>
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<title>新建小骨头订单</title>
+<title>新建筋斗云订单</title>
 <style>
 body,input,button,select {
 	font: normal 14px "Microsoft Yahei";
@@ -79,19 +79,21 @@ body,input,button,select {
 }
 
 .odform .cal {
-	background-image: url(http://xiaogutou.qdxiaogutou.com/images/daetixian-cal.png);
+	background-image: url(http://www.bigdata8.xin/images/daetixian-cal.png);
 	background-repeat: no-repeat;
 	background-position: 95% center;
 	background-size: auto 50%
 }
 
 .odform .xl {
-	background-image: url(http://xiaogutou.qdxiaogutou.com/images/daetixian-xl.png);
+	background-image: url(http://www.bigdata8.xin/images/daetixian-xl.png);
 	background-repeat: no-repeat;
 	background-position: 95% center;
 	background-size: auto 20%
 }
+
 </style>
+
 <script type="text/javascript">
 function validate_form() {
     var ex = document.myform.express.value;
@@ -131,7 +133,7 @@ function validate_form() {
         alert("别着急！你还没有选择快递呢！");
         return false;
     }
-	
+
 
     return true;
 }
@@ -141,11 +143,14 @@ function validate_form() {
 
 <body>
 	<h1 class="odform-tit">
-		新建小骨头订单
+		${isLuggage?"开学行李寄运单":"新建筋斗云订单"}
 	</h1>
+
 	<div class="odform">
 		<form action="/user/take_help_express_order.do" method="post" name="myform" id="myform"
               onsubmit="return validate_form();">
+			<input name="luggage" value="${isLuggage?1:0}" type="hidden"/>
+
 			<div class="input-group">
 				<label>快递名称</label> <select  name="express">
 					<option value="9999">请选择</option>
@@ -174,14 +179,14 @@ function validate_form() {
 				</select>
 			</div>
 			<div class="input-group">
-				<label >收件人</label> <input type="text" 
+				<label >收件人</label> <input type="text"
 					name="express_name" placeholder="请输入快递单上的姓名" value="${user.username}" required="required">
 			</div>
 			<div class="input-group">
-				<label >手机号码</label> <input type="text" 
+				<label >手机号码</label> <input type="text"
 					name="express_phone" placeholder="请输入快递单上的手机号码" pattern="[0-9]*" value="${user.phone}" required="required">
 			</div>
-			
+
 			<div class="input-group">
 				<label>配送至</label> <select  name="part">
 					<c:forEach items="${parts}" var="part">
@@ -194,22 +199,22 @@ function validate_form() {
                         </c:forEach>
 				</select>
 			</div>
-			
+
 			<div class="input-group">
 				<label >宿舍信息</label> <input type="text"
 					name="building" placeholder="楼号-宿舍号" value="${user.building}-${user.dormitory}" required="required">
 			</div>
 			<div class="input-group">
-				<label >配送给</label> <input type="text" 
+				<label >配送给</label> <input type="text"
 					name="sendto_name" placeholder="请输入真实姓名" value="${user.username}" required="required">
 			</div>
 			<div class="input-group">
-				<label >手机号码</label> <input type="text" 
+				<label >手机号码</label> <input type="text"
 					name="sendto_phone" pattern="[0-9]*" placeholder="请输入手机号码" required="required"
                            value="${user.phone}">
 			</div>
 			<div class="input-group">
-				<label >附加备注</label> <input type="text" 
+				<label >附加备注</label> <input type="text"
 					name="otherinfo" placeholder="附加备注，勿超过20字">
 			</div>
 			<a href="javascript:this.form.submit();"><button>${freeSum>0?"使用优惠券下单":"马上下单"}</button></a>
@@ -218,10 +223,12 @@ function validate_form() {
 
 	<div
 		style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-		<p>青岛小骨头·版权所有</p>
+		<p>青岛筋斗云·版权所有</p>
 		<p>
 			<a href="http://www.binghai.site" target="_blank">Powered by 冰海</a>
 		</p>
 	</div>
+
+
 </body>
 </html>

@@ -83,9 +83,9 @@
 <!--banner广告-->
 <div class="banner_box swiper-container">
     <div id="banner" class="swiper-wrapper">
-        <div class="swiper-slide"><a href="http://weixin.qdxiaogutou.com/app/index.php?i=3&c=home&a=page&id=3"><img src="http://image.binghai.site/data/f_35120886.png"></a></div>
-        <div class="swiper-slide"><a href="http://weixin.qdxiaogutou.com/app/index.php?i=3&c=home&a=page&id=4"><img src="http://image.binghai.site/data/f_90318939.png"></a></div>
-        <div class="swiper-slide"><a href=""><img src="http://image.binghai.site/data/f_60173112.png"></a></div>
+        <div class="swiper-slide"><a href="#"><img src="http://fast.bigdata8.xin/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171201132439_meitu_1.jpg"></a></div>
+        <div class="swiper-slide"><a href="#"><img src="http://fast.bigdata8.xin/timg.jpg"></a></div>
+        <div class="swiper-slide"><a href=#><img src="http://fast.bigdata8.xin/timg%281%29.jpg"></a></div>
     </div>
     <div class="swiper-pagination"></div>
 </div>
@@ -145,7 +145,7 @@
 </div>
 <script>
     <%--<c:forEach items="${danmus}" var="danmu" varStatus="vs">--%>
-        <%--$('body').barrager({'img':'${danmu.img}','info':'${danmu.info}','speed':${vs.index+8}});--%>
+    <%--$('body').barrager({'img':'${danmu.img}','info':'${danmu.info}','speed':${vs.index+8}});--%>
     <%--</c:forEach>;--%>
 </script>
 <script>
@@ -163,13 +163,13 @@
 
     //banner
     var swiper=new Swiper('.swiper-container',{
-                pagination: '.swiper-pagination',
-                paginationClickable: true,
-                autoplay : 3000,
-                speed:300,
-                autoplayDisableOnInteraction : false,
-                loop : true,
-            }
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            autoplay : 3000,
+            speed:300,
+            autoplayDisableOnInteraction : false,
+            loop : true,
+        }
 
     );
     //底部导航

@@ -8,9 +8,9 @@ package Controllers;
 
 public class SysConfig {
     public static String ServerAddress = "";
-    public static String LoginAddress = "http://weixin.qdxiaogutou.com/login.php";
-    public static String ThisServer = "http://xiaogutou.qdxiaogutou.com";
-    public static String ManagerLoginServer = "http://weixin.qdxiaogutou.com/login.php";
-    public static String RiderLoginServer = "http://weixin.qdxiaogutou.com/login.php";
+    public static String LoginAddress = "http://pay.bigdata8.xin/login.php"; //"登录信息获取链接";
+    public static String ThisServer =  "http://www.bigdata8.xin";  //"系统地址";
+    public static String ManagerLoginServer = "管理员登录地址";
+    public static String RiderLoginServer = "配送员登录地址";
 
 }

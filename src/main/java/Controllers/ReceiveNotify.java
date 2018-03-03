@@ -57,14 +57,14 @@ public class ReceiveNotify {
             noticeService.NoticeManagers(sc.getSchoolId(),"新校园搬运订单",smo.getName()+","+smo.getMoveTime()+","+smo.getPhone(),"校园搬运订单",5.0);
             noticeService.ReservationService(
                     "服务人员已接单",
-                    "小骨头的服务人员将主动联系您",
+                    "筋斗云的服务人员将主动联系您",
                     "校园搬运",
                     TimeFormat.format(System.currentTimeMillis()),
-                    "骨头小哥",
+                    "筋斗云小哥",
                     "按实际收取",
                     "请耐心等待服务",
                     smo.getOpen_id(),
-                    "http://xiaogutou.qdxiaogutou.com/user/index.do");
+                    "http://www.bigdata8.xin/user/index.do");
 
             //管理分红
             managerService.managerDividend(sc.getSchoolId(),500,smo.getId(),"校园搬运订单分红");
@@ -121,7 +121,7 @@ public class ReceiveNotify {
                     user.setOrder_sum(user.getOrder_sum()+1);
                     managerService.update(user);
                     income_add(user.getSchoolId(),order.getShouldPay());
-                    noticeService.paySuccess("小骨头订单微信支付成功",(double)order.getShouldPay()/100+"元","如有疑问或退款，请点我召唤客服","代取快递",user.getOpen_id(),"http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+order.getId(),order);
+                    noticeService.paySuccess("筋斗云订单微信支付成功",(double)order.getShouldPay()/100+"元","如有疑问或退款，请点我召唤客服","代取快递",user.getOpen_id(),"http://www.bigdata8.xin/user/see_order_detail.do?id="+order.getId(),order);
                 }
             }
         return "success";

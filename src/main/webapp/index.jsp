@@ -14,6 +14,11 @@
     <title>服务说明</title>
     <link rel="stylesheet" href="./weixin_style/weui.css"/>
     <link rel="stylesheet" href="./weixin_style/example.css"/>
+
+    <script src='http://libs.baidu.com/jquery/1.10.2/jquery.min.js'></script>
+    <script src='http://image.binghai.site/data/f_45694192.js'></script>
+    <link href="http://image.binghai.site/data/f_15332504.css" type="text/css">
+
     <script type="text/javascript">
         function closeit(){
             WeixinJSBridge.invoke('closeWindow',{},function(res){
@@ -25,7 +30,19 @@
 <body>
 <br>
 <h1 class="page_title">服务说明</h1>
+<div class="weui_dialog_confirm" id="confirmQuery" style="display: none;">
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">欢迎回家</strong></div>
+        <div class="weui_dialog_bd" style="color: red">开学季,大件行李请走行李寄运哦</div>
+        <div class="weui_dialog_ft">
+            <a href="/user/help_express.do" class="weui_btn_dialog default">普通快递</a>
+            <a href="/user/help_express.do?luggage=1" class="weui_btn_dialog primary">大件行李</a>
+        </div>
+    </div>
+</div>
 <div class="weui_msg">
+
     <div class="weui_text_area" align="left">
         <p class="weui_msg_desc">* <span style="color: red;">急件、大件、贵重物品，请自取</span></p>
         <p class="weui_msg_desc">* 请填写当日手机短信上的提货码或编号</p>
@@ -38,11 +55,15 @@
     </div>
     <div class="weui_opr_area">
         <p class="weui_btn_area">
-            <a href="/user/help_express.do" class="weui_btn weui_btn_primary">我已阅读并同意</a>
+            <a href="javascript:confirm_it()" class="weui_btn weui_btn_primary">我已阅读并同意</a>
             <a href="javascirpt:void(0)" onclick="closeit()" class="weui_btn weui_btn_warn">我再想想</a>
         </p>
     </div>
 </div>
-
+<script>
+    function confirm_it() {
+        $("#confirmQuery").fadeIn(200);
+    }
+</script>
 </body>
 </html>

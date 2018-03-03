@@ -28,7 +28,7 @@
 <div class="black"></div>
 <div class="success">余额不足:￥<fmt:formatNumber value="${user.my_money>0?user.my_money/100:0}" pattern="##.##" minFractionDigits="2" ></fmt:formatNumber>
     <a href="/user/charge_vip.do"><button>立即充值</button></a>
-    <a href="http://weixin.qdxiaogutou.com/payloading.php?orderKey=${order_key}&type=${type}"><button>微信支付</button></a>
+    <a href="http://pay.bigdata8.xin/payloading.php?orderKey=${order_key}&type=${type}"><button>微信支付</button></a>
 </div>
 </body>
 </html>

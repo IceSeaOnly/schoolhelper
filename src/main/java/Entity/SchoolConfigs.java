@@ -51,7 +51,7 @@ public class SchoolConfigs {
         this.hand_close = false;
         this.auto_close_info = "自动关闭提示未设置";
         this.hand_close_info = "手动关闭提示未设置";
-        this.refund_url = "http://weixin.qdxiaogutou.com/refund.php";
+        this.refund_url = "http://pay.bigdata8.xin/refund.php";
         this.each_fetch = this.each_send = this.each_fetch = this.each_receive = 0;
         this.servicePhone = 0L;
         this.enableCoupon = true;

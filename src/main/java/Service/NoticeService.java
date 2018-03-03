@@ -54,7 +54,7 @@ public class NoticeService {
         data.put("orderProductName", newItem(productName));
         data.put("Remark", newItem(remark,"#FF0000"));
         JSONArray arr = new JSONArray();
-        arr.add(commonTPLMaker("QL9zFOOV9JpJQwP2uFgXLlleebgM34ViORxyXFCxSOA", openid, url, data));
+        arr.add(commonTPLMaker("2lJvSkeZ2IRtm42kVLlznJMFQuUtpWpd1pXqEmwbabU", openid, url, data));
         DistributedTPLSend(arr);
         if(obj != null){
             notifyNewOrder(ManagerService.sendTime2String(obj.getSendtime_id()),obj.getSchoolId());
@@ -80,7 +80,7 @@ public class NoticeService {
      * 充值提醒
      * */
     public void chargeSuccess(String detailcontent,String userNo, String moneysum,String jiFen,
-                           String chargeType, String remark, String openid, String url) {
+                              String chargeType, String remark, String openid, String url) {
         JSONObject data = new JSONObject();
         data.put("first", newItem(detailcontent));
         data.put("keyword1", newItem(userNo));
@@ -90,7 +90,7 @@ public class NoticeService {
         data.put("keyword5", newItem(TimeFormat.format(System.currentTimeMillis())));
         data.put("remark", newItem(remark,"#FF0000"));
         JSONArray arr = new JSONArray();
-        arr.add(commonTPLMaker("uCSlXj7JbUHbOhjhqvlHCAEYzCFig-rn0O1qYQkQVRE", openid, url, data));
+        arr.add(commonTPLMaker("oLZBW06-eqSp1VmTKaK0fNjzIMXetJweTYdir32zcu0", openid, url, data));
         DistributedTPLSend(arr);
     }
     /**
@@ -106,7 +106,7 @@ public class NoticeService {
         data.put("remark", newItem(remark));
         data.put("time", newItem(TimeFormat.format(time)));
         JSONArray arr = new JSONArray();
-        arr.add(commonTPLMaker("uwkkxs620Qo5TRyoPDDmEMkUCCvT64pgZGLMwN0icTA", openid, url, data));
+        arr.add(commonTPLMaker("emd33QE1qawirhz49bWgPxTP1m9eHlLqqcX69LiXz2U", openid, url, data));
         DistributedTPLSend(arr);
     }
 
@@ -140,7 +140,7 @@ public class NoticeService {
         data.put("menu", newItem(money));
         data.put("Remark", newItem(remark));
         JSONArray arr = new JSONArray();
-        arr.add(commonTPLMaker("TvCDzMyZauj2ROxzLvXox3DicuRKTjIS3kqodbEnakw", openid, url, data));
+        arr.add(commonTPLMaker("tHHAhGg0KSUj67K06ixPy4geS-9CzPmmKx2Q-GVP6Gs", openid, url, data));
         DistributedTPLSend(arr);
     }
 
@@ -186,8 +186,8 @@ public class NoticeService {
         data.put("keyword3", newItem(reason));
         data.put("remark", newItem("请点击查看并申请客服服务，以处理此问题"));
         JSONArray arr = new JSONArray();
-        String url = "http://xiaogutou.qdxiaogutou.com/user/see_order_detail.do?id="+id;
-        arr.add(commonTPLMaker("W-4A3QQP-WgFS4-Ve5V1eG272O1N1Kvzck3aHmQDbEg", openid, url, data));
+        String url = "http://www.bigdata8.xin/user/see_order_detail.do?id="+id;
+        arr.add(commonTPLMaker("VLzJuuWd48FsG24b8GzJcI4xyjhSGrFu-AMRHzIqe5o", openid, url, data));
         DistributedTPLSend(arr);
     }
     /**
@@ -225,7 +225,7 @@ public class NoticeService {
 
         String appKey = servletContext.getInitParameter("cservice_appkey");
         String secret = servletContext.getInitParameter("cservice_secret");
-        String ori_url = "http://xiaogutou.qdxiaogutou.com/api/cscb.do";
+        String ori_url = "http://www.bigdata8.xin/api/cscb.do";
         JSONObject data = HttpUtils.sendJSONGet(
                 "http://cservice.nanayun.cn/manage/newChat.do",
                 "appKey=" + appKey
@@ -277,7 +277,7 @@ public class NoticeService {
      * 发布全校通知
      */
     public void publishNotice(SysMsg msg) {
-        String url = "http://xiaogutou.qdxiaogutou.com/api/xyxx.do?nid=" + msg.getId();
+        String url = "http://www.bigdata8.xin/api/xyxx.do?nid=" + msg.getId();
         JSONObject data = new JSONObject();
         data.put("keyword1", newItem(msg.getTitle()));
         data.put("keyword2", newItem(msg.getManagerName()));
@@ -292,7 +292,7 @@ public class NoticeService {
      * 发布全校通知
      */
     public void publishNoticeByHand(String title,String businessType,String content,String managerName,String time,
-            String key4,ArrayList<String> openids,String url) {
+                                    String key4,ArrayList<String> openids,String url) {
         JSONObject data = new JSONObject();
         data.put("first", newItem(title,"#FF0000"));
         data.put("keyword1", newItem(businessType));
@@ -309,9 +309,9 @@ public class NoticeService {
     public void threadPublis(final ArrayList<String> openids, final String url, final JSONObject data) {
         JSONArray arr = new JSONArray();
         for (int i = 0; i < openids.size(); i++) {
-            //预警：arr.add(commonTPLMaker("84wlEJrZ9Ak6ikc19gJa8G2FM0j34tf6M4e2NuKoBj0", openids.get(i), url, data));
+            //预警：arr.add(commonTPLMaker("IT科技-预警通知", openids.get(i), url, data));
             // 业务变更通知
-            arr.add(commonTPLMaker("_WTYCY90t9g6prdhEaGCx6ugWIueEe0a7OCQjJ7dcMQ", openids.get(i), url, data));
+            arr.add(commonTPLMaker("3_CC2-CO8buffRh0caNdndKjnagJ4PC2Flq9_gab07c", openids.get(i), url, data));
             if(arr.size() > 20){
                 DistributedTPLSend(arr);
                 arr = new JSONArray();
@@ -328,8 +328,8 @@ public class NoticeService {
         data.put("keyword2", newItem(TimeFormat.format(System.currentTimeMillis())));
         data.put("remark", newItem("点击查看反馈"));
         JSONArray arr = new JSONArray();
-        String url = "http://xiaogutou.qdxiaogutou.com/api/feedback.do?id="+id;
-        arr.add(commonTPLMaker("UJJCnJjz7oqaiewVmLwJMiagrK8o5Zf4xsvxq9FGdmk", openid, url, data));
+        String url = "http://www.bigdata8.xin/api/feedback.do?id="+id;
+        arr.add(commonTPLMaker("dQVGlXLJJJmh7VrEWyytEGt5TjDJWnI2SxyVMYILXgE", openid, url, data));
         DistributedTPLSend(arr);
     }
 
@@ -343,8 +343,8 @@ public class NoticeService {
         data.put("refund", newItem((double)shouldPay/100+"元"));
         data.put("remark", newItem(s));
         JSONArray arr = new JSONArray();
-        String url = "http://xiaogutou.qdxiaogutou.com/user/user_center.do";
-        arr.add(commonTPLMaker("aysTZUEIPhvcGsaIViS75qMY0u9OfCQ0EfjHpRSAA10", user.getOpen_id(), url, data));
+        String url = "http://www.bigdata8.xin/user/user_center.do";
+        arr.add(commonTPLMaker("5qtsG7Fsvjl3UzKKOOCRgRKyhtjD74lFvDF4HsyaHi8", user.getOpen_id(), url, data));
         DistributedTPLSend(arr);
     }
 

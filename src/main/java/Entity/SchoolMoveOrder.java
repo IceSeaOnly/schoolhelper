@@ -24,8 +24,10 @@ public class SchoolMoveOrder {
     private boolean deal;
     private String orderKey;
     private int schoolId;
+    private int shouldPay;
+    private int couponId;
 
-    public SchoolMoveOrder(String name, String phone, String moveTime,String open_id,String orderKey,int scid) {
+    public SchoolMoveOrder(String name, String phone, String moveTime,String open_id,String orderKey,int scid,int shouldPay,int couponId) {
         this.open_id = open_id;
         this.name = name;
         this.phone = phone;
@@ -35,12 +37,30 @@ public class SchoolMoveOrder {
         this.deal = false;
         this.orderKey = orderKey;
         this.schoolId = scid;
+        this.shouldPay = shouldPay;
+        this.couponId = couponId;
     }
 
     public SchoolMoveOrder() {
         this.orderTime = new Date(System.currentTimeMillis());
         this.haspay = false;
         this.deal = false;
+    }
+
+    public int getShouldPay() {
+        return shouldPay;
+    }
+
+    public void setShouldPay(int shouldPay) {
+        this.shouldPay = shouldPay;
+    }
+
+    public int getCouponId() {
+        return couponId;
+    }
+
+    public void setCouponId(int couponId) {
+        this.couponId = couponId;
     }
 
     public int getId() {

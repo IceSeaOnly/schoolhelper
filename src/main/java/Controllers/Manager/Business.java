@@ -348,7 +348,7 @@ public class Business {
             managerService.createSchool(name_ch, name_en, servicePhone);
             map.put("result", true);
             map.put("is_url", true);
-            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN");
+            map.put("url", "http://www.bigdata8.xin/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN");
             map.put("notice", name_ch + " 创建成功");
             return "manager/common_result";
         }
@@ -831,21 +831,21 @@ public class Business {
             if (ephone.length() != 11) {
                 map.put("result", false);
                 map.put("is_url", true);
-                map.put("url", "http://xiaogutou.qdxiaogutou.com/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
+                map.put("url", "http://www.bigdata8.xin/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
                 map.put("notice", "手机号" + ephone + "格式不正确");
                 return "manager/common_result";
             }
             if (eprice < 1) {
                 map.put("result", false);
                 map.put("is_url", true);
-                map.put("url", "http://xiaogutou.qdxiaogutou.com/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
+                map.put("url", "http://www.bigdata8.xin/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
                 map.put("notice", "费用需为正整数");
                 return "manager/common_result";
             }
             managerService.save(new SendExpress(ename, eprice, ephone, schoolId));
             map.put("result", false);
             map.put("is_url", true);
-            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
+            map.put("url", "http://www.bigdata8.xin/app/helpSendSet.do?managerId=MANAGERID&token=TOKEN&schoolId=SCHOOLID#settings");
             map.put("notice", "添加成功");
             return "manager/common_result";
         }
@@ -866,7 +866,7 @@ public class Business {
             managerService.save(exp);
             map.put("result", true);
             map.put("is_url", true);
-            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN#express_config");
+            map.put("url", "http://www.bigdata8.xin/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN#express_config");
             map.put("notice", "添加成功");
             return "manager/common_result";
         } else return permissionDeny(map);
@@ -887,7 +887,7 @@ public class Business {
         if (fb.isResponsed()) {
             map.put("result", false);
             map.put("is_url", true);
-            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
+            map.put("url", "http://www.bigdata8.xin/app/feedback.do?managerId=MANAGERID&token=TOKEN");
             map.put("notice", "已经有管理员回复了");
             return "manager/common_result";
         }
@@ -905,14 +905,14 @@ public class Business {
         if (resp.length() < 1) {
             map.put("result", false);
             map.put("is_url", true);
-            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
+            map.put("url", "http://www.bigdata8.xin/app/feedback.do?managerId=MANAGERID&token=TOKEN");
             map.put("notice", "内容无效");
             return "manager/common_result";
         }
         if (fb.isResponsed()) {
             map.put("result", false);
             map.put("is_url", true);
-            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
+            map.put("url", "http://www.bigdata8.xin/app/feedback.do?managerId=MANAGERID&token=TOKEN");
             map.put("notice", "已经有管理员回复了!");
             return "manager/common_result";
         }
@@ -922,7 +922,7 @@ public class Business {
         managerService.update(fb);
         map.put("result", false);
         map.put("is_url", true);
-        map.put("url", "http://xiaogutou.qdxiaogutou.com/app/feedback.do?managerId=MANAGERID&token=TOKEN");
+        map.put("url", "http://www.bigdata8.xin/app/feedback.do?managerId=MANAGERID&token=TOKEN");
         map.put("notice", "回复成功");
 
         noticeService.respFeedBack(fb.getId(), fb.getOpenid());
@@ -938,7 +938,7 @@ public class Business {
             managerService.save(st);
             map.put("result", true);
             map.put("is_url", true);
-            map.put("url", "http://xiaogutou.qdxiaogutou.com/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN#sendtime_config");
+            map.put("url", "http://www.bigdata8.xin/app/xtsz.do?managerId=MANAGERID&schoolId=SCHOOLID&token=TOKEN#sendtime_config");
             map.put("notice", "添加成功");
             managerService.listAllSendTime();
             return "manager/common_result";
@@ -984,7 +984,7 @@ public class Business {
         String json = transfer2Json(checked_orders);
         OutPutOrders out = new OutPutOrders(json, managerId, schoolId);
         managerService.save(out);
-        String url = "http://xiaogutou.qdxiaogutou.com/api/output.do?k=" + out.getSkey();
+        String url = "http://www.bigdata8.xin/api/output.do?k=" + out.getSkey();
         map.put("result", true);
         map.put("is_url", false);
         map.put("url", url);

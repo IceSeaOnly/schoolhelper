@@ -72,4 +72,18 @@ public class CouponService {
     public int howManyCouponIHave(int userId) {
         return couponDao.howManyCouponIHave(userId);
     }
+
+    public GiftRecord findById(int userid, int couponId) {
+        ArrayList<GiftRecord> ls = getMyCoupons(userid);
+        for (GiftRecord l : ls) {
+            if(l.getId() == couponId){
+                return l;
+            }
+        }
+        return null;
+    }
+
+    public void consumeOne(int couponId) {
+        couponDao.consumeFreeGift(Arrays.asList(couponId));
+    }
 }
