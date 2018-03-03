@@ -123,11 +123,13 @@ public class Index {
      * 获取对应学校的优惠券
      */
     private Gift getGift4School(ArrayList<Gift> gifts, Integer schoolId) {
-        if (schoolId == null || gifts.size() == 0) {
-            return null;
+        System.out.println("gift schoolId:" + schoolId);
+        if (schoolId == null || gifts.size() == 1) {
+            return gifts.get(0);
         }
         for (Gift g : gifts) {
-            if (g.getSchoolId() == schoolId) {
+            System.out.println("gift g:" + g.getSchoolId());
+            if (schoolId.equals(g.getSchoolId())) {
                 return g;
             }
         }
