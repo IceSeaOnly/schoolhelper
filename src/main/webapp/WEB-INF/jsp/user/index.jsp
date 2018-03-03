@@ -100,7 +100,7 @@
     <img src="../images/express.png" class="daily_img">
     <div style="float:left; margin-left:13px;">
         <h1>代取快递</h1>
-        <p>全新5.0，等你体验</p>
+        <p>等你体验</p>
     </div>
     <div class="border_bottom"></div>
 </div>

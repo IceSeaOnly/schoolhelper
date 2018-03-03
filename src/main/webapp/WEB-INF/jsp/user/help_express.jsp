@@ -5,7 +5,7 @@
 <head>
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<title>新建筋斗云订单</title>
+<title>筋斗云物流订单</title>
 <style>
 body,input,button,select {
 	font: normal 14px "Microsoft Yahei";
@@ -143,7 +143,7 @@ function validate_form() {
 
 <body>
 	<h1 class="odform-tit">
-		${isLuggage?"开学行李寄运单":"新建筋斗云订单"}
+		${isLuggage?"开学行李寄运单":"筋斗云物流订单"}
 	</h1>
 
 	<div class="odform">
@@ -176,6 +176,7 @@ function validate_form() {
 				<select  name="arrive">
 					<option value="今日件">今日件</option>
 					<option value="昨日件">昨日件</option>
+					<option value="前日件">前日件</option>
 				</select>
 			</div>
 			<div class="input-group">
@@ -223,7 +224,7 @@ function validate_form() {
 
 	<div
 		style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-		<p>青岛筋斗云·版权所有</p>
+		<p>筋斗云校园物流系统</p>
 		<p>
 			<a href="http://www.binghai.site" target="_blank">Powered by 冰海</a>
 		</p>

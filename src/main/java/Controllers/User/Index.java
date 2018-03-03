@@ -72,6 +72,10 @@ public class Index {
 
         gift = getGift4School(gifts, schoolId);
 
+        if (gift == null) {
+            return "redirect:/user/index.do";
+        }
+
         if (gift.isOnlyNewCustomer() && u.getOrder_sum() != 0) {
             map.put("result", true);
             map.put("notice", "这个优惠仅限新用户哦~");
@@ -119,8 +123,8 @@ public class Index {
      * 获取对应学校的优惠券
      */
     private Gift getGift4School(ArrayList<Gift> gifts, Integer schoolId) {
-        if (schoolId == null || gifts.size() == 1) {
-            return gifts.get(0);
+        if (schoolId == null || gifts.size() == 0) {
+            return null;
         }
         for (Gift g : gifts) {
             if (g.getSchoolId() == schoolId) {
