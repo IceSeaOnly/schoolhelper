@@ -1,5 +1,4 @@
-.idea/*.xml
-.idea/artifacts/*
+.idea
 *.jar
 *.war
 *.apk
@@ -7,4 +6,6 @@
 /target
 *.png
 PassConfig.java
+applicationContext.xml
+dispatcher-servlet.xml
 web.xml
