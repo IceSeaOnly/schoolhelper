@@ -64,7 +64,10 @@
                     <h1><span>${va.schoolName}代取立减<fmt:formatNumber value="${(va.clijian/100.0)}" pattern="##.##"
                                                       minFractionDigits="2"></fmt:formatNumber></span></h1>
                     </c:if>
-
+                    <c:if test="${va.ctype == 3}">
+                        <h1><span>${va.schoolName}行李寄运立减<fmt:formatNumber value="${(va.clijian/100.0)}" pattern="##.##"
+                                                                        minFractionDigits="2"></fmt:formatNumber></span></h1>
+                    </c:if>
                     <c:if test="${schoolConfig.enableCoupon}">
                         <h2>使用期限：${va.outOfDateStr}</h2>
                     </c:if>
