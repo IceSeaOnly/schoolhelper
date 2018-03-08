@@ -398,7 +398,9 @@ public class ExpressController {
 //            user.setOrder_sum(user.getOrder_sum()+1);
 //            userService.update(user);
             couponService.consumeOneFreeGift(user);
-        } else if (sc.isEnableCoupon() && (gift = couponService.consumeMaxCoupon(user)) != null) {
+        } else if (sc.isEnableCoupon() && luggage != 1 && (gift = couponService.consumeMaxCoupon(user)) != null) {
+
+        } else if (sc.isEnableCoupon() && luggage == 1 && (gift = couponService.consumeOneByCtype(user,3)) != null){
 
         } else {
             /**

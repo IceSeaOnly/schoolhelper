@@ -86,4 +86,15 @@ public class CouponService {
     public void consumeOne(int couponId) {
         couponDao.consumeFreeGift(Arrays.asList(couponId));
     }
+
+    public GiftRecord consumeOneByCtype(User user, int ctype) {
+        howManyFreeIHave(user);
+        ArrayList<GiftRecord> ls = getMyCoupons(user.getId());
+        for (GiftRecord l : ls) {
+            if(l.isValid() && !l.isUsed() && l.getCtype() == ctype){
+                return l;
+            }
+        }
+        return null;
+    }
 }
