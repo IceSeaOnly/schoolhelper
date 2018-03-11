@@ -143,7 +143,7 @@ function validate_form() {
 
 <body>
 	<h1 class="odform-tit">
-		${isLuggage?"开学行李寄运单":"筋斗云物流订单"}
+		${isLuggage?"筋斗云物流大件订单":"筋斗云物流订单"}
 	</h1>
 
 	<div class="odform">

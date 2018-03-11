@@ -33,18 +33,18 @@
 <div class="weui_dialog_confirm" id="confirmQuery" style="display: none;">
     <div class="weui_mask"></div>
     <div class="weui_dialog">
-        <div class="weui_dialog_hd"><strong class="weui_dialog_title">欢迎回家</strong></div>
-        <div class="weui_dialog_bd" style="color: red">开学季,大件行李请走行李寄运哦</div>
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">快递规格</strong></div>
+        <div class="weui_dialog_bd" style="color: red">大件快递请走大件物流哦</div>
         <div class="weui_dialog_ft">
             <a href="/user/help_express.do" class="weui_btn_dialog default">普通快递</a>
-            <a href="/user/help_express.do?luggage=1" class="weui_btn_dialog primary">大件行李</a>
+            <a href="/user/help_express.do?luggage=1" class="weui_btn_dialog primary">大件快递</a>
         </div>
     </div>
 </div>
 <div class="weui_msg">
 
     <div class="weui_text_area" align="left">
-        <p class="weui_msg_desc">* <span style="color: red;">急件、大件、贵重物品，请自取</span></p>
+        <p class="weui_msg_desc">* <span style="color: red;">急件、贵重物品，请自取</span></p>
         <p class="weui_msg_desc">* 请填写当日手机短信上的提货码或编号</p>
         <p class="weui_msg_desc">* 填写快递单上的姓名电话</p>
         <p class="weui_msg_desc">* 因编号姓名电话填写不正确导致未能取件的，概不退款,可改为次日取件。</p>
