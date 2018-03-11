@@ -107,11 +107,6 @@ function validate_form() {
 		alert('该时段配送已达上限，请选择其他时间，谢谢.');
 		return false;
 	}
-	if(part_ == 4){
-		alert('对不起，因配送人员调整，今天暂时无法配送家属区，谢谢您的理解！');
-		return false;
-	}
-
     if (sms_ == "") {
         alert("别着急，你还没填好呢！");
         return false;
