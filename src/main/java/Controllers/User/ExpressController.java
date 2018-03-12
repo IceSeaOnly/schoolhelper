@@ -382,7 +382,7 @@ public class ExpressController {
         SendPart pa = getSendPart(part, parts, user.getSchoolId());
         // 计算费用 单位分
         // 行李寄运10元/单
-        int cost = (luggage == 1 ? 1000 : (ex.getSendPrice() + pa.getSendPrice()));
+        int cost = (luggage == 1 ? 500 : (ex.getSendPrice() + pa.getSendPrice()));
         boolean free_this = false;
         /** 20170224 免单检测 begin*/
         user = userService.getUserById(user.getId());
