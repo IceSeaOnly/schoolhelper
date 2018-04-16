@@ -28,6 +28,16 @@ public class OrderDao {
         return res;
     }
 
+    public ArrayList<ExpressOrder> getRefereeOrderBySchool(int status,int schoolId) {
+        Session session = sessionFactory.openSession();
+        ArrayList<ExpressOrder> res = (ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where schoolId = :S and cloudCoinProcess = :CCP and order_state = 3")
+                .setParameter("S",schoolId)
+                .setParameter("CCP",status)
+                .list();
+        session.close();
+        return res;
+    }
+
     public void updateOrderOutOfDate(int userId) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();

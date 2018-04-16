@@ -46,6 +46,7 @@ public class ExpressOrder implements Comparable{
     private boolean isLLJJ;//是否是楼长交接件
     private Long lastSms;//上次发短信通知时间
     private String managerAdditional;//管理员附加通知
+    private Integer cloudCoinProcess = 0; // 返云币处理是否完成，1完成，0待处理
 
     public String sendTime2String(){
         return ManagerService.sendTime2String(sendtime_id);
@@ -154,6 +155,7 @@ public class ExpressOrder implements Comparable{
         this.isLLJJ = false;
         this.lastSms = 1483200000000L;
         this.managerAdditional = "";
+        this.cloudCoinProcess=0;
     }
 
     public static int NORMAL_STATE = 0;
@@ -394,5 +396,13 @@ public class ExpressOrder implements Comparable{
 
     public void setManagerAdditional(String managerAdditional) {
         this.managerAdditional = managerAdditional;
+    }
+
+    public Integer getCloudCoinProcess() {
+        return cloudCoinProcess;
+    }
+
+    public void setCloudCoinProcess(Integer cloudCoinProcess) {
+        this.cloudCoinProcess = cloudCoinProcess;
     }
 }

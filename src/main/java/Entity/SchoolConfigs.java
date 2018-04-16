@@ -36,6 +36,9 @@ public class SchoolConfigs {
     private int each_give; // 每次转交楼长
     private int each_receive; // 每次楼长接收
 
+    private int refereeGift; // 被推荐人下单给推荐人多少云币
+    private int cloud2cash; // 云币与现金对话比例，90表示90云币=1元现金
+
 
     public SchoolConfigs(int schoolId) {
         this.ifTenThenFree = false;
@@ -55,6 +58,8 @@ public class SchoolConfigs {
         this.each_fetch = this.each_send = this.each_fetch = this.each_receive = 0;
         this.servicePhone = 0L;
         this.enableCoupon = true;
+        this.refereeGift = 10;
+        this.cloud2cash = 100;
     }
 
     public SchoolConfigs() {
@@ -227,5 +232,21 @@ public class SchoolConfigs {
 
     public void setEnableCoupon(boolean enableCoupon) {
         this.enableCoupon = enableCoupon;
+    }
+
+    public int getRefereeGift() {
+        return refereeGift;
+    }
+
+    public void setRefereeGift(int refereeGift) {
+        this.refereeGift = refereeGift;
+    }
+
+    public int getCloud2cash() {
+        return cloud2cash;
+    }
+
+    public void setCloud2cash(int cloud2cash) {
+        this.cloud2cash = cloud2cash;
     }
 }

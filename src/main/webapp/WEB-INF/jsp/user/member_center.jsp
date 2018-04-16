@@ -32,13 +32,20 @@
         </a>
     </li>
     <li>
-        <a>
-            <h2>0</h2>
-            <p>开发中</p>
+        <a onclick="alert('云币玩法即将上线,快邀请新人获取更多云币吧!')">
+            <h2>${user.cloudCoin}</h2>
+            <p>云币</p>
         </a>
     </li>
 </ul>
 <ul class="nav">
+    <li>
+        <a href="/user/makeMyRefereeQRcode.do">
+            <img src="http://cdn.binghai.site/o_1cb74noka1kndk7t1i73tht1otea.jpg"/>
+            <span style="color:red">推荐新用户得云币!</span>
+            <i class="am-icon-angle-right"></i>
+        </a>
+    </li>
     <li>
         <a href="/user/my_orders.do">
             <img src="../images/order_3.png"/>

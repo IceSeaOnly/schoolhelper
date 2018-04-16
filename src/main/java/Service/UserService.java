@@ -29,6 +29,19 @@ public class UserService {
         return user;
     }
 
+    public User getUserByOpenId(String openid,Integer refereeId) {
+        // 查找用户
+        User user = userDao.getUserByOpenid(openid);
+        // 判断用户是否存在
+        // 不存在则自动创建
+        if (user == null) {
+            user = userDao.createEmpeyNewUser(openid);
+            user.setReferee(refereeId);
+            update(user);
+        }
+        return user;
+    }
+
     public void update(Object obj) {
         userDao.update(obj);
     }
@@ -216,5 +229,14 @@ public class UserService {
 
     public boolean giftExist(int gid, int uid) {
         return userDao.giftExist(gid,uid);
+    }
+
+    /**
+     * 给修改用户云币
+     * */
+    public void userAddCloudCoin(int userid, int many) {
+        User user = getUserById(userid);
+        user.setCloudCoin(user.getCloudCoin()+many);
+        update(user);
     }
 }

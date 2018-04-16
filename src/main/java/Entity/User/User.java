@@ -27,6 +27,8 @@ public class User {
     private int schoolId;
     private int freeSum;//免单券数量
     private boolean blackUser; // 是否在黑名单
+    private int cloudCoin; // 云币
+    private int referee; // 推荐人，默认为-1表示无，其他表示有
 
     public User() {
     }
@@ -168,5 +170,21 @@ public class User {
 
     public void setBlackUser(boolean blackUser) {
         this.blackUser = blackUser;
+    }
+
+    public int getCloudCoin() {
+        return cloudCoin;
+    }
+
+    public void setCloudCoin(int cloudCoin) {
+        this.cloudCoin = cloudCoin;
+    }
+
+    public int getReferee() {
+        return referee;
+    }
+
+    public void setReferee(int referee) {
+        this.referee = referee;
     }
 }

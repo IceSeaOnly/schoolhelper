@@ -26,6 +26,8 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static Controllers.SysConfig.ThisServer;
+
 /**
  * Created by Administrator on 2017/1/30.
  */
@@ -219,5 +221,13 @@ public class Api {
         managerService.update(conversation);
 
         return "redirect:" + conversation.getRealServiceUrl();
+    }
+
+    @RequestMapping("makeMyRefereeQRcode")
+    public String makeMyRefereeQRcode(@RequestParam Integer refId, Integer tag, ModelMap map) {
+        String ctx = ThisServer + "/userlogin.do?refereeId=" + refId;
+        map.put("ctx", ctx);
+        map.put("tag", tag == null);
+        return "user/makeMyRefereeQRcode";
     }
 }
