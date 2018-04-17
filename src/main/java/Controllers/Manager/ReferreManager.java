@@ -3,6 +3,7 @@ package Controllers.Manager;
 import Entity.ExpressOrder;
 import Entity.SchoolConfigs;
 import Entity.User.User;
+import Service.ManagerService;
 import Service.NoticeService;
 import Service.OrderService;
 import Service.UserService;
@@ -25,6 +26,8 @@ public class ReferreManager {
     private UserService userService;
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private ManagerService managerService;
 
     /**
      * 新用户下单给推荐人返水
@@ -48,6 +51,8 @@ public class ReferreManager {
                     System.out.println(String.format("manger %d pay cloud coin %d to user %d as referee gift of order %d",
                             managerId, sc.getRefereeGift(), user.getReferee(), order.getId()));
                 }
+                order.setCloudCoinProcess(1);
+                managerService.update(order);
             }
         }
 

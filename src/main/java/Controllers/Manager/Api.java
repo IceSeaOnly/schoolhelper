@@ -224,10 +224,16 @@ public class Api {
     }
 
     @RequestMapping("makeMyRefereeQRcode")
-    public String makeMyRefereeQRcode(@RequestParam Integer refId, Integer tag, ModelMap map) {
+    public String makeMyRefereeQRcode(@RequestParam Integer refId, ModelMap map, HttpSession session) {
+        Object t = session.getAttribute("tag");
+        if (t != null && t.equals(refId)) {
+            map.put("tag", false);
+        } else {
+            map.put("tag", true);
+        }
         String ctx = ThisServer + "/userlogin.do?refereeId=" + refId;
         map.put("ctx", ctx);
-        map.put("tag", tag == null);
+
         return "user/makeMyRefereeQRcode";
     }
 }

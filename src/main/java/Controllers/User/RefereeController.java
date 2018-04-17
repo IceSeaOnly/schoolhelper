@@ -19,6 +19,7 @@ public class RefereeController {
     @RequestMapping("makeMyRefereeQRcode")
     public String makeMyRefereeQRcode(HttpSession session, ModelMap map) {
         User u = (User) session.getAttribute("user");
+        session.setAttribute("tag",u.getId());
         return "redirect:/api/makeMyRefereeQRcode.do?tag=1&refId=" + u.getId();
     }
 }
