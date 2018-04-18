@@ -851,4 +851,13 @@ public class ManagerDao{
         session.close();
         return orders;
     }
+
+    public List<User> listCloudCoinUser(Integer schoolId) {
+        Session session = sessionFactory.openSession();
+        List<User> users =  session.createQuery("from User where schoolId = :S and cloudCoin > 0")
+                .setParameter("S",schoolId)
+                .list();
+        session.close();
+        return users;
+    }
 }

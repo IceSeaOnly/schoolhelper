@@ -1,12 +1,10 @@
 package Controllers.Manager;
 
+import Entity.CloudCoinRecord;
 import Entity.ExpressOrder;
 import Entity.SchoolConfigs;
 import Entity.User.User;
-import Service.ManagerService;
-import Service.NoticeService;
-import Service.OrderService;
-import Service.UserService;
+import Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -28,6 +26,8 @@ public class ReferreManager {
     private OrderService orderService;
     @Autowired
     private ManagerService managerService;
+    @Autowired
+    private CloudCoinSevice cloudCoinSevice;
 
     /**
      * 新用户下单给推荐人返水
@@ -47,6 +47,9 @@ public class ReferreManager {
                 if (user.getReferee() > 0) {
                     count++;
                     sum += sc.getRefereeGift();
+                    String remark = (user.getUsername() == null ? user.getId() : user.getUsername()) + "下单返利";
+                    CloudCoinRecord record = new CloudCoinRecord(user.getReferee(), sc.getRefereeGift(), remark);
+                    userService.sava(record);
                     userService.userAddCloudCoin(user.getReferee(), sc.getRefereeGift());
                     System.out.println(String.format("manger %d pay cloud coin %d to user %d as referee gift of order %d",
                             managerId, sc.getRefereeGift(), user.getReferee(), order.getId()));
@@ -56,11 +59,19 @@ public class ReferreManager {
             }
         }
 
-        map.put("url",String.format("共结算 %d 个订单，支付了 %d 个云币。",count,sum));
-        map.put("is_url",false);
-        map.put("result",true);
-        map.put("notice",String.format("共结算 %d 个订单，支付了 %d 个云币。",count,sum));
-        System.out.println(String.format("共结算 %d 个订单，支付了 %d 个云币。",count,sum));
+        map.put("url", String.format("共结算 %d 个订单，支付了 %d 个云币。", count, sum));
+        map.put("is_url", false);
+        map.put("result", true);
+        map.put("notice", String.format("共结算 %d 个订单，支付了 %d 个云币。", count, sum));
+        System.out.println(String.format("共结算 %d 个订单，支付了 %d 个云币。", count, sum));
         return "manager/common_result";
+    }
+
+    @RequestMapping("listCloudCoinUser")
+    public String listCloudCoinUser(@RequestParam Integer schoolId,ModelMap map){
+        System.out.println("action: listCloudCoinUser");
+        List<User> users = managerService.listCloudCoinUser(schoolId);
+        map.put("users",users);
+        return "manager/listCloudCoinUser";
     }
 }

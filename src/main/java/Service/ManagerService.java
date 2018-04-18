@@ -651,4 +651,8 @@ public class ManagerService {
     public List<SchoolMoveOrder> getSchoolMoveOrderBySchoolId(int schoolId) {
         return managerDao.getSchoolMoveOrderBySchoolId(schoolId);
     }
+
+    public List<User> listCloudCoinUser(Integer schoolId) {
+        return managerDao.listCloudCoinUser(schoolId);
+    }
 }

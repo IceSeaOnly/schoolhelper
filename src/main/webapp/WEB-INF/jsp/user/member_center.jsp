@@ -32,7 +32,7 @@
         </a>
     </li>
     <li>
-        <a onclick="alert('云币玩法即将上线,快邀请新人获取更多云币吧!')">
+        <a href="/user/myCoinPage.do">
             <h2>${user.cloudCoin}</h2>
             <p>云币</p>
         </a>
