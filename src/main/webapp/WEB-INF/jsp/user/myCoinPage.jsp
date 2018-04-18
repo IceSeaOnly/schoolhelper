@@ -46,7 +46,7 @@
                                 <li class="item-content">
                                     <div class="item-inner">
                                         <div class="item-title">${rec.remark}</div>
-                                        <div class="item-after" style="color: ${rec.many>0?'green':'red'}">+200</div>
+                                        <div class="item-after" style="color: ${rec.many>0?'green':'red'}">${rec.many>0?'+':'-'}${rec.many}</div>
                                     </div>
                                 </li>
                             </c:forEach>
