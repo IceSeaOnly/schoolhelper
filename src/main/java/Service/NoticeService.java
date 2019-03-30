@@ -173,7 +173,7 @@ public class NoticeService {
         JSONObject ds = new JSONObject();
         ds.put("type","wxnotice");
         ds.put("datas",arr);
-        sendToMessageQueue("bone",ds.toJSONString());
+        sendToMessageQueue("jdy-bone",ds.toJSONString());
     }
     /**
      * 提醒取件失败
@@ -194,7 +194,7 @@ public class NoticeService {
      * 日志服务转向分布式
      * */
     public static void DistributedLog(String log){
-        sendToMessageQueue("boneLog",log);
+        sendToMessageQueue("jdy-boneLog",log);
     }
     /**
      * 发布到消息队列
@@ -354,7 +354,7 @@ public class NoticeService {
         data.put("phone",phone);
         data.put("param",para);
         data.put("tpl",tpl);
-        sendToMessageQueue("bone",data.toJSONString());
+        sendToMessageQueue("jdy-bone",data.toJSONString());
     }
 
     /**
@@ -364,6 +364,6 @@ public class NoticeService {
         JSONObject data = new JSONObject();
         data.put("type","alipush");
         data.put("msg",msg);
-        sendToMessageQueue("bone",data.toJSONString());
+        sendToMessageQueue("jdy-bone",data.toJSONString());
     }
 }

@@ -25,8 +25,17 @@ public class Gift {
     private int ctype = 0; // 0 for 免单券，1 for 立减券,3 for 筋斗云行李专用
     private int lijian = 0; // 立减多少
     private boolean onlyNewCustomer;//仅限新用户
+    private boolean nolimits; // true表示单个用户不设领取量，但必须在上一张同样的券用完后再领
 
     public Gift() {
+    }
+
+    public boolean isNolimits() {
+        return nolimits;
+    }
+
+    public void setNolimits(boolean nolimits) {
+        this.nolimits = nolimits;
     }
 
     public int getLijian() {

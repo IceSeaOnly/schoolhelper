@@ -300,6 +300,10 @@ public class ExpressController {
             map.put("msg", "订单超时已失效！");
             return "errors/error";
         }
+        if(eor.isHas_pay()){
+            return "redirect:my_orders.do";
+        }
+
         if (pay.equals("wxpay")) {
             map.put("key", orderKey);
             return "user/go_to_pay";

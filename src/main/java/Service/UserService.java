@@ -227,8 +227,8 @@ public class UserService {
         return userDao.getGiftById(gid);
     }
 
-    public boolean giftExist(int gid, int uid) {
-        return userDao.giftExist(gid,uid);
+    public boolean giftExist(int gid, int uid, boolean nolimits) {
+        return userDao.giftExist(gid,uid,nolimits);
     }
 
     /**

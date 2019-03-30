@@ -2,8 +2,10 @@ package Controllers.User;
 
 import Entity.*;
 import Entity.User.User;
+import Service.CouponService;
 import Service.NoticeService;
 import Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +29,8 @@ public class Index {
     NoticeService noticeService;
     @Resource
     UserService userService;
+    @Autowired
+    CouponService couponService;
 //    @Resource
 //    DanMuService danMuService;
 
@@ -76,11 +80,13 @@ public class Index {
             return "redirect:/user/index.do";
         }
 
+        couponService.setCouponOutOfDate(u);
+
         if (gift.isOnlyNewCustomer() && u.getOrder_sum() != 0) {
             map.put("result", true);
             map.put("notice", "这个优惠仅限新用户哦~");
         } else if (gift.getSum() > 0) {
-            boolean exist = userService.giftExist(gid, u.getId());
+            boolean exist = userService.giftExist(gid, u.getId(),gift.isNolimits());
             if (!exist) {
                 gift.setSum(gift.getSum() - 1);
                 userService.update(gift); //名额减一
@@ -93,7 +99,7 @@ public class Index {
                 noticeService.chargeSuccess("恭喜您在" + gift.getName() + "活动中获得一张" + (gift.getCtype() == 0 ? "免单" : "立减") + "券", "" + u.getId(), (gift.getCtype() == 0 ? "免单" : "立减") + "券1张", "0", "免单券", (gift.getCtype() == 0 ? "免单" : "立减") + "券领取成功，快去下单吧！" + gift.getNotice(), u.getOpen_id(), "");
             } else {
                 map.put("result", false);
-                map.put("notice", "您已经领取过了，不要太贪心哦");
+                map.put("notice", "您已经领取过或还尚未使用已领取的，不要太贪心哦，用完再来吧!");
             }
         } else {
             map.put("result", false);

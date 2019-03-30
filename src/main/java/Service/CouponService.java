@@ -35,6 +35,19 @@ public class CouponService {
         return sum;
     }
 
+    public void setCouponOutOfDate(User user){
+        ArrayList<GiftRecord> all = getMyCoupons(user.getId());
+        if(all == null || all.size() == 0) return;
+        ArrayList<Integer> outOfdate = new ArrayList<Integer>();
+        for (int i = 0; i < all.size(); i++) {
+            if(all.get(i).getOutOfDate() < System.currentTimeMillis()){
+                outOfdate.add(all.get(i).getId());
+            }
+        }
+        if(outOfdate.size() > 0)
+            couponDao.setGiftRecordOutOfDate(outOfdate);
+    }
+
     // 使用一张免单券
     public void consumeOneFreeGift(User user) {
         ArrayList<GiftRecord> rs = couponDao.howManyFreeIHave(user.getId(),user.getSchoolId());

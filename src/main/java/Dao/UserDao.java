@@ -271,9 +271,13 @@ public class UserDao {
         return gifts;
     }
 
-    public boolean giftExist(int gid, int uid) {
+    public boolean giftExist(int gid, int uid, boolean nolimits) {
+        String exr = "select coalesce(count(*),0) from GiftRecord where gid = :G and uid = :U";
+        if(nolimits){
+            exr = "select coalesce(count(*),0) from GiftRecord where gid = :G and uid = :U and valid = true";
+        }
         Session session = sessionFactory.openSession();
-        Long sum = (Long) session.createQuery("select coalesce(count(*),0) from GiftRecord where gid = :G and uid = :U")
+        Long sum = (Long) session.createQuery(exr)
                 .setParameter("G",gid)
                 .setParameter("U",uid)
                 .uniqueResult();
