@@ -105,6 +105,7 @@ public class CouponService {
         ArrayList<GiftRecord> ls = getMyCoupons(user.getId());
         for (GiftRecord l : ls) {
             if(l.isValid() && !l.isUsed() && l.getCtype() == ctype){
+                couponDao.consumeFreeGift(Arrays.asList(l.getId()));
                 return l;
             }
         }
