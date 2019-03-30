@@ -75,10 +75,11 @@ public class Ajax {
             if (managerService.rewardFetchOrder(schoolId, managerId, orderId)) {
                 managerService.managerDividend(schoolId, order.getShouldPay(), orderId, "取件订单分红");
             }
+            noticeService.NoticeFetchSuccess(managerService.reason2String(reasonId), orderId, userService.getUserById(order.getUser_id()).getOpen_id());
             return "true";
         } else if (!res && rs) {
             managerService.log(managerId, 2, orderId + "取件失败，mid=" + managerId + "，原因:" + managerService.reason2String(reasonId));
-            noticeService.NoticeFetchFailed(managerService.reason2String(reasonId),orderId,userService.getUserById(order.getUser_id()).getOpen_id());
+            noticeService.NoticeFetchFailed(managerService.reason2String(reasonId), orderId, userService.getUserById(order.getUser_id()).getOpen_id());
             return "true";
         } else return "false";
 
@@ -107,10 +108,13 @@ public class Ajax {
             @RequestParam boolean result,
             @RequestParam int reasonId) {
 
+        ExpressOrder order = managerService.getExpressOrderById(orderId);
         /** 赏配送费 注意判别是否是楼长交接件，如果是，则不再分配*/
         if (result) {
             managerService.log(managerId, 11, orderId + "订单由" + managerId + "配送成功准备赏配送费");
+            noticeService.NoticeDeliveryResultToCustomer(null, orderId, userService.getUserById(order.getUser_id()).getOpen_id());
         } else {
+            noticeService.NoticeDeliveryResultToCustomer(managerService.reason2String(reasonId), orderId, userService.getUserById(order.getUser_id()).getOpen_id());
             managerService.log(managerId, 11, orderId + "订单不能赏配送费，因为配送失败，原因" + managerService.reason2String(reasonId));
         }
         boolean res = managerService.updateExpressOrderResultReason(managerId, schoolId, orderId, result ? ExpressOrder.SEND_SUCCESS : ExpressOrder.ORDER_SEND_FAILED, reasonId);
@@ -120,7 +124,7 @@ public class Ajax {
         }
 
         managerService.log(managerId, 11, orderId + "系统已取消对订单" + managerId + "取消赏配送费的决定");
-        if(!res)
+        if (!res)
             return "false";
         return "true";
 
@@ -255,7 +259,7 @@ public class Ajax {
             if (val >= 0 && val < 1) {
                 Manager manager = managerService.getManagerById(pid);
                 if (manager == null) return "非法操作";
-                manager.setDividendRatio(schoolId,val);
+                manager.setDividendRatio(schoolId, val);
                 managerService.update(manager);
                 managerService.log(managerId, 11, pid + "工资更新为" + val);
                 return "更新成功";
@@ -303,7 +307,7 @@ public class Ajax {
     @RequestMapping("enableCoupon")
     @ResponseBody
     public String enableCoupon(@RequestParam int managerId,
-                                      @RequestParam int schoolId) {
+                               @RequestParam int schoolId) {
         if (managerService.managerAccess2Privilege(managerId, "xtsz")) {
             SchoolConfigs sc = userService.getSchoolConfBySchoolId(schoolId);
             sc.setEnableCoupon(!sc.isEnableCoupon());
@@ -532,7 +536,7 @@ public class Ajax {
 
     /**
      * 新工单通知
-     * */
+     */
     @RequestMapping("cs_notice_changed")
     @ResponseBody
     public String cs_notice_changed(@RequestParam int managerId) {
@@ -544,7 +548,7 @@ public class Ajax {
 
     /**
      * 新订单推送通知
-     * */
+     */
     @RequestMapping("newOrderNotice")
     @ResponseBody
     public String newOrderNotice(@RequestParam int managerId) {
@@ -564,18 +568,18 @@ public class Ajax {
         userService.listAllSchool();
         Manager m = managerService.getManagerById(managerId);
         ArrayList<IndexItemEntity> fs = managerService.listMyFunctions(managerId);
-        fs = m.isCould_delete()?deleteSuperOnly(fs):fs;
+        fs = m.isCould_delete() ? deleteSuperOnly(fs) : fs;
         String nk = (String) session.getAttribute("Stoken");
         return SuccessAnswer.successWithObject(nk, fs);
     }
 
     /**
      * 删除仅超管可见的项目
-     * */
+     */
     private ArrayList<IndexItemEntity> deleteSuperOnly(ArrayList<IndexItemEntity> fs) {
         ArrayList<IndexItemEntity> rs = new ArrayList<IndexItemEntity>();
         for (int i = 0; i < fs.size(); i++) {
-            if(!fs.get(i).isSuper_only())
+            if (!fs.get(i).isSuper_only())
                 rs.add(fs.get(i));
         }
         return rs;
@@ -594,13 +598,13 @@ public class Ajax {
 
     @ResponseBody
     @RequestMapping("setBlackListUser")
-    public String setBlackListUser(@RequestParam int managerId,@RequestParam int userId, HttpSession session){
+    public String setBlackListUser(@RequestParam int managerId, @RequestParam int userId, HttpSession session) {
         User user = userService.getUserById(userId);
-        if(user != null){
+        if (user != null) {
             user.setBlackUser(true);
             userService.update(user);
-            managerService.log(managerId,12,"把用户拉黑:"+userId);
-            return user.getUsername()+"已被拉黑";
+            managerService.log(managerId, 12, "把用户拉黑:" + userId);
+            return user.getUsername() + "已被拉黑";
         }
 
         return "参数错误";

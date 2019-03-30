@@ -47,30 +47,30 @@ public class NoticeService {
      * 支付成功通知
      */
     public void paySuccess(String detailcontent, String moneysum,
-                           String remark, String productName, String openid, String url,ExpressOrder obj) {
+                           String remark, String productName, String openid, String url, ExpressOrder obj) {
         JSONObject data = new JSONObject();
         data.put("first", newItem(detailcontent));
         data.put("orderMoneySum", newItem(moneysum));
         data.put("orderProductName", newItem(productName));
-        data.put("Remark", newItem(remark,"#FF0000"));
+        data.put("Remark", newItem(remark, "#FF0000"));
         JSONArray arr = new JSONArray();
         arr.add(commonTPLMaker("2lJvSkeZ2IRtm42kVLlznJMFQuUtpWpd1pXqEmwbabU", openid, url, data));
         DistributedTPLSend(arr);
-        if(obj != null){
-            notifyNewOrder(ManagerService.sendTime2String(obj.getSendtime_id()),obj.getSchoolId());
+        if (obj != null) {
+            notifyNewOrder(ManagerService.sendTime2String(obj.getSendtime_id()), obj.getSchoolId());
         }
     }
 
     /**
      * 推送消息到该校管理员
-     * */
+     */
     public void notifyNewOrder(String time, int schoolId) {
-        ArrayList<Manager>ms = managerService.listSchoolManagers(schoolId);
+        ArrayList<Manager> ms = managerService.listSchoolManagers(schoolId);
         for (int i = 0; i < ms.size(); i++) {
-            if(ms.get(i).isNewOrderNotice()){
+            if (ms.get(i).isNewOrderNotice()) {
                 AppPushMsg msg = (AppPushMsg) managerService.merge(new AppPushMsg(
-                        "要求"+time+"配送",
-                        "新订单到达",ms.get(i).getPhone()));
+                        "要求" + time + "配送",
+                        "新订单到达", ms.get(i).getPhone()));
                 pushToAppClient(msg);
             }
         }
@@ -78,8 +78,8 @@ public class NoticeService {
 
     /**
      * 充值提醒
-     * */
-    public void chargeSuccess(String detailcontent,String userNo, String moneysum,String jiFen,
+     */
+    public void chargeSuccess(String detailcontent, String userNo, String moneysum, String jiFen,
                               String chargeType, String remark, String openid, String url) {
         JSONObject data = new JSONObject();
         data.put("first", newItem(detailcontent));
@@ -88,11 +88,12 @@ public class NoticeService {
         data.put("keyword3", newItem(jiFen));
         data.put("keyword4", newItem(chargeType));
         data.put("keyword5", newItem(TimeFormat.format(System.currentTimeMillis())));
-        data.put("remark", newItem(remark,"#FF0000"));
+        data.put("remark", newItem(remark, "#FF0000"));
         JSONArray arr = new JSONArray();
         arr.add(commonTPLMaker("oLZBW06-eqSp1VmTKaK0fNjzIMXetJweTYdir32zcu0", openid, url, data));
         DistributedTPLSend(arr);
     }
+
     /**
      * 客服消息类通知
      */
@@ -113,24 +114,25 @@ public class NoticeService {
     /**
      *
      * */
-    public void NoticeManagers(int sid,String title,String content,String good,double money){
-        ArrayList<Manager>ms = managerService.listSchoolManagers(sid);
+    public void NoticeManagers(int sid, String title, String content, String good, double money) {
+        ArrayList<Manager> ms = managerService.listSchoolManagers(sid);
         for (int i = 0; i < ms.size(); i++) {
             ReservationService(title,
                     content,
                     good,
                     "刚刚",
                     "等待处理",
-                    money+"元",
+                    money + "元",
                     "remark",
-                    ms.get(i).getOpenId(),"");
-            pushToAppClient(new AppPushMsg(title,content,ms.get(i).getPhone()));
+                    ms.get(i).getOpenId(), "");
+            pushToAppClient(new AppPushMsg(title, content, ms.get(i).getPhone()));
         }
     }
+
     /**
      * 预付服务派单通知
      */
-    public void ReservationService(String first,String content, String good, String serviceDate, String name, String money, String remark, String openid, String url) {
+    public void ReservationService(String first, String content, String good, String serviceDate, String name, String money, String remark, String openid, String url) {
         JSONObject data = new JSONObject();
         data.put("first", newItem(first));
         data.put("Content1", newItem(content));
@@ -169,16 +171,18 @@ public class NoticeService {
 
     private static CloudAccount account = null;
     private static MNSClient client = null;
-    private static void DistributedTPLSend(JSONArray arr){
+
+    private static void DistributedTPLSend(JSONArray arr) {
         JSONObject ds = new JSONObject();
-        ds.put("type","wxnotice");
-        ds.put("datas",arr);
-        sendToMessageQueue("jdy-bone",ds.toJSONString());
+        ds.put("type", "wxnotice");
+        ds.put("datas", arr);
+        sendToMessageQueue("jdy-bone", ds.toJSONString());
     }
+
     /**
      * 提醒取件失败
-     * */
-    public void NoticeFetchFailed(String reason,int id,String openid){
+     */
+    public void NoticeFetchFailed(String reason, int id, String openid) {
         JSONObject data = new JSONObject();
         data.put("first", newItem("您的快递取件失败"));
         data.put("keyword1", newItem("刚刚"));
@@ -186,21 +190,57 @@ public class NoticeService {
         data.put("keyword3", newItem(reason));
         data.put("remark", newItem("请点击查看并申请客服服务，以处理此问题"));
         JSONArray arr = new JSONArray();
-        String url = "http://www.bigdata8.xin/user/see_order_detail.do?id="+id;
+        String url = "http://www.bigdata8.xin/user/see_order_detail.do?id=" + id;
         arr.add(commonTPLMaker("VLzJuuWd48FsG24b8GzJcI4xyjhSGrFu-AMRHzIqe5o", openid, url, data));
         DistributedTPLSend(arr);
     }
+
+    /**
+     * 提醒取件成功
+     */
+    public void NoticeFetchSuccess(String reason, int id, String openid) {
+        JSONObject data = new JSONObject();
+        data.put("keyword1", newItem("您的快递取件成功，我们将尽快为您配送!"));
+        data.put("keyword2", newItem("快递小哥"));
+        data.put("keyword3", newItem(TimeFormat.format(System.currentTimeMillis())));
+        data.put("keyword4", newItem("点击查看您的订单"));
+        data.put("remark", newItem("您的快递取件成功，我们将尽快为您配送!感谢您对我们的信任！"));
+
+        JSONArray arr = new JSONArray();
+        String url = "http://www.bigdata8.xin/user/see_order_detail.do?id=" + id;
+        arr.add(commonTPLMaker("3_CC2-CO8buffRh0caNdndKjnagJ4PC2Flq9_gab07c", openid, url, data));
+        DistributedTPLSend(arr);
+    }
+
+    /**
+     * 提醒配送结果
+     */
+    public void NoticeDeliveryResultToCustomer(String reason, int orderId, String openid) {
+        JSONObject data = new JSONObject();
+        data.put("keyword1", newItem(reason == null ? "您的快递已经配送成功!" : "您的快递由于" + reason + "配送失败!"));
+        data.put("keyword2", newItem("快递小哥"));
+        data.put("keyword3", newItem(TimeFormat.format(System.currentTimeMillis())));
+        data.put("keyword4", newItem("点击查看您的订单"));
+        data.put("remark", newItem((reason == null ? "欢迎您再次选择筋斗云!" : "我们将再次联系您或为您妥善保存您的快件。") + "感谢您对我们的信任！"));
+
+        JSONArray arr = new JSONArray();
+        String url = "http://www.bigdata8.xin/user/see_order_detail.do?id=" + orderId;
+        arr.add(commonTPLMaker("3_CC2-CO8buffRh0caNdndKjnagJ4PC2Flq9_gab07c", openid, url, data));
+        DistributedTPLSend(arr);
+    }
+
     /**
      * 日志服务转向分布式
-     * */
-    public static void DistributedLog(String log){
-        sendToMessageQueue("jdy-boneLog",log);
+     */
+    public static void DistributedLog(String log) {
+        sendToMessageQueue("jdy-boneLog", log);
     }
+
     /**
      * 发布到消息队列
-     * */
-    public static void sendToMessageQueue(String queueName,String msgBody){
-        if(account == null){
+     */
+    public static void sendToMessageQueue(String queueName, String msgBody) {
+        if (account == null) {
             account = new CloudAccount(PassConfig.accessKey, PassConfig.secret, PassConfig.MNSurl);
             client = account.getMNSClient();
         }
@@ -209,6 +249,7 @@ public class NoticeService {
         CloudQueue queue = client.getQueueRef(queueName);
         queue.putMessage(message);
     }
+
     /**
      * 创建一个专为该订单服务的客服工单
      * 首先检查该用户未完成工单是否超过5个，超过则需先完成未结单的客服工单
@@ -285,21 +326,22 @@ public class NoticeService {
         data.put("keyword4", newItem("点击查看详细内容"));
         data.put("remark", newItem("点击查看详细内容"));
         ArrayList<String> openids = noticeDao.todayOrderedUsers(msg.getSchoolId());
-        System.out.println("all openid is "+openids.size());
+        System.out.println("all openid is " + openids.size());
         threadPublis(openids, url, data);
     }
+
     /**
      * 发布全校通知
      */
-    public void publishNoticeByHand(String title,String businessType,String content,String managerName,String time,
-                                    String key4,ArrayList<String> openids,String url) {
+    public void publishNoticeByHand(String title, String businessType, String content, String managerName, String time,
+                                    String key4, ArrayList<String> openids, String url) {
         JSONObject data = new JSONObject();
-        data.put("first", newItem(title,"#FF0000"));
+        data.put("first", newItem(title, "#FF0000"));
         data.put("keyword1", newItem(businessType));
         data.put("keyword2", newItem(managerName));
         data.put("keyword3", newItem(time));
-        data.put("keyword4", newItem(key4,"#FF0000"));
-        data.put("remark", newItem(content,"#458B00"));
+        data.put("keyword4", newItem(key4, "#FF0000"));
+        data.put("remark", newItem(content, "#458B00"));
         threadPublis(openids, url, data);
     }
 
@@ -312,7 +354,7 @@ public class NoticeService {
             //预警：arr.add(commonTPLMaker("IT科技-预警通知", openids.get(i), url, data));
             // 业务变更通知
             arr.add(commonTPLMaker("3_CC2-CO8buffRh0caNdndKjnagJ4PC2Flq9_gab07c", openids.get(i), url, data));
-            if(arr.size() > 20){
+            if (arr.size() > 20) {
                 DistributedTPLSend(arr);
                 arr = new JSONArray();
             }
@@ -328,7 +370,7 @@ public class NoticeService {
         data.put("keyword2", newItem(TimeFormat.format(System.currentTimeMillis())));
         data.put("remark", newItem("点击查看反馈"));
         JSONArray arr = new JSONArray();
-        String url = "http://www.bigdata8.xin/api/feedback.do?id="+id;
+        String url = "http://www.bigdata8.xin/api/feedback.do?id=" + id;
         arr.add(commonTPLMaker("dQVGlXLJJJmh7VrEWyytEGt5TjDJWnI2SxyVMYILXgE", openid, url, data));
         DistributedTPLSend(arr);
     }
@@ -336,11 +378,11 @@ public class NoticeService {
 
     public void refund(int id, int user_id, int shouldPay, String s) {
         User user = userService.getUserById(user_id);
-        if(user == null) return;
+        if (user == null) return;
         JSONObject data = new JSONObject();
-        data.put("first", newItem("您的"+id+"号订单已经完成退款"));
+        data.put("first", newItem("您的" + id + "号订单已经完成退款"));
         data.put("reason", newItem("管理员执行退款操作"));
-        data.put("refund", newItem((double)shouldPay/100+"元"));
+        data.put("refund", newItem((double) shouldPay / 100 + "元"));
         data.put("remark", newItem(s));
         JSONArray arr = new JSONArray();
         String url = "http://www.bigdata8.xin/user/user_center.do";
@@ -348,22 +390,22 @@ public class NoticeService {
         DistributedTPLSend(arr);
     }
 
-    public void CommonSMSSend(String tpl,String phone,JSONObject para){
+    public void CommonSMSSend(String tpl, String phone, JSONObject para) {
         JSONObject data = new JSONObject();
-        data.put("type","sms");
-        data.put("phone",phone);
-        data.put("param",para);
-        data.put("tpl",tpl);
-        sendToMessageQueue("jdy-bone",data.toJSONString());
+        data.put("type", "sms");
+        data.put("phone", phone);
+        data.put("param", para);
+        data.put("tpl", tpl);
+        sendToMessageQueue("jdy-bone", data.toJSONString());
     }
 
     /**
      * 推送到手机端的通知
-     * */
+     */
     public void pushToAppClient(AppPushMsg msg) {
         JSONObject data = new JSONObject();
-        data.put("type","alipush");
-        data.put("msg",msg);
-        sendToMessageQueue("jdy-bone",data.toJSONString());
+        data.put("type", "alipush");
+        data.put("msg", msg);
+        sendToMessageQueue("jdy-bone", data.toJSONString());
     }
 }
