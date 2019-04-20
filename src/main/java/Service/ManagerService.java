@@ -599,6 +599,9 @@ public class ManagerService {
     }
 
 
+    /**
+     * 查看待取订单专用
+     * */
     public ArrayList<ExpressOrder> getOrdersByStatus(int managerId, Integer[] status) {
         ArrayList<ExpressOrder> rs = managerDao.getOrdersByStatus(managerId,status);
         return rs == null?new ArrayList<ExpressOrder>():rs;

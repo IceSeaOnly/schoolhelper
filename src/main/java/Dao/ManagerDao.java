@@ -759,10 +759,15 @@ public class ManagerDao{
         return rs;
     }
 
+    /**
+     * 查看待取订单专用，超过3天的单子不展示
+     * */
     public ArrayList<ExpressOrder> getOrdersByStatus(int managerId, Integer[] status) {
         ArrayList<ExpressOrder> rs = null;
         Session session = sessionFactory.openSession();
-        rs = (ArrayList<ExpressOrder>) session.createQuery("from ExpressOrder where has_pay = true and rider_id = :R and order_state in :ST order by id desc")
+        rs = (ArrayList<ExpressOrder>) session
+                .createQuery("from ExpressOrder where has_pay = true and rider_id = :R and order_state in :ST and orderTimeStamp > :TO order by id desc")
+                .setParameter("TO",System.currentTimeMillis() - 86400000L*3)
                 .setParameterList("ST",status)
                 .setParameter("R",managerId)
                 .list();
